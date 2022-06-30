@@ -1,0 +1,25 @@
+.container {
+  max-width: var(--max-width);
+  margin: var(--margin-and-center);
+  padding: var(--inner-padding);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 600px;
+  height: auto;
+  background: #ffe6e6;
+  padding: 2rem 4rem;
+
+  clip-path: polygon(0% 0%, 100% 0.3%, 91.8% 100%, 2.6% 96%);
+}

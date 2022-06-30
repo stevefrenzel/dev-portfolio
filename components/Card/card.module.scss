@@ -1,0 +1,65 @@
+.container {
+  text-decoration: none;
+  color: var(--grey);
+  transition: 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--white);
+    background: var(--grey);
+    outline-offset: 1rem;
+  }
+}
+
+.card {
+  max-width: 600px;
+  height: auto;
+
+  figure {
+    display: flex;
+  }
+}
+
+.text {
+  padding: 1rem 2rem 2rem;
+  h3 {
+    margin-bottom: 1rem;
+  }
+}
+
+// WORK IN PROGRESS:
+
+// .card_outer {
+//   position: relative;
+//   width: 600px;
+//   height: 600px;
+//   background: var(--grey);
+//   clip-path: polygon(2.4% 4%, 93.1% 13.5%, 96.6% 95.3%, 3.5% 93.3%);
+// }
+
+// .card_inner {
+//   position: absolute;
+//   top: 5px;
+//   left: 5px;
+//   right: 5px;
+//   bottom: 5px;
+//   background: var(--white);
+//   clip-path: polygon(2.4% 4%, 93.1% 13.5%, 96.6% 95.3%, 3.5% 93.3%);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 2em;
+//   transition: 0.2s ease;
+
+//   figure {
+//     display: flex;
+//   }
+
+//   &:hover,
+//   &:focus {
+//     color: var(--white);
+//     background: var(--grey);
+//     outline-offset: 1rem;
+//   }
+// }
