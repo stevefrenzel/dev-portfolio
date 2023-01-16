@@ -1,0 +1,45 @@
+---
+export interface Props {
+  altText: string;
+  description: string;
+  headline: string;
+  image: string;
+  pictureLeft?: boolean;
+}
+
+const { altText, description, headline, image, pictureLeft } = Astro.props;
+---
+
+<div class='text-and-picture'>
+  {pictureLeft && <img src={image} alt={altText} height='350' width='auto' />}
+  <div>
+    <h2>{headline}</h2>
+    <p set:html={description} />
+  </div>
+  {!pictureLeft && <img src={image} alt={altText} height='350' width='auto' />}
+</div>
+
+<style lang='scss'>
+  .text-and-picture {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    div {
+      display: flex;
+      flex: 2;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 200px;
+    }
+
+    h2 {
+      margin-bottom: 0.5em;
+    }
+
+    img {
+      flex: 1;
+    }
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+// TODO Use symbol for external links
+
+import { Image } from '@astrojs/image/components';
+import TextAndPicture from './TextAndPicture.astro';
+
+import larry from '@assets/images/larry-reading-manual.svg';
+
+import adecco from '@assets/images/screenshots/adecco.png';
+import aufewigwinter from '@assets/images/screenshots/aufewigwinter.png';
+import koraWinter from '@assets/images/screenshots/kora-winter.png';
+import lisci from '@assets/images/screenshots/lisci.png';
+import nexum from '@assets/images/screenshots/nexum.png';
+import niessing from '@assets/images/screenshots/niessing.png';
+import owncloud from '@assets/images/screenshots/owncloud.png';
+import sellwerk from '@assets/images/screenshots/sellwerk.png';
+import svti from '@assets/images/screenshots/svti.png';
+import thankYouNext from '@assets/images/screenshots/thank-you-next.png';
+
+const altText = 'Larry reading a manual and looking very confused';
+const description =
+  'This is a selection of websites I have contributed to either directly or indirectly:';
+const headline = "What I've done";
+const projects = [
+  {
+    url: 'https://www.adecco-jobs.com/',
+    name: 'Adecco Jobs',
+    image: adecco,
+    altText: 'Screenshot of Adecco Jobs website',
+  },
+  {
+    url: 'https://www.aufewigwinter.de/',
+    name: 'aufewigwinter',
+    image: aufewigwinter,
+    altText: 'Screenshot of Auf Ewig Winter website',
+  },
+  {
+    url: 'https://www.korawinter.de/',
+    name: 'Kora Winter',
+    image: koraWinter,
+    altText: 'Screenshot of Kora Winter website',
+  },
+  {
+    url: 'https://www.lisci.io/',
+    name: 'lisci',
+    image: lisci,
+    altText: 'Screenshot of Lisci website',
+  },
+  {
+    url: 'https://www.nexum.com/',
+    name: 'nexum AG',
+    image: nexum,
+    altText: 'Screenshot of Nexum website',
+  },
+  {
+    url: 'https://niessing.com/',
+    name: 'Niessing',
+    image: niessing,
+    altText: 'Screenshot of Niessing website',
+  },
+  {
+    url: 'https://owncloud.com/',
+    name: 'ownCloud',
+    image: owncloud,
+    altText: 'Screenshot of Own Cloud website',
+  },
+  {
+    url: 'https://sellwerk.de/',
+    name: 'Sellwerk',
+    image: sellwerk,
+    altText: 'Screenshot of Sellwerk website',
+  },
+  {
+    url: 'https://www.svti.ch/',
+    name: 'SVTI',
+    image: svti,
+    altText: 'Screenshot of SVTI website',
+  },
+  {
+    url: 'https://thankyounext.vercel.app/',
+    name: 'ThankYouNext',
+    image: thankYouNext,
+    altText: 'Screenshot of Thank You Next website',
+  },
+];
+---
+
+<section aria-label='projects' id='projects'>
+  <TextAndPicture
+    altText={altText}
+    description={description}
+    headline={headline}
+    image={larry}
+  />
+
+  <ul>
+    {
+      projects.map((item) => (
+        <li>
+          <Image
+            src={item.image}
+            alt={item.altText}
+            width={350}
+            height='auto'
+          />
+          <a href={item.url} rel='noopener noreferrer'>
+            {item.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <hr />
+</section>
+
+<style lang='scss'>
+  section {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin: 1em 0 0 0;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+
+        img {
+          border: 3px solid black;
+        }
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+</style>

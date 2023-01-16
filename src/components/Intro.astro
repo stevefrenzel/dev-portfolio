@@ -1,0 +1,125 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import pictureOfMe from '@assets/images/picture-of-me.jpg';
+import linkedIn from '@assets/images/logos/linkedin.svg';
+import gitHub from '@assets/images/logos/github.svg';
+import twitter from '@assets/images/logos/twitter.svg';
+import instagram from '@assets/images/logos/instagram.svg';
+
+const iconSize = 35;
+const socialLinks = [
+  {
+    logo: linkedIn,
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/stevefrenzel/',
+  },
+  {
+    logo: gitHub,
+    name: 'GitHub',
+    url: 'https://github.com/stevefrenzel',
+  },
+  {
+    logo: twitter,
+    name: 'Twitter',
+    url: 'https://twitter.com/stvfrnzl',
+  },
+  {
+    logo: instagram,
+    name: 'Instagram',
+    url: 'https://www.instagram.com/stvfrnzl/',
+  },
+];
+---
+
+<section aria-label='introduction' id='intro'>
+  <div class='picture-and-text'>
+    <Image
+      class='profile-picture'
+      src={pictureOfMe}
+      alt='Steve Frenzel, web developer and accessibility engineer'
+      width='600'
+      height='auto'
+    />
+    <div class='text-and-links'>
+      <div>
+        <h1>Steve Frenzel</h1>
+        <p class='sub-headline'>Web Developer & Accessibility Engineer</p>
+        <p class='paragraph'>
+          I specialize in designing and implementing robust and inclusive web
+          applications. My focus is on accessibility, which I educate about and
+          implement practically. I am also a music nerd and love hot sauces! 🔥
+        </p>
+      </div>
+      <hr />
+      <ul class='container-two'>
+        {
+          socialLinks.map((item) => (
+            <li>
+              <img src={item.logo} alt='' width={iconSize} height={iconSize} />
+              <a href={item.url} rel='noopener noreferrer'>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style lang='scss'>
+  section {
+    background: var(--color-light);
+    display: flex;
+    clip-path: polygon(3.3% 4.3%, 100% 0%, 95.1% 93.5%, 1.1% 96.8%);
+    padding: 4em 2em;
+    margin: 2em 0;
+    height: auto;
+
+    .picture-and-text {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+
+      .profile-picture {
+        margin: 1rem;
+        clip-path: polygon(4.4% 6.8%, 97% 9.3%, 91.8% 93.8%, 3.5% 96%);
+      }
+    }
+
+    .text-and-links {
+      max-width: 800px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+
+    h1 {
+      font-size: var(--h1);
+    }
+    .sub-headline {
+      font-size: var(--h3);
+      margin-bottom: 1rem;
+    }
+    .paragraph {
+      margin-bottom: 1rem;
+      max-width: 60ch;
+    }
+  }
+</style>

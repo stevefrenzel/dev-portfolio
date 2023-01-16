@@ -1,0 +1,105 @@
+---
+// TO DO Use SVG logos for companies
+
+import { Image } from '@astrojs/image/components';
+import TextAndPicture from './TextAndPicture.astro';
+
+import larry from '@assets/images/larry-high-five.svg';
+
+import fifthIndustry from '@assets/images/company-logos/5th-industry.png';
+import interfaceMedien from '@assets/images/company-logos/ifm-neu.png';
+import inboundLabs from '@assets/images/company-logos/inboundlabs.png';
+import nexum from '@assets/images/company-logos/nexum.png';
+import owncloud from '@assets/images/company-logos/owncloud.png';
+import sellwerk from '@assets/images/company-logos/sellwerk.png';
+
+const altText = 'Larry doing a high five with a basketball player';
+const clients = [
+  {
+    logo: fifthIndustry,
+    name: '5thIndustry',
+    url: 'https://5thindustry.de/',
+  },
+  {
+    logo: inboundLabs,
+    name: 'InboundLabs',
+    url: 'https://w.inboundlabs.co/',
+  },
+  {
+    logo: interfaceMedien,
+    name: 'interface medien',
+    url: 'https://www.interface-medien.de/',
+  },
+  {
+    logo: nexum,
+    name: 'nexum',
+    url: 'https://www.nexum.com/',
+  },
+  {
+    logo: owncloud,
+    name: 'ownCloud',
+    url: 'https://owncloud.com/',
+  },
+  {
+    logo: sellwerk,
+    name: 'Sellwerk',
+    url: 'https://sellwerk.de/',
+  },
+];
+const description =
+  'I have had the pleasure to <mark>work with some amazing people</mark>. Here is a selected list of clients I have had the pleasure to work with.';
+const headline = 'Who I work(ed) with';
+---
+
+<section aria-label='clients' id='clients'>
+  <TextAndPicture
+    altText={altText}
+    description={description}
+    headline={headline}
+    image={larry}
+    pictureLeft
+  />
+
+  <div class='flex-container'>
+    <ul>
+      {
+        clients.map((client) => (
+          <li>
+            <Image src={client.logo} alt={client.name} width={300} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <hr />
+</section>
+
+<style lang='scss'>
+  section {
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+
+      ul {
+        margin: 2em 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        li {
+          img {
+            margin-bottom: 0.5em;
+          }
+          a {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+</style>

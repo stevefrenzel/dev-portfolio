@@ -1,0 +1,22 @@
+---
+// TODO Make Image component work:
+// import { Image } from '@astrojs/image/components';
+import TextAndPicture from './TextAndPicture.astro';
+
+import larry from '@assets/images/larry-writing-on-laptop.svg';
+---
+
+<section aria-label='contact' id='contact'>
+  <TextAndPicture
+    altText='Larry reading a manual and looking very confused'
+    description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, itaque ad enim provident tenetur neque adipisci vitae omnis ducimus dolores veritatis voluptatum blanditiis iure eos debitis aperiam veniam reiciendis nihil.'
+    headline='How to contact me'
+    image={larry}
+    pictureLeft
+  />
+</section>
+
+<style lang='scss'>
+  section {
+  }
+</style>
