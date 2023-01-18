@@ -1,22 +1,84 @@
 ---
-// TODO Make Image component work:
-// import { Image } from '@astrojs/image/components';
-import TextAndPicture from './TextAndPicture.astro';
+// TODO Add formsubmit mention
 
+import TextAndPicture from './TextAndPicture.astro';
 import larry from '@assets/images/larry-writing-on-laptop.svg';
+
+const altText = 'Larry reading a manual and looking very confused';
+const description =
+  'Do you feel like working with me? Do you or your team need a <mark>workshop on accessibility and inclusive design</mark>? Then just write me via this form:';
+const headline = 'How to contact me';
 ---
 
 <section aria-label='contact' id='contact'>
   <TextAndPicture
-    altText='Larry reading a manual and looking very confused'
-    description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, itaque ad enim provident tenetur neque adipisci vitae omnis ducimus dolores veritatis voluptatum blanditiis iure eos debitis aperiam veniam reiciendis nihil.'
-    headline='How to contact me'
+    altText={altText}
+    ariaLabel='Contact'
+    description={description}
+    headline={headline}
+    headlineId='contact'
     image={larry}
     pictureLeft
   />
+  <form
+    action='https://formsubmit.co/8b3ef32a81a2f8b2b736bf54169486ab'
+    method='POST'
+  >
+    <label for='user-name'>Full name:</label>
+    <input id='user-name' type='text' name='name' required />
+    <label for='user-e-mail'>E-mail address:</label>
+    <input id='user-e-mail' type='email' name='email' required />
+    <label for='user-message'>Message:</label>
+    <textarea id='user-message' name='message' rows='10' required></textarea>
+    <button type='submit'>Send message</button>
+  </form>
 </section>
 
 <style lang='scss'>
   section {
+    padding-bottom: 2em;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 1em auto 0 auto;
+      max-width: 900px;
+
+      label {
+        margin-bottom: 0.25em;
+      }
+
+      input,
+      textarea {
+        border: 2px solid lightslategray;
+        margin-bottom: 1em;
+
+        &:focus,
+        &:focus-visible,
+        &:hover {
+          background: rgb(245, 245, 245);
+          border-color: #000;
+        }
+      }
+
+      textarea {
+        margin-bottom: 2em;
+      }
+
+      button {
+        background: #000;
+        border: none;
+        color: #fff;
+        padding: 0.5em 0;
+
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          color: initial;
+          cursor: pointer;
+          background: initial;
+        }
+      }
+    }
   }
 </style>

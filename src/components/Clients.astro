@@ -54,8 +54,10 @@ const headline = 'Who I work(ed) with';
 <section aria-label='clients' id='clients'>
   <TextAndPicture
     altText={altText}
+    ariaLabel='Clients'
     description={description}
     headline={headline}
+    headlineId='clients'
     image={larry}
     pictureLeft
   />
@@ -80,9 +82,10 @@ const headline = 'Who I work(ed) with';
     .flex-container {
       display: flex;
       flex-wrap: wrap;
+      margin-top: 2em;
 
       ul {
-        margin: 2em 0;
+        margin: 0;
         padding: 0;
         list-style: none;
         display: flex;

@@ -1,22 +1,35 @@
 ---
 export interface Props {
   altText: string;
+  ariaLabel: string;
   description: string;
   headline: string;
+  headlineId: string;
   image: string;
   pictureLeft?: boolean;
 }
 
-const { altText, description, headline, image, pictureLeft } = Astro.props;
+const {
+  altText,
+  ariaLabel,
+  description,
+  headline,
+  headlineId,
+  image,
+  pictureLeft,
+} = Astro.props;
 ---
 
 <div class='text-and-picture'>
-  {pictureLeft && <img src={image} alt={altText} height='350' width='auto' />}
+  {pictureLeft && <img src={image} alt={altText} height='400' width='auto' />}
   <div>
-    <h2>{headline}</h2>
+    <div class='headline'>
+      <h2 id={headlineId} tabindex='-1'>{headline}</h2>
+      <a href={`#${headlineId}`} aria-label={`Link to ${ariaLabel}`}>#</a>
+    </div>
     <p set:html={description} />
   </div>
-  {!pictureLeft && <img src={image} alt={altText} height='350' width='auto' />}
+  {!pictureLeft && <img src={image} alt={altText} height='400' width='auto' />}
 </div>
 
 <style lang='scss'>
@@ -34,8 +47,20 @@ const { altText, description, headline, image, pictureLeft } = Astro.props;
       min-width: 200px;
     }
 
-    h2 {
-      margin-bottom: 0.5em;
+    .headline {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+
+      h2 {
+        margin-right: 0.5em;
+      }
+
+      a {
+        color: #000;
+      }
     }
 
     img {

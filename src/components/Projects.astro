@@ -9,7 +9,7 @@ import larry from '@assets/images/larry-reading-manual.svg';
 import adecco from '@assets/images/screenshots/adecco.png';
 import aufewigwinter from '@assets/images/screenshots/aufewigwinter.png';
 import koraWinter from '@assets/images/screenshots/kora-winter.png';
-import lisci from '@assets/images/screenshots/lisci.png';
+// import lisci from '@assets/images/screenshots/lisci.png';
 import nexum from '@assets/images/screenshots/nexum.png';
 import niessing from '@assets/images/screenshots/niessing.png';
 import owncloud from '@assets/images/screenshots/owncloud.png';
@@ -19,7 +19,7 @@ import thankYouNext from '@assets/images/screenshots/thank-you-next.png';
 
 const altText = 'Larry reading a manual and looking very confused';
 const description =
-  'This is a selection of websites I have contributed to either directly or indirectly:';
+  "Here you can find a selection of projects I've been directly or indirectly involved in. This includes <mark>commercial as well as personal</mark> ones:";
 const headline = "What I've done";
 const projects = [
   {
@@ -39,12 +39,6 @@ const projects = [
     name: 'Kora Winter',
     image: koraWinter,
     altText: 'Screenshot of Kora Winter website',
-  },
-  {
-    url: 'https://www.lisci.io/',
-    name: 'lisci',
-    image: lisci,
-    altText: 'Screenshot of Lisci website',
   },
   {
     url: 'https://www.nexum.com/',
@@ -88,8 +82,10 @@ const projects = [
 <section aria-label='projects' id='projects'>
   <TextAndPicture
     altText={altText}
+    ariaLabel='Projects'
     description={description}
     headline={headline}
+    headlineId='projects'
     image={larry}
   />
 
@@ -127,7 +123,7 @@ const projects = [
         list-style-type: none;
 
         img {
-          border: 3px solid black;
+          border: 2px solid black;
         }
 
         a {
