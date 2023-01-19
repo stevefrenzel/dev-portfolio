@@ -5,15 +5,16 @@
 - [] Replace Twitter with Mastodon link and SVG
 - [] Use Atkinson Hyperlegible Font <https://brailleinstitute.org/freefont>
 - [] Implement skip link
+- [] Clean up CSS props
 
 ## Navigation
 
 - [] Enable horizontal scroll, no menu button
-- [] Make it a side navigation?
+- [x] Make it a side navigation?
 
 ## Intro
 
-- [] Fix CSS bug in Safari
+- [x] Fix CSS bug in Safari
 
 ## Clients
 
@@ -21,13 +22,13 @@
 
 ## Skills
 
-- [] Use illustrations for skills <https://icons8.com/illustrations/style--3d-casual-life>
-- [] Use cards for display?
+- [x] Use illustrations for skills <https://www.drawkit.com/product/larry-character-illustrations>
+- [x] Use cards for display?
 
 ## Contact
 
-- [] Add short description
-- [] Add contact form
+- [x] Add short description
+- [x] Add contact form
 
 ## Footer
 
