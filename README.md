@@ -2,10 +2,11 @@
 
 ## General
 
-- [] Replace Twitter with Mastodon link and SVG
-- [] Use Atkinson Hyperlegible Font <https://brailleinstitute.org/freefont>
+- [x] Replace Twitter with Mastodon link and SVG
+- [x] Use Atkinson Hyperlegible Font <https://brailleinstitute.org/freefont>
 - [] Implement skip link
 - [] Clean up CSS props
+- [] Create meta data component
 
 ## Navigation
 
@@ -47,3 +48,7 @@
 - [x] Add InboundLabs to "Clients"
 - [x] Find logos of all companies
 - [x] What to display in "Skills" section? Is it even necessary?
+
+## Credits
+
+- Icons: <https://icons8.com>

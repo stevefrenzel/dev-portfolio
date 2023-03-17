@@ -2,32 +2,33 @@
 import { Image } from '@astrojs/image/components';
 
 import pictureOfMe from '@assets/images/picture-of-me.jpg';
-import linkedIn from '@assets/images/logos/linkedin.svg';
-import gitHub from '@assets/images/logos/github.svg';
-import twitter from '@assets/images/logos/twitter.svg';
-import instagram from '@assets/images/logos/instagram.svg';
+import gitHub from '@assets/images/icons/github.svg';
+import instagram from '@assets/images/icons/instagram.svg';
+import linkedIn from '@assets/images/icons/linkedin.svg';
+import mastodon from '@assets/images/icons/mastodon.svg';
 
-const iconSize = 35;
+const iconSize = 44;
 const socialLinks = [
-  {
-    logo: linkedIn,
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/stevefrenzel/',
-  },
   {
     logo: gitHub,
     name: 'GitHub',
     url: 'https://github.com/stevefrenzel',
   },
   {
-    logo: twitter,
-    name: 'Twitter',
-    url: 'https://twitter.com/stvfrnzl',
-  },
-  {
     logo: instagram,
     name: 'Instagram',
     url: 'https://www.instagram.com/stvfrnzl/',
+  },
+  {
+    logo: linkedIn,
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/stevefrenzel/',
+  },
+  {
+    logo: mastodon,
+    name: 'Mastodon',
+    url: 'https://mastodon.online/@stvfrnzl',
+    mastodonLink: true,
   },
 ];
 ---
@@ -35,91 +36,102 @@ const socialLinks = [
 <section aria-label='introduction' id='intro'>
   <div class='picture-and-text'>
     <Image
-      class='profile-picture'
-      src={pictureOfMe}
       alt='Steve Frenzel, web developer and accessibility engineer'
-      width='600'
-      height='auto'
+      class='profile-picture'
+      height='400'
+      src={pictureOfMe}
+      width='auto'
     />
-    <div class='text-and-links'>
-      <div>
-        <h1>Steve Frenzel</h1>
-        <p class='sub-headline'>Web Developer & Accessibility Engineer</p>
-        <p class='paragraph'>
-          I specialize in designing and implementing robust and inclusive web
-          applications. My focus is on accessibility, which I educate about and
-          implement practically. I am also a music nerd and love hot sauces! 🔥
-        </p>
-      </div>
-      <hr />
-      <ul class='container-two'>
-        {
-          socialLinks.map((item) => (
-            <li>
-              <img src={item.logo} alt='' width={iconSize} height={iconSize} />
-              <a href={item.url} rel='noopener noreferrer'>
-                {item.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    <div class='text'>
+      <h1>Steve Frenzel</h1>
+      <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+      <p class='paragraph'>
+        I specialize in designing and implementing robust and inclusive web
+        applications. My focus is on accessibility, which I educate about and
+        implement practically. I am also a music nerd and love hot sauces! 🔥
+      </p>
     </div>
+    <p>
+      If you want to get in touch with me, fill out the <a href='#contact'
+        >contact form</a
+      >. You can also find me on the following platforms:
+    </p>
+    <ul>
+      {
+        socialLinks.map((item) => (
+          <li>
+            <img src={item.logo} alt='' width={iconSize} height={iconSize} />
+            <a
+              href={item.url}
+              rel={`${
+                item.mastodonLink
+                  ? 'me noopener noreferrer'
+                  : 'noopener noreferrer'
+              }`}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
+  <hr />
 </section>
 
 <style lang='scss'>
   section {
-    background: var(--color-light);
-    display: flex;
-    clip-path: polygon(3.3% 4.3%, 100% 0%, 95.1% 93.5%, 1.1% 96.8%);
-    padding: 4em 2em;
-    margin: 2em 0;
-    height: auto;
+    padding-top: 4.5rem;
 
-    .picture-and-text {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
-
-      .profile-picture {
-        margin: 1rem;
-        clip-path: polygon(4.4% 6.8%, 97% 9.3%, 91.8% 93.8%, 3.5% 96%);
-      }
-    }
-
-    .text-and-links {
-      max-width: 800px;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-
-      li {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
+    h1,
+    span {
+      font-family: 'AtkinsonHyperlegibleBold', sans-serif;
     }
 
     h1 {
       font-size: var(--h1);
     }
-    .sub-headline {
-      font-size: var(--h3);
-      margin-bottom: 1rem;
+
+    p {
+      margin-top: 1rem;
     }
-    .paragraph {
-      margin-bottom: 1rem;
-      max-width: 60ch;
+
+    a {
+      color: var(--black);
+    }
+
+    .picture-and-text {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+
+      .profile-picture {
+        box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+        -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+        object-fit: cover;
+      }
+
+      .text {
+        max-width: 30ch;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1em 0 0 0;
+      padding: 0;
+
+      li {
+        align-items: center;
+        display: flex;
+        gap: 0.75rem;
+        list-style: none;
+      }
     }
   }
 </style>
