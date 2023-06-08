@@ -1,6 +1,4 @@
 ---
-// TO DO Use SVG logos for companies
-
 import { Image } from '@astrojs/image/components';
 import TextAndPicture from './TextAndPicture.astro';
 
@@ -16,34 +14,46 @@ import sellwerk from '@assets/images/company-logos/sellwerk.png';
 const altText = 'Larry doing a high five with a basketball player';
 const clients = [
   {
+    height: 203,
     logo: fifthIndustry,
     name: '5thIndustry',
     url: 'https://5thindustry.de/',
+    width: 1003,
   },
   {
+    height: 259,
     logo: inboundLabs,
     name: 'InboundLabs',
     url: 'https://w.inboundlabs.co/',
+    width: 1350,
   },
   {
+    height: 389,
     logo: interfaceMedien,
     name: 'interface medien',
     url: 'https://www.interface-medien.de/',
+    width: 1105,
   },
   {
+    height: 163,
     logo: nexum,
     name: 'nexum',
     url: 'https://www.nexum.com/',
+    width: 591,
   },
   {
+    height: 468,
     logo: owncloud,
     name: 'ownCloud',
     url: 'https://owncloud.com/',
+    width: 910,
   },
   {
+    height: 230,
     logo: sellwerk,
     name: 'Sellwerk',
     url: 'https://sellwerk.de/',
+    width: 882,
   },
 ];
 const description =
@@ -52,6 +62,7 @@ const headline = 'Who I work(ed) with';
 ---
 
 <section aria-label='clients' id='clients'>
+  <img src={larry} alt='' />
   <TextAndPicture
     altText={altText}
     ariaLabel='Clients'
@@ -66,9 +77,16 @@ const headline = 'Who I work(ed) with';
     <ul>
       {
         clients.map((client) => (
-          <li>
-            <Image src={client.logo} alt={client.name} width={300} />
-          </li>
+          <div>
+            <li>
+              <Image
+                src={client.logo}
+                alt={client.name}
+                height={client.height}
+                width={client.width}
+              />
+            </li>
+          </div>
         ))
       }
     </ul>
@@ -97,6 +115,8 @@ const headline = 'Who I work(ed) with';
         li {
           img {
             margin-bottom: 0.5em;
+            max-width: 300px;
+            height: auto;
           }
           a {
             color: black;

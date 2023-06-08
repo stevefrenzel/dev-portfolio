@@ -12,8 +12,8 @@
     "yarn-upgrade": "yarn upgrade-interactive"
   },
   "dependencies": {
-    "@astrojs/image": "^0.12.1",
-    "astro": "^1.4.6",
+    "@astrojs/image": "^0.16.5",
+    "astro": "^2.2.0",
     "sharp": ">=0.31.0"
   },
   "devDependencies": {

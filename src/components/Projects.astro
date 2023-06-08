@@ -19,12 +19,6 @@ import sellwerk from '@assets/images/screenshots/sellwerk.png';
 import svti from '@assets/images/screenshots/svti.png';
 import thankYouNext from '@assets/images/screenshots/thank-you-next.png';
 
-// Videos
-import aufewigwinterVideo from '@assets/videos/video-aufewigwinter-no-audio.mp4';
-import nexumVideo from '@assets/videos/video-nexum-no-audio.mp4';
-import niessingVideo from '@assets/videos/video-niessing-no-audio.mp4';
-import svtiVideo from '@assets/videos/video-svti-no-audio.mp4';
-
 // Variables
 const altText = 'Larry reading a manual and looking very confused';
 const description =
@@ -42,7 +36,6 @@ const projects = [
     name: 'aufewigwinter',
     image: aufewigwinter,
     altText: 'Screenshot of Auf Ewig Winter website',
-    video: aufewigwinterVideo,
   },
   {
     url: 'https://www.korawinter.de/',
@@ -55,14 +48,12 @@ const projects = [
     name: 'nexum AG',
     image: nexum,
     altText: 'Screenshot of Nexum website',
-    video: nexumVideo,
   },
   {
     url: 'https://niessing.com/',
     name: 'Niessing',
     image: niessing,
     altText: 'Screenshot of Niessing website',
-    video: niessingVideo,
   },
   {
     url: 'https://owncloud.com/',
@@ -81,7 +72,6 @@ const projects = [
     name: 'SVTI',
     image: svti,
     altText: 'Screenshot of SVTI website',
-    video: svtiVideo,
   },
   {
     url: 'https://thankyounext.vercel.app/',
@@ -106,21 +96,7 @@ const projects = [
     {
       projects.map((item) => (
         <li>
-          {item.video ? (
-            <video
-              src={item.video}
-              controls
-              loop
-              height='330'
-              width='auto'
-              autoplay
-            >
-              <source src={item.video} type='video/mp4' />
-              <p>Video cannot be displayed</p>
-            </video>
-          ) : (
-            <Image src={item.image} alt={item.altText} />
-          )}
+          <Image src={item.image} alt={item.altText} width={800} height={454} />
           <a href={item.url} rel='noopener noreferrer'>
             {item.name}
           </a>

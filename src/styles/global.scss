@@ -31,11 +31,8 @@
 
 html {
   font-family: 'AtkinsonHyperlegible', sans-serif;
-  font-size: calc(1em + 1vw);
+  font-size: 2rem;
 }
-
-// Focus behaviour
-// https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/
 
 :is(a, button, input, textarea, summary) {
   --outline-size: max(2px, 0.08em);
@@ -73,29 +70,20 @@ html {
 
 body {
   background: var(--white);
-  margin: 0 auto;
-  padding: 0 5%;
+  // margin: 0 auto;
+  // padding: 0 5%;
 
   section {
     max-width: 1200px;
     margin: 0 auto;
-    // border: 1px solid red;
   }
 }
-
-// p {
-//   font-size: var(--paragraph);
-// }
 
 hr {
   border-top: 2px solid black;
   color: black;
-  margin: 4em auto;
+  margin: 4rem auto;
   width: 50%;
-}
-
-mark {
-  background: honeydew;
 }
 
 .skip-link {

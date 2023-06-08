@@ -3,7 +3,6 @@ import { Image } from '@astrojs/image/components';
 
 import pictureOfMe from '@assets/images/picture-of-me.jpg';
 import gitHub from '@assets/images/icons/github.svg';
-import instagram from '@assets/images/icons/instagram.svg';
 import linkedIn from '@assets/images/icons/linkedin.svg';
 import mastodon from '@assets/images/icons/mastodon.svg';
 
@@ -13,11 +12,6 @@ const socialLinks = [
     logo: gitHub,
     name: 'GitHub',
     url: 'https://github.com/stevefrenzel',
-  },
-  {
-    logo: instagram,
-    name: 'Instagram',
-    url: 'https://www.instagram.com/stvfrnzl/',
   },
   {
     logo: linkedIn,
@@ -38,12 +32,13 @@ const socialLinks = [
     <Image
       alt='Steve Frenzel, web developer and accessibility engineer'
       class='profile-picture'
-      height='400'
+      height={400}
       src={pictureOfMe}
-      width='auto'
+      width={400}
     />
     <div class='text'>
       <h1>Steve Frenzel</h1>
+      <img src={socialLinks[0].logo} alt='' />
       <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
       <p class='paragraph'>
         I specialize in designing and implementing robust and inclusive web
@@ -60,7 +55,12 @@ const socialLinks = [
       {
         socialLinks.map((item) => (
           <li>
-            <img src={item.logo} alt='' width={iconSize} height={iconSize} />
+            <Image
+              alt={item.name}
+              src={item.logo}
+              height={iconSize}
+              width={iconSize}
+            />
             <a
               href={item.url}
               rel={`${
