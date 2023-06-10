@@ -1,6 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 import SectionHeader from '@components/SectionHeader.astro';
+import Divider from '@components/Divider.astro';
 
 import fifthIndustry from '@images/company-logos/logo-5thindustry.svg';
 import inboundLabs from '@images/company-logos/logo-inboundlabs.svg';
@@ -8,7 +9,6 @@ import interfaceMedien from '@images/company-logos/logo-interface-medien.svg';
 import nexum from '@images/company-logos/logo-nexum.svg';
 import ownCloud from '@images/company-logos/logo-owncloud.svg';
 import sellwerk from '@images/company-logos/logo-sellwerk.svg';
-import divider from '@images/layout/line-3.svg';
 
 const companies = [
   {
@@ -65,7 +65,7 @@ const companies = [
     }
   </ul>
 </section>
-<Image alt='' class='divider' height={335} src={divider} width={11} />
+<Divider />
 
 <style>
   section {

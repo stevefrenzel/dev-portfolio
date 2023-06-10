@@ -1,6 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 import SectionHeader from '@components/SectionHeader.astro';
+import Divider from '@components/Divider.astro';
 
 import adecco from '@images/screenshots/adecco.png';
 import aufewigwinter from '@images/screenshots/aufewigwinter.png';
@@ -11,7 +12,6 @@ import owncloud from '@images/screenshots/owncloud.png';
 import sellwerk from '@images/screenshots/sellwerk.png';
 import svti from '@images/screenshots/svti.png';
 import thankYouNext from '@images/screenshots/thank-you-next.png';
-import divider from '@images/layout/line-2.svg';
 
 const projects = [
   {
@@ -102,7 +102,7 @@ const projects = [
     }
   </ul>
 </section>
-<Image alt='' class='divider' height={335} src={divider} width={11} />
+<Divider />
 
 <style>
   section {
