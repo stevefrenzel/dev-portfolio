@@ -58,7 +58,7 @@ const companies = [
       companies.map((item) => (
         <li>
           <a aria-label={item.name} href={item.url} rel='noopener noreferrer'>
-            <Image alt='' src={item.icon} width={item.width} />
+            <Image alt={item.name} src={item.icon} width={item.width} />
           </a>
         </li>
       ))
