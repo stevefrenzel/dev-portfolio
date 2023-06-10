@@ -1,54 +1,23 @@
-# To Do
+# Steve Frenzel - Web developer & accessibility engineer
 
-## General
+## To do
 
-- [x] Replace Twitter with Mastodon link and SVG
-- [x] Use Atkinson Hyperlegible Font <https://brailleinstitute.org/freefont>
-- [] Implement skip link
-- [] Clean up CSS props
-- [] Create meta data component
+### Important
 
-## Navigation
+- [x] Add skip link
+- [x] Figure out where to place sections
+- [x] Create custom dividers in Figma
+- [x] Define accent color
 
-- [] Enable horizontal scroll, no menu button
-- [x] Make it a side navigation?
+### For later
 
-## Intro
+- [x] Custom border frames for "Projects"?
+- [x] Implement focus behavior
+- [x] Implement "Navigation"
+- [x] Implement "Footer"
+- [ ] Add SEO data and pictures
 
-- [x] Fix CSS bug in Safari
+### Clean-up
 
-## Clients
-
-- [] Use SVGs for company logos
-
-## Skills
-
-- [x] Use illustrations for skills <https://www.drawkit.com/product/larry-character-illustrations>
-- [x] Use cards for display?
-
-## Contact
-
-- [x] Add short description
-- [x] Add contact form
-
-## Footer
-
-- [] Dynamic date for footer or just "2019 to today"?
-
-## Other
-
-- [] Create resume section with nifty tree view? <https://iamkate.com/code/tree-views/> (Extra route)
-- [] Create extra route for blogging?
-- [] Create extra route for accessibility stuff
-
-## Done
-
-- [x] Don't link whole image, just the actual link
-- [x] Add InboundLabs to "Projects"
-- [x] Add InboundLabs to "Clients"
-- [x] Find logos of all companies
-- [x] What to display in "Skills" section? Is it even necessary?
-
-## Credits
-
-- Icons: <https://icons8.com>
+- [x] Create reusable components
+- [ ] Order all props alphabetically

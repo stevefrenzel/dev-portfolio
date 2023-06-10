@@ -1,102 +1,99 @@
 ---
-// TODO Use symbol for external links
-// TODO Create video component
-// TODO Add functionality to stop all videos, to don't show them at all and don't show them when user preference
-
 import { Image } from '@astrojs/image/components';
-import TextAndPicture from './TextAndPicture.astro';
+import SectionHeader from '@components/SectionHeader.astro';
 
-import larry from '@assets/images/larry-reading-manual.svg';
+import adecco from '@images/screenshots/adecco.png';
+import aufewigwinter from '@images/screenshots/aufewigwinter.png';
+import koraWinter from '@images/screenshots/kora-winter.png';
+import nexum from '@images/screenshots/nexum.png';
+import niessing from '@images/screenshots/niessing.png';
+import owncloud from '@images/screenshots/owncloud.png';
+import sellwerk from '@images/screenshots/sellwerk.png';
+import svti from '@images/screenshots/svti.png';
+import thankYouNext from '@images/screenshots/thank-you-next.png';
+import divider from '@images/layout/line-2.svg';
 
-// Images
-import adecco from '@assets/images/screenshots/adecco.png';
-import aufewigwinter from '@assets/images/screenshots/aufewigwinter.png';
-import koraWinter from '@assets/images/screenshots/kora-winter.png';
-import nexum from '@assets/images/screenshots/nexum.png';
-import niessing from '@assets/images/screenshots/niessing.png';
-import owncloud from '@assets/images/screenshots/owncloud.png';
-import sellwerk from '@assets/images/screenshots/sellwerk.png';
-import svti from '@assets/images/screenshots/svti.png';
-import thankYouNext from '@assets/images/screenshots/thank-you-next.png';
-
-// Variables
-const altText = 'Larry reading a manual and looking very confused';
-const description =
-  "Here you can find a selection of projects I've been directly or indirectly involved in. This includes <mark>commercial as well as personal</mark> ones:";
-const headline = "What I've done";
 const projects = [
   {
-    url: 'https://www.adecco-jobs.com/',
-    name: 'Adecco Jobs',
-    image: adecco,
     altText: 'Screenshot of Adecco Jobs website',
+    image: adecco,
+    name: 'Adecco Jobs',
+    url: 'https://www.adecco-jobs.com/',
   },
   {
-    url: 'https://www.aufewigwinter.de/',
-    name: 'aufewigwinter',
-    image: aufewigwinter,
     altText: 'Screenshot of Auf Ewig Winter website',
+    image: aufewigwinter,
+    name: 'aufewigwinter',
+    url: 'https://www.aufewigwinter.de/',
   },
   {
-    url: 'https://www.korawinter.de/',
-    name: 'Kora Winter',
-    image: koraWinter,
     altText: 'Screenshot of Kora Winter website',
+    image: koraWinter,
+    name: 'Kora Winter',
+    url: 'https://www.korawinter.de/',
   },
   {
-    url: 'https://www.nexum.com/',
-    name: 'nexum AG',
-    image: nexum,
     altText: 'Screenshot of Nexum website',
+    image: nexum,
+    name: 'nexum AG',
+    url: 'https://www.nexum.com/',
   },
   {
-    url: 'https://niessing.com/',
-    name: 'Niessing',
-    image: niessing,
     altText: 'Screenshot of Niessing website',
+    image: niessing,
+    name: 'Niessing',
+    url: 'https://niessing.com/',
   },
   {
-    url: 'https://owncloud.com/',
-    name: 'ownCloud',
-    image: owncloud,
     altText: 'Screenshot of Own Cloud website',
+    image: owncloud,
+    name: 'ownCloud',
+    url: 'https://owncloud.com/',
   },
   {
-    url: 'https://sellwerk.de/',
-    name: 'Sellwerk',
-    image: sellwerk,
     altText: 'Screenshot of Sellwerk website',
+    image: sellwerk,
+    name: 'Sellwerk',
+    url: 'https://sellwerk.de/',
   },
   {
-    url: 'https://www.svti.ch/',
-    name: 'SVTI',
-    image: svti,
     altText: 'Screenshot of SVTI website',
+    image: svti,
+    name: 'SVTI',
+    url: 'https://www.svti.ch/',
   },
   {
-    url: 'https://thankyounext.vercel.app/',
-    name: 'ThankYouNext',
-    image: thankYouNext,
     altText: 'Screenshot of Thank You Next website',
+    image: thankYouNext,
+    name: 'ThankYouNext',
+    url: 'https://thankyounext.vercel.app/',
   },
 ];
 ---
 
 <section aria-label='projects' id='projects'>
-  <TextAndPicture
-    altText={altText}
-    ariaLabel='Projects'
-    description={description}
-    headline={headline}
-    headlineId='projects'
-    image={larry}
+  <SectionHeader
+    ariaLabel='Link to projects'
+    href='#projects'
+    title="What I've done"
   />
+  <p>
+    Here you can find <mark
+      >a selection of projects I've been directly or indirectly involved</mark
+    > in. This includes commercial as well as personal ones:
+  </p>
 
   <ul>
     {
       projects.map((item) => (
         <li>
-          <Image src={item.image} alt={item.altText} width={800} height={454} />
+          <Image
+            alt={item.altText}
+            height={300}
+            src={item.image}
+            style='object-fit: cover;'
+            width={800}
+          />
           <a href={item.url} rel='noopener noreferrer'>
             {item.name}
           </a>
@@ -104,39 +101,37 @@ const projects = [
       ))
     }
   </ul>
-
-  <hr />
 </section>
+<Image alt='' class='divider' height={335} src={divider} width={11} />
 
-<style lang='scss'>
+<style>
   section {
-    video {
-      border: 2px solid black;
-      width: 100%;
-    }
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      margin: 1em 0 0 0;
-      padding: 0;
+    max-width: 1536px;
+  }
 
-      li {
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
+  p {
+    max-width: 60ch;
+  }
 
-        img {
-          border: 2px solid black;
-          height: 330px;
-          width: auto;
-          object-fit: cover;
-        }
+  ul {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style-type: none;
+    margin: var(--space-xl) 0 0 0;
+    padding: 0;
+  }
 
-        a {
-          color: black;
-        }
-      }
-    }
+  li {
+    text-align: center;
+  }
+
+  a {
+    font-size: var(--step-1);
+  }
+
+  img:not(.divider) {
+    border: 3px solid var(--color-white);
+    margin-bottom: var(--space-s);
   }
 </style>

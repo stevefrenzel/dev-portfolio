@@ -1,0 +1,25 @@
+---
+export interface Props {
+  ariaLabel: string;
+  href: string;
+  title: string;
+}
+
+const { ariaLabel, href, title } = Astro.props;
+---
+
+<div class='section-header'>
+  <h2>{title} <a aria-label={ariaLabel} href={href}>#</a></h2>
+</div>
+
+<style>
+  .section-header {
+    align-items: center;
+    display: flex;
+    gap: var(--space-s);
+  }
+  a {
+    font-family: 'Coming Soon', Brush Script MT;
+    font-size: var(--step-5);
+  }
+</style>

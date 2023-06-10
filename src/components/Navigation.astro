@@ -1,34 +1,66 @@
-<nav>
+<nav class='reel'>
   <ul>
-    <li><a href='#start'>Start</a></li>
+    <li><a href='#intro'>Intro</a></li>
     <li><a href='#projects'>Projects</a></li>
     <li><a href='#clients'>Clients</a></li>
-    <li><a href='#skills'>Skills</a></li>
+    <li><a href='#about-me'>About me</a></li>
     <li><a href='#contact'>Contact</a></li>
   </ul>
 </nav>
 
-<style lang='scss'>
+<style>
+  ul {
+    margin: 0;
+    padding: 0 var(--space-s);
+    list-style-type: none;
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    gap: var(--space-s);
+    background: var(--color-black);
+    border-bottom: 3px solid var(--color-accent);
+  }
+
+  a {
+    color: var(--color-white);
+  }
+
   nav {
-    border: 5px dashed black;
-    background: var(--white);
-    left: 0;
-    width: 100%;
-    position: fixed;
-    overflow: visible;
+    display: flex;
+    block-size: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--color-white) var(--color-black);
+  }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      padding: 16px;
-    }
+  nav::-webkit-scrollbar {
+    block-size: 1rem;
+  }
 
-    a {
-      color: var(--black);
-    }
+  nav::-webkit-scrollbar-track {
+    background-color: var(--color-black);
+  }
+
+  nav::-webkit-scrollbar-thumb {
+    background-color: var(--color-black);
+    background-image: linear-gradient(
+      var(--color-black) 0,
+      var(--color-black) 0.25rem,
+      var(--color-white) 0.25rem,
+      var(--color-white) 0.75rem,
+      var(--color-black) 0.75rem
+    );
+  }
+
+  nav > * {
+    flex: 0 0 auto;
+  }
+
+  nav > * + * {
+    margin-inline-start: 1rem;
+  }
+
+  nav.overflowing {
+    padding-block-end: 1rem;
   }
 </style>

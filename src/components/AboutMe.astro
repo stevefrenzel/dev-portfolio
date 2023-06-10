@@ -1,0 +1,84 @@
+---
+import { Image } from '@astrojs/image/components';
+import SectionHeader from '@components/SectionHeader.astro';
+import divider from '@images/layout/line-3.svg';
+
+const content = [
+  {
+    headline: 'Creating 👷‍♂️',
+    description:
+      'Constructing websites with <i><strong>proven and easy to maintain</strong></i> technologies and patterns.',
+  },
+  {
+    headline: 'Writing ✍️',
+    description:
+      'Detailed <i><strong>documentation of the process</strong></i> in an easy to understand way.',
+  },
+  {
+    headline: 'Coding 👨‍💻',
+    description:
+      'Writing <i><strong>clean code</strong></i> that is well structured and self-explanatory.',
+  },
+  {
+    headline: 'Planing 📒',
+    description:
+      'Assessing the accessibility of a product and <i><strong>creating a road map</strong></i> on how to improve it (if necessary).',
+  },
+  {
+    headline: 'Educating 💡',
+    description:
+      'Doing <i><strong>interactive</strong></i> workshops to educate or deepen knowledge about accessibility.',
+  },
+];
+---
+
+<section aria-label='About me' id='about-me'>
+  <SectionHeader
+    ariaLabel='Link to about me'
+    href='#about-me'
+    title='What I do'
+  />
+  <p>
+    When we work together, <mark>I do a variety of things</mark>, not just
+    programming. Here's a partial list of things I do to make your project a
+    success:
+  </p>
+  <ul>
+    {
+      content.map((content) => (
+        <li>
+          <div>
+            <h3>{content.headline}</h3>
+            <p set:html={content.description} />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<Image alt='' class='divider' height={334} src={divider} width={11} />
+
+<style>
+  section {
+    max-width: 768px;
+  }
+
+  ul {
+    align-items: center;
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style-type: none;
+    margin: var(--space-xl) 0 0 0;
+    padding: 0;
+  }
+
+  h3 {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  p {
+    padding-top: var(--space-xs);
+  }
+</style>

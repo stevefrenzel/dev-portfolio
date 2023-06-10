@@ -1,84 +1,240 @@
 ---
-// TODO Add formsubmit mention
+import { Image } from '@astrojs/image/components';
+import SectionHeader from '@components/SectionHeader.astro';
 
-import TextAndPicture from './TextAndPicture.astro';
-import larry from '@assets/images/larry-writing-on-laptop.svg';
-
-const altText = 'Larry reading a manual and looking very confused';
-const description =
-  'Do you feel like working with me? Do you or your team need a <mark>workshop on accessibility and inclusive design</mark>? Then just write me via this form:';
-const headline = 'How to contact me';
+import error from '@images/icons/error.svg';
+import send from '@images/icons/send.svg';
 ---
 
 <section aria-label='contact' id='contact'>
-  <TextAndPicture
-    altText={altText}
-    ariaLabel='Contact'
-    description={description}
-    headline={headline}
-    headlineId='contact'
-    image={larry}
-    pictureLeft
+  <SectionHeader
+    ariaLabel='Link to contact'
+    href='#contact'
+    title='How to contact me'
   />
+  <p>
+    Do you feel like working with me? Do you or your team <mark
+      >need a workshop on accessibility and inclusive design</mark
+    >? Then just write me via this form:
+  </p>
   <form
     action='https://formsubmit.co/8b3ef32a81a2f8b2b736bf54169486ab'
+    id='contact-form'
     method='POST'
   >
-    <label for='user-name'>Full name:</label>
-    <input id='user-name' type='text' name='name' required />
-    <label for='user-e-mail'>E-mail address:</label>
-    <input id='user-e-mail' type='email' name='email' required />
-    <label for='user-message'>Message:</label>
-    <textarea id='user-message' name='message' rows='10' required></textarea>
-    <button type='submit'>Send message</button>
+    <label for='username'>Your name:</label>
+    <input
+      aria-invalid='false'
+      aria-required='true'
+      id='username'
+      name='name'
+      type='text'
+    />
+    <span class='error-message dont-show' id='message-one'>
+      <Image alt='' src={error} height={24} width={24} />
+      <p>Error: Please enter your name.</p>
+    </span>
+
+    <label for='user-e-mail'>Your e-mail:</label>
+    <input
+      aria-invalid='false'
+      aria-required='true'
+      id='user-e-mail'
+      name='email'
+      type='email'
+    />
+    <span class='error-message dont-show' id='message-two'>
+      <Image alt='' src={error} height={24} width={24} />
+      <p>Error: Please enter a valid e-mail address.</p>
+    </span>
+
+    <label for='user-message'>Your message:</label>
+    <textarea
+      aria-invalid='false'
+      aria-required='true'
+      id='user-message'
+      name='message'
+      rows='6'></textarea>
+    <span class='error-message dont-show' id='message-three'>
+      <Image alt='' src={error} height={24} width={24} />
+      <p>Error: Please enter at least ten characters.</p>
+    </span>
+
+    <div
+      aria-live='assertive'
+      class='error-summary dont-show'
+      id='error-summary'
+    >
+      <p></p>
+    </div>
+
+    <button type='submit'>
+      Send message<Image alt='' height={32} src={send} width={32} />
+    </button>
   </form>
 </section>
 
 <style lang='scss'>
   section {
-    padding-bottom: 2em;
+    max-width: 768px;
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      margin: 1em auto 0 auto;
-      max-width: 900px;
+  p {
+    max-width: 768px;
+  }
 
-      label {
-        margin-bottom: 0.25em;
-      }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: var(--space-l) 0 0 0;
+    max-width: 768px;
 
-      input,
-      textarea {
-        border: 2px solid lightslategray;
-        margin-bottom: 1em;
+    label:first-child {
+      margin-top: 0;
+    }
+  }
 
-        &:focus,
-        &:focus-visible,
-        &:hover {
-          background: rgb(245, 245, 245);
-          border-color: #000;
-        }
-      }
+  label {
+    margin-bottom: var(--space-3xs);
+    margin-top: var(--space-s);
+  }
 
-      textarea {
-        margin-bottom: 2em;
-      }
+  input {
+    cursor: pointer;
+    height: 48px;
+  }
 
-      button {
-        background: #000;
-        border: none;
-        color: #fff;
-        padding: 0.5em 0;
+  textarea {
+    resize: vertical;
+  }
 
-        &:hover,
-        &:focus,
-        &:focus-visible {
-          color: initial;
-          cursor: pointer;
-          background: initial;
-        }
-      }
+  #user-name,
+  #user-e-mail,
+  #user-message {
+    border: none;
+  }
+
+  button {
+    align-items: center;
+    background: var(--color-black);
+    border: 3px solid var(--color-white);
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--step-0);
+    height: 72px;
+    justify-content: center;
+    margin-top: var(--space-l);
+
+    img {
+      margin-left: var(--space-xs);
+    }
+  }
+
+  .dont-show {
+    display: none !important;
+  }
+
+  .error-message {
+    align-items: center;
+    border: 1px solid lightcoral;
+    display: flex;
+    margin-top: var(--space-xs);
+    padding: var(--space-3xs);
+    width: fit-content;
+
+    p {
+      color: lightcoral;
+      margin-left: var(--space-3xs);
+    }
+  }
+
+  #error-summary {
+    background: #fae9e8;
+    border-left: 5px solid red;
+    display: flex;
+    margin-top: var(--space-l);
+
+    p {
+      color: var(--color-black);
+      font-style: italic;
+      padding: var(--space-3xs);
     }
   }
 </style>
+
+<script>
+  const validateForm = (event: Event) => {
+    // Inputs
+    const usernameInput = document.getElementById(
+      'username'
+    ) as HTMLInputElement;
+    const emailInput = document.getElementById(
+      'user-e-mail'
+    ) as HTMLInputElement;
+    const messageInput = document.getElementById(
+      'user-message'
+    ) as HTMLTextAreaElement;
+
+    // Error messages
+    const usernameError = document.getElementById('message-one');
+    const emailError = document.getElementById('message-two');
+    const messageError = document.getElementById('message-three');
+    const errorSummary = document.getElementById('error-summary');
+
+    // RegEx patterns
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Prevent form submission
+    event.preventDefault();
+
+    let errors = 0;
+
+    // Username validation
+    if (usernameInput.value.trim() === '') {
+      usernameError?.classList.remove('dont-show');
+      errors++;
+    } else {
+      usernameError?.classList.add('dont-show');
+    }
+
+    // E-mail validation
+    if (!emailPattern.test(emailInput.value)) {
+      emailError?.classList.remove('dont-show');
+      errors++;
+    } else {
+      emailError?.classList.add('dont-show');
+    }
+
+    // Message validation
+    if (messageInput.value.trim().length < 10) {
+      messageError?.classList.remove('dont-show');
+      errors++;
+    } else {
+      messageError?.classList.add('dont-show');
+    }
+
+    // Error summary
+    if (errorSummary) {
+      if (errors > 0) {
+        errorSummary.classList.remove('dont-show');
+        const errorSummaryText = `There ${
+          errors === 1 ? 'is' : 'are'
+        } ${errors} invalid input field${errors === 1 ? '' : 's'}.`;
+
+        const errorSummaryParagraph = errorSummary.querySelector('p');
+
+        if (errorSummaryParagraph) {
+          errorSummaryParagraph.textContent = errorSummaryText;
+        }
+      } else {
+        errorSummary.classList.add('dont-show');
+        (document.getElementById('contact-form') as HTMLFormElement).submit();
+      }
+    }
+  };
+
+  document
+    .getElementById('contact-form')
+    ?.addEventListener('submit', validateForm);
+</script>

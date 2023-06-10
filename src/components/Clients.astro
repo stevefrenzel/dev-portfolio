@@ -1,128 +1,89 @@
 ---
 import { Image } from '@astrojs/image/components';
-import TextAndPicture from './TextAndPicture.astro';
+import SectionHeader from '@components/SectionHeader.astro';
 
-import larry from '@assets/images/larry-high-five.svg';
+import fifthIndustry from '@images/company-logos/logo-5thindustry.svg';
+import inboundLabs from '@images/company-logos/logo-inboundlabs.svg';
+import interfaceMedien from '@images/company-logos/logo-interface-medien.svg';
+import nexum from '@images/company-logos/logo-nexum.svg';
+import ownCloud from '@images/company-logos/logo-owncloud.svg';
+import sellwerk from '@images/company-logos/logo-sellwerk.svg';
+import divider from '@images/layout/line-3.svg';
 
-import fifthIndustry from '@assets/images/company-logos/5th-industry.png';
-import interfaceMedien from '@assets/images/company-logos/ifm-neu.png';
-import inboundLabs from '@assets/images/company-logos/inboundlabs.png';
-import nexum from '@assets/images/company-logos/nexum.png';
-import owncloud from '@assets/images/company-logos/owncloud.png';
-import sellwerk from '@assets/images/company-logos/sellwerk.png';
-
-const altText = 'Larry doing a high five with a basketball player';
-const clients = [
+const companies = [
   {
-    height: 203,
-    logo: fifthIndustry,
-    name: '5thIndustry',
-    url: 'https://5thindustry.de/',
-    width: 1003,
+    icon: fifthIndustry,
+    name: '5th Industry',
+    url: 'https://www.5thindustry.de/',
+    width: 300,
   },
   {
-    height: 259,
-    logo: inboundLabs,
+    icon: inboundLabs,
     name: 'InboundLabs',
-    url: 'https://w.inboundlabs.co/',
-    width: 1350,
+    url: 'https://www.inboundlabs.de/',
+    width: 300,
   },
   {
-    height: 389,
-    logo: interfaceMedien,
-    name: 'interface medien',
-    url: 'https://www.interface-medien.de/',
-    width: 1105,
+    icon: interfaceMedien,
+    name: 'Interface Medien',
+    width: 300,
+    url: 'https://interface-medien.de/',
   },
+  { icon: nexum, name: 'Nexum AG', url: 'https://www.nexum.com/', width: 200 },
   {
-    height: 163,
-    logo: nexum,
-    name: 'nexum',
-    url: 'https://www.nexum.com/',
-    width: 591,
-  },
-  {
-    height: 468,
-    logo: owncloud,
+    icon: ownCloud,
     name: 'ownCloud',
     url: 'https://owncloud.com/',
-    width: 910,
+    width: 200,
   },
-  {
-    height: 230,
-    logo: sellwerk,
-    name: 'Sellwerk',
-    url: 'https://sellwerk.de/',
-    width: 882,
-  },
+  { icon: sellwerk, name: 'Sellwerk', url: 'https://sellwerk.de/', width: 300 },
 ];
-const description =
-  'I have had the pleasure to <mark>work with some amazing people</mark>. Here is a selected list of clients I have had the pleasure to work with.';
-const headline = 'Who I work(ed) with';
 ---
 
-<section aria-label='clients' id='clients'>
-  <img src={larry} alt='' />
-  <TextAndPicture
-    altText={altText}
-    ariaLabel='Clients'
-    description={description}
-    headline={headline}
-    headlineId='clients'
-    image={larry}
-    pictureLeft
-  />
-
-  <div class='flex-container'>
-    <ul>
-      {
-        clients.map((client) => (
-          <div>
-            <li>
-              <Image
-                src={client.logo}
-                alt={client.name}
-                height={client.height}
-                width={client.width}
-              />
-            </li>
-          </div>
-        ))
-      }
-    </ul>
+<section aria-label='Clients' id='clients'>
+  <div class='text'>
+    <SectionHeader
+      ariaLabel='Link to clients'
+      href='#clients'
+      title='Who I work(ed) with'
+    />
+    <p>
+      I have had the pleasure to <mark>work with some amazing people</mark>, be
+      it a small company with their own product, or an agency with multiple
+      customers.
+    </p>
   </div>
-
-  <hr />
-</section>
-
-<style lang='scss'>
-  section {
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 2em;
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 1em;
-
-        li {
-          img {
-            margin-bottom: 0.5em;
-            max-width: 300px;
-            height: auto;
-          }
-          a {
-            color: black;
-          }
-        }
-      }
+  <ul>
+    {
+      companies.map((item) => (
+        <li>
+          <a aria-label={item.name} href={item.url} rel='noopener noreferrer'>
+            <Image alt='' src={item.icon} width={item.width} />
+          </a>
+        </li>
+      ))
     }
+  </ul>
+</section>
+<Image alt='' class='divider' height={335} src={divider} width={11} />
+
+<style>
+  section {
+    max-width: 768px;
+  }
+
+  p {
+    max-width: 60ch;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    justify-content: center;
+    list-style-type: none;
+    margin: var(--space-xl) 0 0 0;
+    padding: 0;
   }
 </style>

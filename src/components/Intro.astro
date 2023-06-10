@@ -1,137 +1,120 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import pictureOfMe from '@assets/images/picture-of-me.jpg';
-import gitHub from '@assets/images/icons/github.svg';
-import linkedIn from '@assets/images/icons/linkedin.svg';
-import mastodon from '@assets/images/icons/mastodon.svg';
+import pictureOfMe from '@images/picture-of-me.jpg';
+import gitHub from '@images/icons/github.svg';
+import linkedIn from '@images/icons/linkedin.svg';
+import mastodon from '@images/icons/mastodon.svg';
+import divider from '@images/layout/line-1.svg';
 
-const iconSize = 44;
 const socialLinks = [
   {
-    logo: gitHub,
+    alt: 'Steve Frenzel on GitHub',
+    icon: gitHub,
     name: 'GitHub',
     url: 'https://github.com/stevefrenzel',
   },
   {
-    logo: linkedIn,
+    alt: 'Steve Frenzel on LinkedIn',
+    icon: linkedIn,
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/stevefrenzel/',
   },
   {
-    logo: mastodon,
+    alt: 'Steve Frenzel on Mastodon',
+    icon: mastodon,
     name: 'Mastodon',
     url: 'https://mastodon.online/@stvfrnzl',
-    mastodonLink: true,
   },
 ];
 ---
 
-<section aria-label='introduction' id='intro'>
-  <div class='picture-and-text'>
+<section aria-label='Intro' id='intro'>
+  <div class='grid-container'>
     <Image
-      alt='Steve Frenzel, web developer and accessibility engineer'
-      class='profile-picture'
-      height={400}
+      alt='Steve Frenzel - Web developer & accessibility engineer'
       src={pictureOfMe}
-      width={400}
+      style='object-fit: cover;'
+      width={600}
+      height={500}
+      id='profile-picture'
     />
-    <div class='text'>
+    <div class='text-container'>
       <h1>Steve Frenzel</h1>
-      <img src={socialLinks[0].logo} alt='' />
-      <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+      <span class='sub-headline'>Web developer & accessibility engineer</span>
       <p class='paragraph'>
-        I specialize in designing and implementing robust and inclusive web
-        applications. My focus is on accessibility, which I educate about and
+        I specialize in designing and implementing robust and inclusive
+        websites. My focus is on accessibility, which I educate about and
         implement practically. I am also a music nerd and love hot sauces! 🔥
       </p>
+      <p>
+        If you want to get in touch with me, fill out the <a href='#contact'
+          >contact form</a
+        >. You can also find me on the following platforms:
+      </p>
+      <ul>
+        {
+          socialLinks.map((item) => (
+            <li>
+              <Image alt={item.alt} class='icon' src={item.icon} />
+              <a href={item.url} rel='noopener noreferrer'>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-    <p>
-      If you want to get in touch with me, fill out the <a href='#contact'
-        >contact form</a
-      >. You can also find me on the following platforms:
-    </p>
-    <ul>
-      {
-        socialLinks.map((item) => (
-          <li>
-            <Image
-              alt={item.name}
-              src={item.logo}
-              height={iconSize}
-              width={iconSize}
-            />
-            <a
-              href={item.url}
-              rel={`${
-                item.mastodonLink
-                  ? 'me noopener noreferrer'
-                  : 'noopener noreferrer'
-              }`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </div>
-  <hr />
 </section>
+<Image alt='' class='divider' height={335} src={divider} width={12} />
 
-<style lang='scss'>
+<style>
   section {
-    padding-top: 4.5rem;
+    margin-top: var(--space-l);
+    max-width: 1536px;
+  }
+  .grid-container {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+  }
 
-    h1,
-    span {
-      font-family: 'AtkinsonHyperlegibleBold', sans-serif;
-    }
+  #profile-picture {
+    border-bottom: 3px solid var(--color-white);
+  }
 
-    h1 {
-      font-size: var(--h1);
-    }
+  .paragraph {
+    margin: var(--space-l) 0 var(--space-m) 0;
+  }
 
-    p {
-      margin-top: 1rem;
-    }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: center;
+    list-style-type: none;
+    margin: var(--space-l) 0 0 0;
+    padding: 0;
+  }
 
-    a {
-      color: var(--black);
-    }
+  li {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xs);
+  }
 
-    .picture-and-text {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
+  .icon {
+    height: 48px;
+    width: 48px;
+  }
 
-      .profile-picture {
-        box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
-        -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
-        -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
-        object-fit: cover;
-      }
+  .text-container {
+    align-self: center;
+  }
 
-      .text {
-        max-width: 30ch;
-      }
-    }
-
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1em 0 0 0;
-      padding: 0;
-
-      li {
-        align-items: center;
-        display: flex;
-        gap: 0.75rem;
-        list-style: none;
-      }
-    }
+  .text {
+    margin-top: var(--space-m);
   }
 </style>

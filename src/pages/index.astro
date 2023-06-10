@@ -1,25 +1,27 @@
 ---
 import '../styles/reset.css';
-import '../styles/global.scss';
+import '../styles/global.css';
 
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import Intro from '../components/Intro.astro';
-import Clients from '../components/Clients.astro';
-import Projects from '../components/Projects.astro';
-import Skills from '../components/Skills.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '@layouts/Layout.astro';
+
+import SkipLink from '@components/SkipLink.astro';
+import Navigation from '@components/Navigation.astro';
+import Intro from '@components/Intro.astro';
+import Projects from '@components/Projects.astro';
+import Clients from '@components/Clients.astro';
+import AboutMe from '@components/AboutMe.astro';
+import Contact from '@components/Contact.astro';
+import Footer from '@components/Footer.astro';
 ---
 
-<Layout title='Steve Frenzel - Web developer and accessibility engineer'>
-  <!-- <a class='skip-link' href='#main'> Skip to content</a> -->
-  <!-- <Navigation /> -->
-  <!-- <Intro /> -->
+<Layout>
+  <SkipLink />
+  <Navigation />
+  <Intro />
   <main id='main'>
     <Projects />
     <Clients />
-    <Skills />
+    <AboutMe />
     <Contact />
   </main>
   <Footer />
