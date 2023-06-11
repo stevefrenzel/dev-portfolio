@@ -34,21 +34,26 @@ const socialLinks = [
 
 <section aria-label='Intro' id='intro'>
   <div class='grid-container'>
-    <Image
-      alt='Steve Frenzel - Web developer & accessibility engineer'
-      src={pictureOfMe}
-      style='object-fit: cover;'
-      width={600}
-      height={500}
-      id='profile-picture'
-    />
+    <div class='image-container'>
+      <div class='text'>
+        <h1>Steve Frenzel</h1>
+        <span class='sub-headline'>Web developer & accessibility engineer</span>
+      </div>
+      <Image
+        alt='Steve Frenzel - Web developer & accessibility engineer'
+        src={pictureOfMe}
+        style='object-fit: cover;'
+        width={600}
+        height={600}
+        id='profile-picture'
+      />
+    </div>
     <div class='text-container'>
-      <h1>Steve Frenzel</h1>
-      <span class='sub-headline'>Web developer & accessibility engineer</span>
       <p class='paragraph'>
-        I specialize in designing and implementing robust and inclusive
-        websites. My focus is on accessibility, which I educate about and
-        implement practically. I am also a music nerd and love hot sauces! 🔥
+        I specialize in designing and implementing <mark
+          >robust and inclusive websites</mark
+        >. My focus is on accessibility, which I educate about and implement
+        practically. I am also a music nerd and love hot sauces! 🔥
       </p>
       <p>
         If you want to get in touch with me, fill out the <a href='#contact'
@@ -93,12 +98,34 @@ const socialLinks = [
     margin: 0 auto;
   }
 
+  .image-container {
+    position: relative;
+  }
+
+  .text {
+    position: absolute;
+    top: 0;
+    padding-left: var(--space-s);
+    background: rgba(0, 0, 0, 0.368);
+    margin: 0 !important;
+
+    h1,
+    span {
+      color: var(--color-white-alt);
+    }
+  }
+
   #profile-picture {
-    box-shadow: 0px 0px 49px 0px var(--color-black-alt);
+    box-shadow: 0px 0px 30px 0px var(--color-black-alt);
+  }
+
+  p,
+  a {
+    font-size: var(--step-1);
   }
 
   .paragraph {
-    margin: var(--space-l) 0 var(--space-m) 0;
+    margin-bottom: var(--space-m);
   }
 
   ul {
@@ -127,5 +154,10 @@ const socialLinks = [
 
   .text {
     margin-top: var(--space-m);
+  }
+
+  mark {
+    background: var(--color-black-alt);
+    color: var(--color-white-alt);
   }
 </style>
