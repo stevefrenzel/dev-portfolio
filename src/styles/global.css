@@ -43,14 +43,6 @@
   --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
 }
 
-@font-face {
-  font-display: swap;
-  font-family: 'Coming Soon';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/coming-soon-v19-latin-regular.woff2') format('woff2');
-}
-
 body {
   background: var(--color-black);
   color: var(--color-white);
@@ -61,7 +53,7 @@ body {
 :is(a, button, input, textarea, summary) {
   --outline-size: max(2px, 0.08em);
   --outline-style: solid;
-  --outline-color: var(--color-white);
+  --outline-color: currentColor;
   --outline-offset: 5px;
   transition: 0.2s ease;
 }
