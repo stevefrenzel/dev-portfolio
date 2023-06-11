@@ -139,3 +139,7 @@ mark {
 .anchor {
   height: 72px;
 }
+
+.dont-show {
+  display: none !important;
+}

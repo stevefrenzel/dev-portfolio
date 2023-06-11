@@ -1,0 +1,31 @@
+---
+import { Image } from '@astrojs/image/components';
+import error from '@images/icons/error.svg';
+
+export interface Props {
+  id: string;
+  text: string;
+}
+
+const { id, text } = Astro.props;
+---
+
+<span class='dont-show' id={id}>
+  <Image alt='' src={error} height={24} width={24} />
+  <p>{text}</p>
+</span>
+
+<style>
+  span {
+    align-items: center;
+    border: 1px solid lightcoral;
+    display: flex;
+    margin-top: var(--space-xs);
+    padding: var(--space-3xs);
+    width: fit-content;
+  }
+  p {
+    color: lightcoral;
+    margin-left: var(--space-3xs);
+  }
+</style>

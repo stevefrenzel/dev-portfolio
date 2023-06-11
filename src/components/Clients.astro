@@ -41,31 +41,23 @@ const companies = [
 ---
 
 <section aria-label='Clients' id='clients'>
-  <div class='text'>
-    <SectionHeader
-      ariaLabel='Link to clients'
-      href='#clients'
-      title='Clients'
-    />
-    <p>
-      I have had the pleasure to <mark>work with some amazing people</mark>, be
-      it a small company with their own product, or an agency with multiple
-      customers.
-    </p>
-  </div>
-  <ul>
+  <SectionHeader ariaLabel='Link to clients' href='#clients' title='Clients' />
+  <p>
+    I have had the pleasure to <mark>work with some amazing people</mark>, be it
+    a small company with their own product, or an agency with multiple
+    customers.
+  </p>
+  <div class='link-list'>
     {
       companies.map((item) => (
-        <li>
-          <a aria-label={item.name} href={item.url} rel='noopener noreferrer'>
-            <div>
-              <Image alt={item.name} src={item.icon} width={item.width} />
-            </div>
-          </a>
-        </li>
+        <a aria-label={item.name} href={item.url} rel='noopener noreferrer'>
+          <div>
+            <Image alt={item.name} src={item.icon} width={item.width} />
+          </div>
+        </a>
       ))
     }
-  </ul>
+  </div>
 </section>
 <Divider />
 
@@ -78,14 +70,12 @@ const companies = [
     max-width: 60ch;
   }
 
-  ul {
+  .link-list {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xl);
     justify-content: center;
-    list-style-type: none;
-    margin: var(--space-xl) 0 0 0;
-    padding: 0;
+    margin-top: var(--space-xl);
   }
 </style>

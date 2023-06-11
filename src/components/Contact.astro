@@ -1,8 +1,8 @@
 ---
 import { Image } from '@astrojs/image/components';
 import SectionHeader from '@components/SectionHeader.astro';
+import ErrorMessage from './ErrorMessage.astro';
 
-import error from '@images/icons/error.svg';
 import send from '@images/icons/send.svg';
 ---
 
@@ -26,10 +26,7 @@ import send from '@images/icons/send.svg';
       name='name'
       type='text'
     />
-    <span class='error-message dont-show' id='message-one'>
-      <Image alt='' src={error} height={24} width={24} />
-      <p>Error: Please enter your name.</p>
-    </span>
+    <ErrorMessage id='message-one' text='Error: Please enter your name.' />
 
     <label for='user-e-mail'>Your e-mail:</label>
     <input
@@ -39,10 +36,10 @@ import send from '@images/icons/send.svg';
       name='email'
       type='email'
     />
-    <span class='error-message dont-show' id='message-two'>
-      <Image alt='' src={error} height={24} width={24} />
-      <p>Error: Please enter a valid e-mail address.</p>
-    </span>
+    <ErrorMessage
+      id='message-two'
+      text='Error: Please enter a valid e-mail address.'
+    />
 
     <label for='user-message'>Your message:</label>
     <textarea
@@ -51,10 +48,10 @@ import send from '@images/icons/send.svg';
       id='user-message'
       name='message'
       rows='6'></textarea>
-    <span class='error-message dont-show' id='message-three'>
-      <Image alt='' src={error} height={24} width={24} />
-      <p>Error: Please enter at least ten characters.</p>
-    </span>
+    <ErrorMessage
+      id='message-three'
+      text='Error: Please enter at least ten characters.'
+    />
 
     <div
       aria-live='assertive'
@@ -124,24 +121,6 @@ import send from '@images/icons/send.svg';
 
     img {
       margin-left: var(--space-xs);
-    }
-  }
-
-  .dont-show {
-    display: none !important;
-  }
-
-  .error-message {
-    align-items: center;
-    border: 1px solid lightcoral;
-    display: flex;
-    margin-top: var(--space-xs);
-    padding: var(--space-3xs);
-    width: fit-content;
-
-    p {
-      color: lightcoral;
-      margin-left: var(--space-3xs);
     }
   }
 
