@@ -75,7 +75,7 @@ const projects = [
   <SectionHeader
     ariaLabel='Link to projects'
     href='#projects'
-    title="What I've done"
+    title='Projects'
   />
   <p>
     Here you can find <mark
@@ -87,13 +87,7 @@ const projects = [
     {
       projects.map((item) => (
         <li>
-          <Image
-            alt={item.altText}
-            height={300}
-            src={item.image}
-            style='object-fit: cover;'
-            width={800}
-          />
+          <Image alt={item.altText} height={300} src={item.image} width={400} />
           <a href={item.url} rel='noopener noreferrer'>
             {item.name}
           </a>
@@ -131,7 +125,7 @@ const projects = [
   }
 
   img:not(.divider) {
-    border: 3px solid var(--color-white);
-    margin-bottom: var(--space-s);
+    margin-bottom: var(--space-3xs);
+    object-fit: contain;
   }
 </style>

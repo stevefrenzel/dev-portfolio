@@ -9,7 +9,8 @@ const { ariaLabel, href, title } = Astro.props;
 ---
 
 <div class='section-header'>
-  <h2>{title} <a aria-label={ariaLabel} href={href}>#</a></h2>
+  <h2>{title}</h2>
+  <a aria-label={ariaLabel} href={href}>#</a>
 </div>
 
 <style>

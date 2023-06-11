@@ -20,7 +20,8 @@
   /* Colors */
   --color-black: #101010;
   --color-white: #fefefe;
-  --color-accent: greenyellow;
+  --color-black-alt: #252525;
+  --color-white-alt: #e4e5e5;
 
   /* Fluid font size */
   --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);

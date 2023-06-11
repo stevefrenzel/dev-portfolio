@@ -12,18 +12,21 @@ const socialLinks = [
     alt: 'Steve Frenzel on GitHub',
     icon: gitHub,
     name: 'GitHub',
+    rel: 'noopener noreferrer',
     url: 'https://github.com/stevefrenzel',
   },
   {
     alt: 'Steve Frenzel on LinkedIn',
     icon: linkedIn,
     name: 'LinkedIn',
+    rel: 'noopener noreferrer',
     url: 'https://www.linkedin.com/in/stevefrenzel/',
   },
   {
     alt: 'Steve Frenzel on Mastodon',
     icon: mastodon,
     name: 'Mastodon',
+    rel: 'me',
     url: 'https://mastodon.online/@stvfrnzl',
   },
 ];
@@ -57,7 +60,7 @@ const socialLinks = [
           socialLinks.map((item) => (
             <li>
               <Image alt={item.alt} class='icon' src={item.icon} />
-              <a href={item.url} rel='noopener noreferrer'>
+              <a href={item.url} rel={item.rel}>
                 {item.name}
               </a>
             </li>
@@ -69,20 +72,29 @@ const socialLinks = [
 </section>
 <Divider />
 
-<style>
+<style lang='scss'>
   section {
+    background: var(--color-white-alt);
     margin-top: var(--space-l);
-    max-width: 1536px;
+    max-width: 100%;
+    padding: var(--space-xl) var(--space-s);
+
+    * {
+      color: var(--color-black-alt);
+    }
   }
+
   .grid-container {
     display: grid;
     gap: var(--space-m);
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-items: center;
+    max-width: 1536px;
+    margin: 0 auto;
   }
 
   #profile-picture {
-    border: 3px solid var(--color-white);
+    box-shadow: 0px 0px 49px 0px var(--color-black-alt);
   }
 
   .paragraph {
@@ -93,7 +105,6 @@ const socialLinks = [
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-m);
-    justify-content: center;
     list-style-type: none;
     margin: var(--space-l) 0 0 0;
     padding: 0;

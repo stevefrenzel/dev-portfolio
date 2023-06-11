@@ -1,5 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
 import SectionHeader from '@components/SectionHeader.astro';
 import Divider from '@components/Divider.astro';
 
@@ -36,7 +35,7 @@ const content = [
   <SectionHeader
     ariaLabel='Link to about me'
     href='#about-me'
-    title='What I do'
+    title='About me'
   />
   <p>
     When we work together, <mark>I do a variety of things</mark>, not just
@@ -76,9 +75,5 @@ const content = [
   h3 {
     text-decoration: underline;
     text-underline-position: under;
-  }
-
-  p {
-    padding-top: var(--space-xs);
   }
 </style>
