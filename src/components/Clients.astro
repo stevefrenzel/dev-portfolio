@@ -9,6 +9,8 @@ import interfaceMedien from '@images/company-logos/logo-interface-medien.svg';
 import nexum from '@images/company-logos/logo-nexum.svg';
 import ownCloud from '@images/company-logos/logo-owncloud.svg';
 import sellwerk from '@images/company-logos/logo-sellwerk.svg';
+import solemedia from '@images/company-logos/logo-solemedia.svg';
+import spiced from '@images/company-logos/logo-spiced.svg';
 
 const companies = [
   {
@@ -37,6 +39,18 @@ const companies = [
     width: 150,
   },
   { icon: sellwerk, name: 'Sellwerk', url: 'https://sellwerk.de/', width: 250 },
+  {
+    icon: solemedia,
+    name: 'Sellwerk',
+    url: 'https://www.solemedia.de/',
+    width: 250,
+  },
+  {
+    icon: spiced,
+    name: 'Sellwerk',
+    url: 'https://www.spiced-academy.com/',
+    width: 175,
+  },
 ];
 ---
 
@@ -52,6 +66,7 @@ const companies = [
     a small company with their own product, or an agency with multiple
     customers.
   </p>
+  <!-- TODO Weird back that images don't receive focus when inside a list element -->
   <div class='link-list'>
     {
       companies.map((item) => (

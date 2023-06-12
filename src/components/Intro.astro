@@ -33,23 +33,21 @@ const socialLinks = [
 ---
 
 <section aria-label='Intro' id='intro'>
+  <div class='headline-container'>
+    <h1>Steve Frenzel</h1>
+    <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+  </div>
   <div class='grid-container'>
-    <div class='image-container'>
-      <div class='text'>
-        <h1>Steve Frenzel</h1>
-        <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
-      </div>
-      <Image
-        alt='Steve Frenzel - Web Developer & Accessibility Engineer'
-        src={pictureOfMe}
-        style='object-fit: cover;'
-        width={600}
-        height={600}
-        id='profile-picture'
-      />
-    </div>
+    <Image
+      alt='Steve Frenzel - Web Developer & Accessibility Engineer'
+      src={pictureOfMe}
+      style='object-fit: cover;'
+      width={600}
+      height={600}
+      id='profile-picture'
+    />
     <div class='text-container'>
-      <p class='paragraph'>
+      <p>
         I specialize in designing and implementing <mark
           >robust and inclusive websites</mark
         >. My focus is on accessibility, which I educate about and implement
@@ -60,7 +58,7 @@ const socialLinks = [
           >contact form</a
         >. You can also find me on the following platforms:
       </p>
-      <ul>
+      <ul role='list'>
         {
           socialLinks.map((item) => (
             <li>
@@ -80,12 +78,23 @@ const socialLinks = [
 <style lang='scss'>
   section {
     background: var(--color-white-alt);
-    margin-top: var(--space-l);
     max-width: 100%;
-    padding: var(--space-xl) var(--space-s);
+    padding: var(--space-s) var(--space-s) var(--space-xl) var(--space-s);
 
     * {
       color: var(--color-black-alt);
+    }
+  }
+
+  .headline-container {
+    max-width: 1536px;
+    margin: 0 auto var(--space-xs) auto;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+
+    h1 {
+      margin-right: var(--space-s);
     }
   }
 
@@ -98,23 +107,6 @@ const socialLinks = [
     margin: 0 auto;
   }
 
-  .image-container {
-    position: relative;
-  }
-
-  .text {
-    position: absolute;
-    top: 0;
-    padding-left: var(--space-s);
-    background: rgba(0, 0, 0, 0.368);
-    margin: 0 !important;
-
-    h1,
-    span {
-      color: var(--color-white-alt);
-    }
-  }
-
   #profile-picture {
     box-shadow: 10px 10px 0px 0px grey;
   }
@@ -122,10 +114,6 @@ const socialLinks = [
   p,
   a {
     font-size: var(--step-1);
-  }
-
-  .paragraph {
-    margin-bottom: var(--space-m);
   }
 
   ul {
@@ -150,6 +138,10 @@ const socialLinks = [
 
   .text-container {
     align-self: center;
+
+    p:first-child() {
+      margin-bottom: var(--space-m);
+    }
   }
 
   .text {
