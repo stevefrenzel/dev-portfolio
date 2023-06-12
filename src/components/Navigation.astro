@@ -9,62 +9,12 @@
 </nav>
 
 <style lang='scss'>
-  /* Code for navigation generated on Every Layout: https://every-layout.dev/ */
-
-  nav {
-    display: flex;
-    block-size: auto;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scrollbar-color: var(--color-white) var(--color-black);
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-
-  nav::-webkit-scrollbar {
-    block-size: 1rem;
-  }
-
-  nav::-webkit-scrollbar-track {
-    background-color: var(--color-black);
-  }
-
-  nav::-webkit-scrollbar-thumb {
-    background-color: var(--color-black);
-    background-image: -webkit-linear-gradient(
-      var(--color-black) 0,
-      var(--color-black) 0.25rem,
-      var(--color-white) 0.25rem,
-      var(--color-white) 0.75rem,
-      var(--color-black) 0.75rem
-    );
-    -moz-background-image: linear-gradient(
-      var(--color-black) 0,
-      var(--color-black) 0.25rem,
-      var(--color-white) 0.25rem,
-      var(--color-white) 0.75rem,
-      var(--color-black) 0.75rem
-    );
-  }
-
-  nav > * {
-    flex: 0 0 auto;
-  }
-
-  nav > * + * {
-    margin-inline-start: 1rem;
-  }
-
-  nav.overflowing {
-    padding-block-end: 1rem;
-  }
-
   ul {
     margin: 0;
-    padding: 0 var(--space-s);
+    padding: var(--space-s);
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     min-height: 72px;
     align-items: center;
     gap: var(--space-m);
