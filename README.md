@@ -1,4 +1,4 @@
-# Steve Frenzel - Web developer & accessibility engineer
+# Steve Frenzel - Web Developer & Accessibility Engineer
 
 ## 1. A few words
 
