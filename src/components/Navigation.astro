@@ -17,6 +17,9 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-color: var(--color-white) var(--color-black);
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 
   nav::-webkit-scrollbar {
@@ -29,7 +32,14 @@
 
   nav::-webkit-scrollbar-thumb {
     background-color: var(--color-black);
-    background-image: linear-gradient(
+    background-image: -webkit-linear-gradient(
+      var(--color-black) 0,
+      var(--color-black) 0.25rem,
+      var(--color-white) 0.25rem,
+      var(--color-white) 0.75rem,
+      var(--color-black) 0.75rem
+    );
+    -moz-background-image: linear-gradient(
       var(--color-black) 0,
       var(--color-black) 0.25rem,
       var(--color-white) 0.25rem,
