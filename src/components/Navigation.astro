@@ -14,11 +14,9 @@
   nav {
     display: flex;
     block-size: auto;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-color: var(--color-white) var(--color-black);
-    -moz-scrollbar-color: var(--color-white) var(--color-black);
-    -webkit-scrollbar-color: var(--color-white) var(--color-black);
   }
 
   nav::-webkit-scrollbar {
@@ -27,30 +25,11 @@
 
   nav::-webkit-scrollbar-track {
     background-color: var(--color-black);
-    -moz-background-color: var(--color-black);
-    -webkit-background-color: var(--color-black);
   }
 
   nav::-webkit-scrollbar-thumb {
     background-color: var(--color-black);
-    -moz-background-color: var(--color-black);
-    -webkit-background-color: var(--color-black);
-
     background-image: linear-gradient(
-      var(--color-black) 0,
-      var(--color-black) 0.25rem,
-      var(--color-white) 0.25rem,
-      var(--color-white) 0.75rem,
-      var(--color-black) 0.75rem
-    );
-    -moz-background-image: linear-gradient(
-      var(--color-black) 0,
-      var(--color-black) 0.25rem,
-      var(--color-white) 0.25rem,
-      var(--color-white) 0.75rem,
-      var(--color-black) 0.75rem
-    );
-    -webkit-background-image: linear-gradient(
       var(--color-black) 0,
       var(--color-black) 0.25rem,
       var(--color-white) 0.25rem,
