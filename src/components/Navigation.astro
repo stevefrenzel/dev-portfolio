@@ -1,4 +1,4 @@
-<nav>
+<nav id='navigation'>
   <ul>
     <li><a href='#intro'>Intro</a></li>
     <li><a href='#projects'>Projects</a></li>
@@ -8,7 +8,7 @@
   </ul>
 </nav>
 
-<style>
+<style lang='scss'>
   /* Code for navigation generated on Every Layout: https://every-layout.dev/ */
 
   nav {
@@ -59,10 +59,35 @@
     align-items: center;
     gap: var(--space-m);
     background: var(--color-black);
-    border-bottom: 3px solid var(--color-white);
+  }
+
+  li:nth-child(2) {
+    a {
+      outline-color: #f6026a;
+    }
+  }
+
+  li:nth-child(3) {
+    a {
+      outline-color: var(--color-accent-clients);
+    }
+  }
+
+  li:nth-child(4) {
+    a {
+      outline-color: var(--color-accent-about);
+    }
+  }
+
+  li:nth-child(5) {
+    a {
+      outline-color: var(--color-accent-contact);
+    }
   }
 
   a {
     color: var(--color-white);
+    text-transform: uppercase;
+    text-decoration: none;
   }
 </style>

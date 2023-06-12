@@ -74,6 +74,7 @@ const projects = [
 <section aria-label='projects' id='projects'>
   <SectionHeader
     ariaLabel='Link to projects'
+    accentColor='#f6026a'
     href='#projects'
     title='Projects'
   />
@@ -128,5 +129,16 @@ const projects = [
   img:not(.divider) {
     margin-bottom: var(--space-3xs);
     object-fit: contain;
+  }
+
+  mark {
+    background: var(--color-accent-projects);
+    color: var(--color-white);
+  }
+
+  a:hover,
+  a:focus,
+  a:focus-visible {
+    outline-color: #f6026a;
   }
 </style>

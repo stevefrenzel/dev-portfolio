@@ -15,33 +15,38 @@ const companies = [
     icon: fifthIndustry,
     name: '5th Industry',
     url: 'https://www.5thindustry.de/',
-    width: 300,
+    width: 250,
   },
   {
     icon: inboundLabs,
     name: 'InboundLabs',
     url: 'https://www.inboundlabs.de/',
-    width: 300,
+    width: 250,
   },
   {
     icon: interfaceMedien,
     name: 'Interface Medien',
-    width: 300,
+    width: 250,
     url: 'https://interface-medien.de/',
   },
-  { icon: nexum, name: 'Nexum AG', url: 'https://www.nexum.com/', width: 200 },
+  { icon: nexum, name: 'Nexum AG', url: 'https://www.nexum.com/', width: 150 },
   {
     icon: ownCloud,
     name: 'ownCloud',
     url: 'https://owncloud.com/',
-    width: 200,
+    width: 150,
   },
-  { icon: sellwerk, name: 'Sellwerk', url: 'https://sellwerk.de/', width: 300 },
+  { icon: sellwerk, name: 'Sellwerk', url: 'https://sellwerk.de/', width: 250 },
 ];
 ---
 
 <section aria-label='Clients' id='clients'>
-  <SectionHeader ariaLabel='Link to clients' href='#clients' title='Clients' />
+  <SectionHeader
+    ariaLabel='Link to clients'
+    accentColor='#ffd501'
+    href='#clients'
+    title='Clients'
+  />
   <p>
     I have had the pleasure to <mark>work with some amazing people</mark>, be it
     a small company with their own product, or an agency with multiple
@@ -77,5 +82,16 @@ const companies = [
     gap: var(--space-xl);
     justify-content: center;
     margin-top: var(--space-xl);
+  }
+
+  mark {
+    background: var(--color-accent-clients);
+    color: var(--color-black);
+  }
+
+  a:hover,
+  a:focus,
+  a:focus-visible {
+    outline-color: var(--color-accent-clients);
   }
 </style>

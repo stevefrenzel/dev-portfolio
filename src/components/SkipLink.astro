@@ -1,26 +1,45 @@
-<div>
-  <a href='#main'>Skip to main content</a>
-</div>
+---
+import { Image } from '@astrojs/image/components';
+import arrow from '@images/icons/arrow-upward.svg';
+---
+
+<a href='#main'
+  >Skip to main content <Image
+    alt='Arrow down'
+    height={24}
+    src={arrow}
+    width={24}
+  /></a
+>
 
 <style>
   a {
-    outline: none !important;
+    align-items: center;
+    display: flex;
+    height: 1px;
+    left: -9999px;
     position: absolute;
-    left: -10000px;
+    overflow: hidden;
     top: auto;
     width: 1px;
-    height: 1px;
-    overflow: hidden;
   }
 
   a:focus,
   a:focus-visible {
-    background: blue;
-    position: static;
-    height: 72px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: blue;
+    color: var(--color-white);
+    height: auto;
+    left: 8px;
+    outline: none;
+    padding: var(--space-xs);
+    position: fixed;
+    text-decoration: none;
+    top: 8px;
+    width: auto;
+  }
+
+  img {
+    margin-left: var(--space-xs);
+    transform: rotate(180deg);
   }
 </style>

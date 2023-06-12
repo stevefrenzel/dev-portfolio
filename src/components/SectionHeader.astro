@@ -1,11 +1,12 @@
 ---
 export interface Props {
+  accentColor: string;
   ariaLabel: string;
   href: string;
   title: string;
 }
 
-const { ariaLabel, href, title } = Astro.props;
+const { ariaLabel, accentColor, href, title } = Astro.props;
 ---
 
 <div class='section-header'>
@@ -13,7 +14,7 @@ const { ariaLabel, href, title } = Astro.props;
   <a aria-label={ariaLabel} href={href}>#</a>
 </div>
 
-<style>
+<style define:vars={{ accentColor }}>
   .section-header {
     align-items: center;
     display: flex;
@@ -22,5 +23,10 @@ const { ariaLabel, href, title } = Astro.props;
   a {
     font-family: 'Syne', sans-serif;
     font-size: var(--step-3);
+  }
+  a:hover,
+  a:focus,
+  a:focus-visible {
+    outline-color: var(--accentColor);
   }
 </style>

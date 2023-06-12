@@ -1,0 +1,27 @@
+---
+import { Image } from '@astrojs/image/components';
+import arrow from '@images/icons/arrow-upward.svg';
+---
+
+<a aria-label='Back to top' href='#navigation' id='back-to-top'
+  ><Image alt='Back to top' src={arrow} /></a
+>
+
+<style>
+  a {
+    background: rgba(0, 0, 0, 0.368);
+    bottom: 12px;
+    position: fixed;
+    right: 12px;
+  }
+</style>
+
+<script>
+  const backToTopLink = document.getElementById('back-to-top');
+
+  const toggleBackToTopVisibility = () => {
+    backToTopLink!.style.display = window.scrollY > 0 ? 'block' : 'none';
+  };
+
+  window.addEventListener('scroll', toggleBackToTopVisibility);
+</script>
