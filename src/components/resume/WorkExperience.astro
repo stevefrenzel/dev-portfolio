@@ -1,0 +1,76 @@
+---
+import JobDescription from '@components/resume/JobDescription.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+
+const tasksSellwerk = [
+  'Giving feedback for designs directly in Figma before creating them with Nuxt and Vuetify',
+  'Improving processes by establishing conventions for Git workflow, unit tests and accessibility guidelines',
+  'Communicating frequently with designers to improve the product based on user tests',
+  'Presenting case studies to show the correlation between accessibility and SEO',
+];
+
+const tasksNexum = [
+  'Working closely with the design team to create an accessible and fun experience for every user.',
+  'Creating and assembling pixel-perfect components using design templates from Abstract, Sketch or Figma.',
+  'Planning and writing (unit, integration and E2E) tests to ensure high code quality and great maintainability.',
+  'Exchanging experiences and tech trends with fellow developers from other sites on a weekly basis.',
+  'Customising and maintaining e-mail templates in Salesforce Cloud for best possible rendering on all devices and browsers.',
+  'Managing and delegating tasks in JIRA to stay on track.',
+];
+
+const tasksFifthIndustry = [
+  'Creating app designs with Adobe XD in collaboration with the back-end engineer and the product manager.',
+  'Customizing the designs to match the look and feel of Material UI.',
+  "Prototyping individual reusable components with React in Storybook, according to the 'Atomic Design' principle and following the Material Design guidelines.",
+  'Implementing the necessary logic and, if necessary, adapting the UI in cooperation with the backend engineer.',
+  'Discussing and implementing necessary improvements and further ideas together with the customer.',
+  'Bringing in further suggestions and ideas through continuous research in the area of UI, UX and Material Design.',
+];
+---
+
+<section aria-label='Work experience' id='work'>
+  <SectionHeader
+    title='Work experience'
+    ariaLabel='Work experience'
+    href='#work'
+  />
+  <div class='spacer'></div>
+  <JobDescription
+    heading='Frontend Developer & Accessibility Engineer'
+    company='Sellwerk GmbH & Co. KG'
+    timePeriod='Since September 2022'
+    description='Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively.'
+    tasks={tasksSellwerk}
+  />
+  <hr aria-hidden='true' />
+  <JobDescription
+    heading='Frontend Developer'
+    company='nexum AG'
+    timePeriod='August 2020 to August 2022'
+    description='Consulting agency for communication, interaction and transaction in the digital age.'
+    tasks={tasksNexum}
+  />
+  <hr aria-hidden='true' />
+  <JobDescription
+    heading='Frontend Developer'
+    company='5thIndustry GmbH'
+    timePeriod='October 2019 to February 2020'
+    description='Internet-of-things company specializing in production and logistics to enable higher productivity.'
+    tasks={tasksFifthIndustry}
+  />
+</section>
+
+<style>
+  section {
+    padding: 0;
+    width: 100%;
+  }
+  .spacer {
+    margin-top: var(--space-l);
+  }
+  hr {
+    border: 1px solid var(--color-white);
+    margin: var(--space-xl) auto;
+    width: 50%;
+  }
+</style>

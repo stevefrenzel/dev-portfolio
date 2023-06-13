@@ -1,0 +1,131 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import desktop from '@images/icons/desktop.svg';
+import gitHub from '@images/icons/github-white.svg';
+import linkedIn from '@images/icons/linkedin-white.svg';
+import mastodon from '@images/icons/mastodon-white.svg';
+
+const links = [
+  {
+    href: 'https://www.stevefrenzel.dev',
+    height: 24,
+    name: 'Website',
+    src: desktop,
+    width: 24,
+  },
+  {
+    href: 'https://www.linkedin.com/in/stevefrenzel',
+    height: 36,
+    name: 'LinkedIn',
+    src: linkedIn,
+    width: 36,
+  },
+  {
+    href: 'https://github.com/stevefrenzel',
+    height: 36,
+    name: 'GitHub',
+    src: gitHub,
+    width: 36,
+  },
+  {
+    href: 'https://mastodon.online/@stvfrnzl',
+    height: 36,
+    name: 'Mastodon',
+    src: mastodon,
+    width: 36,
+  },
+];
+---
+
+<section aria-label='Intro' id='intro'>
+  <div>
+    <div class='headlines'>
+      <h1>Steve Frenzel</h1>
+      <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+    </div>
+    <div class='contact-information'>
+      <ul role='list'>
+        {
+          links.map((link) => (
+            <li>
+              <Image
+                alt=''
+                height={link.height}
+                src={link.src}
+                width={link.width}
+              />
+              <a href={link.href} rel='noopener noreferrer'>
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <div class='text'>
+    <p>
+      After working as a sound engineer, stagehand, tour manager and music
+      producer for over 10 years, I found another passion: <mark
+        >Creating beautiful and robust websites!</mark
+      >
+    </p>
+    <p>
+      My focus is frontend development, with special attention to accessibility,
+      as well as writing clean, reliable and maintainable code.
+    </p>
+  </div>
+</section>
+
+<style lang='scss'>
+  section {
+    max-width: 1536px;
+    padding: 0 0 var(--space-xl) 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    border-bottom: 3px solid var(--color-white);
+    margin: var(--space-xl) auto;
+  }
+
+  .headlines,
+  .text {
+    padding: 0 var(--space-s);
+  }
+
+  .text {
+    margin: var(--space-s) 0;
+
+    p:first-child() {
+      margin-bottom: var(--space-s);
+    }
+
+    mark {
+      background: var(--color-accent-about);
+    }
+  }
+
+  .contact-information {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      justify-content: start;
+      list-style-type: none;
+      margin: var(--space-m) var(--space-s) 0 var(--space-s);
+      padding: 0;
+
+      li:first-child() {
+        img {
+          margin-right: var(--space-3xs);
+        }
+      }
+    }
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: var(--space-3xs);
+    }
+  }
+</style>

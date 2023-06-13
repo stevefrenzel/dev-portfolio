@@ -1,6 +1,11 @@
 ---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
 const metaData = {
-  title: 'Steve Frenzel - Web Developer & Accessibility Engineer',
   keywords:
     'web development, programming, accessibility, html, css, javascript',
   description:
@@ -26,22 +31,22 @@ const metaData = {
     <meta name='description' content={metaData.description} />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <link rel='canonical' href={metaData.websiteUrl} />
-    <title>{metaData.title}</title>
+    <title>{title}</title>
     <meta property='og:url' content={metaData.websiteUrl} />
     <meta property='og:type' content={metaData.type} />
     <meta property='og:site_name' content={metaData.siteName} />
     <meta property='og:description' content={metaData.description} />
-    <meta property='og:title' content={metaData.title} />
+    <meta property='og:title' content={title} />
     <meta property='og:image' content={metaData.imageSource} />
     <meta property='og:image:type' content={metaData.imageType} />
-    <meta property='og:image:alt' content={metaData.title} />
+    <meta property='og:image:alt' content={title} />
     <meta property='og:image:width' content={metaData.imageWidth} />
     <meta property='og:image:height' content={metaData.imageHeight} />
     <meta name='twitter:card' content={metaData.twitterCard} />
-    <meta name='twitter:title' content={metaData.title} />
+    <meta name='twitter:title' content={title} />
     <meta name='twitter:description' content={metaData.description} />
     <meta name='twitter:image' content={metaData.imageSource} />
-    <meta name='twitter:image:alt' content={metaData.title} />
+    <meta name='twitter:image:alt' content={title} />
   </head>
   <body>
     <slot />

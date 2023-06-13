@@ -9,21 +9,18 @@ import mastodon from '@images/icons/mastodon.svg';
 
 const socialLinks = [
   {
-    alt: 'Steve Frenzel on GitHub',
-    icon: gitHub,
-    name: 'GitHub',
-    rel: 'noopener noreferrer',
-    url: 'https://github.com/stevefrenzel',
-  },
-  {
-    alt: 'Steve Frenzel on LinkedIn',
     icon: linkedIn,
     name: 'LinkedIn',
     rel: 'noopener noreferrer',
     url: 'https://www.linkedin.com/in/stevefrenzel/',
   },
   {
-    alt: 'Steve Frenzel on Mastodon',
+    icon: gitHub,
+    name: 'GitHub',
+    rel: 'noopener noreferrer',
+    url: 'https://github.com/stevefrenzel',
+  },
+  {
     icon: mastodon,
     name: 'Mastodon',
     rel: 'me',
@@ -62,7 +59,7 @@ const socialLinks = [
         {
           socialLinks.map((item) => (
             <li>
-              <Image alt={item.alt} class='icon' src={item.icon} />
+              <Image alt='' class='icon' src={item.icon} />
               <a href={item.url} rel={item.rel}>
                 {item.name}
               </a>

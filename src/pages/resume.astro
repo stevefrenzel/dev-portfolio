@@ -1,0 +1,31 @@
+---
+import '../styles/reset.css';
+import '../styles/global.css';
+
+import Layout from '@layouts/Layout.astro';
+import Intro from '@components/resume/Intro.astro';
+import WorkExperience from '@components/resume/WorkExperience.astro';
+import Misc from '@components/resume/Misc.astro';
+import BackToTop from '@components/BackToTop.astro';
+---
+
+<Layout title='Steve Frenzel - Resume'>
+  <div id='start'></div>
+  <Intro />
+  <main class='wrapper'>
+    <WorkExperience />
+    <Misc />
+    <BackToTop />
+  </main>
+</Layout>
+
+<style>
+  .wrapper {
+    justify-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1536px;
+    margin: 0 auto var(--space-xl) auto;
+    padding: 0 var(--space-s);
+  }
+</style>

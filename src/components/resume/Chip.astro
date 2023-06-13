@@ -1,0 +1,19 @@
+---
+export interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<span>{name}</span>
+
+<style>
+  span {
+    background: var(--color-white-alt);
+    color: var(--color-black);
+    font-family: 'Space Mono', monospace;
+    font-size: var(--step-0);
+    padding: 0 var(--space-3xs);
+  }
+</style>

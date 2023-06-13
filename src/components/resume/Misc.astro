@@ -1,0 +1,183 @@
+---
+import SectionHeader from '@components/SectionHeader.astro';
+import Chip from '@components/resume/Chip.astro';
+
+const skills = [
+  'CSS & SASS',
+  'Figma',
+  'Git & GitHub',
+  'HTML',
+  'JavaScript & TypeScript',
+  'Jest',
+  'JIRA',
+  'Material UI & Vuetify',
+  'React & Next.js',
+  'Vue.js & Nuxt',
+  'Storybook',
+  'NVDA, TalkBack & VoiceOver',
+];
+
+const buzzwords = [
+  'Accessibility',
+  'Atomic Design',
+  'Best Practices',
+  'Clean Code',
+  'Prototyping',
+  'SEO',
+  'Testing',
+  'UI & UX',
+];
+
+const education = [
+  {
+    title: 'Introduction to Web Accessibility',
+    institut: 'edX (online)',
+    timePeriod: 'April 2021',
+  },
+  {
+    title: 'Full Stack Web Development',
+    institut: 'SPICED Academy (Berlin)',
+    timePeriod: 'March 2019 to May 2019',
+  },
+  {
+    title: 'Sound Engineering / Music Production',
+    institut: 'Deutsche POP (Berlin)',
+    timePeriod: 'October 2009 to November 2011',
+  },
+  {
+    title: 'Commercial assistant specialized in information processing',
+    institut: 'Kant-Akademie (Berlin)',
+    timePeriod: 'August 2005 to July 2007',
+  },
+];
+
+const languages = [
+  {
+    name: 'English',
+    proficiency: 'Professional working proficiency',
+  },
+  {
+    name: 'German',
+    proficiency: 'Native proficiency',
+  },
+  {
+    name: 'Spanish',
+    proficiency: 'Elementary proficiency',
+  },
+];
+---
+
+<section aria-label='Miscellaneous'>
+  <div id='skills'>
+    <SectionHeader ariaLabel='Skills' href='#skills' title='Skills' />
+    <ul class='chips-list' role='list'>
+      {
+        skills.map((item) => (
+          <li>
+            <Chip name={item} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div id='buzzwords'>
+    <SectionHeader ariaLabel='Buzzwords' href='#buzzwords' title='Buzzwords' />
+    <ul class='chips-list' role='list'>
+      {
+        buzzwords.map((item) => (
+          <li>
+            <Chip name={item} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div id='education'>
+    <SectionHeader ariaLabel='Education' href='#education' title='Education' />
+    <ul id='education-list' role='list'>
+      {
+        education.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.institut}</p>
+            <p>{item.timePeriod}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div id='languages'>
+    <SectionHeader ariaLabel='Languages' href='#languages' title='Languages' />
+    <ul id='languages-list' role='list'>
+      {
+        languages.map((item) => (
+          <li>
+            <h3>{item.name}</h3>
+            <p>{item.proficiency}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style lang='scss'>
+  section {
+    width: 100%;
+    padding: 0;
+
+    h2 {
+      margin-top: var(--space-xl);
+
+      &:first-child() {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .chips-list,
+  #education-list,
+  #languages-list {
+    margin: var(--space-l) 0 var(--space-l) 0;
+    padding: 0;
+  }
+
+  .chips-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  #education-list,
+  #languages-list {
+    p:nth-child(2) {
+      font-family: 'Syne', sans-serif;
+    }
+    p:nth-child(3) {
+      font-style: italic;
+    }
+
+    li {
+      margin-bottom: var(--space-l);
+
+      &:last-child() {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // #education-list {
+  //   mark {
+  //     background: var(--color-accent-about);
+  //   }
+  // }
+
+  // #languages-list {
+  //   mark {
+  //     background: var(--color-white);
+  //   }
+  // }
+</style>

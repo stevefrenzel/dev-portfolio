@@ -1,0 +1,48 @@
+---
+export interface Props {
+  heading: string;
+  company: string;
+  timePeriod: string;
+  description: string;
+  tasks: string[];
+}
+
+const { heading, company, timePeriod, description, tasks } = Astro.props;
+---
+
+<article aria-label={company}>
+  <h3>{company}</h3>
+  <p>{heading}</p>
+  <p>{timePeriod}</p>
+  <p>{description}</p>
+  <h4>Achievements & Tasks</h4>
+  <ul role='list'>
+    {
+      tasks.map((item) => (
+        <li>
+          <p>{item}</p>
+        </li>
+      ))
+    }
+  </ul>
+</article>
+
+<style lang='scss'>
+  article {
+    padding-right: var(--space-s);
+
+    p:nth-child(3) {
+      font-style: italic;
+      margin-bottom: var(--space-s);
+    }
+  }
+  h4 {
+    margin-top: var(--space-l);
+  }
+  ul {
+    list-style: initial !important;
+  }
+  li {
+    margin-bottom: var(--space-s);
+  }
+</style>
