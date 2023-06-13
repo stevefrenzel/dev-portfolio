@@ -1,9 +1,10 @@
 ---
 export interface Props {
+  websiteUrl: string;
   title: string;
 }
 
-const { title } = Astro.props;
+const { websiteUrl, title } = Astro.props;
 
 const metaData = {
   keywords:
@@ -15,7 +16,6 @@ const metaData = {
   imageWidth: '1600',
   imageHeight: '882',
   type: 'website',
-  websiteUrl: 'https://stevefrenzel.dev/',
   siteName: 'Steve Frenzel',
   twitterCard: 'summary_large_image',
 };
@@ -30,9 +30,9 @@ const metaData = {
     <meta name='keywords' content={metaData.keywords} />
     <meta name='description' content={metaData.description} />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <link rel='canonical' href={metaData.websiteUrl} />
+    <link rel='canonical' href={websiteUrl} />
     <title>{title}</title>
-    <meta property='og:url' content={metaData.websiteUrl} />
+    <meta property='og:url' content={websiteUrl} />
     <meta property='og:type' content={metaData.type} />
     <meta property='og:site_name' content={metaData.siteName} />
     <meta property='og:description' content={metaData.description} />
