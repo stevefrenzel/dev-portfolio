@@ -24,7 +24,7 @@
   --color-white-alt: #e4e5e5;
   /* Colors - accent */
   --color-accent-projects: #98003f;
-  --color-accent-clients: #ffd501;
+  --color-accent-collaborations: #ffd501;
   --color-accent-about: #66ffe5;
   --color-accent-contact: #49fe18;
 
@@ -142,12 +142,4 @@ footer {
 
 .dont-show {
   display: none !important;
-}
-
-#start {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  position: absolute;
-  top: 0;
 }

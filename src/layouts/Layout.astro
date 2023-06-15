@@ -49,6 +49,17 @@ const metaData = {
     <meta name='twitter:image:alt' content={title} />
   </head>
   <body>
+    <div id='start'></div>
     <slot />
   </body>
 </html>
+
+<style>
+  #start {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: absolute;
+    top: -1px;
+  }
+</style>
