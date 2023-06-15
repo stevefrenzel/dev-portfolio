@@ -10,7 +10,7 @@ const { ariaLabel, accentColor, href, title } = Astro.props;
 ---
 
 <div class='section-header'>
-  <h2>{title}</h2>
+  <h2 set:html={title} />
   <a aria-label={ariaLabel} href={href}>#</a>
 </div>
 
@@ -19,7 +19,9 @@ const { ariaLabel, accentColor, href, title } = Astro.props;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-s);
+  }
+  h2 {
+    margin-right: var(--space-xs);
   }
   a {
     font-family: 'Syne', sans-serif;
