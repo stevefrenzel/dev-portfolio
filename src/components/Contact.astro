@@ -78,6 +78,7 @@ import send from '@images/icons/send.svg';
   }
 
   p {
+    margin-top: var(--space-xs);
     max-width: 768px;
   }
 
@@ -124,7 +125,12 @@ import send from '@images/icons/send.svg';
     height: 72px;
     justify-content: center;
     margin-top: var(--space-l);
-    outline-color: var(--color-accent-contact) !important;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      outline-color: var(--color-accent-contact);
+    }
 
     img {
       margin-left: var(--space-xs);

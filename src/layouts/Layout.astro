@@ -1,4 +1,8 @@
 ---
+import '../styles/reset.css';
+import '../styles/global.css';
+import StartAnchor from '@components/StartAnchor.astro';
+
 export interface Props {
   websiteUrl: string;
   title: string;
@@ -49,17 +53,14 @@ const metaData = {
     <meta name='twitter:image:alt' content={title} />
   </head>
   <body>
-    <div id='start'></div>
+    <StartAnchor />
     <slot />
   </body>
 </html>
 
 <style>
-  #start {
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    position: absolute;
-    top: -1px;
+  body {
+    background: var(--color-black);
+    color: var(--color-white);
   }
 </style>

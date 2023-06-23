@@ -1,0 +1,78 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import { useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+  content_type: 'blogPost',
+});
+
+const posts = data.stories.map((story: any) => {
+  const date = new Date(story.created_at);
+  const formattedDate = date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
+  return {
+    title: story.content.title,
+    date: formattedDate,
+    summary: story.content.summary,
+    slug: 'blog/' + story.full_slug,
+    datetime: date.toISOString().split('T')[0],
+  };
+});
+
+const { blok } = Astro.props;
+---
+
+<ul {...storyblokEditable(blok)} role='list'>
+  {
+    posts.map(
+      (post: {
+        date: unknown;
+        slug: string | URL | null | undefined;
+        title: unknown;
+        summary: unknown;
+        datetime: string;
+      }) => (
+        <li>
+          <h2>
+            <a href={post.slug}>{post.title}</a>
+          </h2>
+          <time class='sub-headline' datetime={post.datetime}>
+            {post.date}
+          </time>
+        </li>
+      )
+    )
+  }
+</ul>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-s);
+  }
+
+  h2 {
+    line-height: 1;
+    margin-bottom: var(--space-s);
+  }
+
+  .sub-headline {
+    font-size: var(--space-s);
+  }
+
+  a {
+    font-size: var(--step-2);
+    font-family: 'Syne', sans-serif;
+  }
+</style>

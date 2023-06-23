@@ -1,0 +1,21 @@
+---
+import { SbBlokData, storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+const { blok } = Astro.props;
+---
+
+<main id='main' {...storyblokEditable(blok)}>
+  {
+    blok.body?.map((blok: SbBlokData) => {
+      return <StoryblokComponent blok={blok} />;
+    })
+  }
+</main>
+
+<style>
+  main {
+    margin: 0 auto;
+    max-width: 1536px;
+    padding: 0 var(--space-s);
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import BackToTop from '@components/BackToTop.astro';
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<div class='wrapper' {...storyblokEditable(blok)}>
+  <h1>{blok.title}</h1>
+  <p>{blok.summary}</p>
+  <Fragment set:html={content} />
+</div>
+<BackToTop />
+
+<style lang='scss' is:global>
+  body {
+    background: var(--color-black-alt);
+    color: var(--color-white-alt);
+  }
+
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto var(--space-m) auto;
+    padding: 0 var(--space-s);
+
+    h1 {
+      border-bottom: 3px solid var(--color-white);
+      margin: var(--space-m) 0;
+      padding-bottom: var(--space-m);
+    }
+
+    h2 {
+      margin-bottom: var(--space-s);
+    }
+
+    a,
+    p {
+      font-family: 'Atkinson Hyperlegible';
+    }
+
+    p {
+      margin: var(--space-s) 0;
+    }
+
+    a:hover,
+    a:focus,
+    a:focus-visible {
+      background: blue;
+    }
+  }
+</style>

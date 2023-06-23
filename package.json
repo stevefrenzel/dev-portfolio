@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.17.0",
+    "@storyblok/astro": "^2.4.0",
     "astro": "^2.6.1",
     "sass": "^1.62.1",
-    "sharp": "^0.32.1"
+    "sharp": "^0.32.1",
+    "vite": "^4.3.9"
   }
 }

@@ -1,5 +1,13 @@
 @font-face {
   font-display: swap;
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
   font-family: 'Syne';
   font-style: normal;
   font-weight: 700;
@@ -14,14 +22,13 @@
   src: url('../fonts/space-mono-v12-latin-regular.woff2') format('woff2');
 }
 
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1536,20,1.25,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
 :root {
   /* Colors - main */
   --color-black: #101010;
   --color-white: #fefefe;
   --color-black-alt: #252525;
   --color-white-alt: #e4e5e5;
+
   /* Colors - accent */
   --color-accent-projects: #98003f;
   --color-accent-collaborations: #ffd501;
@@ -48,19 +55,13 @@
   --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
 }
 
-body {
-  background: var(--color-black);
-  color: var(--color-white);
-}
-
 /* Focus style by Stephanie Eckles: https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/ */
 
 :is(a, button, input, textarea, summary) {
   --outline-size: max(2px, 0.08em);
   --outline-style: solid;
   --outline-color: currentColor;
-  --outline-offset: 5px;
-  transition: 0.2s ease;
+  --outline-offset: 2px;
 }
 
 :is(a, button, input, textarea, summary):hover {
@@ -85,6 +86,7 @@ body {
 /* Outline-offset by Adam Argyle: https://codepen.io/argyleink/pen/JjEzeLp */
 
 @media (prefers-reduced-motion: no-preference) {
+  :hover,
   :focus {
     transition: outline-offset 0.25s ease;
     outline-offset: 5px;
@@ -102,6 +104,7 @@ h3,
 h4,
 .sub-headline {
   font-family: 'Syne', sans-serif;
+  line-height: 1;
 }
 
 h1 {

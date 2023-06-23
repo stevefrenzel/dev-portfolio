@@ -1,0 +1,81 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '@layouts/Layout.astro';
+import BackToTop from '@components/BackToTop.astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories/home', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const content = data.story.content;
+---
+
+<script>
+  const highlight = document.getElementById('mark');
+  const colors = ['color-1', 'color-2', 'color-3', 'color-4'];
+
+  const randomColorIndex = Math.floor(Math.random() * colors.length);
+  const randomColorClass = colors[randomColorIndex];
+  highlight?.classList.add(randomColorClass);
+</script>
+
+<Layout
+  websiteUrl='https://stevefrenzel.dev/blog/'
+  title='Steve Frenzel - Blog'
+>
+  <div class='text'>
+    <h1>Steve Frenzel - Blog</h1>
+    <p>
+      Welcome to the collection of my thoughts! Here I write about topics like
+      <mark id='mark'
+        >web development, music, books, hot sauces and everything else</mark
+      >
+      I have an opinion about.
+    </p>
+    <hr />
+  </div>
+  <StoryblokComponent blok={content} />
+  <BackToTop />
+</Layout>
+
+<style>
+  .text {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    padding: var(--space-s);
+  }
+
+  p {
+    max-width: 60ch;
+    padding: 0 var(--space-s);
+  }
+
+  hr {
+    border-bottom: 3px solid var(--color-white);
+    margin: var(--space-l) var(--space-s);
+    max-width: 1536px;
+  }
+
+  .color-1 {
+    background: var(--color-accent-about);
+  }
+
+  .color-2 {
+    background: var(--color-accent-collaborations);
+  }
+
+  .color-3 {
+    background: var(--color-accent-contact);
+  }
+
+  .color-4 {
+    background: var(--color-accent-projects);
+    color: var(--color-white);
+  }
+</style>
