@@ -4,49 +4,62 @@ import BackToTop from '@components/BackToTop.astro';
 
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
+
+// TODO Add custom navigation?
+// TODO Add aria-hidden="true" to hr element
 ---
 
-<div class='wrapper' {...storyblokEditable(blok)}>
-  <h1>{blok.title}</h1>
-  <p>{blok.summary}</p>
-  <Fragment set:html={content} />
+<div id='blog-post-wrapper' {...storyblokEditable(blok)}>
+  <header>
+    <h1>{blok.title}</h1>
+  </header>
+  <main>
+    <div id='content-container' set:html={content} />
+  </main>
 </div>
 <BackToTop />
 
 <style lang='scss' is:global>
-  body {
-    background: var(--color-black-alt);
-    color: var(--color-white-alt);
-  }
-
-  .wrapper {
+  #blog-post-wrapper {
     max-width: 768px;
     margin: 0 auto var(--space-m) auto;
     padding: 0 var(--space-s);
 
     h1 {
-      border-bottom: 3px solid var(--color-white);
+      border-bottom: 3px solid var(--color-white-alt);
       margin: var(--space-m) 0;
       padding-bottom: var(--space-m);
     }
 
-    h2 {
-      margin-bottom: var(--space-s);
-    }
+    #content-container {
+      h2 {
+        margin-bottom: var(--space-m);
+      }
 
-    a,
-    p {
-      font-family: 'Atkinson Hyperlegible';
-    }
+      a,
+      p {
+        font-family: 'Atkinson Hyperlegible';
+      }
 
-    p {
-      margin: var(--space-s) 0;
-    }
+      p > img {
+        width: 100%;
+      }
 
-    a:hover,
-    a:focus,
-    a:focus-visible {
-      background: blue;
+      p {
+        margin: var(--space-m) 0;
+      }
+
+      hr {
+        border: 1px solid var(--color-white-alt);
+        margin: var(--space-m) auto;
+        max-width: 96px;
+      }
+
+      a:hover,
+      a:focus,
+      a:focus-visible {
+        background: blue;
+      }
     }
   }
 </style>

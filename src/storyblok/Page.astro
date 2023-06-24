@@ -1,6 +1,8 @@
 ---
 import { SbBlokData, storyblokEditable } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import BackToTop from '@components/BackToTop.astro';
+
 const { blok } = Astro.props;
 ---
 
@@ -10,6 +12,7 @@ const { blok } = Astro.props;
       return <StoryblokComponent blok={blok} />;
     })
   }
+  <BackToTop />
 </main>
 
 <style>

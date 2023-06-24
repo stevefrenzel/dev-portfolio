@@ -13,7 +13,7 @@ import send from '@images/icons/send.svg';
     href='#contact'
     title='Contact'
   />
-  <p>
+  <p class='paragraph'>
     Do you feel like working with me? Do you or your team <mark
       >need a workshop on accessibility and inclusive design</mark
     >? Then just write me via this form:
@@ -58,11 +58,7 @@ import send from '@images/icons/send.svg';
       text='Error: Please enter at least ten characters.'
     />
 
-    <div
-      aria-live='assertive'
-      class='error-summary dont-show'
-      id='error-summary'
-    >
+    <div aria-live='assertive' class='dont-show' id='error-summary'>
       <p></p>
     </div>
 
@@ -72,87 +68,92 @@ import send from '@images/icons/send.svg';
   </form>
 </section>
 
-<style lang='scss'>
-  section {
-    max-width: 768px;
-  }
-
-  p {
-    margin-top: var(--space-xs);
-    max-width: 768px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    margin: var(--space-l) 0 0 0;
+<style lang='scss' is:global>
+  #contact {
     max-width: 768px;
 
-    label:first-child {
-      margin-top: 0;
+    .paragraph {
+      margin-top: var(--space-xs);
+      max-width: 768px;
     }
-  }
 
-  label {
-    margin-bottom: var(--space-3xs);
-    margin-top: var(--space-s);
-  }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: var(--space-l) 0 0 0;
+      max-width: 768px;
 
-  input {
-    cursor: pointer;
-    height: 48px;
-  }
+      label:first-child {
+        margin-top: 0;
+      }
+    }
 
-  textarea {
-    resize: vertical;
-  }
+    label {
+      margin-bottom: var(--space-3xs);
+      margin-top: var(--space-s);
+    }
 
-  #username,
-  #user-e-mail,
-  #user-message {
-    border: none;
-    outline-color: var(--color-accent-contact);
-  }
+    input {
+      cursor: pointer;
+      height: 48px;
+    }
 
-  button {
-    align-items: center;
-    background: var(--color-black);
-    border: 3px solid var(--color-white);
-    color: var(--color-white);
-    cursor: pointer;
-    display: flex;
-    font-size: var(--step-0);
-    height: 72px;
-    justify-content: center;
-    margin-top: var(--space-l);
+    textarea {
+      resize: vertical;
+    }
 
-    &:hover,
-    &:focus,
-    &:focus-visible {
+    #username,
+    #user-e-mail,
+    #user-message {
+      border: none;
       outline-color: var(--color-accent-contact);
     }
 
-    img {
-      margin-left: var(--space-xs);
+    button {
+      align-items: center;
+      background: var(--color-black);
+      border: 3px solid var(--color-white);
+      color: var(--color-white);
+      cursor: pointer;
+      display: flex;
+      font-family: 'Space Mono', monospace;
+      font-size: var(--step-1);
+      height: 72px;
+      justify-content: center;
+      margin-top: var(--space-l);
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline-color: var(--color-accent-contact);
+      }
+
+      img {
+        margin-left: var(--space-xs);
+      }
     }
-  }
 
-  #error-summary {
-    background: #fae9e8;
-    border-left: 5px solid red;
-    display: flex;
-    margin-top: var(--space-l);
+    #error-summary {
+      background: #fae9e8;
+      border-left: 5px solid red;
+      display: flex;
+      margin-top: var(--space-l);
 
-    p {
+      p {
+        color: var(--color-black);
+        font-style: italic;
+        padding: var(--space-3xs);
+      }
+    }
+
+    mark {
+      background: var(--color-accent-contact);
       color: var(--color-black);
-      font-style: italic;
-      padding: var(--space-3xs);
     }
-  }
 
-  mark {
-    background: var(--color-accent-contact);
-    color: var(--color-black);
+    .dont-show {
+      display: none !important;
+    }
   }
 </style>
 

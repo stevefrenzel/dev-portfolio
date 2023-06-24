@@ -27,7 +27,7 @@
   --color-black: #101010;
   --color-white: #fefefe;
   --color-black-alt: #252525;
-  --color-white-alt: #e4e5e5;
+  --color-white-alt: #e5e5e5;
 
   /* Colors - accent */
   --color-accent-projects: #98003f;
@@ -93,6 +93,11 @@
   }
 }
 
+body {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
 section {
   margin: 0 auto;
   padding: 0 var(--space-s);
@@ -137,12 +142,4 @@ footer {
   color: var(--color-white);
   font-family: 'Space Mono', monospace;
   font-size: var(--step-0);
-}
-
-.anchor {
-  height: 72px;
-}
-
-.dont-show {
-  display: none !important;
 }
