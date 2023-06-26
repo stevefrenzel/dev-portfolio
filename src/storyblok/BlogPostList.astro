@@ -1,7 +1,6 @@
 ---
 import { storyblokEditable } from '@storyblok/astro';
 import { useStoryblokApi } from '@storyblok/astro';
-import { Image } from '@astrojs/image/components';
 
 const storyblokApi = useStoryblokApi();
 
@@ -44,7 +43,14 @@ const { blok } = Astro.props;
       }) => (
         <li>
           {post.image ? (
-            <Image src={post.image} alt='' height={300} width={600} />
+            <img
+              alt=''
+              height={300}
+              decoding='async'
+              loading='lazy'
+              src={post.image}
+              width={600}
+            />
           ) : null}
           <h2>
             <a href={post.slug}>{post.title}</a>
