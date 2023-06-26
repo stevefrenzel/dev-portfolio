@@ -10,21 +10,31 @@ import BackToTop from '@components/BackToTop.astro';
   websiteUrl='https://stevefrenzel.dev/resume/'
   title='Steve Frenzel - Resume'
 >
-  <Intro />
-  <main class='wrapper'>
-    <WorkExperience />
-    <Misc />
-    <BackToTop />
-  </main>
+  <div class='resume-container'>
+    <Intro />
+    <main class='wrapper'>
+      <WorkExperience />
+      <Misc />
+      <BackToTop />
+    </main>
+  </div>
 </Layout>
 
-<style>
-  .wrapper {
-    justify-items: start;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    max-width: 1536px;
-    margin: 0 auto;
-    padding: 0 var(--space-s);
+<style lang='scss' is:global>
+  .resume-container {
+    a:not(.anchor-link),
+    p {
+      font-family: 'Atkinson Hyperlegible';
+      font-size: var(--step-1);
+    }
+
+    .wrapper {
+      justify-items: start;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      max-width: 1536px;
+      margin: 0 auto;
+      padding: 0 var(--space-s);
+    }
   }
 </style>

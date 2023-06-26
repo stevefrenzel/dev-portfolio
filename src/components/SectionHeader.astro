@@ -11,7 +11,7 @@ const { ariaLabel, accentColor, href, title } = Astro.props;
 
 <div class='section-header'>
   <h2 set:html={title}>
-    <a aria-label={ariaLabel} href={href}>#</a>
+    <a aria-label={ariaLabel} class='anchor-link' href={href}>#</a>
   </h2>
 </div>
 
