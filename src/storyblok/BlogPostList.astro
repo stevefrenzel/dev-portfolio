@@ -23,7 +23,7 @@ const posts = data.stories.map((story: any) => {
     title: story.content.title,
     date: formattedDate,
     summary: story.content.summary,
-    slug: 'blog/' + story.full_slug,
+    slug: story.full_slug,
     datetime: date.toISOString().split('T')[0],
   };
 });
@@ -43,7 +43,9 @@ const { blok } = Astro.props;
         image: string;
       }) => (
         <li>
-          <Image src={post.image} alt='' height={300} width={600} />
+          {post.image ? (
+            <Image src={post.image} alt='' height={300} width={600} />
+          ) : null}
           <h2>
             <a href={post.slug}>{post.title}</a>
           </h2>

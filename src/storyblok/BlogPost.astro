@@ -4,9 +4,6 @@ import BackToTop from '@components/BackToTop.astro';
 
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
-
-// TODO Add custom navigation?
-// TODO Add aria-hidden="true" to hr element
 ---
 
 <div id='blog-post-wrapper' {...storyblokEditable(blok)}>
@@ -39,10 +36,15 @@ const content = renderRichText(blok.content);
       a,
       p {
         font-family: 'Atkinson Hyperlegible';
+        font-size: var(--step-1);
       }
 
       p > img {
         width: 100%;
+      }
+
+      li > p {
+        margin: 0;
       }
 
       p {
