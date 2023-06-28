@@ -145,5 +145,5 @@ label,
 footer {
   color: var(--color-white);
   font-family: 'Space Mono', monospace;
-  font-size: var(--step-0);
+  font-size: var(--step-1);
 }

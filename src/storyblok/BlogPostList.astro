@@ -22,7 +22,7 @@ const posts = data.stories.map((story: any) => {
     title: story.content.title,
     date: formattedDate,
     summary: story.content.summary,
-    slug: story.full_slug,
+    slug: import.meta.env.DEV ? 'blog/' + story.full_slug : story.full_slug,
     datetime: date.toISOString().split('T')[0],
   };
 });

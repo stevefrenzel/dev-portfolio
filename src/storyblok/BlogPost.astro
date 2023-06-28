@@ -1,5 +1,7 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image } from '@astrojs/image/components';
+import arrow from '@images/icons/arrow-upward.svg';
 import BackToTop from '@components/BackToTop.astro';
 
 const { blok } = Astro.props;
@@ -9,6 +11,9 @@ const content = renderRichText(blok.content);
 <div id='blog-post-wrapper' {...storyblokEditable(blok)}>
   <header>
     <h1>{blok.title}</h1>
+    <a aria-label='Back to blog' href='/blog' id='back-to-blog'>
+      <Image alt='Back to blog' src={arrow} />
+    </a>
   </header>
   <main>
     <div id='content-container' set:html={content} />
@@ -22,10 +27,18 @@ const content = renderRichText(blok.content);
     margin: 0 auto var(--space-m) auto;
     padding: 0 var(--space-s);
 
-    h1 {
+    header {
       border-bottom: 3px solid var(--color-white-alt);
       margin: var(--space-m) 0;
       padding-bottom: var(--space-m);
+    }
+
+    #back-to-blog {
+      background: rgba(0, 0, 0, 0.368);
+      left: 12px;
+      position: fixed;
+      rotate: (270deg);
+      top: 12px;
     }
 
     #content-container {
@@ -36,7 +49,6 @@ const content = renderRichText(blok.content);
       a,
       p {
         font-family: 'Atkinson Hyperlegible', serif;
-        font-size: var(--step-1);
       }
 
       p > img {

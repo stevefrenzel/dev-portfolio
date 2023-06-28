@@ -2,6 +2,43 @@
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import Layout from '@layouts/Layout.astro';
+import { Image } from '@astrojs/image/components';
+
+import desktop from '@images/icons/desktop.svg';
+import gitHub from '@images/icons/github-white.svg';
+import linkedIn from '@images/icons/linkedin-white.svg';
+import mastodon from '@images/icons/mastodon-white.svg';
+
+const links = [
+  {
+    href: 'https://www.stevefrenzel.dev',
+    height: 36,
+    name: 'Website',
+    src: desktop,
+    width: 36,
+  },
+  {
+    href: 'https://www.linkedin.com/in/stevefrenzel',
+    height: 36,
+    name: 'LinkedIn',
+    src: linkedIn,
+    width: 36,
+  },
+  {
+    href: 'https://github.com/stevefrenzel',
+    height: 36,
+    name: 'GitHub',
+    src: gitHub,
+    width: 36,
+  },
+  {
+    href: 'https://mastodon.online/@stvfrnzl',
+    height: 36,
+    name: 'Mastodon',
+    src: mastodon,
+    width: 36,
+  },
+];
 
 const storyblokApi = useStoryblokApi();
 let content;
@@ -30,15 +67,41 @@ try {
   title='Steve Frenzel - Blog'
 >
   <header class='text'>
-    <h1>Steve Frenzel - Blog</h1>
-    <p>
-      Welcome to the collection of my thoughts! Here I write about topics like
-      <mark id='mark'
-        >web development, music, books, hot sauces and everything else</mark
-      >
-      I have an opinion about.
-    </p>
-    <hr />
+    <div class='grid-container'>
+      <div class='content-left'>
+        <h1>Steve Frenzel - Blog</h1>
+        <p>
+          Welcome to the collection of my thoughts! Here I write about topics
+          like
+          <mark id='mark'
+            >web development, music, books, hot sauces and everything else</mark
+          >
+          I have an opinion about.
+        </p>
+      </div>
+      <div class='content-right'>
+        <ul role='list'>
+          {
+            links.map((link) => (
+              <li>
+                <Image
+                  alt=''
+                  height={link.height}
+                  src={link.src}
+                  width={link.width}
+                />
+                <a href={link.href} rel='noopener noreferrer'>
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class='hr-wrapper'>
+      <hr aria-hidden='true' />
+    </div>
   </header>
   <div>
     <StoryblokComponent blok={content} />
@@ -46,9 +109,16 @@ try {
 </Layout>
 
 <style>
-  .text {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: 1536px;
-    margin: 0 auto;
+    margin: var(--space-s) auto;
+    gap: var(--space-s);
+  }
+  .content-left,
+  .content-right {
+    align-self: center;
   }
 
   h1 {
@@ -60,10 +130,29 @@ try {
     padding: 0 var(--space-s);
   }
 
+  .hr-wrapper {
+    margin: 0 auto var(--space-m) auto;
+    max-width: 1536px;
+  }
+
   hr {
     border-bottom: 3px solid var(--color-white);
-    margin: var(--space-l) var(--space-s);
-    max-width: 1536px;
+    margin: 0 var(--space-s);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    margin: 0;
+    padding: 0 var(--space-s);
+  }
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
   }
 
   .color-1 {
