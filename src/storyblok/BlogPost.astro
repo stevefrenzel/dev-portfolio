@@ -74,6 +74,17 @@ const content = renderRichText(blok.content);
       a:focus-visible {
         background: blue;
       }
+
+      blockquote {
+        border-left: 3px solid var(--color-white-alt);
+        padding-left: var(--space-s);
+        color: var(--color-white) !important;
+      }
+
+      blockquote > p > span {
+        color: var(--color-white) !important;
+        font-style: italic;
+      }
     }
   }
 </style>
