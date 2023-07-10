@@ -42,16 +42,6 @@ const { blok } = Astro.props;
         image: string;
       }) => (
         <li>
-          {post.image ? (
-            <img
-              alt=''
-              height={300}
-              decoding='async'
-              loading='lazy'
-              src={post.image}
-              width={600}
-            />
-          ) : null}
           <h2>
             <a href={post.slug}>{post.title}</a>
           </h2>
@@ -70,13 +60,13 @@ const { blok } = Astro.props;
     list-style-type: none;
     margin: 0 0 var(--space-l) 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-s);
+    display: flex;
+    flex-direction: column;
   }
 
   li {
-    background: var(--color-black-alt);
+    border: 0.1px dashed var(--color-white-alt);
   }
 
   img {

@@ -1,29 +1,39 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
-import { Image } from '@astrojs/image/components';
-import arrow from '@images/icons/arrow-upward.svg';
+import { marked } from 'marked';
 import BackToTop from '@components/BackToTop.astro';
 
+marked.use({
+  mangle: false,
+  headerIds: false,
+});
+
 const { blok } = Astro.props;
-const content = renderRichText(blok.content);
+const markdownContent = marked.parse(blok.markdown);
+
+const date = new Date(blok.date);
+const formattedDate = date.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
 ---
 
 <div id='blog-post-wrapper' {...storyblokEditable(blok)}>
   <header>
     <h1>{blok.title}</h1>
-    <a aria-label='Back to blog' href='/blog' id='back-to-blog'>
-      <Image alt='Back to blog' src={arrow} />
-    </a>
+    <p id='blog-date'>Published on {formattedDate}</p>
   </header>
   <main>
-    <div id='content-container' set:html={content} />
+    <Fragment set:html={markdownContent} />
   </main>
 </div>
 <BackToTop />
 
 <style lang='scss' is:global>
   #blog-post-wrapper {
-    max-width: 1152px;
+    background: var(--color-black-alt);
+    max-width: 768px;
     margin: 0 auto var(--space-m) auto;
     padding: 0 var(--space-s);
 
@@ -33,64 +43,67 @@ const content = renderRichText(blok.content);
       padding-bottom: var(--space-m);
     }
 
-    #back-to-blog {
-      background: rgba(0, 0, 0, 0.368);
-      left: 12px;
-      position: fixed;
-      rotate: (270deg);
-      top: 12px;
+    h2 {
+      margin-bottom: var(--space-m);
     }
 
-    #content-container {
-      h2 {
-        margin-bottom: var(--space-m);
-      }
+    a,
+    p,
+    li,
+    time {
+      font-family: 'Atkinson Hyperlegible', serif;
+    }
 
-      a,
-      p {
-        font-family: 'Atkinson Hyperlegible', serif;
-      }
+    p > img {
+      width: 100%;
+    }
 
-      p > img {
-        border: 1px solid var(--color-white-alt);
-        width: 100%;
-      }
+    li > p {
+      margin: 0;
+    }
 
-      li > p {
-        margin: 0;
-      }
+    p {
+      margin: var(--space-m) 0;
+    }
 
-      p {
-        margin: var(--space-m) 0;
-      }
+    #blog-date {
+      margin-bottom: 0;
+    }
 
-      hr {
-        border: 1px solid var(--color-white-alt);
-        margin: var(--space-m) auto;
-        max-width: 96px;
-      }
+    hr {
+      border: 1px solid var(--color-white-alt);
+      margin: var(--space-m) auto;
+      max-width: 96px;
+    }
 
-      a:hover,
-      a:focus,
-      a:focus-visible {
-        background: blue;
-      }
+    a {
+      background: var(--color-accent-projects);
+    }
 
-      blockquote {
-        border-left: 3px solid var(--color-white-alt);
-        padding-left: var(--space-s);
-        color: var(--color-white) !important;
-      }
+    blockquote {
+      border-left: 3px solid var(--color-white-alt);
+      padding-left: var(--space-s);
+      color: var(--color-white) !important;
+    }
 
-      blockquote > p > span {
-        color: var(--color-white) !important;
-        font-style: italic;
-      }
+    blockquote > p > span {
+      color: var(--color-white) !important;
+      font-style: italic;
+    }
 
-      p > code {
-        background: var(--color-black-alt);
-        color: var(--color-accent-about);
-      }
+    p > code {
+      background: var(--color-black-alt);
+      color: var(--color-accent-about);
+      font-size: var(--step-0);
+    }
+
+    ul,
+    time {
+      font-size: var(--step-1);
+    }
+
+    ul {
+      margin: 0;
     }
   }
 </style>
