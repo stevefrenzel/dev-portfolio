@@ -1,6 +1,7 @@
 ---
 import JobDescription from '@components/resume/JobDescription.astro';
 import SectionHeader from '@components/SectionHeader.astro';
+import DividerSmall from '@components/DividerSmall.astro';
 
 const tasksSellwerk = [
   'Giving feedback for designs directly in Figma before creating them with Nuxt and Vuetify',
@@ -30,7 +31,9 @@ const tasksFifthIndustry = [
 
 <section aria-label='Work experience' id='experience'>
   <SectionHeader title='Experience' ariaLabel='Experience' href='#experience' />
+
   <div class='spacer'></div>
+
   <JobDescription
     heading='Frontend Developer & Accessibility Engineer'
     company='Sellwerk GmbH & Co. KG'
@@ -38,7 +41,9 @@ const tasksFifthIndustry = [
     description='Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively.'
     tasks={tasksSellwerk}
   />
-  <hr aria-hidden='true' />
+
+  <DividerSmall />
+
   <JobDescription
     heading='Frontend Developer'
     company='nexum AG'
@@ -46,7 +51,9 @@ const tasksFifthIndustry = [
     description='Consulting agency for communication, interaction and transaction in the digital age.'
     tasks={tasksNexum}
   />
-  <hr aria-hidden='true' />
+
+  <DividerSmall />
+
   <JobDescription
     heading='Frontend Developer'
     company='5thIndustry GmbH'
@@ -54,6 +61,8 @@ const tasksFifthIndustry = [
     description='Internet-of-things company specializing in production and logistics to enable higher productivity.'
     tasks={tasksFifthIndustry}
   />
+
+  <DividerSmall />
 </section>
 
 <style>

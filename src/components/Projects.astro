@@ -122,9 +122,10 @@ const projects = [
     text-align: center;
   }
 
-  img:not(.divider) {
-    margin-bottom: var(--space-3xs);
-    object-fit: contain;
+  img {
+    box-shadow: 5px 5px 0px 0px var(--color-black-alt);
+    margin-bottom: var(--space-xs);
+    object-fit: cover;
   }
 
   mark {
@@ -135,6 +136,7 @@ const projects = [
   a:hover,
   a:focus,
   a:focus-visible {
+    color: #f6026a;
     outline-color: #f6026a;
   }
 </style>

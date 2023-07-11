@@ -1,5 +1,6 @@
 ---
 import SectionHeader from '@components/SectionHeader.astro';
+import DividerSmall from '@components/DividerSmall.astro';
 import Chip from '@components/resume/Chip.astro';
 
 const skills = [
@@ -81,6 +82,8 @@ const languages = [
     </ul>
   </div>
 
+  <DividerSmall />
+
   <div id='buzzwords'>
     <SectionHeader ariaLabel='Buzzwords' href='#buzzwords' title='Buzzwords' />
     <ul class='chips-list' role='list'>
@@ -93,6 +96,8 @@ const languages = [
       }
     </ul>
   </div>
+
+  <DividerSmall />
 
   <div id='education'>
     <SectionHeader ariaLabel='Education' href='#education' title='Education' />
@@ -108,6 +113,8 @@ const languages = [
       }
     </ul>
   </div>
+
+  <DividerSmall />
 
   <div id='languages'>
     <SectionHeader ariaLabel='Languages' href='#languages' title='Languages' />

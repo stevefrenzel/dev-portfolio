@@ -1,4 +1,4 @@
-<nav id='navigation'>
+<nav>
   <ul role='list'>
     <li><a href='#intro'>Intro</a></li>
     <li><a href='#projects'>Projects</a></li>
@@ -26,24 +26,63 @@
   li:nth-child(2) {
     a {
       outline-color: #f6026a;
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: #f6026a;
+      }
     }
   }
 
   li:nth-child(3) {
     a {
       outline-color: var(--color-accent-collaborations);
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: var(--color-accent-collaborations);
+      }
     }
   }
 
   li:nth-child(4) {
     a {
       outline-color: var(--color-accent-about);
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: var(--color-accent-about);
+      }
     }
   }
 
   li:nth-child(5) {
     a {
       outline-color: var(--color-accent-contact);
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: var(--color-accent-contact);
+      }
+    }
+  }
+
+  li:nth-child(6),
+  li:nth-child(7) {
+    a {
+      outline-color: var(--color-white);
+      transition: 0.25s ease;
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background: var(--color-white);
+        color: var(--color-black);
+      }
     }
   }
 
@@ -51,5 +90,44 @@
     color: var(--color-white);
     text-transform: uppercase;
     text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    block-size: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--color-white) var(--color-black-alt);
+  }
+
+  nav::-webkit-scrollbar {
+    block-size: 1rem;
+  }
+
+  nav::-webkit-scrollbar-track {
+    background-color: var(--color-black-alt);
+  }
+
+  nav::-webkit-scrollbar-thumb {
+    background-color: var(--color-black-alt);
+    background-image: linear-gradient(
+      var(--color-black-alt) 0,
+      var(--color-black-alt) 0.25rem,
+      var(--color-white) 0.25rem,
+      var(--color-white) 0.75rem,
+      var(--color-black-alt) 0.75rem
+    );
+  }
+
+  nav > * {
+    flex: 0 0 auto;
+  }
+
+  nav > * + * {
+    margin-inline-start: 1rem;
+  }
+
+  nav.overflowing {
+    padding-block-end: 1rem;
   }
 </style>
