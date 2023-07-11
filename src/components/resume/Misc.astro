@@ -160,19 +160,28 @@ const languages = [
 
   #education-list,
   #languages-list {
-    p:nth-child(2) {
-      font-family: 'Syne', sans-serif;
-    }
-    p:nth-child(3) {
-      font-style: italic;
-    }
-
     li {
       margin-bottom: var(--space-l);
 
       &:last-child() {
         margin-bottom: 0;
       }
+    }
+  }
+
+  #education-list {
+    p:nth-child(2) {
+      font-family: 'Syne', sans-serif;
+    }
+    p:nth-child(3) {
+      font-style: italic;
+    }
+  }
+
+  #languages-list {
+    p {
+      font-family: 'Atkinson Hyperlegible', serif;
+      font-style: italic;
     }
   }
 </style>

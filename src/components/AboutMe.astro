@@ -4,27 +4,27 @@ import Divider from '@components/Divider.astro';
 
 const content = [
   {
-    headline: 'Creating 👷‍♂️',
+    headline: 'Creating <span aria-hidden="true">👷‍♂️</span>',
     description:
       'Constructing websites with <i><strong>proven and easy to maintain</strong></i> technologies and patterns.',
   },
   {
-    headline: 'Writing ✍️',
+    headline: 'Writing <span aria-hidden="true">✍️</span>',
     description:
       'Detailed <i><strong>documentation of the process</strong></i> in an easy to understand way.',
   },
   {
-    headline: 'Coding 👨‍💻',
+    headline: 'Coding <span aria-hidden="true">👨‍💻</span>',
     description:
       'Writing <i><strong>clean code</strong></i> that is well structured and self-explanatory.',
   },
   {
-    headline: 'Planning 📒',
+    headline: 'Planning <span aria-hidden="true">📒</span>',
     description:
       'Assessing the accessibility of a product and <i><strong>creating a road map</strong></i> on how to improve it (if necessary).',
   },
   {
-    headline: 'Educating 💡',
+    headline: 'Educating <span aria-hidden="true">💡</span>',
     description:
       'Doing <i><strong>interactive</strong></i> workshops to educate or deepen knowledge about accessibility.',
   },
@@ -48,7 +48,7 @@ const content = [
       content.map((content) => (
         <li>
           <div>
-            <h3>{content.headline}</h3>
+            <h3 set:html={content.headline} />
             <p set:html={content.description} />
           </div>
         </li>
@@ -64,7 +64,6 @@ const content = [
   }
 
   ul {
-    align-items: center;
     display: grid;
     gap: var(--space-xl);
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
