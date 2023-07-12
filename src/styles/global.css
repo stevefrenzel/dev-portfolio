@@ -137,5 +137,5 @@ label,
 footer {
   color: var(--color-white);
   font-family: 'Atkinson Hyperlegible', serif;
-  font-size: var(--step-2);
+  font-size: var(--step-1);
 }
