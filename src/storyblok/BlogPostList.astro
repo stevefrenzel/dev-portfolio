@@ -1,6 +1,7 @@
 ---
 import { storyblokEditable } from '@storyblok/astro';
 import { useStoryblokApi } from '@storyblok/astro';
+import { Image } from '@astrojs/image/components';
 
 const storyblokApi = useStoryblokApi();
 
@@ -18,12 +19,13 @@ const posts = data.stories.map((story: any) => {
   });
 
   return {
-    image: story.content.image,
-    title: story.content.title,
     date: formattedDate,
-    summary: story.content.summary,
-    slug: import.meta.env.DEV ? 'blog/' + story.full_slug : story.full_slug,
     datetime: date.toISOString().split('T')[0],
+    image: story.content.image,
+    slug: import.meta.env.DEV ? 'blog/' + story.full_slug : story.full_slug,
+    summary: story.content.summary,
+    tagList: story.tag_list,
+    title: story.content.title,
   };
 });
 
@@ -34,21 +36,36 @@ const { blok } = Astro.props;
   {
     posts.map(
       (post: {
-        date: unknown;
-        slug: string | URL | null | undefined;
-        title: unknown;
-        summary: unknown;
+        date: string;
         datetime: string;
         image: string;
+        slug: string | URL | null | undefined;
+        summary: string;
+        tagList: string[] | null | undefined;
+        title: string;
       }) => (
         <li>
-          <h2>
-            <a href={post.slug}>{post.title}</a>
-          </h2>
-          <time class='sub-headline' datetime={post.datetime}>
-            {post.date}
-          </time>
-          {post.summary ? <p>{post.summary}</p> : null}
+          <div>
+            <Image alt='' src={post.image} width={300} height={300} />
+            <h2>
+              <a href={post.slug}>{post.title}</a>
+            </h2>
+            <time class='sub-headline' datetime={post.datetime}>
+              {post.date}
+            </time>
+            <p>{post.summary}</p>
+            </div>
+
+            <div>
+              {post.tagList ? (
+                <h3>Keywords</h3>
+                <div class='tags-container'>
+                  {post.tagList.map((item) => (
+                    <span>{item}</span>
+                  ))}
+                </div>
+              ) : null}
+              </div>
         </li>
       )
     )
@@ -57,16 +74,22 @@ const { blok } = Astro.props;
 
 <style lang='scss'>
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
     list-style-type: none;
     margin: 0 0 var(--space-l) 0;
     padding: 0;
-    gap: var(--space-s);
-    display: flex;
-    flex-direction: column;
   }
 
   li {
-    border: 0.1px dashed var(--color-white-alt);
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    width: 300px;
+
   }
 
   img {
@@ -85,17 +108,39 @@ const { blok } = Astro.props;
     margin-bottom: var(--space-2xs);
   }
 
+  h3 {
+    font-size: var(--step-1);
+    margin-left: var(--space-s);
+  }
+
   .sub-headline {
     font-size: var(--space-s);
   }
 
   p {
     font-family: 'Atkinson Hyperlegible', serif;
+    font-size: var(--step-1);
     margin: var(--space-s) 0;
   }
 
   a {
-    font-size: var(--step-2);
     font-family: 'Syne', sans-serif;
+    font-size: var(--step-2);
+  }
+
+  .tags-container {
+    font-family: 'Atkinson Hyperlegible', serif;
+    font-size: var(--step-0);
+    margin: var(--space-s);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+
+    span {
+      background: var(--color-white-alt);
+      color: var(--color-black-alt);
+      padding: 0 var(--space-3xs);
+      border-radius: 5px;
+    }
   }
 </style>

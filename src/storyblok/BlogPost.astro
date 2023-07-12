@@ -1,5 +1,5 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { storyblokEditable } from '@storyblok/astro';
 import { marked } from 'marked';
 import BackToTop from '@components/BackToTop.astro';
 
@@ -32,15 +32,13 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
 <style lang='scss' is:global>
   #blog-post-wrapper {
-    background: var(--color-black-alt);
     max-width: 768px;
     margin: 0 auto var(--space-m) auto;
     padding: 0 var(--space-s);
 
     header {
       border-bottom: 3px solid var(--color-white-alt);
-      margin: var(--space-m) 0;
-      padding-bottom: var(--space-m);
+      padding: var(--space-m) 0;
     }
 
     h2 {
