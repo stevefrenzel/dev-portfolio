@@ -46,15 +46,15 @@ const { blok } = Astro.props;
         <li>
           <div>
             {post.image ? (
-            <img
-              alt=''
-              height={300}
-              decoding='async'
-              loading='lazy'
-              src={post.image}
-              width={300}
-            />
-          ) : null}
+              <img
+                alt=''
+                height={300}
+                decoding='async'
+                loading='lazy'
+                src={post.image}
+                width={300}
+              />
+            ) : null}
             <h2>
               <a href={post.slug}>{post.title}</a>
             </h2>
@@ -62,18 +62,16 @@ const { blok } = Astro.props;
               {post.date}
             </time>
             <p>{post.summary}</p>
-            </div>
+          </div>
 
-            <div>
-              {post.tagList ? (
-                <h3>Keywords</h3>
-                <div class='tags-container'>
-                  {post.tagList.map((item) => (
-                    <span>{item}</span>
-                  ))}
-                </div>
-              ) : null}
-              </div>
+          <div class='tags-container'>
+            <h3>Keywords</h3>
+            <ul class='tags' role='list'>
+              {post.tagList?.map((item) => (
+                <span role='listitem'>{item}</span>
+              ))}
+            </ul>
+          </div>
         </li>
       )
     )
@@ -96,8 +94,11 @@ const { blok } = Astro.props;
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
-    width: 300px;
+    width: 400px;
 
+    &:first-child {
+      width: 100%;
+    }
   }
 
   img {
@@ -118,7 +119,6 @@ const { blok } = Astro.props;
 
   h3 {
     font-size: var(--step-1);
-    margin-left: var(--space-s);
   }
 
   .sub-headline {
@@ -136,18 +136,26 @@ const { blok } = Astro.props;
   }
 
   .tags-container {
-    font-family: 'Atkinson Hyperlegible', serif;
-    font-size: var(--step-0);
+    border: 1px dashed grey;
+    border-radius: 10px;
     margin: var(--space-s);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
+    padding: var(--space-s);
+    width: fit-content;
 
-    span {
-      background: var(--color-white-alt);
-      color: var(--color-black-alt);
-      padding: 0 var(--space-3xs);
-      border-radius: 5px;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      font-family: 'Atkinson Hyperlegible', serif;
+      font-size: var(--step-0);
+      gap: var(--space-s);
+      margin: var(--space-s) 0 0 0;
+
+      span {
+        background: var(--color-white-alt);
+        border-radius: 5px;
+        color: var(--color-black-alt);
+        padding: 0 var(--space-3xs);
+      }
     }
   }
 </style>
