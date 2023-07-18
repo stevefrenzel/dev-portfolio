@@ -7,6 +7,7 @@ import { loadEnv } from 'vite';
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 export default defineConfig({
+  compressHTML: true,
   integrations: [
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
@@ -21,6 +22,7 @@ export default defineConfig({
       },
     }),
   ],
+  site: 'https://www.stevefrenzel.dev',
   // vite: {
   //   plugins: [basicSsl()],
   //   server: {

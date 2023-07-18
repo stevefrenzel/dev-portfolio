@@ -4,18 +4,16 @@ import '../styles/global.css';
 import StartAnchor from '@components/StartAnchor.astro';
 
 export interface Props {
-  websiteUrl: string;
   title: string;
 }
 
-const { websiteUrl, title } = Astro.props;
+const { title } = Astro.props;
 
 const metaData = {
   keywords:
     'web development, programming, accessibility, html, css, javascript',
   description:
     'Designing and implementing robust and inclusive websites. Also teaching about accessibility!',
-  imageSource: 'https://stevefrenzel.dev/seo.png',
   imageType: 'image/png',
   imageWidth: '1600',
   imageHeight: '882',
@@ -23,6 +21,9 @@ const metaData = {
   siteName: 'Steve Frenzel',
   twitterCard: 'summary_large_image',
 };
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL('/seo.png', Astro.url);
 ---
 
 <!DOCTYPE html>
@@ -34,14 +35,14 @@ const metaData = {
     <meta name='keywords' content={metaData.keywords} />
     <meta name='description' content={metaData.description} />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <link rel='canonical' href={websiteUrl} />
+    <link rel='canonical' href={canonicalURL} />
     <title>{title}</title>
-    <meta property='og:url' content={websiteUrl} />
+    <meta property='og:url' content={canonicalURL} />
     <meta property='og:type' content={metaData.type} />
     <meta property='og:site_name' content={metaData.siteName} />
     <meta property='og:description' content={metaData.description} />
     <meta property='og:title' content={title} />
-    <meta property='og:image' content={metaData.imageSource} />
+    <meta property='og:image' content={socialImageURL} />
     <meta property='og:image:type' content={metaData.imageType} />
     <meta property='og:image:alt' content={title} />
     <meta property='og:image:width' content={metaData.imageWidth} />
@@ -49,7 +50,7 @@ const metaData = {
     <meta name='twitter:card' content={metaData.twitterCard} />
     <meta name='twitter:title' content={title} />
     <meta name='twitter:description' content={metaData.description} />
-    <meta name='twitter:image' content={metaData.imageSource} />
+    <meta name='twitter:image' content={socialImageURL} />
     <meta name='twitter:image:alt' content={title} />
   </head>
   <body>
