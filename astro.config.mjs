@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import image from '@astrojs/image';
 import storyblok from '@storyblok/astro';
-import basicSsl from '@vitejs/plugin-basic-ssl';
 import { loadEnv } from 'vite';
+// import basicSsl from '@vitejs/plugin-basic-ssl';
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
@@ -21,10 +21,10 @@ export default defineConfig({
       },
     }),
   ],
-  vite: {
-    plugins: [basicSsl()],
-    server: {
-      https: true,
-    },
-  },
+  // vite: {
+  //   plugins: [basicSsl()],
+  //   server: {
+  //     https: true,
+  //   },
+  // },
 });

@@ -1,22 +1,42 @@
 ---
+import { Image } from '@astrojs/image/components';
+
+interface TechStackItem {
+  icon: ImageMetadata;
+  name: string;
+}
+
 export interface Props {
   heading: string;
   company: string;
   timePeriod: string;
   description: string;
+  techStack: Array<TechStackItem>;
   tasks: string[];
 }
 
-const { heading, company, timePeriod, description, tasks } = Astro.props;
+const { heading, company, timePeriod, description, techStack, tasks } =
+  Astro.props;
 ---
 
 <article aria-label={company}>
   <h3>{company}</h3>
-  <p>{heading}</p>
-  <p>{timePeriod}</p>
+  <span>{heading}</span>
+  <span>{timePeriod}</span>
   <p>{description}</p>
+  <h4>Tech Stack</h4>
+  <ul class='listOne' role='list'>
+    {
+      techStack.map((item) => (
+        <li>
+          <Image alt='' height={32} src={item.icon} width={32} />
+          <span>{item.name}</span>
+        </li>
+      ))
+    }
+  </ul>
   <h4>Achievements & Tasks</h4>
-  <ul role='list'>
+  <ul class='listTwo' role='list'>
     {
       tasks.map((item) => (
         <li>
@@ -30,23 +50,56 @@ const { heading, company, timePeriod, description, tasks } = Astro.props;
 <style lang='scss'>
   article {
     padding-right: var(--space-s);
-
-    p:nth-child(2) {
-      font-family: 'Syne', sans-serif;
-    }
-
-    p:nth-child(3) {
-      font-style: italic;
-      margin-bottom: var(--space-s);
-    }
   }
+
+  h3 {
+    margin-bottom: var(--space-xs);
+  }
+
   h4 {
     margin-top: var(--space-l);
   }
-  ul {
-    list-style: initial !important;
+
+  span:nth-child(2) {
+    font-family: 'Syne', sans-serif;
+    font-size: var(--step-1);
   }
-  li {
+
+  span:nth-child(3) {
+    display: block;
+    font-family: 'Atkinson Hyperlegible', serif;
+    font-size: var(--step-1);
+
+    font-style: italic;
     margin-bottom: var(--space-s);
+  }
+
+  .listOne {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+
+    li {
+      align-items: center;
+      background: var(--color-black-alt);
+      border-radius: 5px;
+      display: flex;
+      gap: var(--space-2xs);
+      margin: 0;
+      padding: var(--space-3xs);
+      width: fit-content;
+    }
+    span {
+      font-family: 'Atkinson Hyperlegible', serif;
+      font-size: var(--step-0);
+    }
+  }
+
+  .listTwo {
+    list-style: initial !important;
+
+    li {
+      margin-bottom: var(--space-s);
+    }
   }
 </style>
