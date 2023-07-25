@@ -5,8 +5,6 @@
     <li><a href='#collaborations'>Collaborations</a></li>
     <li><a href='#about-me'>About me</a></li>
     <li><a href='#contact'>Contact</a></li>
-    <li><a href='/resume'>Resume</a></li>
-    <li><a href='/blog'>Blog</a></li>
   </ul>
 </nav>
 
@@ -90,44 +88,5 @@
     color: var(--color-white);
     text-transform: uppercase;
     text-decoration: none;
-  }
-
-  nav {
-    display: flex;
-    block-size: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-color: var(--color-white) var(--color-black-alt);
-  }
-
-  nav::-webkit-scrollbar {
-    block-size: 1rem;
-  }
-
-  nav::-webkit-scrollbar-track {
-    background-color: var(--color-black-alt);
-  }
-
-  nav::-webkit-scrollbar-thumb {
-    background-color: var(--color-black-alt);
-    background-image: linear-gradient(
-      var(--color-black-alt) 0,
-      var(--color-black-alt) 0.25rem,
-      var(--color-white) 0.25rem,
-      var(--color-white) 0.75rem,
-      var(--color-black-alt) 0.75rem
-    );
-  }
-
-  nav > * {
-    flex: 0 0 auto;
-  }
-
-  nav > * + * {
-    margin-inline-start: 1rem;
-  }
-
-  nav.overflowing {
-    padding-block-end: 1rem;
   }
 </style>
