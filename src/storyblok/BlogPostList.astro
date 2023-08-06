@@ -10,7 +10,7 @@ const { data } = await storyblokApi.get('cdn/stories', {
 });
 
 const posts = data.stories.map((story: any) => {
-  const date = new Date(story.published_at);
+  const date = new Date(story.first_published_at);
   const formattedDate = date.toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
@@ -92,10 +92,6 @@ const { blok } = Astro.props;
     flex-grow: 1;
     justify-content: space-between;
     width: 400px;
-
-    &:first-child {
-      width: 100%;
-    }
   }
 
   img {
@@ -146,7 +142,7 @@ const { blok } = Astro.props;
       background: var(--color-white-alt);
       border-radius: 5px;
       color: var(--color-black-alt);
-      padding: 0 var(--space-3xs);
+      padding: var(--space-3xs) var(--space-2xs);
     }
   }
 </style>
