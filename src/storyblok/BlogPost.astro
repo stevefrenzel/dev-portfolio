@@ -50,6 +50,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
     li,
     time {
       font-family: 'Atkinson Hyperlegible', serif;
+      font-size: var(--step-1);
     }
 
     p > img {
@@ -82,11 +83,8 @@ const formattedDate = date.toLocaleDateString('en-US', {
       border-left: 3px solid var(--color-white-alt);
       padding-left: var(--space-s);
       color: var(--color-white) !important;
-    }
-
-    blockquote > p > span {
-      color: var(--color-white) !important;
       font-style: italic;
+      color: var(--color-white) !important;
     }
 
     p > code {

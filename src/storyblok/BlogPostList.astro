@@ -64,14 +64,11 @@ const { blok } = Astro.props;
             <p>{post.summary}</p>
           </div>
 
-          <div class='tags-container'>
-            <h3>Keywords</h3>
-            <ul class='tags' role='list'>
-              {post.tagList?.map((item) => (
-                <span role='listitem'>{item}</span>
-              ))}
-            </ul>
-          </div>
+          <ul id='keywords' role='list'>
+            {post.tagList?.map((item) => (
+              <span role='listitem'>{item}</span>
+            ))}
+          </ul>
         </li>
       )
     )
@@ -135,27 +132,21 @@ const { blok } = Astro.props;
     font-size: var(--step-2);
   }
 
-  .tags-container {
-    border: 1px dashed grey;
-    border-radius: 10px;
-    margin: var(--space-s);
+  #keywords {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Atkinson Hyperlegible', serif;
+    font-size: var(--step-0);
+    gap: var(--space-s);
+    margin: 0;
     padding: var(--space-s);
     width: fit-content;
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      font-family: 'Atkinson Hyperlegible', serif;
-      font-size: var(--step-0);
-      gap: var(--space-s);
-      margin: var(--space-s) 0 0 0;
-
-      span {
-        background: var(--color-white-alt);
-        border-radius: 5px;
-        color: var(--color-black-alt);
-        padding: 0 var(--space-3xs);
-      }
+    span {
+      background: var(--color-white-alt);
+      border-radius: 5px;
+      color: var(--color-black-alt);
+      padding: 0 var(--space-3xs);
     }
   }
 </style>
