@@ -8,9 +8,11 @@ I always liked the components based approach of frameworks like [React](https://
 
 ## 2. Things to come
 
-- Theme switch between dark and light
-- Own page for job resume which can be downloaded as accessible PDF
-- Own page for blogs
+- [ ] Theme switch between dark and light
+- [ ] Adding "Resume" and "Blog" to navigation with accessible hamburger menu
+- [ ] Dynamically generated Open Graph images for blog posts - [Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+- [x] Own page for job resume
+- [x] Own page for blogs
 
 ## 3. Tools and resources
 
