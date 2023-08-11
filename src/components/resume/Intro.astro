@@ -8,7 +8,7 @@ import mastodon from '@images/icons/mastodon-white.svg';
 
 const links = [
   {
-    href: 'https://www.stevefrenzel.dev',
+    href: '/',
     height: 24,
     name: 'Website',
     src: desktop,
@@ -83,7 +83,8 @@ const links = [
     padding: var(--space-s) 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    border-bottom: 3px solid var(--color-white);
+    border-width: 0 0 3px 0;
+    border-style: solid;
     margin: 0 auto var(--space-m) auto;
   }
 
@@ -94,6 +95,10 @@ const links = [
 
   .container {
     align-self: center;
+  }
+
+  :global(.dark) img {
+    filter: invert(1);
   }
 
   .text {

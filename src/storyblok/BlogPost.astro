@@ -22,7 +22,9 @@ const formattedDate = date.toLocaleDateString('en-US', {
 <div id='blog-post-wrapper' {...storyblokEditable(blok)}>
   <header>
     <h1>{blok.title}</h1>
-    <p id='blog-date'>Published on {formattedDate}</p>
+    <p id='blog-date'>
+      Published on {formattedDate} - <a href='/blog'>Back to blog</a>
+    </p>
   </header>
   <main>
     <Fragment set:html={markdownContent} />
@@ -30,71 +32,55 @@ const formattedDate = date.toLocaleDateString('en-US', {
 </div>
 <BackToTop />
 
-<style lang='scss' is:global>
+<style lang='scss'>
   #blog-post-wrapper {
     max-width: 768px;
     margin: 0 auto var(--space-m) auto;
     padding: 0 var(--space-s);
+  }
 
-    header {
-      border-bottom: 3px solid var(--color-white-alt);
-      padding: var(--space-m) 0;
-    }
+  #blog-post-wrapper :global(header) {
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    padding: var(--space-m) 0 var(--space-xs) 0;
+  }
 
-    h2 {
-      margin-bottom: var(--space-m);
-    }
+  #blog-post-wrapper :global(h1 + p) {
+    margin: var(--space-xs) 0 var(--space-3xs) 0;
+  }
 
-    a,
-    p,
-    li,
-    time {
-      font-family: 'Atkinson Hyperlegible', serif;
-      font-size: var(--step-1);
-    }
+  #blog-post-wrapper :global(h2) {
+    margin-bottom: var(--space-m);
+  }
 
-    p > img {
-      width: 100%;
-    }
+  #blog-post-wrapper :global(a, p, li, time) {
+    font-family: 'Atkinson Hyperlegible', serif;
+    font-size: var(--step-1);
+  }
 
-    li > p {
-      margin: 0;
-    }
+  #blog-post-wrapper :global(p) {
+    margin: var(--space-m) 0;
+  }
 
-    p {
-      margin: var(--space-m) 0;
-    }
+  #blog-post-wrapper :global(p > img) {
+    width: 100%;
+  }
 
-    #blog-date {
-      margin-bottom: 0;
-    }
+  #blog-post-wrapper :global(li > p) {
+    margin: 0;
+  }
 
-    hr {
-      border: 1px solid var(--color-white-alt);
-      margin: var(--space-m) auto;
-      max-width: 96px;
-    }
+  #blog-post-wrapper :global(blockquote) {
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    padding-left: var(--space-s);
+    font-style: italic;
+  }
 
-    a {
-      background: var(--color-accent-projects);
-    }
-
-    blockquote {
-      border-left: 3px solid var(--color-white-alt);
-      padding-left: var(--space-s);
-      color: var(--color-white) !important;
-      font-style: italic;
-      color: var(--color-white) !important;
-    }
-
-    p > code {
-      background: var(--color-black-alt);
-      color: var(--color-accent-about);
-      font-size: var(--step-0);
-    }
-
-    ul {
-      margin: 0;
-    }
+  #blog-post-wrapper :global(p > code) {
+    background: var(--color-black-alt);
+    color: var(--color-white-alt);
+    font-size: var(--step-0);
+    padding: 0 1%;
   }
 </style>

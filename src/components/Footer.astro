@@ -5,12 +5,25 @@
   >
 </footer>
 
-<style>
+<style lang='scss'>
   footer {
-    background: var(--color-black-alt);
-    color: var(--color-white);
+    background: var(--color-white-alt);
+    color: var(--color-black) !important;
     margin-top: var(--space-3xl);
     padding: var(--space-m) var(--space-s);
     text-align: center;
+
+    a {
+      color: var(--color-black);
+    }
+  }
+
+  :global(.dark) footer {
+    background: var(--color-black-alt);
+    color: var(--color-white) !important;
+
+    a {
+      color: var(--color-white) !important;
+    }
   }
 </style>

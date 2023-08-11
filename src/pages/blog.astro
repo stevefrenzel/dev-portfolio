@@ -11,7 +11,7 @@ import mastodon from '@images/icons/mastodon-white.svg';
 
 const links = [
   {
-    href: 'https://www.stevefrenzel.dev',
+    href: '/',
     height: 36,
     name: 'Website',
     src: desktop,
@@ -83,6 +83,7 @@ try {
               <li>
                 <Image
                   alt=''
+                  class='icon'
                   height={link.height}
                   src={link.src}
                   width={link.width}
@@ -118,6 +119,10 @@ try {
     align-self: center;
   }
 
+  :global(.dark) .icon {
+    filter: invert(1);
+  }
+
   h1 {
     padding: var(--space-s);
   }
@@ -133,7 +138,8 @@ try {
   }
 
   hr {
-    border-bottom: 3px solid var(--color-white);
+    border: 0 0 3px 0;
+    border-style: solid;
     margin: 0 var(--space-s);
   }
 

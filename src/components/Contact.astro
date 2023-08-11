@@ -63,95 +63,115 @@ import send from '@images/icons/send.svg';
     </div>
 
     <button type='submit'>
-      Send message<Image alt='' height={32} src={send} width={32} />
+      Send message<Image
+        alt=''
+        class='icon'
+        height={32}
+        src={send}
+        width={32}
+      />
     </button>
   </form>
 </section>
 
-<style lang='scss' is:global>
-  #contact {
+<style lang='scss'>
+  section {
+    max-width: 768px;
+  }
+
+  .paragraph {
+    margin-top: var(--space-xs);
+    max-width: 768px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: var(--space-l) 0 0 0;
     max-width: 768px;
 
-    .paragraph {
-      margin-top: var(--space-xs);
-      max-width: 768px;
+    label:first-child {
+      margin-top: 0;
     }
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      margin: var(--space-l) 0 0 0;
-      max-width: 768px;
+  label {
+    margin-bottom: var(--space-3xs);
+    margin-top: var(--space-s);
+  }
 
-      label:first-child {
-        margin-top: 0;
-      }
+  input {
+    cursor: pointer;
+    height: 48px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  #username,
+  #user-e-mail,
+  #user-message {
+    border: none;
+    outline-color: var(--color-accent-contact);
+  }
+
+  :global(.dark) #username,
+  :global(.dark) #user-e-mail,
+  :global(.dark) #user-message {
+    border: 1px solid grey;
+    outline-color: var(--color-black);
+  }
+
+  button {
+    align-items: center;
+    background: var(--color-accent-contact);
+    border: none;
+    border-radius: 5px;
+    color: var(--color-black) !important;
+    cursor: pointer;
+    display: flex;
+    height: 72px;
+    justify-content: center;
+    margin-top: var(--space-l);
+    outline-color: var(--color-white) !important;
+
+    img {
+      filter: invert(1);
+      margin-left: var(--space-xs);
     }
+  }
 
-    label {
-      margin-bottom: var(--space-3xs);
-      margin-top: var(--space-s);
+  :global(.dark) button {
+    background: var(--color-black);
+    color: var(--color-white) !important;
+    outline-color: var(--color-black) !important;
+
+    img {
+      filter: invert(0);
     }
+  }
 
-    input {
-      cursor: pointer;
-      height: 48px;
-    }
+  #error-summary {
+    background: #fae9e8;
+    border-left: 5px solid red;
+    display: flex;
+    margin-top: var(--space-l);
 
-    textarea {
-      resize: vertical;
-    }
-
-    #username,
-    #user-e-mail,
-    #user-message {
-      border: none;
-      outline-color: var(--color-accent-contact);
-    }
-
-    button {
-      align-items: center;
-      background: var(--color-black);
-      border: 3px solid var(--color-white);
-      color: var(--color-white);
-      cursor: pointer;
-      display: flex;
-      height: 72px;
-      justify-content: center;
-      margin-top: var(--space-l);
-
-      &:hover,
-      &:focus,
-      &:focus-visible {
-        outline-color: var(--color-accent-contact);
-      }
-
-      img {
-        margin-left: var(--space-xs);
-      }
-    }
-
-    #error-summary {
-      background: #fae9e8;
-      border-left: 5px solid red;
-      display: flex;
-      margin-top: var(--space-l);
-
-      p {
-        color: var(--color-black);
-        font-style: italic;
-        padding: var(--space-3xs);
-      }
-    }
-
-    mark {
-      background: var(--color-accent-contact);
+    p {
       color: var(--color-black);
+      font-style: italic;
+      padding: var(--space-3xs);
     }
+  }
 
-    .dont-show {
-      display: none !important;
-    }
+  mark {
+    background: var(--color-accent-contact);
+    color: var(--color-black);
+  }
+
+  section :global(.dont-show) {
+    display: none !important;
   }
 </style>
 

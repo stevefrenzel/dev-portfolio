@@ -22,7 +22,7 @@
   --color-white-alt: #e5e5e5;
 
   /* Colors - accent */
-  --color-accent-projects: #98003f;
+  --color-accent-projects: #f6026a;
   --color-accent-collaborations: #ffd501;
   --color-accent-about: #66ffe5;
   --color-accent-contact: #49fe18;
@@ -53,7 +53,7 @@
   --outline-size: max(2px, 0.08em);
   --outline-style: solid;
   --outline-color: currentColor;
-  --outline-offset: 2px;
+  --outline-offset: 3px;
 }
 
 :is(a, button, input, textarea, summary):hover {
@@ -85,10 +85,10 @@
   }
 }
 
-body {
+/* body {
   background: var(--color-black);
   color: var(--color-white);
-}
+} */
 
 section {
   margin: 0 auto;
@@ -135,7 +135,34 @@ button,
 p,
 label,
 footer {
-  color: var(--color-white);
   font-family: 'Atkinson Hyperlegible', serif;
   font-size: var(--step-1);
+}
+
+html {
+  background: var(--color-black-alt);
+  color: var(--color-white);
+
+  a,
+  button,
+  p,
+  label,
+  footer,
+  hr {
+    color: var(--color-white);
+  }
+}
+
+html.dark {
+  background: var(--color-white-alt);
+  color: var(--color-black);
+
+  a,
+  button,
+  p,
+  label,
+  footer,
+  hr {
+    color: var(--color-black);
+  }
 }

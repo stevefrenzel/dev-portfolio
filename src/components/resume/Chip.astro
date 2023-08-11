@@ -17,4 +17,9 @@ const { name } = Astro.props;
     font-size: var(--step-1);
     padding: var(--space-3xs);
   }
+
+  :global(.dark) span {
+    background: var(--color-black-alt);
+    color: var(--color-white);
+  }
 </style>

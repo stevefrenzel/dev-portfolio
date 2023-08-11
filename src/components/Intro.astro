@@ -74,13 +74,41 @@ const socialLinks = [
 <Divider />
 
 <style lang='scss'>
+  :global(.dark) section {
+    background: var(--color-black-alt);
+
+    h1,
+    span,
+    p,
+    a {
+      color: var(--color-white-alt);
+    }
+
+    mark {
+      background: var(--color-white-alt);
+      color: var(--color-black-alt);
+    }
+
+    .icon {
+      filter: invert(1);
+    }
+  }
+
   section {
     background: var(--color-white-alt);
     max-width: 100%;
     padding: var(--space-s) var(--space-s) var(--space-xl) var(--space-s);
 
-    * {
+    h1,
+    span,
+    p,
+    a {
       color: var(--color-black-alt);
+    }
+
+    mark {
+      background: var(--color-black-alt);
+      color: var(--color-white-alt);
     }
   }
 
@@ -143,10 +171,5 @@ const socialLinks = [
 
   .text {
     margin-top: var(--space-m);
-  }
-
-  mark {
-    background: var(--color-black-alt);
-    color: var(--color-white-alt);
   }
 </style>

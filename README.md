@@ -8,11 +8,16 @@ I always liked the components based approach of frameworks like [React](https://
 
 ## 2. Things to come
 
-- [ ] Theme switch between dark and light
 - [ ] Adding "Resume" and "Blog" to navigation with accessible hamburger menu
-- [ ] Dynamically generated Open Graph images for blog posts - [Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+- [ ] Dynamically generated Open Graph images for blog posts (see links below list)
+- [x] Add "Back to blog" link
+- [x] Use relative links for "Website" and "Blog"
+- [x] Theme switch between dark and light
 - [x] Own page for job resume
 - [x] Own page for blogs
+
+- [Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+- [Dynamically Generating Thousands of OG Images for a Viral Twitter Campaign](https://www.netlify.com/blog/dynamically-generate-open-graph-image-variants/)
 
 ## 3. Tools and resources
 

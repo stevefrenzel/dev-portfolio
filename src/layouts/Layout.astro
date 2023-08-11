@@ -1,7 +1,8 @@
 ---
 import '../styles/reset.css';
-import '../styles/global.css';
+import '../styles/global.scss';
 import StartAnchor from '@components/StartAnchor.astro';
+import ThemeIcon from '@components/ThemeIcon.astro';
 
 export interface Props {
   title: string;
@@ -54,7 +55,10 @@ const socialImageURL = new URL('/seo.png', Astro.url);
     <meta name='twitter:image:alt' content={title} />
   </head>
   <body>
-    <StartAnchor />
+    <section aria-label='Utilities'>
+      <StartAnchor />
+      <ThemeIcon />
+    </section>
     <slot />
   </body>
 </html>
