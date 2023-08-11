@@ -53,15 +53,6 @@ try {
 }
 ---
 
-<script>
-  const highlight = document.getElementById('mark');
-  const colors = ['color-1', 'color-2', 'color-3', 'color-4'];
-
-  const randomColorIndex = Math.floor(Math.random() * colors.length);
-  const randomColorClass = colors[randomColorIndex];
-  highlight?.classList.add(randomColorClass);
-</script>
-
 <Layout title='Steve Frenzel - Blog'>
   <header class='text'>
     <div class='grid-container'>
@@ -69,11 +60,8 @@ try {
         <h1>Steve Frenzel - Blog</h1>
         <p>
           Welcome to the collection of my thoughts! Here I write about topics
-          like
-          <mark id='mark'
-            >web development, music, books, hot sauces and everything else</mark
-          >
-          I have an opinion about.
+          like web development, music, books, hot sauces and everything else I
+          have an opinion about.
         </p>
       </div>
       <div class='content-right'>
@@ -156,22 +144,5 @@ try {
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-xs);
-  }
-
-  .color-1 {
-    background: var(--color-accent-about);
-  }
-
-  .color-2 {
-    background: var(--color-accent-collaborations);
-  }
-
-  .color-3 {
-    background: var(--color-accent-contact);
-  }
-
-  .color-4 {
-    background: var(--color-accent-projects);
-    color: var(--color-white);
   }
 </style>
