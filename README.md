@@ -16,3 +16,10 @@ I used many resources and tools to create this website. Here is a partial list:
 - [Outline animation by Adam Argyle](https://codepen.io/argyleink/pen/JjEzeLp)
 - [Standardizing Focus Styles With CSS Custom properties by Stephanie Eckles](https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/)
 - [Utopia - Fluid Responsive Design](https://utopia.fyi/)
+
+## 3. To Do
+
+- [ ] Detect theme choice via `prefers-color-scheme`
+- [ ] Detect higher or lower contrast choice via `prefers-contrast`
+- [ ] Add Markdown powered blog
+- [x] Update security headers
