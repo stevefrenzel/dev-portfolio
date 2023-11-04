@@ -9,9 +9,9 @@ export interface Props {
 const { ariaLabel, accentColor, href, title } = Astro.props;
 ---
 
-<div class='section-header'>
+<div class="section-header">
   <h2 set:html={title} />
-  <a aria-label={ariaLabel} class='anchor-link' href={href}>#</a>
+  <a aria-label={ariaLabel} class="anchor-link" href={href}>#</a>
 </div>
 
 <style define:vars={{ accentColor }}>
@@ -30,7 +30,7 @@ const { ariaLabel, accentColor, href, title } = Astro.props;
   }
 
   a {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: var(--step-3);
     text-decoration: none;
   }

@@ -1,50 +1,50 @@
 ---
-import { Image } from '@astrojs/image/components';
-import Divider from '@components/Divider.astro';
+import { Image } from "astro:assets";
+import DividerVertical from "@utils/DividerVertical.astro";
 
-import pictureOfMe from '@images/picture-of-me.jpg';
-import gitHub from '@images/icons/github.svg';
-import linkedIn from '@images/icons/linkedin.svg';
-import mastodon from '@images/icons/mastodon.svg';
+import pictureOfMe from "@images/picture-of-me.jpg";
+import gitHub from "@images/icons/github.svg";
+import linkedIn from "@images/icons/linkedin.svg";
+import mastodon from "@images/icons/mastodon.svg";
 
 const socialLinks = [
   {
     icon: linkedIn,
-    name: 'LinkedIn',
-    rel: 'noopener noreferrer',
-    url: 'https://www.linkedin.com/in/stevefrenzel/',
+    name: "LinkedIn",
+    rel: "noopener noreferrer",
+    url: "https://www.linkedin.com/in/stevefrenzel/",
   },
   {
     icon: gitHub,
-    name: 'GitHub',
-    rel: 'noopener noreferrer',
-    url: 'https://github.com/stevefrenzel',
+    name: "GitHub",
+    rel: "noopener noreferrer",
+    url: "https://github.com/stevefrenzel",
   },
   {
     icon: mastodon,
-    name: 'Mastodon',
-    rel: 'me',
-    url: 'https://mastodon.online/@stvfrnzl',
+    name: "Mastodon",
+    rel: "me",
+    url: "https://mastodon.online/@stvfrnzl",
   },
 ];
 ---
 
-<section aria-label='Intro' id='intro'>
-  <div class='headline-container'>
+<section aria-label="Intro" id="intro">
+  <div class="headline-container">
     <h1>Steve Frenzel</h1>
-    <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+    <span class="sub-headline">Web Developer & Accessibility Engineer</span>
   </div>
-  <div class='grid-container'>
+  <div class="grid-container">
     <Image
-      alt='Steve Frenzel - Web Developer & Accessibility Engineer'
+      alt="Steve Frenzel - Web Developer & Accessibility Engineer"
       height={600}
-      id='profile-picture'
-      loading='eager'
+      id="profile-picture"
+      loading="eager"
       src={pictureOfMe}
-      style='object-fit: cover;'
+      style="object-fit: cover;"
       width={600}
     />
-    <div class='text-container'>
+    <div class="text-container">
       <p>
         I specialize in designing and implementing <mark
           >robust and inclusive websites</mark
@@ -52,15 +52,15 @@ const socialLinks = [
         practically. I am also a music nerd and love hot sauces! 🔥
       </p>
       <p>
-        If you want to get in touch with me, fill out the <a href='#contact'
+        If you want to get in touch with me, fill out the <a href="#contact"
           >contact form</a
         >. You can also find me on the following platforms:
       </p>
-      <ul role='list'>
+      <ul role="list">
         {
           socialLinks.map((item) => (
             <li>
-              <Image alt='' class='icon' src={item.icon} />
+              <Image alt="" class="icon" src={item.icon} />
               <a href={item.url} rel={item.rel}>
                 {item.name}
               </a>
@@ -71,9 +71,10 @@ const socialLinks = [
     </div>
   </div>
 </section>
-<Divider />
 
-<style lang='scss'>
+<DividerVertical />
+
+<style lang="scss">
   :global(.dark) section {
     background: var(--color-black-alt);
 

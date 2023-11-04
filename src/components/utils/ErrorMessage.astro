@@ -1,6 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
-import error from '@images/icons/error.svg';
+import { Image } from "astro:assets";
+import error from "@images/icons/error.svg";
 
 export interface Props {
   id: string;
@@ -10,8 +10,8 @@ export interface Props {
 const { id, text } = Astro.props;
 ---
 
-<span class='dont-show' id={id}>
-  <Image alt='' src={error} height={24} width={24} />
+<span class="dont-show" id={id}>
+  <Image alt="" src={error} height={24} width={24} />
   <p>{text}</p>
 </span>
 

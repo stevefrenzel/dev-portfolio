@@ -1,116 +1,117 @@
 ---
-import JobDescription from '@components/resume/JobDescription.astro';
-import SectionHeader from '@components/SectionHeader.astro';
-import DividerSmall from '@components/DividerSmall.astro';
+import JobDescription from "@components/resume/JobDescription.astro";
 
-import adobexd from '@images/icons/adobexd.svg';
-import bamboo from '@images/icons/bamboo.svg';
-import bitbucket from '@images/icons/bitbucket.svg';
-import css from '@images/icons/css.svg';
-import figma from '@images/icons/figma.svg';
-import git from '@images/icons/git.svg';
-import github from '@images/icons/github-white.svg';
-import html from '@images/icons/html.svg';
-import graphql from '@images/icons/graphql.svg';
-import javascript from '@images/icons/javascript.svg';
-import jest from '@images/icons/jest.svg';
-import jira from '@images/icons/jira.svg';
-import materialui from '@images/icons/materialui.svg';
-import nextjs from '@images/icons/nextjs.svg';
-import nuxt from '@images/icons/nuxt.svg';
-import react from '@images/icons/react.svg';
-import sketch from '@images/icons/sketch.svg';
-import slack from '@images/icons/slack.svg';
-import storybook from '@images/icons/storybook.svg';
-import teams from '@images/icons/teams.svg';
-import typescript from '@images/icons/typescript.svg';
-import vuejs from '@images/icons/vuejs.svg';
-import vuetify from '@images/icons/vuetify.svg';
+import DividerSmall from "@utils/DividerSmall.astro";
+import SectionHeader from "@utils/SectionHeader.astro";
+
+import adobexd from "@images/icons/adobexd.svg";
+import bamboo from "@images/icons/bamboo.svg";
+import bitbucket from "@images/icons/bitbucket.svg";
+import css from "@images/icons/css.svg";
+import figma from "@images/icons/figma.svg";
+import git from "@images/icons/git.svg";
+import github from "@images/icons/github-white.svg";
+import html from "@images/icons/html.svg";
+import graphql from "@images/icons/graphql.svg";
+import javascript from "@images/icons/javascript.svg";
+import jest from "@images/icons/jest.svg";
+import jira from "@images/icons/jira.svg";
+import materialui from "@images/icons/materialui.svg";
+import nextjs from "@images/icons/nextjs.svg";
+import nuxt from "@images/icons/nuxt.svg";
+import react from "@images/icons/react.svg";
+import sketch from "@images/icons/sketch.svg";
+import slack from "@images/icons/slack.svg";
+import storybook from "@images/icons/storybook.svg";
+import teams from "@images/icons/teams.svg";
+import typescript from "@images/icons/typescript.svg";
+import vuejs from "@images/icons/vuejs.svg";
+import vuetify from "@images/icons/vuetify.svg";
 
 const tasksSellwerk = [
-  'Improving work flows by establishing conventions for Git, unit tests and accessibility guidelines',
-  'Giving feedback for designs directly in Figma before implementing them',
-  'Improving the look and feel of the product based on user tests',
-  'Testing changes and features in different browsers and with different screen readers',
-  'Reviewing code and providing feedback to ship bullet proof code',
+  "Improving work flows by establishing conventions for Git, unit tests and accessibility guidelines",
+  "Giving feedback for designs directly in Figma before implementing them",
+  "Improving the look and feel of the product based on user tests",
+  "Testing changes and features in different browsers and with different screen readers",
+  "Reviewing code and providing feedback to ship bullet proof code",
 ];
 
 const techStackSellwerk = [
-  { icon: css, name: 'CSS' },
-  { icon: figma, name: 'Figma' },
-  { icon: git, name: 'Git' },
-  { icon: github, name: 'GitHub' },
-  { icon: html, name: 'HTML' },
-  { icon: javascript, name: 'JavaScript' },
-  { icon: jest, name: 'Jest' },
-  { icon: nuxt, name: 'Nuxt' },
-  { icon: slack, name: 'Slack' },
-  { icon: storybook, name: 'Storybook' },
-  { icon: typescript, name: 'TypeScript' },
-  { icon: vuejs, name: 'Vue.js' },
-  { icon: vuetify, name: 'Vuetify' },
+  { icon: css, name: "CSS" },
+  { icon: figma, name: "Figma" },
+  { icon: git, name: "Git" },
+  { icon: github, name: "GitHub" },
+  { icon: html, name: "HTML" },
+  { icon: javascript, name: "JavaScript" },
+  { icon: jest, name: "Jest" },
+  { icon: nuxt, name: "Nuxt" },
+  { icon: slack, name: "Slack" },
+  { icon: storybook, name: "Storybook" },
+  { icon: typescript, name: "TypeScript" },
+  { icon: vuejs, name: "Vue.js" },
+  { icon: vuetify, name: "Vuetify" },
 ];
 
 const tasksNexum = [
-  'Working closely with the design team to create an accessible and fun experience for every user',
-  'Creating and assembling pixel-perfect components using design templates from Abstract, Sketch or Figma',
-  'Planning and writing (unit, integration and E2E) tests to ensure high code quality and great maintainability',
-  'Exchanging experiences and tech trends with fellow developers from other sites on a weekly basis',
-  'Customising and maintaining e-mail templates in Salesforce Cloud for best possible rendering on all devices and browsers',
-  'Managing and delegating tasks in JIRA to stay on track',
+  "Working closely with the design team to create an accessible and fun experience for every user",
+  "Creating and assembling pixel-perfect components using design templates from Abstract, Sketch or Figma",
+  "Planning and writing (unit, integration and E2E) tests to ensure high code quality and great maintainability",
+  "Exchanging experiences and tech trends with fellow developers from other sites on a weekly basis",
+  "Customising and maintaining e-mail templates in Salesforce Cloud for best possible rendering on all devices and browsers",
+  "Managing and delegating tasks in JIRA to stay on track",
 ];
 
 const techStackNexum = [
-  { icon: bamboo, name: 'Bamboo' },
-  { icon: bitbucket, name: 'BitBucket' },
-  { icon: css, name: 'CSS' },
-  { icon: git, name: 'Git' },
-  { icon: github, name: 'GitHub' },
-  { icon: html, name: 'HTML' },
-  { icon: graphql, name: 'GraphQL' },
-  { icon: javascript, name: 'JavaScript' },
-  { icon: jest, name: 'Jest' },
-  { icon: jira, name: 'Jira' },
-  { icon: nextjs, name: 'Next.js' },
-  { icon: react, name: 'React' },
-  { icon: sketch, name: 'Sketch' },
-  { icon: storybook, name: 'Storybook' },
-  { icon: teams, name: 'Teams' },
-  { icon: typescript, name: 'TypeScript' },
+  { icon: bamboo, name: "Bamboo" },
+  { icon: bitbucket, name: "BitBucket" },
+  { icon: css, name: "CSS" },
+  { icon: git, name: "Git" },
+  { icon: github, name: "GitHub" },
+  { icon: html, name: "HTML" },
+  { icon: graphql, name: "GraphQL" },
+  { icon: javascript, name: "JavaScript" },
+  { icon: jest, name: "Jest" },
+  { icon: jira, name: "Jira" },
+  { icon: nextjs, name: "Next.js" },
+  { icon: react, name: "React" },
+  { icon: sketch, name: "Sketch" },
+  { icon: storybook, name: "Storybook" },
+  { icon: teams, name: "Teams" },
+  { icon: typescript, name: "TypeScript" },
 ];
 
 const tasksFifthIndustry = [
-  'Creating app designs with Adobe XD in collaboration with the back-end engineer and the product manager',
-  'Customizing the designs to match the look and feel of Material UI',
+  "Creating app designs with Adobe XD in collaboration with the back-end engineer and the product manager",
+  "Customizing the designs to match the look and feel of Material UI",
   "Prototyping individual reusable components with React in Storybook, according to the 'Atomic Design' principle and following the Material Design guidelines",
-  'Implementing the necessary logic and, if necessary, adapting the UI in cooperation with the backend engineer',
-  'Discussing and implementing necessary improvements and further ideas together with the customer',
-  'Bringing in further suggestions and ideas through continuous research in the area of UI, UX and Material Design',
+  "Implementing the necessary logic and, if necessary, adapting the UI in cooperation with the backend engineer",
+  "Discussing and implementing necessary improvements and further ideas together with the customer",
+  "Bringing in further suggestions and ideas through continuous research in the area of UI, UX and Material Design",
 ];
 
 const techStackFifthIndustry = [
-  { icon: adobexd, name: 'Adobe XD' },
-  { icon: css, name: 'CSS' },
-  { icon: git, name: 'Git' },
-  { icon: github, name: 'GitHub' },
-  { icon: html, name: 'HTML' },
-  { icon: javascript, name: 'JavaScript' },
-  { icon: materialui, name: 'Material UI' },
-  { icon: react, name: 'React' },
-  { icon: storybook, name: 'Storybook' },
+  { icon: adobexd, name: "Adobe XD" },
+  { icon: css, name: "CSS" },
+  { icon: git, name: "Git" },
+  { icon: github, name: "GitHub" },
+  { icon: html, name: "HTML" },
+  { icon: javascript, name: "JavaScript" },
+  { icon: materialui, name: "Material UI" },
+  { icon: react, name: "React" },
+  { icon: storybook, name: "Storybook" },
 ];
 ---
 
-<section aria-label='Work experience' id='experience'>
-  <SectionHeader title='Experience' ariaLabel='Experience' href='#experience' />
+<section aria-label="Work experience" id="experience">
+  <SectionHeader title="Experience" ariaLabel="Experience" href="#experience" />
 
-  <div class='spacer'></div>
+  <div class="spacer"></div>
 
   <JobDescription
-    heading='Frontend Developer & Accessibility Engineer'
-    company='Sellwerk GmbH & Co. KG'
-    timePeriod='Since September 2022'
-    description='Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively.'
+    heading="Frontend Developer & Accessibility Engineer"
+    company="Sellwerk GmbH & Co. KG"
+    timePeriod="Since September 2022"
+    description="Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively."
     techStack={techStackSellwerk}
     tasks={tasksSellwerk}
   />
@@ -118,10 +119,10 @@ const techStackFifthIndustry = [
   <DividerSmall />
 
   <JobDescription
-    heading='Frontend Developer'
-    company='nexum AG'
-    timePeriod='August 2020 to August 2022'
-    description='Consulting agency for communication, interaction and transaction in the digital age.'
+    heading="Frontend Developer"
+    company="nexum AG"
+    timePeriod="August 2020 to August 2022"
+    description="Consulting agency for communication, interaction and transaction in the digital age."
     techStack={techStackNexum}
     tasks={tasksNexum}
   />
@@ -129,10 +130,10 @@ const techStackFifthIndustry = [
   <DividerSmall />
 
   <JobDescription
-    heading='Frontend Developer'
-    company='5thIndustry GmbH'
-    timePeriod='October 2019 to February 2020'
-    description='Internet-of-things company specializing in production and logistics to enable higher productivity.'
+    heading="Frontend Developer"
+    company="5thIndustry GmbH"
+    timePeriod="October 2019 to February 2020"
+    description="Internet-of-things company specializing in production and logistics to enable higher productivity."
     techStack={techStackFifthIndustry}
     tasks={tasksFifthIndustry}
   />

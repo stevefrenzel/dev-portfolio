@@ -1,49 +1,49 @@
 ---
-import SectionHeader from '@components/SectionHeader.astro';
-import Divider from '@components/Divider.astro';
+import DividerVertical from "@utils/DividerVertical.astro";
+import SectionHeader from "@utils/SectionHeader.astro";
 
 const content = [
   {
     headline: 'Creating <span aria-hidden="true">👷‍♂️</span>',
     description:
-      'Constructing websites with <i><strong>proven and easy to maintain</strong></i> technologies and patterns.',
+      "Constructing websites with <i><strong>proven and easy to maintain</strong></i> technologies and patterns.",
   },
   {
     headline: 'Writing <span aria-hidden="true">✍️</span>',
     description:
-      'Detailed <i><strong>documentation of the process</strong></i> in an easy to understand way.',
+      "Detailed <i><strong>documentation of the process</strong></i> in an easy to understand way.",
   },
   {
     headline: 'Coding <span aria-hidden="true">👨‍💻</span>',
     description:
-      'Writing <i><strong>clean code</strong></i> that is well structured and self-explanatory.',
+      "Writing <i><strong>clean code</strong></i> that is well structured and self-explanatory.",
   },
   {
     headline: 'Planning <span aria-hidden="true">📒</span>',
     description:
-      'Assessing the accessibility of a product and <i><strong>creating a road map</strong></i> on how to improve it (if necessary).',
+      "Assessing the accessibility of a product and <i><strong>creating a road map</strong></i> on how to improve it (if necessary).",
   },
   {
     headline: 'Educating <span aria-hidden="true">💡</span>',
     description:
-      'Doing <i><strong>interactive</strong></i> workshops to educate or deepen knowledge about accessibility.',
+      "Doing <i><strong>interactive</strong></i> workshops to educate or deepen knowledge about accessibility.",
   },
 ];
 ---
 
-<section aria-label='About me' id='about-me'>
+<section aria-label="About me" id="about-me">
   <SectionHeader
-    ariaLabel='About me'
-    accentColor='#66ffe5'
-    href='#about-me'
-    title='About me'
+    ariaLabel="About me"
+    accentColor="#66ffe5"
+    href="#about-me"
+    title="About me"
   />
   <p>
     When we work together, <mark>I do a variety of things</mark>, not just
     programming. Here's a partial list of things I do to make your project a
     success:
   </p>
-  <ul role='list'>
+  <ul role="list">
     {
       content.map((content) => (
         <li>
@@ -56,7 +56,8 @@ const content = [
     }
   </ul>
 </section>
-<Divider />
+
+<DividerVertical />
 
 <style>
   section {

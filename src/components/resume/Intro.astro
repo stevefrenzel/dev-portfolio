@@ -1,61 +1,61 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from "astro:assets";
 
-import desktop from '@images/icons/desktop.svg';
-import gitHub from '@images/icons/github-white.svg';
-import linkedIn from '@images/icons/linkedin-white.svg';
-import mastodon from '@images/icons/mastodon-white.svg';
+import desktop from "@images/icons/desktop.svg";
+import gitHub from "@images/icons/github-white.svg";
+import linkedIn from "@images/icons/linkedin-white.svg";
+import mastodon from "@images/icons/mastodon-white.svg";
 
 const links = [
   {
-    href: '/',
+    href: "/",
     height: 24,
-    name: 'Website',
+    name: "Website",
     src: desktop,
     width: 24,
   },
   {
-    href: 'https://www.linkedin.com/in/stevefrenzel',
+    href: "https://www.linkedin.com/in/stevefrenzel",
     height: 36,
-    name: 'LinkedIn',
+    name: "LinkedIn",
     src: linkedIn,
     width: 36,
   },
   {
-    href: 'https://github.com/stevefrenzel',
+    href: "https://github.com/stevefrenzel",
     height: 36,
-    name: 'GitHub',
+    name: "GitHub",
     src: gitHub,
     width: 36,
   },
   {
-    href: 'https://mastodon.online/@stvfrnzl',
+    href: "https://mastodon.online/@stvfrnzl",
     height: 36,
-    name: 'Mastodon',
+    name: "Mastodon",
     src: mastodon,
     width: 36,
   },
 ];
 ---
 
-<section aria-label='Intro' id='intro'>
-  <div class='container'>
-    <div class='headlines'>
+<section aria-label="Intro" id="intro">
+  <div class="container">
+    <div class="headlines">
       <h1>Steve Frenzel</h1>
-      <span class='sub-headline'>Web Developer & Accessibility Engineer</span>
+      <span class="sub-headline">Web Developer & Accessibility Engineer</span>
     </div>
-    <div class='contact-information'>
-      <ul role='list'>
+    <div class="contact-information">
+      <ul role="list">
         {
           links.map((link) => (
             <li>
               <Image
-                alt=''
+                alt=""
                 height={link.height}
                 src={link.src}
                 width={link.width}
               />
-              <a href={link.href} rel='noopener noreferrer'>
+              <a href={link.href} rel="noopener noreferrer">
                 {link.name}
               </a>
             </li>
@@ -64,11 +64,11 @@ const links = [
       </ul>
     </div>
   </div>
-  <div class='text'>
+  <div class="text">
     <p>
       After working as a sound engineer, stagehand, tour manager and music
       producer for over 10 years, I found another passion: Creating beautiful
-      and robust websites!<span aria-hidden='true'>👨‍💻</span>
+      and robust websites!<span aria-hidden="true">👨‍💻</span>
     </p>
     <p>
       My focus is frontend development, with special attention to accessibility,
@@ -77,7 +77,7 @@ const links = [
   </div>
 </section>
 
-<style lang='scss'>
+<style lang="scss">
   section {
     max-width: 1536px;
     padding: var(--space-s) 0;

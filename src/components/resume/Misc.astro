@@ -1,77 +1,77 @@
 ---
-import SectionHeader from '@components/SectionHeader.astro';
-import DividerSmall from '@components/DividerSmall.astro';
-import Chip from '@components/resume/Chip.astro';
+import Chip from "@components/resume/Chip.astro";
+import DividerSmall from "@utils/DividerSmall.astro";
+import SectionHeader from "@utils/SectionHeader.astro";
 
 const skills = [
-  'CSS & SASS',
-  'Figma',
-  'Git & GitHub',
-  'HTML',
-  'JavaScript & TypeScript',
-  'Jest',
-  'JIRA',
-  'Material UI & Vuetify',
-  'React & Next.js',
-  'Vue.js & Nuxt',
-  'Storybook',
-  'NVDA, TalkBack & VoiceOver',
+  "CSS & SASS",
+  "Figma",
+  "Git & GitHub",
+  "HTML",
+  "JavaScript & TypeScript",
+  "Jest",
+  "JIRA",
+  "Material UI & Vuetify",
+  "React & Next.js",
+  "Vue.js & Nuxt",
+  "Storybook",
+  "NVDA, TalkBack & VoiceOver",
 ];
 
 const buzzwords = [
-  'Accessibility',
-  'Atomic Design',
-  'Best Practices',
-  'Clean Code',
-  'Prototyping',
-  'SEO',
-  'Testing',
-  'UI & UX',
+  "Accessibility",
+  "Atomic Design",
+  "Best Practices",
+  "Clean Code",
+  "Prototyping",
+  "SEO",
+  "Testing",
+  "UI & UX",
 ];
 
 const education = [
   {
-    title: 'Introduction to Web Accessibility',
-    institut: 'edX (online)',
-    timePeriod: 'April 2021',
+    title: "Introduction to Web Accessibility",
+    institut: "edX (online)",
+    timePeriod: "April 2021",
   },
   {
-    title: 'Full Stack Web Development',
-    institut: 'SPICED Academy (Berlin)',
-    timePeriod: 'March 2019 to May 2019',
+    title: "Full Stack Web Development",
+    institut: "SPICED Academy (Berlin)",
+    timePeriod: "March 2019 to May 2019",
   },
   {
-    title: 'Sound Engineering / Music Production',
-    institut: 'Deutsche POP (Berlin)',
-    timePeriod: 'October 2009 to November 2011',
+    title: "Sound Engineering / Music Production",
+    institut: "Deutsche POP (Berlin)",
+    timePeriod: "October 2009 to November 2011",
   },
   {
-    title: 'Commercial assistant specialized in information processing',
-    institut: 'Kant-Akademie (Berlin)',
-    timePeriod: 'August 2005 to July 2007',
+    title: "Commercial assistant specialized in information processing",
+    institut: "Kant-Akademie (Berlin)",
+    timePeriod: "August 2005 to July 2007",
   },
 ];
 
 const languages = [
   {
-    name: 'English',
-    proficiency: 'Professional working proficiency',
+    name: "English",
+    proficiency: "Professional working proficiency",
   },
   {
-    name: 'German',
-    proficiency: 'Native proficiency',
+    name: "German",
+    proficiency: "Native proficiency",
   },
   {
-    name: 'Spanish',
-    proficiency: 'Elementary proficiency',
+    name: "Spanish",
+    proficiency: "Elementary proficiency",
   },
 ];
 ---
 
-<section aria-label='Miscellaneous'>
-  <div id='skills'>
-    <SectionHeader ariaLabel='Skills' href='#skills' title='Skills' />
-    <ul class='chips-list' role='list'>
+<section aria-label="Miscellaneous">
+  <div id="skills">
+    <SectionHeader ariaLabel="Skills" href="#skills" title="Skills" />
+    <ul class="chips-list" role="list">
       {
         skills.map((item) => (
           <li>
@@ -84,9 +84,9 @@ const languages = [
 
   <DividerSmall />
 
-  <div id='buzzwords'>
-    <SectionHeader ariaLabel='Buzzwords' href='#buzzwords' title='Buzzwords' />
-    <ul class='chips-list' role='list'>
+  <div id="buzzwords">
+    <SectionHeader ariaLabel="Buzzwords" href="#buzzwords" title="Buzzwords" />
+    <ul class="chips-list" role="list">
       {
         buzzwords.map((item) => (
           <li>
@@ -99,9 +99,9 @@ const languages = [
 
   <DividerSmall />
 
-  <div id='education'>
-    <SectionHeader ariaLabel='Education' href='#education' title='Education' />
-    <ul id='education-list' role='list'>
+  <div id="education">
+    <SectionHeader ariaLabel="Education" href="#education" title="Education" />
+    <ul id="education-list" role="list">
       {
         education.map((item) => (
           <li>
@@ -116,9 +116,9 @@ const languages = [
 
   <DividerSmall />
 
-  <div id='languages'>
-    <SectionHeader ariaLabel='Languages' href='#languages' title='Languages' />
-    <ul id='languages-list' role='list'>
+  <div id="languages">
+    <SectionHeader ariaLabel="Languages" href="#languages" title="Languages" />
+    <ul id="languages-list" role="list">
       {
         languages.map((item) => (
           <li>
@@ -131,7 +131,7 @@ const languages = [
   </div>
 </section>
 
-<style lang='scss'>
+<style lang="scss">
   section {
     width: 100%;
     padding: 0;
@@ -178,18 +178,18 @@ const languages = [
       font-size: var(--step-1);
     }
     span:nth-child(2) {
-      font-family: 'Syne', sans-serif;
+      font-family: "Syne", sans-serif;
     }
     span:nth-child(3) {
       display: block;
-      font-family: 'Atkinson Hyperlegible', serif;
+      font-family: "Atkinson Hyperlegible", serif;
       font-style: italic;
     }
   }
 
   #languages-list {
     span {
-      font-family: 'Atkinson Hyperlegible', serif;
+      font-family: "Atkinson Hyperlegible", serif;
       font-size: var(--step-1);
       font-style: italic;
     }

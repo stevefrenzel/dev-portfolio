@@ -1,15 +1,15 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Intro from '@components/resume/Intro.astro';
-import WorkExperience from '@components/resume/WorkExperience.astro';
-import Misc from '@components/resume/Misc.astro';
-import BackToTop from '@components/BackToTop.astro';
+import Layout from "@layouts/Layout.astro";
+import Intro from "@components/resume/Intro.astro";
+import WorkExperience from "@components/resume/WorkExperience.astro";
+import Misc from "@components/resume/Misc.astro";
+import BackToTop from "@utils/BackToTop.astro";
 ---
 
-<Layout title='Steve Frenzel - Resume'>
-  <div class='resume-container'>
+<Layout title="Steve Frenzel - Resume">
+  <div class="resume-container">
     <Intro />
-    <main class='wrapper'>
+    <main class="wrapper">
       <WorkExperience />
       <Misc />
       <BackToTop />
@@ -17,11 +17,11 @@ import BackToTop from '@components/BackToTop.astro';
   </div>
 </Layout>
 
-<style lang='scss' is:global>
+<style lang="scss" is:global>
   .resume-container {
     a:not(.anchor-link),
     p {
-      font-family: 'Atkinson Hyperlegible', serif;
+      font-family: "Atkinson Hyperlegible", serif;
     }
 
     .wrapper {

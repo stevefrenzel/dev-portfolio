@@ -1,71 +1,70 @@
 ---
-import { Image } from '@astrojs/image/components';
-import SectionHeader from '@components/SectionHeader.astro';
-import ErrorMessage from './ErrorMessage.astro';
-
-import send from '@images/icons/send.svg';
+import { Image } from "astro:assets";
+import SectionHeader from "@utils/SectionHeader.astro";
+import ErrorMessage from "@utils/ErrorMessage.astro";
+import send from "@images/icons/send.svg";
 ---
 
-<section aria-label='contact' id='contact'>
+<section aria-label="contact" id="contact">
   <SectionHeader
-    ariaLabel='Contact'
-    accentColor='#49fe18'
-    href='#contact'
-    title='Contact'
+    ariaLabel="Contact"
+    accentColor="#49fe18"
+    href="#contact"
+    title="Contact"
   />
-  <p class='paragraph'>
+  <p class="paragraph">
     Do you feel like working with me? Do you or your team <mark>
       need a workshop on web accessibility</mark
     >? Then just write me via this form:
   </p>
   <form
-    action='https://formsubmit.co/8b3ef32a81a2f8b2b736bf54169486ab'
-    id='contact-form'
-    method='POST'
+    action="https://formsubmit.co/8b3ef32a81a2f8b2b736bf54169486ab"
+    id="contact-form"
+    method="POST"
   >
-    <label for='username'>Your name:</label>
+    <label for="username">Your name:</label>
     <input
-      aria-invalid='false'
-      aria-required='true'
-      id='username'
-      name='name'
-      type='text'
+      aria-invalid="false"
+      aria-required="true"
+      id="username"
+      name="name"
+      type="text"
     />
-    <ErrorMessage id='message-one' text='Error: Please enter your name.' />
+    <ErrorMessage id="message-one" text="Error: Please enter your name." />
 
-    <label for='user-e-mail'>Your e-mail:</label>
+    <label for="user-e-mail">Your e-mail:</label>
     <input
-      aria-invalid='false'
-      aria-required='true'
-      id='user-e-mail'
-      name='email'
-      type='email'
+      aria-invalid="false"
+      aria-required="true"
+      id="user-e-mail"
+      name="email"
+      type="email"
     />
     <ErrorMessage
-      id='message-two'
-      text='Error: Please enter a valid e-mail address.'
+      id="message-two"
+      text="Error: Please enter a valid e-mail address."
     />
 
-    <label for='user-message'>Your message:</label>
+    <label for="user-message">Your message:</label>
     <textarea
-      aria-invalid='false'
-      aria-required='true'
-      id='user-message'
-      name='message'
-      rows='6'></textarea>
+      aria-invalid="false"
+      aria-required="true"
+      id="user-message"
+      name="message"
+      rows="6"></textarea>
     <ErrorMessage
-      id='message-three'
-      text='Error: Please enter at least ten characters.'
+      id="message-three"
+      text="Error: Please enter at least ten characters."
     />
 
-    <div aria-live='assertive' class='dont-show' id='error-summary'>
+    <div aria-live="assertive" class="dont-show" id="error-summary">
       <p></p>
     </div>
 
-    <button type='submit'>
+    <button type="submit">
       Send message<Image
-        alt=''
-        class='icon'
+        alt=""
+        class="icon"
         height={32}
         src={send}
         width={32}
@@ -74,7 +73,7 @@ import send from '@images/icons/send.svg';
   </form>
 </section>
 
-<style lang='scss'>
+<style lang="scss">
   section {
     max-width: 768px;
   }
@@ -131,6 +130,9 @@ import send from '@images/icons/send.svg';
     color: var(--color-black) !important;
     cursor: pointer;
     display: flex;
+    // This shouldn't be necessary as it's defined globally
+    font-family: "Atkinson Hyperlegible", serif;
+    font-size: var(--step-1);
     height: 72px;
     justify-content: center;
     margin-top: var(--space-l);
@@ -179,20 +181,20 @@ import send from '@images/icons/send.svg';
   const validateForm = (event: Event) => {
     // Inputs
     const usernameInput = document.getElementById(
-      'username'
+      "username",
     ) as HTMLInputElement;
     const emailInput = document.getElementById(
-      'user-e-mail'
+      "user-e-mail",
     ) as HTMLInputElement;
     const messageInput = document.getElementById(
-      'user-message'
+      "user-message",
     ) as HTMLTextAreaElement;
 
     // Error messages
-    const usernameError = document.getElementById('message-one');
-    const emailError = document.getElementById('message-two');
-    const messageError = document.getElementById('message-three');
-    const errorSummary = document.getElementById('error-summary');
+    const usernameError = document.getElementById("message-one");
+    const emailError = document.getElementById("message-two");
+    const messageError = document.getElementById("message-three");
+    const errorSummary = document.getElementById("error-summary");
 
     // RegEx patterns
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -203,50 +205,50 @@ import send from '@images/icons/send.svg';
     let errors = 0;
 
     // Username validation
-    if (usernameInput.value.trim() === '') {
-      usernameError?.classList.remove('dont-show');
+    if (usernameInput.value.trim() === "") {
+      usernameError?.classList.remove("dont-show");
       errors++;
     } else {
-      usernameError?.classList.add('dont-show');
+      usernameError?.classList.add("dont-show");
     }
 
     // E-mail validation
     if (!emailPattern.test(emailInput.value)) {
-      emailError?.classList.remove('dont-show');
+      emailError?.classList.remove("dont-show");
       errors++;
     } else {
-      emailError?.classList.add('dont-show');
+      emailError?.classList.add("dont-show");
     }
 
     // Message validation
     if (messageInput.value.trim().length < 10) {
-      messageError?.classList.remove('dont-show');
+      messageError?.classList.remove("dont-show");
       errors++;
     } else {
-      messageError?.classList.add('dont-show');
+      messageError?.classList.add("dont-show");
     }
 
     // Error summary
     if (errorSummary) {
       if (errors > 0) {
-        errorSummary.classList.remove('dont-show');
+        errorSummary.classList.remove("dont-show");
         const errorSummaryText = `There ${
-          errors === 1 ? 'is' : 'are'
-        } ${errors} invalid input field${errors === 1 ? '' : 's'}.`;
+          errors === 1 ? "is" : "are"
+        } ${errors} invalid input field${errors === 1 ? "" : "s"}.`;
 
-        const errorSummaryParagraph = errorSummary.querySelector('p');
+        const errorSummaryParagraph = errorSummary.querySelector("p");
 
         if (errorSummaryParagraph) {
           errorSummaryParagraph.textContent = errorSummaryText;
         }
       } else {
-        errorSummary.classList.add('dont-show');
-        (document.getElementById('contact-form') as HTMLFormElement).submit();
+        errorSummary.classList.add("dont-show");
+        (document.getElementById("contact-form") as HTMLFormElement).submit();
       }
     }
   };
 
   document
-    .getElementById('contact-form')
-    ?.addEventListener('submit', validateForm);
+    .getElementById("contact-form")
+    ?.addEventListener("submit", validateForm);
 </script>

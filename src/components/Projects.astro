@@ -1,94 +1,95 @@
 ---
-import { Image } from '@astrojs/image/components';
-import SectionHeader from '@components/SectionHeader.astro';
-import Divider from '@components/Divider.astro';
+import { Image } from "astro:assets";
 
-import adecco from '@images/screenshots/adecco.png';
-import aufewigwinter from '@images/screenshots/aufewigwinter.png';
-import koraWinter from '@images/screenshots/kora-winter.png';
-import nexum from '@images/screenshots/nexum.png';
-import niessing from '@images/screenshots/niessing.png';
-import owncloud from '@images/screenshots/owncloud.png';
-import sellwerk from '@images/screenshots/sellwerk.png';
-import svti from '@images/screenshots/svti.png';
-import thankYouNext from '@images/screenshots/thank-you-next.png';
+import DividerVertical from "@utils/DividerVertical.astro";
+import SectionHeader from "@utils/SectionHeader.astro";
+
+import adecco from "@images/screenshots/adecco.png";
+import aufewigwinter from "@images/screenshots/aufewigwinter.png";
+import koraWinter from "@images/screenshots/kora-winter.png";
+import nexum from "@images/screenshots/nexum.png";
+import niessing from "@images/screenshots/niessing.png";
+import owncloud from "@images/screenshots/owncloud.png";
+import sellwerk from "@images/screenshots/sellwerk.png";
+import svti from "@images/screenshots/svti.png";
+import thankYouNext from "@images/screenshots/thank-you-next.png";
 
 const projects = [
   {
-    altText: 'Screenshot of Adecco Jobs website',
+    altText: "Screenshot of Adecco Jobs website",
     image: adecco,
-    name: 'Adecco Jobs',
-    url: 'https://www.adecco-jobs.com/',
+    name: "Adecco Jobs",
+    url: "https://www.adecco-jobs.com/",
   },
   {
-    altText: 'Screenshot of Auf Ewig Winter website',
+    altText: "Screenshot of Auf Ewig Winter website",
     image: aufewigwinter,
-    name: 'aufewigwinter',
-    url: 'https://www.aufewigwinter.de/',
+    name: "aufewigwinter",
+    url: "https://www.aufewigwinter.de/",
   },
   {
-    altText: 'Screenshot of Kora Winter website',
+    altText: "Screenshot of Kora Winter website",
     image: koraWinter,
-    name: 'Kora Winter',
-    url: 'https://www.korawinter.de/',
+    name: "Kora Winter",
+    url: "https://www.korawinter.de/",
   },
   {
-    altText: 'Screenshot of Nexum website',
+    altText: "Screenshot of Nexum website",
     image: nexum,
-    name: 'nexum AG',
-    url: 'https://www.nexum.com/',
+    name: "nexum AG",
+    url: "https://www.nexum.com/",
   },
   {
-    altText: 'Screenshot of Niessing website',
+    altText: "Screenshot of Niessing website",
     image: niessing,
-    name: 'Niessing',
-    url: 'https://niessing.com/',
+    name: "Niessing",
+    url: "https://niessing.com/",
   },
   {
-    altText: 'Screenshot of Own Cloud website',
+    altText: "Screenshot of Own Cloud website",
     image: owncloud,
-    name: 'ownCloud',
-    url: 'https://owncloud.com/',
+    name: "ownCloud",
+    url: "https://owncloud.com/",
   },
   {
-    altText: 'Screenshot of Sellwerk website',
+    altText: "Screenshot of Sellwerk website",
     image: sellwerk,
-    name: 'Sellwerk',
-    url: 'https://sellwerk.de/',
+    name: "Sellwerk",
+    url: "https://sellwerk.de/",
   },
   {
-    altText: 'Screenshot of SVTI website',
+    altText: "Screenshot of SVTI website",
     image: svti,
-    name: 'SVTI',
-    url: 'https://www.svti.ch/',
+    name: "SVTI",
+    url: "https://www.svti.ch/",
   },
   {
-    altText: 'Screenshot of Thank You Next website',
+    altText: "Screenshot of Thank You Next website",
     image: thankYouNext,
-    name: 'ThankYouNext',
-    url: 'https://thankyounext.vercel.app/',
+    name: "ThankYouNext",
+    url: "https://thankyounext.vercel.app/",
   },
 ];
 ---
 
-<section aria-label='projects' id='projects'>
+<section aria-label="projects" id="projects">
   <SectionHeader
-    ariaLabel='Projects'
-    accentColor='#f6026a'
-    href='#projects'
-    title='Projects'
+    ariaLabel="Projects"
+    accentColor="#f6026a"
+    href="#projects"
+    title="Projects"
   />
   <p>
     Here you can find <mark
       >a selection of projects I've been directly or indirectly involved</mark
     > in. This includes commercial as well as personal ones:
   </p>
-  <ul role='list'>
+  <ul role="list">
     {
       projects.map((item) => (
         <li>
           <Image alt={item.altText} height={300} src={item.image} width={400} />
-          <a href={item.url} rel='noopener noreferrer'>
+          <a href={item.url} rel="noopener noreferrer">
             {item.name}
           </a>
         </li>
@@ -96,7 +97,8 @@ const projects = [
     }
   </ul>
 </section>
-<Divider />
+
+<DividerVertical />
 
 <style>
   section {

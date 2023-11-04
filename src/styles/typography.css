@@ -1,0 +1,24 @@
+@font-face {
+  font-display: swap;
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/syne-v16-latin-700.woff2") format("woff2");
+}
+
+:root {
+  --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+  --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+  --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+  --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+  --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+}

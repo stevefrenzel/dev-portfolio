@@ -1,65 +1,66 @@
 ---
-import { Image } from '@astrojs/image/components';
-import SectionHeader from '@components/SectionHeader.astro';
-import Divider from '@components/Divider.astro';
+import { Image } from "astro:assets";
 
-import fifthIndustry from '@images/company-logos/logo-5thindustry.svg';
-import inboundLabs from '@images/company-logos/logo-inboundlabs.svg';
-import interfaceMedien from '@images/company-logos/logo-interface-medien.svg';
-import nexum from '@images/company-logos/logo-nexum.svg';
-import ownCloud from '@images/company-logos/logo-owncloud.svg';
-import sellwerk from '@images/company-logos/logo-sellwerk.svg';
-import solemedia from '@images/company-logos/logo-solemedia.svg';
-import spiced from '@images/company-logos/logo-spiced.svg';
+import DividerVertical from "@utils/DividerVertical.astro";
+import SectionHeader from "@utils/SectionHeader.astro";
+
+import fifthIndustry from "@images/company-logos/logo-5thindustry.svg";
+import inboundLabs from "@images/company-logos/logo-inboundlabs.svg";
+import interfaceMedien from "@images/company-logos/logo-interface-medien.svg";
+import nexum from "@images/company-logos/logo-nexum.svg";
+import ownCloud from "@images/company-logos/logo-owncloud.svg";
+import sellwerk from "@images/company-logos/logo-sellwerk.svg";
+import solemedia from "@images/company-logos/logo-solemedia.svg";
+import spiced from "@images/company-logos/logo-spiced.svg";
 
 const companies = [
   {
     icon: fifthIndustry,
-    name: '5thIndustry logo',
-    url: 'https://www.5thindustry.de/',
+    name: "5thIndustry logo",
+    url: "https://www.5thindustry.de/",
     width: 250,
   },
   {
     icon: inboundLabs,
-    name: 'InboundLabs logo',
-    url: 'https://www.inboundlabs.de/',
+    name: "InboundLabs logo",
+    url: "https://www.inboundlabs.de/",
     width: 250,
   },
   {
     icon: interfaceMedien,
-    name: 'interface medien logo',
+    name: "interface medien logo",
     width: 250,
-    url: 'https://interface-medien.de/',
+    url: "https://interface-medien.de/",
   },
-  { icon: nexum, name: 'Nexum AG', url: 'https://www.nexum.com/', width: 150 },
+  { icon: nexum, name: "Nexum AG", url: "https://www.nexum.com/", width: 150 },
   {
     icon: ownCloud,
-    name: 'ownCloud logo',
-    url: 'https://owncloud.com/',
+    name: "ownCloud logo",
+    url: "https://owncloud.com/",
     width: 150,
   },
-  { icon: sellwerk, name: 'Sellwerk', url: 'https://sellwerk.de/', width: 250 },
+  { icon: sellwerk, name: "Sellwerk", url: "https://sellwerk.de/", width: 250 },
   {
     icon: solemedia,
-    name: 'solemedia logo',
-    url: 'https://www.solemedia.de/',
+    name: "solemedia logo",
+    url: "https://www.solemedia.de/",
     width: 250,
   },
   {
     icon: spiced,
-    name: 'SPICED academy logo',
-    url: 'https://www.spiced-academy.com/',
+    name: "SPICED academy logo",
+    url: "https://www.spiced-academy.com/",
     width: 175,
   },
 ];
 ---
 
-<section aria-label='Collaborations' id='collaborations'>
+<section aria-label="Collaborations" id="collaborations">
   <SectionHeader
-    ariaLabel='Collaborations'
-    accentColor='#ffd501'
-    href='#collaborations'
-    title='Col­lab­o­ra­tions'
+    ariaLabel="Collaborations"
+    accentColor="#ffd501"
+    href="#collaborations"
+    title="Col­lab­o­ra­tions"
   />
   <p>
     I have had the pleasure to <mark>work with some amazing people</mark>, be it
@@ -67,13 +68,13 @@ const companies = [
     customers.
   </p>
   <!-- TODO Weird bug (?) that images don't receive focus when inside a list element -->
-  <div class='link-list'>
+  <div class="link-list">
     {
       companies.map((item) => (
-        <a aria-label={item.name} href={item.url} rel='noopener noreferrer'>
+        <a aria-label={item.name} href={item.url} rel="noopener noreferrer">
           <div>
             <Image
-              class='icon'
+              class="icon"
               alt={item.name}
               src={item.icon}
               width={item.width}
@@ -84,7 +85,8 @@ const companies = [
     }
   </div>
 </section>
-<Divider />
+
+<DividerVertical />
 
 <style>
   section {
