@@ -2,13 +2,11 @@
 import { Image } from "astro:assets";
 
 import DividerVertical from "@utils/DividerVertical.astro";
-import SectionHeader from "@utils/SectionHeader.astro";
 
 import fifthIndustry from "@images/company-logos/logo-5thindustry.svg";
 import inboundLabs from "@images/company-logos/logo-inboundlabs.svg";
 import interfaceMedien from "@images/company-logos/logo-interface-medien.svg";
 import nexum from "@images/company-logos/logo-nexum.svg";
-import ownCloud from "@images/company-logos/logo-owncloud.svg";
 import sellwerk from "@images/company-logos/logo-sellwerk.svg";
 import solemedia from "@images/company-logos/logo-solemedia.svg";
 import spiced from "@images/company-logos/logo-spiced.svg";
@@ -33,12 +31,6 @@ const companies = [
     url: "https://interface-medien.de/",
   },
   { icon: nexum, name: "Nexum AG", url: "https://www.nexum.com/", width: 150 },
-  {
-    icon: ownCloud,
-    name: "ownCloud logo",
-    url: "https://owncloud.com/",
-    width: 150,
-  },
   { icon: sellwerk, name: "Sellwerk", url: "https://sellwerk.de/", width: 250 },
   {
     icon: solemedia,
@@ -56,16 +48,10 @@ const companies = [
 ---
 
 <section aria-label="Collaborations" id="collaborations">
-  <SectionHeader
-    ariaLabel="Collaborations"
-    accentColor="#ffd501"
-    href="#collaborations"
-    title="Col­lab­o­ra­tions"
-  />
+  <h2>Collaborations</h2>
   <p>
-    I have had the pleasure to <mark>work with some amazing people</mark>, be it
-    a small company with their own product, or an agency with multiple
-    customers.
+    I have had the pleasure to work with some amazing people, be it a small
+    company with their own product, or an agency with multiple customers.
   </p>
   <!-- TODO Weird bug (?) that images don't receive focus when inside a list element -->
   <div class="link-list">
@@ -86,7 +72,7 @@ const companies = [
   </div>
 </section>
 
-<DividerVertical />
+<DividerVertical borderStyle="solid" />
 
 <style>
   section {
@@ -105,14 +91,5 @@ const companies = [
     gap: var(--space-xl);
     justify-content: center;
     margin-top: var(--space-xl);
-  }
-
-  mark {
-    background: var(--color-accent-collaborations);
-    color: var(--color-black);
-  }
-
-  :global(.dark) .icon {
-    filter: invert(1);
   }
 </style>

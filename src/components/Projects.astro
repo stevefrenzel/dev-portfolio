@@ -1,18 +1,15 @@
 ---
 import { Image } from "astro:assets";
-
 import DividerVertical from "@utils/DividerVertical.astro";
-import SectionHeader from "@utils/SectionHeader.astro";
-
+import ExternalLink from "@utils/ExternalLink.astro";
 import adecco from "@images/screenshots/adecco.png";
+import astroNaut from "@images/screenshots/astro-naut.png";
 import aufewigwinter from "@images/screenshots/aufewigwinter.png";
 import koraWinter from "@images/screenshots/kora-winter.png";
 import nexum from "@images/screenshots/nexum.png";
 import niessing from "@images/screenshots/niessing.png";
-import owncloud from "@images/screenshots/owncloud.png";
 import sellwerk from "@images/screenshots/sellwerk.png";
 import svti from "@images/screenshots/svti.png";
-import thankYouNext from "@images/screenshots/thank-you-next.png";
 
 const projects = [
   {
@@ -20,6 +17,12 @@ const projects = [
     image: adecco,
     name: "Adecco Jobs",
     url: "https://www.adecco-jobs.com/",
+  },
+  {
+    altText: "Screenshot of Astronaut website",
+    image: astroNaut,
+    name: "Astronaut",
+    url: "https://astro-naut-template.vercel.app/",
   },
   {
     altText: "Screenshot of Auf Ewig Winter website",
@@ -46,12 +49,6 @@ const projects = [
     url: "https://niessing.com/",
   },
   {
-    altText: "Screenshot of Own Cloud website",
-    image: owncloud,
-    name: "ownCloud",
-    url: "https://owncloud.com/",
-  },
-  {
     altText: "Screenshot of Sellwerk website",
     image: sellwerk,
     name: "Sellwerk",
@@ -63,42 +60,28 @@ const projects = [
     name: "SVTI",
     url: "https://www.svti.ch/",
   },
-  {
-    altText: "Screenshot of Thank You Next website",
-    image: thankYouNext,
-    name: "ThankYouNext",
-    url: "https://thankyounext.vercel.app/",
-  },
 ];
 ---
 
 <section aria-label="projects" id="projects">
-  <SectionHeader
-    ariaLabel="Projects"
-    accentColor="#f6026a"
-    href="#projects"
-    title="Projects"
-  />
+  <h2>Projects</h2>
   <p>
-    Here you can find <mark
-      >a selection of projects I've been directly or indirectly involved</mark
-    > in. This includes commercial as well as personal ones:
+    Here you can find a selection of projects I've been directly or indirectly
+    involved in. This includes commercial as well as personal ones:
   </p>
-  <ul role="list">
+  <ul>
     {
       projects.map((item) => (
         <li>
           <Image alt={item.altText} height={300} src={item.image} width={400} />
-          <a href={item.url} rel="noopener noreferrer">
-            {item.name}
-          </a>
+          <ExternalLink href={item.url} name={item.name} />
         </li>
       ))
     }
   </ul>
 </section>
 
-<DividerVertical />
+<DividerVertical borderStyle="dotted" />
 
 <style>
   section {
@@ -126,13 +109,7 @@ const projects = [
 
   img {
     border-radius: 5px;
-    box-shadow: 0px 0px 20px 0px grey;
     margin-bottom: var(--space-xs);
     object-fit: cover;
-  }
-
-  mark {
-    background: var(--color-accent-projects);
-    color: var(--color-white);
   }
 </style>

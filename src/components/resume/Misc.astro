@@ -1,7 +1,6 @@
 ---
 import Chip from "@components/resume/Chip.astro";
 import DividerSmall from "@utils/DividerSmall.astro";
-import SectionHeader from "@utils/SectionHeader.astro";
 
 const skills = [
   "CSS & SASS",
@@ -70,8 +69,8 @@ const languages = [
 
 <section aria-label="Miscellaneous">
   <div id="skills">
-    <SectionHeader ariaLabel="Skills" href="#skills" title="Skills" />
-    <ul class="chips-list" role="list">
+    <h2>Skills</h2>
+    <ul class="chips-list">
       {
         skills.map((item) => (
           <li>
@@ -85,8 +84,8 @@ const languages = [
   <DividerSmall />
 
   <div id="buzzwords">
-    <SectionHeader ariaLabel="Buzzwords" href="#buzzwords" title="Buzzwords" />
-    <ul class="chips-list" role="list">
+    <h2>Buzzwords</h2>
+    <ul class="chips-list">
       {
         buzzwords.map((item) => (
           <li>
@@ -100,8 +99,8 @@ const languages = [
   <DividerSmall />
 
   <div id="education">
-    <SectionHeader ariaLabel="Education" href="#education" title="Education" />
-    <ul id="education-list" role="list">
+    <h2>Education</h2>
+    <ul id="education-list">
       {
         education.map((item) => (
           <li>
@@ -117,8 +116,8 @@ const languages = [
   <DividerSmall />
 
   <div id="languages">
-    <SectionHeader ariaLabel="Languages" href="#languages" title="Languages" />
-    <ul id="languages-list" role="list">
+    <h2>Languages</h2>
+    <ul id="languages-list">
       {
         languages.map((item) => (
           <li>
@@ -131,17 +130,17 @@ const languages = [
   </div>
 </section>
 
-<style lang="scss">
+<style>
   section {
     width: 100%;
     padding: 0;
+  }
 
-    h2 {
-      margin-top: var(--space-xl);
+  h2 {
+    margin-top: var(--space-xl);
 
-      &:first-child() {
-        margin-top: 0;
-      }
+    &:first-child() {
+      margin-top: 0;
     }
   }
 
@@ -160,7 +159,7 @@ const languages = [
 
   #education-list,
   #languages-list {
-    li {
+    & li {
       margin-bottom: var(--space-l);
 
       &:last-child() {
@@ -170,17 +169,17 @@ const languages = [
   }
 
   #education-list {
-    h3 {
+    & h3 {
       margin-bottom: var(--space-xs);
     }
-    span:nth-child(2),
-    span:nth-child(3) {
+    & span:nth-child(2),
+    & span:nth-child(3) {
       font-size: var(--step-1);
     }
-    span:nth-child(2) {
+    & span:nth-child(2) {
       font-family: "Syne", sans-serif;
     }
-    span:nth-child(3) {
+    & span:nth-child(3) {
       display: block;
       font-family: "Atkinson Hyperlegible", serif;
       font-style: italic;
@@ -188,7 +187,7 @@ const languages = [
   }
 
   #languages-list {
-    span {
+    & span {
       font-family: "Atkinson Hyperlegible", serif;
       font-size: var(--step-1);
       font-style: italic;

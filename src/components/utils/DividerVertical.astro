@@ -1,9 +1,16 @@
+---
+export interface Props {
+  borderStyle?: string;
+}
+const { borderStyle } = Astro.props;
+---
+
 <hr aria-hidden="true" />
 
-<style>
+<style define:vars={{ borderStyle }}>
   hr {
     border-width: 0 0 0 3px;
-    border-style: solid;
+    border-style: var(--borderStyle);
     height: calc(var(--space-3xl) * 1.5);
     margin: var(--space-xl) auto;
     width: 3px;

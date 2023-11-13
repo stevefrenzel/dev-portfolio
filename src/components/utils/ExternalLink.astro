@@ -1,0 +1,28 @@
+---
+export interface Props {
+  href: string;
+  fontSize?: string;
+  name: string;
+  rel?: string;
+}
+
+const {
+  href,
+  fontSize = "var(--step-1)",
+  name,
+  rel = "noopener noreferrer",
+} = Astro.props;
+---
+
+<a href={href} class="external-link" rel={rel}>{name}</a>
+
+<style define:vars={{ fontSize }}>
+  a {
+    color: var(--color-purple-light);
+    font-size: var(--fontSize);
+  }
+
+  a::after {
+    content: " ↪";
+  }
+</style>

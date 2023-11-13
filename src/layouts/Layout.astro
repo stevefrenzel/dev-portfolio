@@ -1,10 +1,7 @@
 ---
-import "@styles/global.scss";
+import "@styles/global.css";
 import "@styles/reset.css";
 import "@styles/variables.css";
-
-import StartAnchor from "@utils/StartAnchor.astro";
-import ThemeIcon from "@utils/ThemeIcon.astro";
 
 export interface Props {
   title: string;
@@ -37,7 +34,7 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={metaData.keywords} />
     <meta name="description" content={metaData.description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-sf.svg" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
     <meta property="og:url" content={canonicalURL} />
@@ -58,8 +55,7 @@ const socialImageURL = new URL("/seo.png", Astro.url);
   </head>
   <body>
     <section aria-label="Utilities">
-      <StartAnchor />
-      <ThemeIcon />
+      <div id="start"></div>
     </section>
     <slot />
   </body>

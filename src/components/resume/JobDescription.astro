@@ -25,7 +25,7 @@ const { heading, company, timePeriod, description, techStack, tasks } =
   <span>{timePeriod}</span>
   <p>{description}</p>
   <h4>Tech Stack</h4>
-  <ul class="listOne" role="list">
+  <ul class="listOne">
     {
       techStack.map((item) => (
         <li class="tech-item">
@@ -36,7 +36,7 @@ const { heading, company, timePeriod, description, techStack, tasks } =
     }
   </ul>
   <h4>Achievements & Tasks</h4>
-  <ul class="listTwo" role="list">
+  <ul class="listTwo">
     {
       tasks.map((item) => (
         <li>
@@ -47,7 +47,7 @@ const { heading, company, timePeriod, description, techStack, tasks } =
   </ul>
 </article>
 
-<style lang="scss">
+<style>
   article {
     padding-right: var(--space-s);
   }
@@ -79,33 +79,29 @@ const { heading, company, timePeriod, description, techStack, tasks } =
     flex-wrap: wrap;
     gap: var(--space-m);
 
-    .tech-item {
-      align-items: center;
-      background: var(--color-black-alt);
-      border: 1px solid grey;
-      border-radius: 5px;
-      color: var(--color-white);
-      display: flex;
-      gap: var(--space-2xs);
-      margin: 0;
-      padding: var(--space-3xs);
-      width: fit-content;
-    }
-
-    span {
+    & span {
       font-family: "Atkinson Hyperlegible", serif;
       font-size: var(--step-0);
     }
   }
 
-  :global(.dark) .tech-item {
+  .tech-item {
+    align-items: center;
+    background: var(--color-black-alt);
     border: 1px solid grey;
+    border-radius: 5px;
+    color: var(--color-white);
+    display: flex;
+    gap: var(--space-2xs);
+    margin: 0;
+    padding: var(--space-3xs);
+    width: fit-content;
   }
 
   .listTwo {
     list-style: initial !important;
 
-    li {
+    & li {
       margin-bottom: var(--space-s);
     }
   }

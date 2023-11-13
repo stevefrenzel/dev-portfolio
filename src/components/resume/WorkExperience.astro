@@ -2,7 +2,6 @@
 import JobDescription from "@components/resume/JobDescription.astro";
 
 import DividerSmall from "@utils/DividerSmall.astro";
-import SectionHeader from "@utils/SectionHeader.astro";
 
 import adobexd from "@images/icons/adobexd.svg";
 import bamboo from "@images/icons/bamboo.svg";
@@ -103,7 +102,7 @@ const techStackFifthIndustry = [
 ---
 
 <section aria-label="Work experience" id="experience">
-  <SectionHeader title="Experience" ariaLabel="Experience" href="#experience" />
+  <h2>Experience</h2>
 
   <div class="spacer"></div>
 
@@ -145,6 +144,9 @@ const techStackFifthIndustry = [
   section {
     padding: 0;
     width: 100%;
+  }
+  h2 {
+    margin-top: 0;
   }
   .spacer {
     margin-top: var(--space-l);

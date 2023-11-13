@@ -1,0 +1,245 @@
+/* Fonts */
+
+@font-face {
+  font-display: swap;
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/syne-v16-latin-700.woff2") format("woff2");
+}
+
+/* General */
+
+body {
+  margin: 0;
+}
+
+section {
+  margin: 0 auto;
+  padding: 0 var(--space-s);
+}
+
+h1,
+h2,
+h3,
+h4,
+.sub-headline {
+  font-family: "Syne", sans-serif;
+  line-height: 1;
+}
+
+h1 {
+  font-size: calc(var(--step-5));
+}
+
+h2 {
+  font-size: calc(var(--step-4));
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+h4 {
+  font-size: var(--step-1);
+}
+
+.sub-headline {
+  font-size: var(--step-2);
+}
+
+input,
+textarea {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: var(--space-xs);
+}
+
+a,
+button,
+p,
+label,
+footer {
+  font-family: "Atkinson Hyperlegible", serif;
+  font-size: var(--step-1);
+}
+
+#resume-container main {
+  justify-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 var(--space-s);
+}
+
+/* Preference detection */
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: var(--color-black-material);
+    color: var(--color-white-material);
+  }
+
+  #intro {
+    background: var(--color-white-material);
+    color: var(--color-black-material);
+
+    & a,
+    & p,
+    & .sub-headline {
+      color: var(--color-black-material);
+    }
+  }
+
+  #projects {
+    & a {
+      color: var(--color-blue-light-material);
+    }
+
+    & img {
+      border: 2px dashed var(--color-white-material);
+    }
+  }
+
+  #back-to-top {
+    background: var(--color-white-material);
+
+    & img {
+      filter: invert(1);
+    }
+  }
+
+  button,
+  label {
+    color: var(--color-white-material);
+  }
+
+  hr,
+  p {
+    color: var(--color-grey-material);
+  }
+
+  /* Resume page */
+
+  #intro-resume .sub-headline {
+    color: var(--color-grey-material);
+  }
+
+  #education-list {
+    & span:nth-child(2) {
+      color: var(--color-grey-material);
+    }
+    & span:nth-child(3) {
+      color: var(--color-grey-material);
+    }
+  }
+
+  #languages-list {
+    & span {
+      color: var(--color-grey-material);
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background: var(--color-white-material);
+    color: var(--color-black-material);
+  }
+
+  #intro {
+    background: var(--color-black-material);
+    color: var(--color-white-material);
+
+    & a,
+    & p,
+    & .sub-headline {
+      color: var(--color-grey-material);
+    }
+
+    & .icon {
+      filter: invert(1);
+    }
+  }
+
+  #projects {
+    & a {
+      color: var(--color-blue-dark-material);
+    }
+
+    & img {
+      border: 2px dashed var(--color-black-material);
+    }
+  }
+
+  #back-to-top {
+    background: var(--color-black-material);
+  }
+
+  #collaborations img {
+    filter: invert(1);
+  }
+
+  hr,
+  p {
+    color: var(--color-black-material);
+  }
+
+  /* Resume page */
+
+  #intro-resume img {
+    filter: invert(1);
+  }
+
+  #education-list {
+    & span:nth-child(2) {
+      color: var(--color-black-material);
+    }
+    & span:nth-child(3) {
+      color: var(--color-black-material);
+    }
+  }
+
+  #languages-list {
+    & span {
+      color: var(--color-black-material);
+    }
+  }
+}
+
+/* Accessibility */
+
+:is(a, button, input, textarea, summary):hover {
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus {
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus-visible {
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :hover,
+  :focus {
+    transition: outline-offset 0.25s ease;
+    outline-offset: 5px;
+  }
+}

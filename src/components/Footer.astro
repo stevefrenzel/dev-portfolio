@@ -1,29 +1,28 @@
+---
+import ExternalLink from "@utils/ExternalLink.astro";
+---
+
 <footer>
-  Coded with <span aria-label="love">❤️</span> by Steve Frenzel. <a
-    href="https://github.com/stevefrenzel/dev-portfolio"
-    rel="noopener noreferrer">Have a look at the code on GitHub!</a
-  >
+  <p>
+    Coded with <span aria-label="love">❤️</span> by Steve Frenzel.
+    <ExternalLink
+      href="https://github.com/stevefrenzel/dev-portfolio"
+      fontSize="var(--step-0)"
+      name="Code on GitHub"
+    />
+  </p>
 </footer>
 
-<style lang="scss">
+<style>
   footer {
-    background: var(--color-white-alt);
-    color: var(--color-black) !important;
+    border-top: 0.1px solid var(--color-grey-material);
     margin-top: var(--space-3xl);
     padding: var(--space-m) var(--space-s);
     text-align: center;
-
-    a {
-      color: var(--color-black);
-    }
   }
 
-  :global(.dark) footer {
-    background: var(--color-black-alt);
-    color: var(--color-white) !important;
-
-    a {
-      color: var(--color-white) !important;
-    }
+  a,
+  p {
+    font-size: var(--step-0);
   }
 </style>

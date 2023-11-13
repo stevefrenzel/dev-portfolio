@@ -9,6 +9,12 @@
   --color-accent-contact: #49fe18;
   --color-accent-projects: #ac0068;
 
+  --color-black-material: #101418;
+  --color-blue-light-material: #65b2ff;
+  --color-blue-dark-material: #0051c2;
+  --color-grey-material: #afb8c4;
+  --color-white-material: #f2f6f9;
+
   /* Font */
   --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
   --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);

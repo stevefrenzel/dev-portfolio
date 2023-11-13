@@ -38,14 +38,14 @@ const links = [
 ];
 ---
 
-<section aria-label="Intro" id="intro">
+<section aria-label="Intro" id="intro-resume">
   <div class="container">
     <div class="headlines">
       <h1>Steve Frenzel</h1>
       <span class="sub-headline">Web Developer & Accessibility Advocate</span>
     </div>
-    <div class="contact-information">
-      <ul role="list">
+    <div>
+      <ul>
         {
           links.map((link) => (
             <li>
@@ -77,15 +77,15 @@ const links = [
   </div>
 </section>
 
-<style lang="scss">
+<style>
   section {
-    max-width: 1536px;
-    padding: var(--space-s) 0;
+    border-style: solid;
+    border-width: 0 0 3px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    border-width: 0 0 3px 0;
-    border-style: solid;
     margin: 0 auto var(--space-m) auto;
+    max-width: 1536px;
+    padding: var(--space-s) 0;
   }
 
   .headlines,
@@ -97,43 +97,31 @@ const links = [
     align-self: center;
   }
 
-  :global(.dark) img {
-    filter: invert(1);
-  }
-
   .text {
     margin: var(--space-s) 0;
 
-    p:first-child() {
+    & p:first-child() {
       margin-bottom: var(--space-s);
-    }
-
-    mark {
-      background: var(--color-accent-about);
     }
   }
 
-  .contact-information {
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-s);
-      justify-content: start;
-      list-style-type: none;
-      margin: var(--space-m) var(--space-s) 0 var(--space-s);
-      padding: 0;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: start;
+    list-style-type: none;
+    margin: var(--space-m) var(--space-s) 0 var(--space-s);
+    padding: 0;
+  }
 
-      li:first-child() {
-        img {
-          margin-right: var(--space-3xs);
-        }
-      }
-    }
+  li {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+  }
 
-    li {
-      align-items: center;
-      display: flex;
-      gap: var(--space-3xs);
-    }
+  li:first-child() img {
+    margin-right: var(--space-3xs);
   }
 </style>

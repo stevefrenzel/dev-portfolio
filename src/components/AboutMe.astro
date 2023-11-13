@@ -1,7 +1,4 @@
 ---
-import DividerVertical from "@utils/DividerVertical.astro";
-import SectionHeader from "@utils/SectionHeader.astro";
-
 const content = [
   {
     headline: 'Creating <span aria-hidden="true">👷‍♂️</span>',
@@ -32,18 +29,12 @@ const content = [
 ---
 
 <section aria-label="About me" id="about-me">
-  <SectionHeader
-    ariaLabel="About me"
-    accentColor="#66ffe5"
-    href="#about-me"
-    title="About me"
-  />
+  <h2>About me</h2>
   <p>
-    When we work together, <mark>I do a variety of things</mark>, not just
-    programming. Here's a partial list of things I do to make your project a
-    success:
+    When we work together, I do a variety of things, not just programming.
+    Here's a partial list of things I do to make your project a success:
   </p>
-  <ul role="list">
+  <ul>
     {
       content.map((content) => (
         <li>
@@ -56,8 +47,6 @@ const content = [
     }
   </ul>
 </section>
-
-<DividerVertical />
 
 <style>
   section {
@@ -80,10 +69,5 @@ const content = [
 
   p {
     margin-top: var(--space-xs);
-  }
-
-  mark {
-    background: var(--color-accent-about);
-    color: var(--color-black);
   }
 </style>

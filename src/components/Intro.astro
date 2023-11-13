@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import DividerVertical from "@utils/DividerVertical.astro";
-
+import ExternalLink from "@utils/ExternalLink.astro";
 import pictureOfMe from "@images/picture-of-me.jpg";
 import gitHub from "@images/icons/github.svg";
 import linkedIn from "@images/icons/linkedin.svg";
@@ -46,24 +46,26 @@ const socialLinks = [
     />
     <div class="text-container">
       <p>
-        I specialize in designing and implementing <mark
-          >robust and inclusive websites</mark
-        >. My focus is on accessibility, which I educate about and implement
-        practically. I am also a music nerd and love hot sauces! 🔥
+        I specialize in designing and implementing robust and inclusive
+        websites. My focus is on accessibility, which I educate about and
+        implement practically. I am also a music nerd and love hot sauces! 🔥
       </p>
       <p>
-        If you want to get in touch with me, fill out the <a href="#contact"
-          >contact form</a
-        >. You can also find me on the following platforms:
+        If you want to get in touch with me, write me an <a
+          href="mailto:stvfrnzl@duck.go">e-mail</a
+        >, or find me on the following platforms:
       </p>
-      <ul role="list">
+      <ul>
         {
           socialLinks.map((item) => (
             <li>
               <Image alt="" class="icon" src={item.icon} />
-              <a href={item.url} rel={item.rel}>
-                {item.name}
-              </a>
+              <ExternalLink
+                fontSize="var(--step-2)"
+                href={item.url}
+                name={item.name}
+                rel={item.rel}
+              />
             </li>
           ))
         }
@@ -72,56 +74,24 @@ const socialLinks = [
   </div>
 </section>
 
-<DividerVertical />
+<DividerVertical borderStyle="dashed" />
 
-<style lang="scss">
-  :global(.dark) section {
-    background: var(--color-black-alt);
-
-    h1,
-    span,
-    p,
-    a {
-      color: var(--color-white-alt);
-    }
-
-    mark {
-      background: var(--color-white-alt);
-      color: var(--color-black-alt);
-    }
-
-    .icon {
-      filter: invert(1);
-    }
-  }
-
+<style>
   section {
-    background: var(--color-white-alt);
     max-width: 100%;
     padding: var(--space-s) var(--space-s) var(--space-xl) var(--space-s);
-
-    h1,
-    span,
-    p,
-    a {
-      color: var(--color-black-alt);
-    }
-
-    mark {
-      background: var(--color-black-alt);
-      color: var(--color-white-alt);
-    }
   }
 
   .headline-container {
-    max-width: 1536px;
-    margin: 0 auto var(--space-xs) auto;
-    display: flex;
     align-items: baseline;
+    display: flex;
     flex-wrap: wrap;
+    gap: var(--space-s);
+    margin: 0 auto var(--space-xs) auto;
+    max-width: 1536px;
 
-    h1 {
-      margin-right: var(--space-s);
+    & h1 {
+      margin: 0;
     }
   }
 
@@ -135,7 +105,7 @@ const socialLinks = [
   }
 
   #profile-picture {
-    box-shadow: 10px 10px 0px 0px grey;
+    box-shadow: 10px 10px 0px 0px var(--color-grey-material);
   }
 
   ul {
@@ -160,12 +130,13 @@ const socialLinks = [
 
   .text-container {
     align-self: center;
-    a,
-    p {
+
+    & a,
+    & p {
       font-size: var(--step-2);
     }
 
-    p:first-child() {
+    & p:first-child() {
       margin-bottom: var(--space-m);
     }
   }
