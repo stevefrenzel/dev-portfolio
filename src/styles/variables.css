@@ -1,19 +1,10 @@
 :root {
   /* Color */
-  --color-black: #101010;
-  --color-black-alt: #252525;
-  --color-white: #fefefe;
-  --color-white-alt: #e5e5e5;
-  --color-accent-about: #66ffe5;
-  --color-accent-collaborations: #ffd501;
-  --color-accent-contact: #49fe18;
-  --color-accent-projects: #ac0068;
-
-  --color-black-material: #101418;
-  --color-blue-light-material: #65b2ff;
-  --color-blue-dark-material: #0051c2;
-  --color-grey-material: #afb8c4;
-  --color-white-material: #f2f6f9;
+  --color-black: #101418;
+  --color-blue-light: #65b2ff;
+  --color-blue-dark: #0051c2;
+  --color-grey: #afb8c4;
+  --color-white: #f2f6f9;
 
   /* Font */
   --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);

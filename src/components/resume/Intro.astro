@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import ExternalLink from "@components/utils/ExternalLink.astro";
 
 import desktop from "@images/icons/desktop.svg";
 import gitHub from "@images/icons/github-white.svg";
@@ -55,9 +56,7 @@ const links = [
                 src={link.src}
                 width={link.width}
               />
-              <a href={link.href} rel="noopener noreferrer">
-                {link.name}
-              </a>
+              <ExternalLink href={link.href} name={link.name} />
             </li>
           ))
         }
@@ -86,6 +85,10 @@ const links = [
     margin: 0 auto var(--space-m) auto;
     max-width: 1536px;
     padding: var(--space-s) 0;
+  }
+
+  h1 {
+    margin: 0;
   }
 
   .headlines,

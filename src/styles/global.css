@@ -84,33 +84,33 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   html {
-    background: var(--color-black-material);
-    color: var(--color-white-material);
+    background: var(--color-black);
+    color: var(--color-white);
   }
 
   #intro {
-    background: var(--color-white-material);
-    color: var(--color-black-material);
+    background: var(--color-white);
+    color: var(--color-black);
 
     & a,
     & p,
     & .sub-headline {
-      color: var(--color-black-material);
+      color: var(--color-black);
     }
   }
 
   #projects {
     & a {
-      color: var(--color-blue-light-material);
+      color: var(--color-blue-light);
     }
 
     & img {
-      border: 2px dashed var(--color-white-material);
+      border: 2px dashed var(--color-white);
     }
   }
 
   #back-to-top {
-    background: var(--color-white-material);
+    background: var(--color-white);
 
     & img {
       filter: invert(1);
@@ -119,50 +119,54 @@ footer {
 
   button,
   label {
-    color: var(--color-white-material);
+    color: var(--color-white);
   }
 
   hr,
   p {
-    color: var(--color-grey-material);
+    color: var(--color-grey);
   }
 
   /* Resume page */
 
   #intro-resume .sub-headline {
-    color: var(--color-grey-material);
+    color: var(--color-grey);
   }
 
   #education-list {
     & span:nth-child(2) {
-      color: var(--color-grey-material);
+      color: var(--color-grey);
     }
     & span:nth-child(3) {
-      color: var(--color-grey-material);
+      color: var(--color-grey);
     }
   }
 
   #languages-list {
     & span {
-      color: var(--color-grey-material);
+      color: var(--color-grey);
     }
+  }
+
+  .tech-item {
+    color: var(--color-grey);
   }
 }
 
 @media (prefers-color-scheme: light) {
   html {
-    background: var(--color-white-material);
-    color: var(--color-black-material);
+    background: var(--color-white);
+    color: var(--color-black);
   }
 
   #intro {
-    background: var(--color-black-material);
-    color: var(--color-white-material);
+    background: var(--color-black);
+    color: var(--color-white);
 
     & a,
     & p,
     & .sub-headline {
-      color: var(--color-grey-material);
+      color: var(--color-grey);
     }
 
     & .icon {
@@ -172,16 +176,16 @@ footer {
 
   #projects {
     & a {
-      color: var(--color-blue-dark-material);
+      color: var(--color-blue-dark);
     }
 
     & img {
-      border: 2px dashed var(--color-black-material);
+      border: 2px dashed var(--color-black);
     }
   }
 
   #back-to-top {
-    background: var(--color-black-material);
+    background: var(--color-black);
   }
 
   #collaborations img {
@@ -190,7 +194,7 @@ footer {
 
   hr,
   p {
-    color: var(--color-black-material);
+    color: var(--color-black);
   }
 
   /* Resume page */
@@ -201,17 +205,21 @@ footer {
 
   #education-list {
     & span:nth-child(2) {
-      color: var(--color-black-material);
+      color: var(--color-black);
     }
     & span:nth-child(3) {
-      color: var(--color-black-material);
+      color: var(--color-black);
     }
   }
 
   #languages-list {
     & span {
-      color: var(--color-black-material);
+      color: var(--color-black);
     }
+  }
+
+  .tech-item {
+    color: var(--color-black);
   }
 }
 
