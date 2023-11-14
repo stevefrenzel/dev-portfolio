@@ -80,10 +80,6 @@ footer {
   padding: 0 var(--space-s);
 }
 
-#projects img {
-  box-shadow: 0px 0px 20px 0px var(--color-grey);
-}
-
 /* Preference detection */
 
 @media (prefers-color-scheme: dark) {
@@ -107,6 +103,11 @@ footer {
     color: var(--color-blue-light);
   }
 
+  #projects img {
+    border: 2px solid var(--color-grey-light);
+    box-shadow: 10px 10px 0px 0px #1f262e;
+  }
+
   #back-to-top {
     background: var(--color-white);
   }
@@ -121,26 +122,30 @@ footer {
   }
 
   hr {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
   }
 
   /* Resume page */
 
   #intro-resume .sub-headline {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
   }
 
   #education-list span:nth-child(2),
   #education-list span:nth-child(3) {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
   }
 
   #languages-list span {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
+  }
+
+  .job-description p {
+    color: var(--color-grey-light);
   }
 
   .tech-item {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
   }
 }
 
@@ -158,7 +163,7 @@ footer {
   #intro a,
   #intro p,
   #intro .sub-headline {
-    color: var(--color-grey);
+    color: var(--color-grey-light);
   }
 
   #intro .icon {
@@ -167,6 +172,11 @@ footer {
 
   #projects a {
     color: var(--color-blue-dark);
+  }
+
+  #projects img {
+    border: 2px solid var(--color-black);
+    box-shadow: 10px 10px 0px 0px var(--color-grey-light);
   }
 
   #back-to-top {
@@ -197,6 +207,10 @@ footer {
   }
 
   #languages-list span {
+    color: var(--color-black);
+  }
+
+  .job-description p {
     color: var(--color-black);
   }
 

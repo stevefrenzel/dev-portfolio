@@ -19,7 +19,7 @@ const { heading, company, timePeriod, description, techStack, tasks } =
   Astro.props;
 ---
 
-<article aria-label={company}>
+<article aria-label={company} class="job-description">
   <h3>{company}</h3>
   <span>{heading}</span>
   <span>{timePeriod}</span>
@@ -93,7 +93,7 @@ const { heading, company, timePeriod, description, techStack, tasks } =
     display: flex;
     gap: var(--space-2xs);
     margin: 0;
-    padding: var(--space-3xs);
+    padding: var(--space-3xs) var(--space-2xs);
     width: fit-content;
   }
 
