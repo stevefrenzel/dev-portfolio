@@ -1,7 +1,7 @@
 /* Fonts */
 
 @font-face {
-  font-display: optional;
+  font-display: swap;
   font-family: "Atkinson Hyperlegible";
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-display: optional;
+  font-display: swap;
   font-family: "Syne";
   font-style: normal;
   font-weight: 700;
