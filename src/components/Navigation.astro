@@ -1,15 +1,22 @@
+---
+import SkipLink from "@utils/SkipLink.astro";
+---
+
 <header>
+  <SkipLink />
   <nav>
     <ul>
       <li><a href="#intro">INTRO</a></li>
-      <span aria-hidden="true"><strong>|</strong></span>
+      <span aria-hidden="true"><strong>›</strong></span>
       <li><a href="#projects">PROJECTS</a></li>
-      <span aria-hidden="true"><strong>/</strong></span>
+      <span aria-hidden="true"><strong>›</strong></span>
       <li><a href="#collaborations">COLLABORATIONS</a></li>
-      <span aria-hidden="true">––</span>
+      <span aria-hidden="true"><strong>›</strong></span>
       <li><a href="#about-me">ABOUT ME</a></li>
-      <span aria-hidden="true"><strong>|</strong></span>
+      <span aria-hidden="true"><strong>›</strong></span>
       <li><a href="/resume">RESUME</a></li>
+      <!-- <span aria-hidden="true"><strong>›</strong></span>
+      <li><a href="/blog">BLOG</a></li> -->
     </ul>
   </nav>
 </header>

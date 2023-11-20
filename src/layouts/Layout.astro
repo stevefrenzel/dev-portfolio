@@ -2,6 +2,7 @@
 import "@styles/global.css";
 import "@styles/reset.css";
 import "@styles/variables.css";
+import BackToTop from "@utils/BackToTop.astro";
 
 export interface Props {
   title: string;
@@ -54,9 +55,10 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="twitter:image:alt" content={title} />
   </head>
   <body>
-    <section aria-label="Utilities">
-      <div id="start"></div>
-    </section>
+    <div id="start"></div>
     <slot />
+    <section aria-label="Utilities">
+      <BackToTop />
+    </section>
   </body>
 </html>

@@ -66,7 +66,8 @@ a,
 button,
 p,
 label,
-footer {
+footer,
+ul {
   font-family: "Atkinson Hyperlegible", serif;
   font-size: var(--step-1);
 }
@@ -78,6 +79,11 @@ footer {
   max-width: 1536px;
   margin: 0 auto;
   padding: 0 var(--space-s);
+}
+
+#markdown-wrapper code {
+  color: var(--color-white);
+  background: var(--color-grey-dark);
 }
 
 /* Preference detection */
@@ -99,12 +105,15 @@ footer {
     color: var(--color-black);
   }
 
+  #profile-picture {
+    box-shadow: 10px 10px 0px 0px var(--color-grey-light);
+  }
+
   #projects a {
     color: var(--color-blue-light);
   }
 
   #projects img {
-    border: 2px solid var(--color-grey-light);
     box-shadow: 10px 10px 0px 0px #1f262e;
   }
 
@@ -147,6 +156,42 @@ footer {
   .tech-item {
     color: var(--color-grey-light);
   }
+
+  /* Blog post layout */
+
+  #blog-wrapper p {
+    color: var(--color-grey-light);
+  }
+  #blog-wrapper header {
+    border-bottom: 3px solid var(--color-white);
+  }
+  #blog-wrapper .smol-css-grid a {
+    color: var(--color-blue-light);
+  }
+  #markdown-wrapper header {
+    border-bottom: 3px solid var(--color-white);
+  }
+  #markdown-wrapper p {
+    color: var(--color-grey-light);
+  }
+  #markdown-wrapper ul:not(.tags) {
+    color: var(--color-grey-light);
+  }
+  #markdown-wrapper main a {
+    color: var(--color-blue-light);
+  }
+  #related-tags {
+    border-top: 2px solid var(--color-white);
+  }
+  #related-tags a {
+    background: var(--color-grey-dark);
+  }
+  #tag-wrapper a {
+    color: var(--color-blue-light);
+  }
+  #tag-wrapper p {
+    color: var(--color-grey-light);
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -166,6 +211,10 @@ footer {
     color: var(--color-grey-light);
   }
 
+  #profile-picture {
+    box-shadow: 10px 10px 0px 0px var(--color-grey-dark);
+  }
+
   #intro .icon {
     filter: invert(1);
   }
@@ -175,7 +224,6 @@ footer {
   }
 
   #projects img {
-    border: 2px solid var(--color-black);
     box-shadow: 10px 10px 0px 0px var(--color-grey-light);
   }
 
@@ -216,6 +264,40 @@ footer {
 
   .tech-item {
     color: var(--color-black);
+  }
+
+  /* Blog post layout */
+
+  #blog-wrapper p {
+    color: var(--color-grey-dark);
+  }
+  #blog-wrapper header {
+    border-bottom: 3px solid var(--color-black);
+  }
+  #blog-wrapper header img {
+    filter: invert(1);
+  }
+  #blog-wrapper .smol-css-grid a {
+    color: var(--color-blue-dark);
+  }
+  #markdown-wrapper header {
+    border-bottom: 3px solid var(--color-black);
+  }
+  #markdown-wrapper .markdown-content a {
+    color: var(--color-blue-dark);
+  }
+  #related-tags {
+    border-top: 2px solid var(--color-black);
+  }
+  #related-tags a {
+    background: var(--color-grey-dark);
+    color: var(--color-white);
+  }
+  #tag-wrapper a {
+    color: var(--color-blue-dark);
+  }
+  #tag-wrapper p {
+    color: var(--color-grey-dark);
   }
 }
 

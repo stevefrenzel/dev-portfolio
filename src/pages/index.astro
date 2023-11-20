@@ -7,20 +7,15 @@ import Projects from "@components/Projects.astro";
 import Clients from "@components/Collaborations.astro";
 import AboutMe from "@components/AboutMe.astro";
 import Footer from "@components/Footer.astro";
-
-import BackToTop from "@utils/BackToTop.astro";
-import SkipLink from "@utils/SkipLink.astro";
 ---
 
 <Layout title="Steve Frenzel - Web Developer & Accessibility Advocate">
-  <SkipLink />
   <Navigation />
   <Intro />
   <main id="main">
     <Projects />
     <Clients />
     <AboutMe />
-    <BackToTop />
   </main>
   <Footer />
 </Layout>

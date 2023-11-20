@@ -1,0 +1,157 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import ExternalLink from "@components/utils/ExternalLink.astro";
+import Layout from "@layouts/Layout.astro";
+import SkipLink from "@utils/SkipLink.astro";
+
+import desktop from "@images/icons/desktop.svg";
+import gitHub from "@images/icons/github-white.svg";
+import linkedIn from "@images/icons/linkedin-white.svg";
+import mastodon from "@images/icons/mastodon-white.svg";
+
+const links = [
+  {
+    href: "/",
+    height: 24,
+    name: "Website",
+    src: desktop,
+    width: 24,
+  },
+  {
+    href: "https://www.linkedin.com/in/stevefrenzel",
+    height: 36,
+    name: "LinkedIn",
+    src: linkedIn,
+    width: 36,
+  },
+  {
+    href: "https://github.com/stevefrenzel",
+    height: 36,
+    name: "GitHub",
+    src: gitHub,
+    width: 36,
+  },
+  {
+    href: "https://mastodon.online/@stvfrnzl",
+    height: 36,
+    name: "Mastodon",
+    src: mastodon,
+    width: 36,
+  },
+];
+
+const contentCollection = await getCollection("blog");
+contentCollection.sort(
+  (first, second) =>
+    new Date(second.data.pubDate).getTime() -
+    new Date(first.data.pubDate).getTime(),
+);
+---
+
+<Layout title="Steve Frenzel - Web Developer & Accessibility Advocate">
+  <div id="blog-wrapper">
+    <header>
+      <SkipLink />
+      <h1>Steve Frenzel - Blog</h1>
+      <p>
+        Incredible, you made it to my blog! 🎉 Here I write mostly about web
+        development related stuff, but also music and maybe even hot sauces, who
+        knows!
+      </p>
+      <ul class="social-media-list">
+        {
+          links.map((link) => (
+            <li>
+              <Image
+                alt=""
+                height={link.height}
+                src={link.src}
+                width={link.width}
+              />
+              <ExternalLink href={link.href} name={link.name} />
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+    <main id="main">
+      <ul class="smol-css-grid">
+        {
+          contentCollection.map((post: any) => (
+            <li>
+              {post.data.image ? (
+                <Image alt={post.data.image.alt} src={post.data.image.url} />
+              ) : null}
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              <time>
+                {post.data.pubDate.toLocaleDateString(undefined, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+              <p class="description">{post.data.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  #blog-wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 var(--space-s);
+  }
+
+  header {
+    padding-bottom: var(--space-s);
+  }
+  header p {
+    margin-top: var(--space-xs);
+    max-width: 60ch;
+  }
+
+  .social-media-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    padding: 0;
+  }
+  .social-media-list li {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+  }
+
+  .smol-css-grid {
+    display: grid;
+    grid-gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+    margin-top: var(--space-l);
+    padding: 0;
+  }
+
+  .smol-css-grid img {
+    height: auto;
+    margin-bottom: var(--space-s);
+  }
+
+  .smol-css-grid a {
+    font-size: var(--step-2);
+  }
+  time {
+    display: block;
+    font-size: var(--step-0);
+  }
+  .description {
+    margin-top: var(--space-xs);
+  }
+  p {
+    margin: 0;
+  }
+</style>

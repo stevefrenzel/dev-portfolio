@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+// const allPosts = await Astro.glob("../posts/*.md");
+const contentCollection = await getCollection("blog");
+const tags = [
+  ...new Set(contentCollection.map((post) => post.data.tags).flat()),
+];
+---
+
+<Layout title="Blog post tags">
+  <h1>Blog post tags</h1>
+  <div>
+    {
+      tags.map((tag) => (
+        <p>
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+</Layout>

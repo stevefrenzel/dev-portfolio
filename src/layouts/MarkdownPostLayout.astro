@@ -1,0 +1,112 @@
+---
+import type { FrontmatterProps } from "../types/FrontmatterProps";
+import Layout from "@layouts/Layout.astro";
+import SkipLink from "@utils/SkipLink.astro";
+
+interface Props {
+  frontmatter: FrontmatterProps;
+}
+
+const { frontmatter } = Astro.props;
+
+const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
+  undefined,
+  { year: "numeric", month: "long", day: "numeric" },
+);
+---
+
+<Layout title={frontmatter.title}>
+  <div id="markdown-wrapper">
+    <header>
+      <SkipLink />
+      <h1>{frontmatter.title}</h1>
+      <p class="author-and-date">
+        {frontmatter.author} - {dateFormatted}
+      </p>
+      <a href="/blog">Back to blog</a>
+      <p id="description">{frontmatter.description}</p>
+    </header>
+    <main id="main">
+      <div class="markdown-content">
+        <slot />
+      </div>
+      <footer id="related-tags">
+        <h2>Related tags</h2>
+        <ul class="tags">
+          {
+            frontmatter.tags.map((tag) => (
+              <li class="tag">
+                <a href={`/tags/${tag}`}>{tag}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </footer>
+    </main>
+  </div>
+</Layout>
+
+<style is:global>
+  #markdown-wrapper {
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 0 var(--space-s);
+  }
+
+  #markdown-wrapper header {
+    padding-bottom: var(--space-s);
+  }
+
+  #markdown-wrapper header a:not(#skip-link) {
+    font-size: var(--step-0);
+  }
+
+  #markdown-wrapper .author-and-date {
+    font-size: var(--step-0);
+  }
+
+  #markdown-wrapper ul:not(.tags) {
+    list-style-type: initial;
+  }
+
+  #markdown-wrapper img:not(.arrow-down) {
+    height: auto;
+    width: 100%;
+  }
+
+  #markdown-wrapper main pre {
+    font-size: var(--step-0);
+    padding: var(--space-xs);
+  }
+
+  #markdown-wrapper code {
+    font-size: var(--step-0);
+    padding: 1%;
+  }
+
+  .markdown-content img {
+    margin-top: var(--space-m);
+  }
+
+  #related-tags {
+    margin-top: var(--space-l);
+    padding: var(--space-m) 0;
+  }
+
+  #related-tags h2 {
+    font-size: var(--step-2);
+    margin: 0;
+  }
+
+  #related-tags .tags {
+    display: flex;
+    gap: var(--space-s);
+    padding: 0;
+  }
+
+  #related-tags a {
+    border-radius: 5px;
+    font-size: var(--step-0);
+    padding: var(--space-2xs);
+  }
+</style>

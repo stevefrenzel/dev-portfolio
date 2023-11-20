@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 import arrow from "@images/icons/arrow-upward.svg";
 ---
 
-<a href="#main"
+<a id="skip-link" href="#main"
   >Skip to main content <Image
     alt="Arrow down"
+    class="arrow-down"
     height={24}
     src={arrow}
     width={24}
@@ -27,7 +28,7 @@ import arrow from "@images/icons/arrow-upward.svg";
   a:focus,
   a:focus-visible {
     background-color: blue;
-    color: var(--color-white);
+    color: var(--color-white) !important;
     height: auto;
     left: 8px;
     outline: none;

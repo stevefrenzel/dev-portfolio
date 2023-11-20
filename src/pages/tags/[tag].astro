@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import SkipLink from "@components/utils/SkipLink.astro";
+import type { FrontmatterProps } from "../../types/FrontmatterProps";
+import type { GetStaticPaths } from "astro";
+
+interface TagProps {
+  data: FrontmatterProps;
+  url: string;
+  slug: string;
+}
+
+export const getStaticPaths: GetStaticPaths = (async () => {
+  const allPosts = await getCollection("blog");
+
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag),
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { posts } = Astro.props as { posts: TagProps[] };
+const amountOfPosts = posts.length;
+---
+
+<Layout title={`Posts tagged with "${tag}"`}>
+  <div id="tag-wrapper">
+    <header>
+      <SkipLink />
+      <h1>Posts tagged with "{tag}"</h1>
+      <p>
+        {`Found ${amountOfPosts} ${amountOfPosts > 1 ? "articles" : "article"}`}
+      </p>
+    </header>
+    <main id="main">
+      <ul>
+        {
+          posts.map((post: TagProps) => (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              <p>{post.data.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  #tag-wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 var(--space-s);
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    padding: 0;
+  }
+  p {
+    margin: 0;
+  }
+</style>
