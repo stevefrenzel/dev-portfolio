@@ -11,7 +11,18 @@ image:
     alt: "Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%."
 ---
 
-[![Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%.](../../images/blog/most-common-a11y-failures.png)](../../images/blog/most-common-a11y-failures.png)
+import { Image } from 'astro:assets';
+import thumbnail from '@images/blog/most-common-a11y-failures.png'
+import exhibitOne from '@images/blog/exhibit-1.png'
+import exhibitTwo from '@images/blog/exhibit-2.png'
+import exhibitThree from '@images/blog/exhibit-3.png'
+import exhibitFour from '@images/blog/exhibit-4.png'
+import exhibitFive from '@images/blog/exhibit-5.png'
+import flowers from '@images/blog/language-flowers.png'
+
+<a href={thumbnail.src}>
+    <Image alt="Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%." src={thumbnail}/>
+</a>
 
 The screenshot above was taken on the [The WebAIM Million](https://webaim.org/projects/million/#errors) website from their 2023 report. I added the percentages for a better understanding.
 
@@ -21,7 +32,9 @@ Many accessibility issues are low-hanging fruits and easy to fix with a bit of e
 
 ## 1. Low Contrast Text
 
-[![Example from Inaccessible Gallery showcasing low contrast text](../../images/blog/exhibit-1.png)](../../images/blog/exhibit-1.png)
+<a href={exhibitOne.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing low contrast text" src={exhibitOne}/>
+</a>
 
 The problem: Low contrast text is when there is not enough contrast between the text and the background, making it difficult to read for people with visual impairments.
 
@@ -32,7 +45,9 @@ The solution: Increase the contrast by using darker / lighter text or background
 
 ## 2. Missing Alternative Text
 
-[![Example from Inaccessible Gallery showcasing missing alternative text](../../images/blog/exhibit-2.png)](../../images/blog/exhibit-2.png)
+<a href={exhibitTwo.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing missing alternative text" src={exhibitTwo}/>
+</a>
 
 The problem: Alternative text, or alt text, is a description of an image that is read by screen readers for people with visual impairments. When it's missing or not descriptive enough, people will have no clue what it's about or for.
 
@@ -40,7 +55,9 @@ The solution: When using a CMS, look for an option called "alternative text" or 
 
 ## 3. Empty Links
 
-[![Example from Inaccessible Gallery showcasing empty links](../../images/blog/exhibit-3.png)](../../images/blog/exhibit-3.png)
+<a href={exhibitThree.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing empty links" src={exhibitThree}/>
+</a>
 
 The problem: Empty links are links that contain no text, only an image or icon. This is a common issue for social media icons or download links.
 
@@ -48,7 +65,9 @@ The solution: Add descriptive text to the link that describes the action or dest
 
 ## 4. Missing Form Labels
 
-[![Example from Inaccessible Gallery showcasing missing form labels](../../images/blog/exhibit-4.png)](../../images/blog/exhibit-4.png)
+<a href={exhibitFour.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing missing form labes" src={exhibitFour}/>
+</a>
 
 The problem: Forms that are missing labels make it difficult for users to understand what information is required. Often instead of labels, placeholders are being used to convey meaning. This is not sufficient, because once you start typing, the placeholder will be gone.
 
@@ -56,13 +75,19 @@ The solution: Add descriptive labels to form fields. This helps screen readers p
 
 ## 5. Empty Buttons
 
+<a href={exhibitFive.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing empty buttons" src={exhibitFive}/>
+</a>
+
 The problem: Empty buttons are buttons that contain no text, only an image or color. This is pretty much the same problem as with empty links.
 
 The solution: Add descriptive text to the [button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) to determine the action of it. This will help everyone to understand what the button is for. Do not use only an image or color to convey meaning. If you cannot (for whatever reason) add text to the button, use the [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) to add it. This will at least make it possible for screen reader users to understand what it's for.
 
 ## 6. Missing Document Language
 
-[![Collection of flower illustrations saying goodbye in different languages](../../images/blog/language-flowers.png)](../../images/blog/language-flowers.png)
+<a href={flowers.src}>
+    <Image alt="Collection of flower illustrations saying goodbye in different languages" src={flowers}/>
+</a>
 
 The problem: Missing document language can be a common issue, but it is easy to fix.
 

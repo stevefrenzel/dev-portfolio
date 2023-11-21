@@ -17,3 +17,4 @@
 ## Fix stuff
 
 - [ ] Fix list bug in `Collaborations.astro`
+- [ ] Create logo for dark & light schema
