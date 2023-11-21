@@ -5,7 +5,7 @@
 - [ ] Add horizontal scroll bar to navigation
   - [ ] Add indicator for horizontal scroll working for all browsers
 - [ ] Add SVG for external links
-- [ ] Add Pre-Commit hook
+- [x] Add Pre-Commit hook
 
 ## Blog
 

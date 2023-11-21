@@ -7,7 +7,8 @@
     "start": "astro dev --host",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
@@ -17,6 +18,7 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
   }
