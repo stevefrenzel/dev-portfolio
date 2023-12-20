@@ -109,7 +109,8 @@ ul {
     box-shadow: 10px 10px 0px 0px var(--color-grey-light);
   }
 
-  #projects a {
+  #projects a,
+  footer a {
     color: var(--color-blue-light);
   }
 
@@ -138,6 +139,10 @@ ul {
 
   #intro-resume .sub-headline {
     color: var(--color-grey-light);
+  }
+
+  #intro-resume a {
+    color: var(--color-blue-light);
   }
 
   #education-list span:nth-child(2),
@@ -219,7 +224,8 @@ ul {
     filter: invert(1);
   }
 
-  #projects a {
+  #projects a,
+  footer a {
     color: var(--color-blue-dark);
   }
 
@@ -247,6 +253,10 @@ ul {
 
   #intro-resume img {
     filter: invert(1);
+  }
+
+  #intro-resume a {
+    color: var(--color-blue-dark);
   }
 
   #education-list span:nth-child(2),
