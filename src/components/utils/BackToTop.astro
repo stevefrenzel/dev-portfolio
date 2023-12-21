@@ -1,17 +1,46 @@
----
-import { Image } from "astro:assets";
-import arrow from "@images/icons/arrow-upward.svg";
----
-
 <a aria-label="Back to top" href="#start" id="back-to-top">
-  <Image alt="" src={arrow} />
+  <svg
+    height="48"
+    viewBox="0 -960 960 960"
+    width="48"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      class="dark"
+      d="M450-160v-526L202-438l-42-42 320-320 320 320-42 42-248-248v526h-60Z"
+    ></path>
+    <path
+      class="light"
+      d="M450-160v-526L202-438l-42-42 320-320 320 320-42 42-248-248v526h-60Z"
+    ></path>
+  </svg>
 </a>
 
 <style>
   a {
     bottom: var(--space-xs);
+    height: 48px;
     position: fixed;
     right: var(--space-xs);
+    width: 48px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark {
+      fill: var(--color-black);
+    }
+    .light {
+      fill: transparent;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .dark {
+      fill: transparent;
+    }
+    .light {
+      fill: var(--color-white);
+    }
   }
 </style>
 

@@ -1,17 +1,18 @@
----
-import { Image } from "astro:assets";
-import arrow from "@images/icons/arrow-upward.svg";
----
-
 <a id="skip-link" href="#main"
-  >Skip to main content <Image
-    alt="Arrow down"
-    class="arrow-down"
-    height={24}
-    src={arrow}
-    width={24}
-  /></a
->
+  >Skip to main content
+  <svg
+    height="32"
+    fill="#fff"
+    viewBox="0 -960 960 960"
+    width="32"
+    xmlns="http://www.w3.org/2000/svg"
+    class="icon"
+  >
+    <path
+      d="M450-160v-526L202-438l-42-42 320-320 320 320-42 42-248-248v526h-60Z"
+    ></path>
+  </svg>
+</a>
 
 <style>
   a {
@@ -39,8 +40,8 @@ import arrow from "@images/icons/arrow-upward.svg";
     width: auto;
   }
 
-  img {
-    margin-left: var(--space-xs);
+  .icon {
+    margin-left: var(--space-3xs);
     transform: rotate(180deg);
   }
 </style>
