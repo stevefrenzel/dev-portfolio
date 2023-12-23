@@ -170,7 +170,7 @@ ul {
   #blog-wrapper header {
     border-bottom: 3px solid var(--color-white);
   }
-  #blog-wrapper .smol-css-grid a {
+  #blog-wrapper a {
     color: var(--color-blue-light);
   }
   #markdown-wrapper header {
@@ -287,7 +287,7 @@ ul {
   #blog-wrapper header img {
     filter: invert(1);
   }
-  #blog-wrapper .smol-css-grid a {
+  #blog-wrapper a {
     color: var(--color-blue-dark);
   }
   #markdown-wrapper header {
