@@ -173,9 +173,6 @@ ul {
   #blog-wrapper a {
     color: var(--color-blue-light);
   }
-  #markdown-wrapper header {
-    border-bottom: 3px solid var(--color-white);
-  }
   #markdown-wrapper p {
     color: var(--color-grey-light);
   }
@@ -289,9 +286,6 @@ ul {
   }
   #blog-wrapper a {
     color: var(--color-blue-dark);
-  }
-  #markdown-wrapper header {
-    border-bottom: 3px solid var(--color-black);
   }
   #markdown-wrapper .markdown-content a {
     color: var(--color-blue-dark);

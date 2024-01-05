@@ -20,11 +20,12 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
     <header>
       <SkipLink />
       <h1>{frontmatter.title}</h1>
-      <p class="author-and-date">
-        {frontmatter.author} - {dateFormatted}
-      </p>
-      <a href="/blog">Back to blog</a>
-      <p id="description">{frontmatter.description}</p>
+      <div>
+        <p class="author-and-date">
+          {frontmatter.author} - {dateFormatted}
+        </p>
+        <a href="/blog">Back to blog</a>
+      </div>
     </header>
     <main id="main">
       <div class="markdown-content">
@@ -53,12 +54,15 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
     padding: 0 var(--space-s);
   }
 
-  #markdown-wrapper header {
-    padding-bottom: var(--space-s);
-  }
-
   #markdown-wrapper header a:not(#skip-link) {
     font-size: var(--step-0);
+  }
+
+  #markdown-wrapper header div {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   #markdown-wrapper .author-and-date {

@@ -10,9 +10,11 @@ import desktop from "@images/icons/desktop.svg";
 import gitHub from "@images/icons/github-white.svg";
 import linkedIn from "@images/icons/linkedin-white.svg";
 import mastodon from "@images/icons/mastodon-white.svg";
+import rss from "@images/icons/rss-feed.svg";
 
 const links = [
   {
+    externalLink: false,
     href: "/",
     height: 24,
     name: "Website",
@@ -20,6 +22,7 @@ const links = [
     width: 24,
   },
   {
+    externalLink: true,
     href: "https://www.linkedin.com/in/stevefrenzel",
     height: 36,
     name: "LinkedIn",
@@ -27,6 +30,7 @@ const links = [
     width: 36,
   },
   {
+    externalLink: true,
     href: "https://github.com/stevefrenzel",
     height: 36,
     name: "GitHub",
@@ -34,10 +38,19 @@ const links = [
     width: 36,
   },
   {
+    externalLink: true,
     href: "https://mastodon.online/@stvfrnzl",
     height: 36,
     name: "Mastodon",
     src: mastodon,
+    width: 36,
+  },
+  {
+    externalLink: false,
+    href: "/rss.xml",
+    height: 36,
+    name: "RSS Feed",
+    src: rss,
     width: 36,
   },
 ];
@@ -70,7 +83,11 @@ contentCollection.sort(
                 src={link.src}
                 width={link.width}
               />
-              <ExternalLink href={link.href} name={link.name} />
+              {link.externalLink ? (
+                <ExternalLink href={link.href} name={link.name} />
+              ) : (
+                <a href={link.href}>{link.name}</a>
+              )}
             </li>
           ))
         }
