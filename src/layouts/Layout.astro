@@ -5,16 +5,14 @@ import "@styles/variables.css";
 import BackToTop from "@utils/BackToTop.astro";
 
 export interface Props {
+  description?: string;
+  thumbnail?: string;
   title: string;
 }
-
-const { title } = Astro.props;
 
 const metaData = {
   keywords:
     "web development, programming, accessibility, html, css, javascript",
-  description:
-    "Designing and implementing robust and inclusive websites. Also teaching about accessibility!",
   imageType: "image/png",
   imageWidth: "1600",
   imageHeight: "882",
@@ -25,6 +23,11 @@ const metaData = {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL("/seo.png", Astro.url);
+const {
+  description = "Designing and implementing robust and inclusive websites. Also teaching about accessibility!",
+  thumbnail = socialImageURL,
+  title,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -34,24 +37,24 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={metaData.keywords} />
-    <meta name="description" content={metaData.description} />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon-sf.svg" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={metaData.type} />
     <meta property="og:site_name" content={metaData.siteName} />
-    <meta property="og:description" content={metaData.description} />
+    <meta property="og:description" content={description} />
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image" content={thumbnail} />
     <meta property="og:image:type" content={metaData.imageType} />
     <meta property="og:image:alt" content={title} />
     <meta property="og:image:width" content={metaData.imageWidth} />
     <meta property="og:image:height" content={metaData.imageHeight} />
     <meta name="twitter:card" content={metaData.twitterCard} />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={metaData.description} />
-    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={thumbnail} />
     <meta name="twitter:image:alt" content={title} />
   </head>
   <body>

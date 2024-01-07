@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import { getReadingTime } from "@components/lib/getReadingTime";
 
 import ExternalLink from "@components/utils/ExternalLink.astro";
 import Layout from "@layouts/Layout.astro";
@@ -67,10 +68,10 @@ contentCollection.sort(
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>Steve Frenzel - Blog</h1>
+      <h1>Oh My Blog</h1>
       <p>
-        Incredible, you made it to my blog! 🎉 Here I write mostly about web
-        development related stuff, but also music and maybe even hot sauces, who
+        How do you do, welcome to my blog. I will talk about web accessibility
+        quite a lot, plus a fair amount of music and maybe some hot sauces, who
         knows!
       </p>
       <ul class="social-media-list">
@@ -107,7 +108,8 @@ contentCollection.sort(
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                })}
+                })}{" "}
+                - {getReadingTime(post.body)} min read
               </time>
               <p class="description">{post.data.description}</p>
             </li>
@@ -131,6 +133,7 @@ contentCollection.sort(
   header p {
     margin-top: var(--space-xs);
     max-width: 60ch;
+    text-wrap: balance;
   }
 
   .social-media-list {

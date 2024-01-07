@@ -1,89 +1,98 @@
 ---
 layout: "@layouts/MarkdownPostLayout.astro"
-title: Best of 2023 (so far)
+title: The six most common accessibility issues on the web
 author: Steve Frenzel
-description: "Short reviews of my six most listened to records of 2023. Even though some of them came out in 2022. 👉👈"
-pubDate: 2023-06-23
-slug: best-of-2023-so-far
-tags: ["music"]
+description: "When creating a website or fixing one, look for these issues: Low contrast text, missing alternative text, empty links, missing form labels, empty buttons and missing document language."
+pubDate: 2023-06-24
+slug: six-most-common-accessibility-issues
+tags: ["accessibility", "html"]
 image:
-    url: ../../images/blog/best-of-2023-so-far-thumbnail.png
-    alt: "Collage of the best records of 2023 (so far)"
+    url: ../../images/blog/1/most-common-a11y-failures.png
+    alt: "Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%."
 ---
 
 import { Image } from 'astro:assets';
-import thumbnail from '@images/blog/best-of-2023-so-far-thumbnail.png'
-import circaSurvive from '@images/blog/circa-survive-two-dreams.jpeg'
-import graphicNature from '@images/blog/graphic-nature-a-mind-waiting-to-die.jpeg'
-import acres from '@images/blog/acres-burning-throne.jpeg'
-import lambert from '@images/blog/lambert-open.jpeg'
-import m83 from '@images/blog/m83-fantasy.jpeg'
-import meshuggah from '@images/blog/meshugga-violent-sleep.jpeg'
+import thumbnail from '@images/blog/1/most-common-a11y-failures.png'
+import exhibitOne from '@images/blog/1/exhibit-1.png'
+import exhibitTwo from '@images/blog/1/exhibit-2.png'
+import exhibitThree from '@images/blog/1/exhibit-3.png'
+import exhibitFour from '@images/blog/1/exhibit-4.png'
+import exhibitFive from '@images/blog/1/exhibit-5.png'
+import flowers from '@images/blog/1/language-flowers.png'
 
 <a href={thumbnail.src}>
-    <Image alt="Thumbnail of Washington Post Design System" src={thumbnail}/>
+    <Image alt="Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%." src={thumbnail}/>
 </a>
 
-## Disclaimer
+The screenshot above was taken on the [The WebAIM Million](https://webaim.org/projects/million/#errors) website from their 2023 report. I added the percentages for a better understanding.
 
-It's not really a "best of released in 2023" but rather a "best of records I listen to most in 2023".
+Accessibility is a crucial aspect of web design, ensuring that everyone can access and use your website. However, it is often overlooked or considered secondary to other design elements. Wether you're just getting started with this topic or want to dive deeper, the [accessibility tutorial on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility) is a great resource!
 
-## January 2023 - "Two Dreams" by Circa Survive
+Many accessibility issues are low-hanging fruits and easy to fix with a bit of effort and attention. Also accessibility and SEO (search engine optimization) go hand in hand. So the more accessible your website, the higher are the chances for a great ranking on search engines. The first five images are screenshots from the [Inaccessible Gallery](https://inaccessible.gallery/) by [Manuel Matuzovic](https://www.matuzo.at/).
 
-<a href={circaSurvive.src}>
-    <Image alt="Album artwork for Two Dreams by Circa Survive" src={circaSurvive}/>
+## 1. Low Contrast Text
+
+<a href={exhibitOne.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing low contrast text" src={exhibitOne}/>
 </a>
 
-I knew the status of the band in the scene, but never listened to their music before. They got my attention because I really liked the cover, so I tought why not! Turns out I listened to it so much it became the soundtrack for the winter, as it's dark and moody vibe fit the weather perfectly. Also I'm in love with Anthony Green's unique voice.
+The problem: Low contrast text is when there is not enough contrast between the text and the background, making it difficult to read for people with visual impairments.
 
-[Listen to "Two Dreams" by Circa Survive](https://songwhip.com/circa-survive/two-dreams)
+The solution: Increase the contrast by using darker / lighter text or background color. There are two great tools out there for checking the color contrast ratio:
 
-## February 2023 - "A Mind Waiting To Die" by Graphic Nature
+- [Contrast Checker by WebAIM](https://webaim.org/resources/contrastchecker/)
+- [Colour Contrast Analyser by TPGi](https://www.tpgi.com/color-contrast-checker/)
 
-<a href={graphicNature.src}>
-    <Image alt="Album artwork for A Mind Waiting To Die by Graphic Nature" src={graphicNature}/>
+## 2. Missing Alternative Text
+
+<a href={exhibitTwo.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing missing alternative text" src={exhibitTwo}/>
 </a>
 
-Expectations for this record were really high because they released some killer singles before album release. Once it came out I couldn't get enough of it, especially as an early Slipknot fan. Harvey Freeman sounds a lot like Corey Taylor and this combined with the super low tuned guitars and great songwriting makes a perfect blend for any heavy metal fan. Truly a piece of art!
+The problem: Alternative text, or alt text, is a description of an image that is read by screen readers for people with visual impairments. When it's missing or not descriptive enough, people will have no clue what it's about or for.
 
-[Listen to "A Mind Waiting To Die" by Graphic Nature](https://songwhip.com/graphicnature/a-mind-waiting-to-die)
+The solution: When using a CMS, look for an option called "alternative text" or "alt text" when uploading your image. When coding, add it to the image element via alt="Your image description". If it's purely decorative, just add alt="" and you're good to go!
 
-## March 2023 - "Burning Throne" by Acres
+## 3. Empty Links
 
-<a href={acres.src}>
-    <Image alt="Album artwork for Burning Throne by Acres" src={acres}/>
+<a href={exhibitThree.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing empty links" src={exhibitThree}/>
 </a>
 
-I once read a review for their 2019 album "Lonely World" in FUZE magazine and was interested in checking them out. This is propably my favorite record of that year. Naturally I was looking forward to the follow up and they got even more melancholic and heavy, so they once again secured the pole position, at least for this month. Best track is by far [Hold On](https://www.youtube.com/watch?v=CdIUMp0aWxw).
+The problem: Empty links are links that contain no text, only an image or icon. This is a common issue for social media icons or download links.
 
-[Listen to "Burning Throne" by Acres](https://songwhip.com/acres/burningthrone)
+The solution: Add descriptive text to the link that describes the action or destination of it. This will help screen readers understand the purpose of the link.
 
-## April 2023 - "Open" by Lambert
+## 4. Missing Form Labels
 
-<a href={lambert.src}>
-    <Image alt="Album artwork for Open by Lambert" src={lambert}/>
+<a href={exhibitFour.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing missing form labes" src={exhibitFour}/>
 </a>
 
-Being a fan of so-called "neo classic" artists such as Ólafur Arnalds and Ludovico Einaudi, Lambert is on who also gets mentioned a lot. He did some very cool experiments on the "False" record but this one is more back to the roots. Perfect for when you need to do some focused work and your dose of piano-centered music.
+The problem: Forms that are missing labels make it difficult for users to understand what information is required. Often instead of labels, placeholders are being used to convey meaning. This is not sufficient, because once you start typing, the placeholder will be gone.
 
-[Listen to "Open" by Lambert](https://songwhip.com/lambert/open)
+The solution: Add descriptive labels to form fields. This helps screen readers provide a more meaningful experience to visually impaired users, as well as people with no impairment. More information about the [label element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) can be found on MDN.
 
-## May 2023 - "Fantasy" by M83
+## 5. Empty Buttons
 
-<a href={m83.src}>
-    <Image alt="Album artwork for Fantasy by M83" src={m83}/>
+<a href={exhibitFive.src}>
+    <Image alt="Example from Inaccessible Gallery showcasing empty buttons" src={exhibitFive}/>
 </a>
 
-Another record that is great for focussed work or just chilling while your reading a good book lying in the hammock. I don't feel this is a hit record but rather a record that should be listened to from front to back. Very nostalgic and yet modern sounding.
+The problem: Empty buttons are buttons that contain no text, only an image or color. This is pretty much the same problem as with empty links.
 
-[Listen to "Fantasy" by M83](https://songwhip.com/m83/fantasy2023)
+The solution: Add descriptive text to the [button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) to determine the action of it. This will help everyone to understand what the button is for. Do not use only an image or color to convey meaning. If you cannot (for whatever reason) add text to the button, use the [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) to add it. This will at least make it possible for screen reader users to understand what it's for.
 
-## June 2023 - "The Violent Sleep of Reason" by Meshuggah
+## 6. Missing Document Language
 
-<a href={meshuggah.src}>
-    <Image alt="Album artwork for The Violent Sleep of Reason by Meshuggah" src={meshuggah}/>
+<a href={flowers.src}>
+    <Image alt="Collection of flower illustrations saying goodbye in different languages" src={flowers}/>
 </a>
 
-I've been lucky enough to have witnessed four Meshuggah shows so far and everytime it got better and better. Their shows feel like an otherwordly experience and I kind of felt like reborn or at least rebooted afterwards. Last time was at Rock im Park 2023 at midnight and it was their best show yet. Not really a fan of their "Immutable" record, although the first track works REALLY well as show opener. Started to re-discover this record which has a much better flow and more bangers.
+The problem: Missing document language can be a common issue, but it is easy to fix.
 
-[Listen to "The Violent Sleep of Reason" by Meshuggah](https://songwhip.com/meshuggah/the-violent-sleep-of-reason)
+The solution: Simply add the [language attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang) to the HTML tag of your website. This helps screen readers provide a more meaningful experience to visually impaired users who use screen readers in a specific language. If there are sections (for example a quote) that have a different language than the rest of the site, add the lang attribute here and adjust it accordingly.
+
+## Conclusion
+
+By addressing these six common accessibility issues, you can make your website more inclusive and accessible to everyone. The best part is, that all of these issues are low-hanging fruits and can be fixed with a bit of effort and attention.

@@ -1,98 +1,71 @@
 ---
 layout: "@layouts/MarkdownPostLayout.astro"
-title: The six most common accessibility issues on the web
+title: How the Washington Post design system made me learn about Perceptual Contrast (APCA)
 author: Steve Frenzel
-description: "When creating a website or fixing one, look for these issues: Low contrast text, missing alternative text, empty links, missing form labels, empty buttons and missing document language."
-pubDate: 2023-06-24
-slug: six-most-common-accessibility-issues
+description: Using the Accessible Perceptual Contrast Algorithm on a real world example.
+pubDate: 2023-08-06
+slug: learning-about-perceptual-contrast
 tags: ["accessibility", "html"]
 image:
-    url: ../../images/blog/most-common-a11y-failures.png
-    alt: "Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%."
+    url: ../../images/blog/2/wp-design-system.png
+    alt: "Thumbnail of Washington Post Design System"
 ---
 
 import { Image } from 'astro:assets';
-import thumbnail from '@images/blog/most-common-a11y-failures.png'
-import exhibitOne from '@images/blog/exhibit-1.png'
-import exhibitTwo from '@images/blog/exhibit-2.png'
-import exhibitThree from '@images/blog/exhibit-3.png'
-import exhibitFour from '@images/blog/exhibit-4.png'
-import exhibitFive from '@images/blog/exhibit-5.png'
-import flowers from '@images/blog/language-flowers.png'
+import thumbnail from '@images/blog/2/wp-design-system.png'
+import screenshotOne from '@images/blog/2/wp-screenshot-1.png'
+import screenshotTwo from '@images/blog/2/wp-screenshot-2.png'
+import screenshotThree from '@images/blog/2/wp-screenshot-3.png'
+import screenshotFour from '@images/blog/2/wp-screenshot-4.png'
 
 <a href={thumbnail.src}>
-    <Image alt="Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%." src={thumbnail}/>
+    <Image alt="Thumbnail of Washington Post Design System" src={thumbnail}/>
 </a>
 
-The screenshot above was taken on the [The WebAIM Million](https://webaim.org/projects/million/#errors) website from their 2023 report. I added the percentages for a better understanding.
+*Disclaimer: All screenshots in this article were taken on macOS Ventura 13.4.1, in Arc Browser 1.2.1. I have the dark theme as default, which is why the website was rendered accordingly. Depending on what settings you have, the site will be rendered with the light theme.*
 
-Accessibility is a crucial aspect of web design, ensuring that everyone can access and use your website. However, it is often overlooked or considered secondary to other design elements. Wether you're just getting started with this topic or want to dive deeper, the [accessibility tutorial on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility) is a great resource!
+Recently someone pointed me to the [design system of the Washington Post](https://build.washingtonpost.com/resources/accessibility), especially the part about accessibility. What I noticed immediately was the poor readability of the body text and anchor elements:
 
-Many accessibility issues are low-hanging fruits and easy to fix with a bit of effort and attention. Also accessibility and SEO (search engine optimization) go hand in hand. So the more accessible your website, the higher are the chances for a great ranking on search engines. The first five images are screenshots from the [Inaccessible Gallery](https://inaccessible.gallery/) by [Manuel Matuzovic](https://www.matuzo.at/).
-
-## 1. Low Contrast Text
-
-<a href={exhibitOne.src}>
-    <Image alt="Example from Inaccessible Gallery showcasing low contrast text" src={exhibitOne}/>
+<a href={screenshotOne.src}>
+    <Image alt="Screenshot of a section about color contrast standards for the Washington Post Design System. It has a black background, white headlines but dark grey body text and links." src={screenshotOne}/>
 </a>
 
-The problem: Low contrast text is when there is not enough contrast between the text and the background, making it difficult to read for people with visual impairments.
+So I went to the [Color](https://build.washingtonpost.com/resources/accessibility/color) section and saw that the Washington Post's minimum requirement is the level AA standard:
 
-The solution: Increase the contrast by using darker / lighter text or background color. There are two great tools out there for checking the color contrast ratio:
+> *The Post's [accessibility statement](https://www.washingtonpost.com/accessibility/) notes that we are guided by the [WCAG 2.1 Level AA standard](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=143). However, we strongly encourage meeting the [level AAA standard](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=143%2C146) whenever possible.*
 
-- [Contrast Checker by WebAIM](https://webaim.org/resources/contrastchecker/)
-- [Colour Contrast Analyser by TPGi](https://www.tpgi.com/color-contrast-checker/)
+If I want to make automatic accessibility checks in the browser very quickly, I use the Stark extension. Here my assumption was confirmed that despite poor readability almost all requirements were met:
 
-## 2. Missing Alternative Text
-
-<a href={exhibitTwo.src}>
-    <Image alt="Example from Inaccessible Gallery showcasing missing alternative text" src={exhibitTwo}/>
+<a href={screenshotTwo.src}>
+    <Image alt="Screenshot of the Washington Post Design System with the Stark browser extension open. It shows a contrast ratio of 5.62 to 1 for the body text." src={screenshotTwo}/>
 </a>
 
-The problem: Alternative text, or alt text, is a description of an image that is read by screen readers for people with visual impairments. When it's missing or not descriptive enough, people will have no clue what it's about or for.
+To get a second opinion, I switched to APCA (Advanced Perceptual Contrast Algorithm). Lo and behold, the requirements for "Large text" and "Body text" were not met. You can read more about it in this article: [Announcing Stark's APCA beta](https://www.getstark.co/blog/stark-APCA-beta).
 
-The solution: When using a CMS, look for an option called "alternative text" or "alt text" when uploading your image. When coding, add it to the image element via alt="Your image description". If it's purely decorative, just add alt="" and you're good to go!
-
-## 3. Empty Links
-
-<a href={exhibitThree.src}>
-    <Image alt="Example from Inaccessible Gallery showcasing empty links" src={exhibitThree}/>
+<a href={screenshotThree.src}>
+    <Image alt="Screenshot of the Washington Post Design System with the Stark browser extension open. It shows a APCA value of -37." src={screenshotThree}/>
 </a>
 
-The problem: Empty links are links that contain no text, only an image or icon. This is a common issue for social media icons or download links.
+If you switch to the light theme, the criterion for "Large text" is met, but not for "Body text":
 
-The solution: Add descriptive text to the link that describes the action or destination of it. This will help screen readers understand the purpose of the link.
-
-## 4. Missing Form Labels
-
-<a href={exhibitFour.src}>
-    <Image alt="Example from Inaccessible Gallery showcasing missing form labes" src={exhibitFour}/>
+<a href={screenshotFour.src}>
+    <Image alt="Screenshot of the Washington Post Design System light theme with the Stark browser extension open. It shows a APCA value of 78." src={screenshotFour}/>
 </a>
 
-The problem: Forms that are missing labels make it difficult for users to understand what information is required. Often instead of labels, placeholders are being used to convey meaning. This is not sufficient, because once you start typing, the placeholder will be gone.
+It is very important to say that the APCA value is not yet an official reference, but rather can be understood as another tool to check color contrast. However, I was interested in the details of what these numbers are all about and how to understand them. On [Why APCA as a New Contrast Method?](https://git.apcacontrast.com/documentation/WhyAPCA) there is a simplified listing of the different levels, which are also partly found in the Stark extension (Lc stands for lightness contrast):
 
-The solution: Add descriptive labels to form fields. This helps screen readers provide a more meaningful experience to visually impaired users, as well as people with no impairment. More information about the [label element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) can be found on MDN.
+> - Lc 90: Preferred level for fluent text and columns of body text with a font no smaller than 14px/weight 400 (normal).
+>
+> - Lc 75: The *minimum* level for columns of body text with a font no smaller than 18px/400. L 75 should be considered a minimum for text where readability is important.
+>
+> - Lc 60: The *minimum* level recommended for content text that is not body, column, or block text. In other words, text you want people to read. The minimums: 24px normal weight (400) or 16px/700 (bold). These values based on the reference font Helvetica.
+>
+> - Lc 45: The *minimum* for larger, heavier text (36px normal weight or 24px bold) such as headlines. This is also the minimum for pictograms with fine details.
+>
+> - Lc 30: The *absolute minimum* for any text not listed above. This includes placeholder text and disabled element text. This is also the minimum for large/solid semantic & understandable non-text elements.
+>
+> - Lc 15: The *absolute minimum* for any non-text that needs to be *discernible* and differentiable, and is no less than 6px in its smallest dimension. This may include disabled large buttons. **Designers should treat anything below this level as invisible**, as it will not be visible for many users. This minimum level should be avoided for any items important to the use, understanding, or interaction of the site.
 
-## 5. Empty Buttons
+One last question I have is what the minus in the APCA score is all about. On the screenshots with the dark theme the value -37 is displayed and on the one with the light theme the value 78. I understand that a positive value is displayed when the text is darker than the background and vice versa. If you want to try it yourself, have a look at the [APCA Contrast Calculator](https://www.myndex.com/APCA/).
 
-<a href={exhibitFive.src}>
-    <Image alt="Example from Inaccessible Gallery showcasing empty buttons" src={exhibitFive}/>
-</a>
-
-The problem: Empty buttons are buttons that contain no text, only an image or color. This is pretty much the same problem as with empty links.
-
-The solution: Add descriptive text to the [button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) to determine the action of it. This will help everyone to understand what the button is for. Do not use only an image or color to convey meaning. If you cannot (for whatever reason) add text to the button, use the [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) to add it. This will at least make it possible for screen reader users to understand what it's for.
-
-## 6. Missing Document Language
-
-<a href={flowers.src}>
-    <Image alt="Collection of flower illustrations saying goodbye in different languages" src={flowers}/>
-</a>
-
-The problem: Missing document language can be a common issue, but it is easy to fix.
-
-The solution: Simply add the [language attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang) to the HTML tag of your website. This helps screen readers provide a more meaningful experience to visually impaired users who use screen readers in a specific language. If there are sections (for example a quote) that have a different language than the rest of the site, add the lang attribute here and adjust it accordingly.
-
-## Conclusion
-
-By addressing these six common accessibility issues, you can make your website more inclusive and accessible to everyone. The best part is, that all of these issues are low-hanging fruits and can be fixed with a bit of effort and attention.
+**Conclusion: It is unclear when APCA will become an official standard for accessibility. Still, it's a good tool to get feedback on the extent to which color contrasts are perceived "in the real world". For me personally, the different levels (see quote above) are less abstract than the level A, AA and AAA classifications.**

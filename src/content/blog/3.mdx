@@ -1,71 +1,118 @@
 ---
 layout: "@layouts/MarkdownPostLayout.astro"
-title: How the Washington Post design system made me learn about Perceptual Contrast (APCA)
+title: "The great confusion: Links & Buttons"
 author: Steve Frenzel
-description: Using the Accessible Perceptual Contrast Algorithm on a real world example.
-pubDate: 2023-08-06
-slug: learning-about-perceptual-contrast
+description: Me trying to explain the key differences between links, anchors and buttons.
+pubDate: 2023-08-11
+slug: great-confusion-links-and-buttons
 tags: ["accessibility", "html"]
 image:
-    url: ../../images/blog/wp-design-system.png
-    alt: "Thumbnail of Washington Post Design System"
+    url: ../../images/blog/3/woman-calculating.jpg
+    alt: "Woman calculating things in her head, asking herself: Why call it anchor, when it is a link?"
 ---
 
 import { Image } from 'astro:assets';
-import thumbnail from '@images/blog/wp-design-system.png'
-import screenshotOne from '@images/blog/wp-screenshot-1.png'
-import screenshotTwo from '@images/blog/wp-screenshot-2.png'
-import screenshotThree from '@images/blog/wp-screenshot-3.png'
-import screenshotFour from '@images/blog/wp-screenshot-4.png'
+import womanCalculating from '@images/blog/3/woman-calculating.jpg';
+import flowChart from '@images/blog/3/flow-chart.png'
+import storyblokOverlay from '@images/blog/3/screenshot-1.png'
+import notionScreenshot from '@images/blog/3/screenshot-2.png'
 
-<a href={thumbnail.src}>
-    <Image alt="Thumbnail of Washington Post Design System" src={thumbnail}/>
+<a href={womanCalculating.src}>
+    <Image alt="Woman calculating things in her head, asking herself: Why call it anchor, when it is a link?" src={womanCalculating}/>
 </a>
 
-*Disclaimer: All screenshots in this article were taken on macOS Ventura 13.4.1, in Arc Browser 1.2.1. I have the dark theme as default, which is why the website was rendered accordingly. Depending on what settings you have, the site will be rendered with the light theme.*
+It’s fascinating to see how people can get creative when it comes to making a link look (and work) like a button and vice versa. Both elements couldn’t be more different from each other and yet many web designers and developers seem to think it doesn’t matter which to use for what.
 
-Recently someone pointed me to the [design system of the Washington Post](https://build.washingtonpost.com/resources/accessibility), especially the part about accessibility. What I noticed immediately was the poor readability of the body text and anchor elements:
+But when we talk about links, we’re actually talking about anchor elements. So let’s get some facts straight before using a really helpful analogy.
 
-<a href={screenshotOne.src}>
-    <Image alt="Screenshot of a section about color contrast standards for the Washington Post Design System. It has a black background, white headlines but dark grey body text and links." src={screenshotOne}/>
+## 1. The (actual) link element
+
+Are you currently creating the look of a link for your design system? Have you implemented the newly designed link and handing it over for testing? I really doubt it, because this element won’t be visible to your users and is yet very important. Here’s the description from MDN:
+
+> *The `<link>` HTML element specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.*
+
+And here’s what it looks like (also from [MDN](https://developer.mozilla.org/)):
+
+```html
+<link href="/media/examples/link-element-example.css" rel="stylesheet">
+```
+
+Now that’s curios, isn’t it! Because all this time you and maybe your entire company were referring to something that has absolutely nothing to do with what your talking about. What you actually meant was
+
+## 2. The anchor element
+
+This work horse is what get’s the job done and it comes with tons of functionality and screen reader support out-of-the-box. But don’t take my word for it, here’s how MDN describes it:
+
+> *The anchor HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address. Content within each anchor should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the anchor element will activate it.*
+
+Here’s what an anchor element looks like. It might be a bit underwhelming but let me tell you in just a bit of all the things it can do:
+
+```html
+<a href="https://stevefrenzel.dev">Website</a>
+```
+
+Do you want it to open an e-mail client with a pre-filled recipient, subject and body? Start your `href` string with `mailto:` and adjust it accordingly. Do you want it to make it very easy to call a certain number when clicking on it? Add the `tel:` attribute, the respective telephone number and you’re good to go. Do you want it to download a file when clicking on it? Add the `download` attribute, as well as the file path and YOU ARE GOLDEN. 🤩
+
+All this functionality comes without any JavaScript, by the way. The anchor element is a real bang for the buck! Let’s have a brief look at the last member of this love triangle:
+
+## 3. The button element
+
+You’re probably on the internet at least once a day, so chances are high you visited a website were some dreadful cookie banner asked for your consent. The rectangle saying “Agree”, which makes you give up all your privacy rights? That’s a button! And here’s what MDN has to say about it:
+
+> *The button HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or opening a dialog.*
+
+Button example from MDN:
+
+```html
+<button class="favorite styled" type="button"> Add to favorites </button>
+```
+
+Pay extra attention to the part saying “performs an action”. To simplify: A button does something. A link takes you somewhere.
+
+## 4. The analogy
+
+<a href={flowChart.src}>
+    <Image alt="Flow chart showing the difference between a button and link (which is an anchor element): It's a button. No. If not, then it's a link. Sure. That's it." src={flowChart}/>
 </a>
 
-So I went to the [Color](https://build.washingtonpost.com/resources/accessibility/color) section and saw that the Washington Post's minimum requirement is the level AA standard:
+This flow chart was taken from the article [When Is A Button Not A Button](https://www.smashingmagazine.com/2019/02/buttons-interfaces/) by [Vadim Makeev](https://www.smashingmagazine.com/author/vadim-makeev/). As you can see, in their default form, they look very different from each other. You may also noticed that Vadim is calling it a link, even though he’s showing an anchor element. Is it correct? No, but it makes sense because people will understand what he’s talking about.
 
-> *The Post's [accessibility statement](https://www.washingtonpost.com/accessibility/) notes that we are guided by the [WCAG 2.1 Level AA standard](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=143). However, we strongly encourage meeting the [level AAA standard](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=143%2C146) whenever possible.*
+This “naming convention” is so common, that I also notice it in Notion and Storyblok, which I use for writing and publishing my blog posts. Have a look at the screenshots:
 
-If I want to make automatic accessibility checks in the browser very quickly, I use the Stark extension. Here my assumption was confirmed that despite poor readability almost all requirements were met:
-
-<a href={screenshotTwo.src}>
-    <Image alt="Screenshot of the Washington Post Design System with the Stark browser extension open. It shows a contrast ratio of 5.62 to 1 for the body text." src={screenshotTwo}/>
+<a href={storyblokOverlay.src}>
+    <Image alt="Overlay in Storyblok showing the options for adding a link, although it's actually an anchor element." src={storyblokOverlay}/>
 </a>
 
-To get a second opinion, I switched to APCA (Advanced Perceptual Contrast Algorithm). Lo and behold, the requirements for "Large text" and "Body text" were not met. You can read more about it in this article: [Announcing Stark's APCA beta](https://www.getstark.co/blog/stark-APCA-beta).
-
-<a href={screenshotThree.src}>
-    <Image alt="Screenshot of the Washington Post Design System with the Stark browser extension open. It shows a APCA value of -37." src={screenshotThree}/>
+<a href={notionScreenshot.src}>
+    <Image alt="Screenshot showing a toolbar in the Notion app offering to turn the marked text into a link (which is actually an anchor element)." src={notionScreenshot}/>
 </a>
 
-If you switch to the light theme, the criterion for "Large text" is met, but not for "Body text":
+To make the difference between links, anchors and buttons easier to understand, I came up with the analogy of switching a light on:
 
-<a href={screenshotFour.src}>
-    <Image alt="Screenshot of the Washington Post Design System light theme with the Stark browser extension open. It shows a APCA value of 78." src={screenshotFour}/>
-</a>
+- Link: This is how your lightbulb is decorated. 💡
+- Anchor: The wires leading from the lightbulb to the button. 🔌
+- Button: It’s the button for switching it on or of. Surprise! ⚡ ️
 
-It is very important to say that the APCA value is not yet an official reference, but rather can be understood as another tool to check color contrast. However, I was interested in the details of what these numbers are all about and how to understand them. On [Why APCA as a New Contrast Method?](https://git.apcacontrast.com/documentation/WhyAPCA) there is a simplified listing of the different levels, which are also partly found in the Stark extension (Lc stands for lightness contrast):
+Even though their purposes are very different, how come we not only misuse them but also use the wrong names when describing them? Before exploring these issues, let’s talk about the looks of these elements.
 
-> - Lc 90: Preferred level for fluent text and columns of body text with a font no smaller than 14px/weight 400 (normal).
->
-> - Lc 75: The *minimum* level for columns of body text with a font no smaller than 18px/400. L 75 should be considered a minimum for text where readability is important.
->
-> - Lc 60: The *minimum* level recommended for content text that is not body, column, or block text. In other words, text you want people to read. The minimums: 24px normal weight (400) or 16px/700 (bold). These values based on the reference font Helvetica.
->
-> - Lc 45: The *minimum* for larger, heavier text (36px normal weight or 24px bold) such as headlines. This is also the minimum for pictograms with fine details.
->
-> - Lc 30: The *absolute minimum* for any text not listed above. This includes placeholder text and disabled element text. This is also the minimum for large/solid semantic & understandable non-text elements.
->
-> - Lc 15: The *absolute minimum* for any non-text that needs to be *discernible* and differentiable, and is no less than 6px in its smallest dimension. This may include disabled large buttons. **Designers should treat anything below this level as invisible**, as it will not be visible for many users. This minimum level should be avoided for any items important to the use, understanding, or interaction of the site.
+## 5. The problem
 
-One last question I have is what the minus in the APCA score is all about. On the screenshots with the dark theme the value -37 is displayed and on the one with the light theme the value 78. I understand that a positive value is displayed when the text is darker than the background and vice versa. If you want to try it yourself, have a look at the [APCA Contrast Calculator](https://www.myndex.com/APCA/).
+I would say it is a chain of events that leads to this great confusion. It starts with the fact that we often use the wrong name. Instead of anchor, we say link element. It continues with the fact that in the design, anchor elements are made to look like buttons and the other way around.
 
-**Conclusion: It is unclear when APCA will become an official standard for accessibility. Still, it's a good tool to get feedback on the extent to which color contrasts are perceived "in the real world". For me personally, the different levels (see quote above) are less abstract than the level A, AA and AAA classifications.**
+This in itself is not too big a problem, as long as the correct HTML elements are used in the implementation. Although it would be nice if they’d look like they’re supposed to look. Here is usually when people get really creative and give an anchor element the functionality of a button (and the other way around). To illustrate this, here are a few of the wildest examples from real websites:
+
+```html
+<a type="button" class="button" href="/signup" tabindex="-1">Sign up</a>
+
+<a href="#" onclick="modal.open()">Login</a>
+
+<a href="https://example.com"><button>Example</button></a>
+```
+
+These examples are from [HTMLHell](https://www.htmhell.dev/), one of my favourite websites for having a laugh and weeping at the same time because it is quite unbelievable.
+
+## 6. Conclusion
+
+This article is supposed to inform you about the key differences between links, anchors and buttons. It’s also a way for me to think out loud why there’s so much confusion and wrong usage of these elements. What could be your takeaway?
+
+Next time when you’re communicating with your team, you could start using the term “anchor” instead of “link”. If this raises any eyebrows, you now have the knowledge to explain the differences between these two.

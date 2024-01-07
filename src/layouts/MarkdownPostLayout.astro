@@ -15,7 +15,11 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 ---
 
-<Layout title={frontmatter.title}>
+<Layout
+  description={frontmatter.description}
+  thumbnail={frontmatter.image.url}
+  title={frontmatter.title}
+>
   <div id="markdown-wrapper">
     <header>
       <SkipLink />
