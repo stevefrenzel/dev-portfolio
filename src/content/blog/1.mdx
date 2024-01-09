@@ -12,17 +12,12 @@ image:
 ---
 
 import { Image } from 'astro:assets';
-import thumbnail from '@images/blog/1/most-common-a11y-failures.png'
 import exhibitOne from '@images/blog/1/exhibit-1.png'
 import exhibitTwo from '@images/blog/1/exhibit-2.png'
 import exhibitThree from '@images/blog/1/exhibit-3.png'
 import exhibitFour from '@images/blog/1/exhibit-4.png'
 import exhibitFive from '@images/blog/1/exhibit-5.png'
 import flowers from '@images/blog/1/language-flowers.png'
-
-<a href={thumbnail.src}>
-    <Image alt="Diagram showing the six most common WCAG failures: Low contrast text, 83.6%. Missing alternative text, 58.2%. Empty links, 50.1%. Missing form labels, 45.9%. Empty buttons, 27.5%. Missing document language, 18.6%." src={thumbnail}/>
-</a>
 
 The screenshot above was taken on the [The WebAIM Million](https://webaim.org/projects/million/#errors) website from their 2023 report. I added the percentages for a better understanding.
 
