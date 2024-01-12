@@ -67,20 +67,25 @@ const randomHeadline = getRandomString();
 
 function getRandomString() {
   const blogTitles = [
-    "Oh My Blog 😱",
+    "Oh my blog 😱",
     "Blog hates us all 𐕣",
     "Good cop, bad blog 👮‍♀️",
     "Blog giveth & blog taketh 🫳",
-    "In Blog We Trust 🙏",
+    "In blog we trust 🙏",
     "Blogzilla 🦖",
     "Blogbusters 👻",
   ];
   const randomIndex = Math.floor(Math.random() * blogTitles.length);
   return blogTitles[randomIndex];
 }
+
+const socialImageURL = new URL("/blog.png", Astro.url).toString();
 ---
 
-<Layout title="Steve Frenzel - Web Developer & Accessibility Advocate">
+<Layout
+  thumbnail={socialImageURL}
+  title="Steve Frenzel - Web Developer & Accessibility Advocate"
+>
   <div id="blog-wrapper">
     <header>
       <SkipLink />
