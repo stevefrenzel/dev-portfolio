@@ -62,17 +62,29 @@ contentCollection.sort(
     new Date(second.data.pubDate).getTime() -
     new Date(first.data.pubDate).getTime(),
 );
+
+const randomHeadline = getRandomString();
+
+function getRandomString() {
+  const blogTitles = [
+    "Oh My Blog",
+    "Blog hates us all",
+    "Good cop, bad blog",
+    "Blog giveth & blog taketh",
+  ];
+  const randomIndex = Math.floor(Math.random() * blogTitles.length);
+  return blogTitles[randomIndex];
+}
 ---
 
 <Layout title="Steve Frenzel - Web Developer & Accessibility Advocate">
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>Oh My Blog</h1>
+      <h1>{randomHeadline}</h1>
       <p>
-        How do you do, welcome to my blog. I will talk about web accessibility
-        quite a lot, plus a fair amount of music and maybe some hot sauces, who
-        knows!
+        My name us Steve and here I will talk about web accessibility quite a
+        lot, plus a fair amount of music and maybe some hot sauces, who knows!
       </p>
       <ul class="social-media-list">
         {

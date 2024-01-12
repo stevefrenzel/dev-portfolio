@@ -38,6 +38,7 @@ const socialImageURL = new URL(alteredString, Astro.url).toString();
       <Image
         alt={frontmatter.image.alt}
         height={882}
+        loading="eager"
         src={socialImageURL}
         width={1600}
       />
