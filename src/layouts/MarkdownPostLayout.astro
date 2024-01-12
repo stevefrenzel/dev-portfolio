@@ -2,6 +2,7 @@
 import type { FrontmatterProps } from "../types/FrontmatterProps";
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   frontmatter: FrontmatterProps;
@@ -17,8 +18,6 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 const regex = /\.\.\/\.\.\/images\/blog\/\d+\//;
 const alteredString = frontmatter.image.url.replace(regex, "/thumbnails/");
 const socialImageURL = new URL(alteredString, Astro.url).toString();
-
-const escapedTitle = encodeURIComponent(frontmatter.title);
 ---
 
 <Layout
@@ -36,7 +35,12 @@ const escapedTitle = encodeURIComponent(frontmatter.title);
         </p>
         <a href="/blog">Back to blog</a>
       </div>
-      <img src={socialImageURL} alt={frontmatter.image.alt} />
+      <Image
+        alt={frontmatter.image.alt}
+        height={882}
+        src={socialImageURL}
+        width={1600}
+      />
     </header>
     <main id="main">
       <div class="markdown-content">
