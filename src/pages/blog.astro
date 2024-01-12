@@ -63,19 +63,20 @@ contentCollection.sort(
     new Date(first.data.pubDate).getTime(),
 );
 
-function getRandomString() {
-  const blogTitles = [
-    "Oh my blog 😱",
-    "Blog hates us all 𐕣",
-    "Good cop, bad blog 👮‍♀️",
-    "Blog giveth & blog taketh 🫳",
-    "In blog we trust 🙏",
-    "Blogzilla 🦖",
-    "Blogbusters 👻",
-  ];
-  const randomIndex = Math.floor(Math.random() * blogTitles.length);
-  return blogTitles[randomIndex];
-}
+// TODO This isn't working in live environment
+// function getRandomString() {
+//   const blogTitles = [
+//     "Oh my blog 😱",
+//     "Blog hates us all 𐕣",
+//     "Good cop, bad blog 👮‍♀️",
+//     "Blog giveth & blog taketh 🫳",
+//     "In blog we trust 🙏",
+//     "Blogzilla 🦖",
+//     "Blogbusters 👻",
+//   ];
+//   const randomIndex = Math.floor(Math.random() * blogTitles.length);
+//   return blogTitles[randomIndex];
+// }
 
 const socialImageURL = new URL("/blog.png", Astro.url).toString();
 ---
@@ -87,7 +88,7 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>{getRandomString()}</h1>
+      <h1>Bloggy McBlogface</h1>
       <p>A blog for web accessibility and music nerds by Steve Frenzel</p>
       <ul class="social-media-list">
         {
