@@ -7,10 +7,6 @@ interface Props {
   frontmatter: FrontmatterProps;
 }
 
-const replaceRelativePath = (inputString: string) => {
-  return inputString.replace("../../", "/src/");
-};
-
 const { frontmatter } = Astro.props;
 
 const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
@@ -18,12 +14,16 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-const thumbnail = replaceRelativePath(frontmatter.image.url);
+const regex = /\.\.\/\.\.\/images\/blog\/\d+\//;
+const alteredString = frontmatter.image.url.replace(regex, "/thumbnails/");
+const socialImageURL = new URL(alteredString, Astro.url).toString();
+
+const escapedTitle = encodeURIComponent(frontmatter.title);
 ---
 
 <Layout
   description={frontmatter.description}
-  thumbnail={thumbnail}
+  thumbnail={socialImageURL}
   title={frontmatter.title}
 >
   <div id="markdown-wrapper">
@@ -36,7 +36,7 @@ const thumbnail = replaceRelativePath(frontmatter.image.url);
         </p>
         <a href="/blog">Back to blog</a>
       </div>
-      <img src={thumbnail} alt={frontmatter.image.alt} />
+      <img src={socialImageURL} alt={frontmatter.image.alt} />
     </header>
     <main id="main">
       <div class="markdown-content">
