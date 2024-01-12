@@ -67,13 +67,13 @@ const randomHeadline = getRandomString();
 
 function getRandomString() {
   const blogTitles = [
-    "Oh My Blog",
-    "Blog hates us all",
-    "Good cop, bad blog",
-    "Blog giveth & blog taketh",
-    "In Blog We Trust",
-    "Blogzilla",
-    "Blogbusters",
+    "Oh My Blog 😱",
+    "Blog hates us all 𐕣",
+    "Good cop, bad blog 👮‍♀️",
+    "Blog giveth & blog taketh 🫳",
+    "In Blog We Trust 🙏",
+    "Blogzilla 🦖",
+    "Blogbusters 👻",
   ];
   const randomIndex = Math.floor(Math.random() * blogTitles.length);
   return blogTitles[randomIndex];
@@ -85,10 +85,7 @@ function getRandomString() {
     <header>
       <SkipLink />
       <h1>{randomHeadline}</h1>
-      <p>
-        A blog for web accessibility and music nerds, created by Steve Frenzel
-        (hi 👋).
-      </p>
+      <p>A blog for web accessibility and music nerds by Steve Frenzel</p>
       <ul class="social-media-list">
         {
           links.map((link) => (
