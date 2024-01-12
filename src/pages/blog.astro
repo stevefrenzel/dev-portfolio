@@ -63,8 +63,6 @@ contentCollection.sort(
     new Date(first.data.pubDate).getTime(),
 );
 
-const randomHeadline = getRandomString();
-
 function getRandomString() {
   const blogTitles = [
     "Oh my blog 😱",
@@ -89,7 +87,7 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>{randomHeadline}</h1>
+      <h1>{getRandomString()}</h1>
       <p>A blog for web accessibility and music nerds by Steve Frenzel</p>
       <ul class="social-media-list">
         {
@@ -136,6 +134,8 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
     </main>
   </div>
 </Layout>
+
+<script></script>
 
 <style>
   #blog-wrapper {
