@@ -68,73 +68,75 @@ const socialImageURL = new URL(alteredString, Astro.url).toString();
     margin: 0 auto;
     max-width: 768px;
     padding: 0 var(--space-s);
-  }
 
-  #markdown-wrapper header a:not(#skip-link) {
-    font-size: var(--step-0);
-  }
+    & header a:not(#skip-link) {
+      font-size: var(--step-0);
+    }
 
-  #markdown-wrapper header div {
-    align-items: baseline;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+    & header div {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
-  #markdown-wrapper header img {
-    margin-top: var(--space-m);
-  }
+    & header img {
+      margin-top: var(--space-m);
+    }
 
-  #markdown-wrapper .author-and-date {
-    font-size: var(--step-0);
-  }
+    & .author-and-date {
+      font-size: var(--step-0);
+    }
 
-  #markdown-wrapper ul:not(.tags) {
-    list-style-type: initial;
-  }
+    & ul:not(.tags) {
+      list-style-type: initial;
+    }
 
-  #markdown-wrapper img:not(.arrow-down) {
-    height: auto;
-    width: 100%;
-  }
+    & img:not(.arrow-down) {
+      height: auto;
+      width: 100%;
+    }
 
-  #markdown-wrapper main pre {
-    font-size: var(--step-0);
-    padding: var(--space-xs);
-  }
+    & main pre {
+      font-size: var(--step-0);
+      padding: var(--space-xs);
+    }
 
-  #markdown-wrapper code {
-    font-size: var(--step-0);
-    padding: 1%;
+    & code {
+      font-size: var(--step-0);
+      padding: 1%;
+    }
   }
 
   .markdown-content img {
-    margin-top: var(--space-m);
-  }
+    & img {
+      margin-top: var(--space-m);
+    }
 
-  .markdown-content ol {
-    list-style-type: decimal;
+    & ol {
+      list-style-type: decimal;
+    }
   }
 
   #related-tags {
     margin-top: var(--space-l);
     padding: var(--space-m) 0;
-  }
 
-  #related-tags h2 {
-    font-size: var(--step-2);
-    margin: 0;
-  }
+    & h2 {
+      font-size: var(--step-2);
+      margin: 0;
+    }
 
-  #related-tags .tags {
-    display: flex;
-    gap: var(--space-s);
-    padding: 0;
-  }
+    & .tags {
+      display: flex;
+      gap: var(--space-s);
+      padding: 0;
+    }
 
-  #related-tags a {
-    border-radius: 5px;
-    font-size: var(--step-0);
-    padding: var(--space-2xs);
+    & a {
+      border-radius: 5px;
+      font-size: var(--step-0);
+      padding: var(--space-2xs);
+    }
   }
 </style>

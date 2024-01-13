@@ -27,7 +27,7 @@ function getRandomString() {
   return blogTitles[randomIndex];
 }
 
-const socialImageURL = new URL("/blog.png", Astro.url).toString();
+const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
 ---
 
 <Layout
@@ -40,7 +40,7 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
       <h1>Blog hates us all</h1>
       <p>
         A blog about web accessibility, nerdy music stuff, everything beyond and
-        in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️🏳️‍🌈✊🏿
+        in-between by Steve Frenzel. Fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈 ✊🏿
       </p>
       <div>
         <Image alt="" height={36} src={rss} width={36} />
@@ -82,18 +82,19 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
 
   header {
     padding-bottom: var(--space-s);
-  }
-  header p {
-    margin-top: var(--space-xs);
-    max-width: 60ch;
-    text-wrap: balance;
-  }
 
-  header div {
-    align-items: center;
-    display: flex;
-    gap: var(--space-3xs);
-    margin-top: var(--space-xs);
+    & p {
+      margin-top: var(--space-xs);
+      max-width: 60ch;
+      text-wrap: balance;
+    }
+
+    & div {
+      align-items: center;
+      display: flex;
+      gap: var(--space-3xs);
+      margin-top: var(--space-xs);
+    }
   }
 
   .smol-css-grid {
@@ -102,16 +103,17 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
     margin-top: var(--space-l);
     padding: 0;
+
+    & img {
+      height: auto;
+      margin-bottom: var(--space-s);
+    }
+
+    & a {
+      font-size: var(--step-2);
+    }
   }
 
-  .smol-css-grid img {
-    height: auto;
-    margin-bottom: var(--space-s);
-  }
-
-  .smol-css-grid a {
-    font-size: var(--step-2);
-  }
   time {
     display: block;
     font-size: var(--step-0);
