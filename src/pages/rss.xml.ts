@@ -23,7 +23,8 @@ export async function GET(context: Props) {
   const allPosts = await getCollection("blog");
   return rss({
     title: "Steve Frenzel - Web Developer & Accessibility Advocate",
-    description: "Writing mostly about web stuff and music",
+    description:
+      "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if you are a fascist.",
     site: context.site,
     items: allPosts.map((post) => ({
       link: `/posts/${post.slug}/`,

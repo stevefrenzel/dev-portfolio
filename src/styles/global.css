@@ -67,7 +67,8 @@ button,
 p,
 label,
 footer,
-ul {
+ul,
+ol {
   font-family: "Atkinson Hyperlegible", serif;
   font-size: var(--step-1);
 }
