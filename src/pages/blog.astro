@@ -37,7 +37,7 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>{getRandomString()}</h1>
+      <h1 id="dynamic-title"></h1>
       <p>
         A blog about web accessibility, nerdy music stuff, everything beyond and
         inbetween by Steve Frenzel.
@@ -72,6 +72,22 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
     </main>
   </div>
 </Layout>
+
+<script type="module">
+  const dynamicTitleElement = document.getElementById("dynamic-title");
+  const blogTitles = [
+    "Oh my blog",
+    "Blog hates us all",
+    "Good cop, bad blog",
+    "Blog giveth & blog taketh",
+    "In blog we trust",
+    "Blogzilla",
+    "Blogbusters",
+  ];
+  const randomIndex = Math.floor(Math.random() * blogTitles.length);
+  const randomString = blogTitles[randomIndex];
+  dynamicTitleElement.textContent = randomString;
+</script>
 
 <style>
   #blog-wrapper {
