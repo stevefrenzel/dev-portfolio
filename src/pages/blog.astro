@@ -37,10 +37,10 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1 id="dynamic-title"></h1>
+      <h1>Blog hates us all</h1>
       <p>
         A blog about web accessibility, nerdy music stuff, everything beyond and
-        in-between by Steve Frenzel. Fuck off if these colors offend you: 🏳️‍⚧️🏳️‍🌈
+        in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️🏳️‍🌈✊🏿
       </p>
       <div>
         <Image alt="" height={36} src={rss} width={36} />
@@ -72,22 +72,6 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
     </main>
   </div>
 </Layout>
-
-<script type="module">
-  const dynamicTitleElement = document.getElementById("dynamic-title");
-  const blogTitles = [
-    "Oh my blog",
-    "Blog hates us all",
-    "Good cop, bad blog",
-    "Blog giveth & blog taketh",
-    "In blog we trust",
-    "Blogzilla",
-    "Blogbusters",
-  ];
-  const randomIndex = Math.floor(Math.random() * blogTitles.length);
-  const randomString = blogTitles[randomIndex];
-  dynamicTitleElement.textContent = randomString;
-</script>
 
 <style>
   #blog-wrapper {

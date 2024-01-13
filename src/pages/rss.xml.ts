@@ -22,9 +22,9 @@ interface Props {
 export async function GET(context: Props) {
   const allPosts = await getCollection("blog");
   return rss({
-    title: "Steve Frenzel - Web Developer & Accessibility Advocate",
+    title: "Blog hates us all",
     description:
-      "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if you are a fascist.",
+      "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️🏳️‍🌈✊🏿",
     site: context.site,
     items: allPosts.map((post) => ({
       link: `/posts/${post.slug}/`,
