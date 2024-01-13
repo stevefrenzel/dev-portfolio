@@ -2,59 +2,9 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { getReadingTime } from "@components/lib/getReadingTime";
-
-import ExternalLink from "@components/utils/ExternalLink.astro";
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
-
-import desktop from "@images/icons/desktop.svg";
-import gitHub from "@images/icons/github-white.svg";
-import linkedIn from "@images/icons/linkedin-white.svg";
-import mastodon from "@images/icons/mastodon-white.svg";
 import rss from "@images/icons/rss-feed.svg";
-
-const links = [
-  {
-    externalLink: false,
-    href: "/",
-    height: 24,
-    name: "Website",
-    src: desktop,
-    width: 24,
-  },
-  {
-    externalLink: true,
-    href: "https://www.linkedin.com/in/stevefrenzel",
-    height: 36,
-    name: "LinkedIn",
-    src: linkedIn,
-    width: 36,
-  },
-  {
-    externalLink: true,
-    href: "https://github.com/stevefrenzel",
-    height: 36,
-    name: "GitHub",
-    src: gitHub,
-    width: 36,
-  },
-  {
-    externalLink: true,
-    href: "https://mastodon.online/@stvfrnzl",
-    height: 36,
-    name: "Mastodon",
-    src: mastodon,
-    width: 36,
-  },
-  {
-    externalLink: false,
-    href: "/rss.xml",
-    height: 36,
-    name: "RSS Feed",
-    src: rss,
-    width: 36,
-  },
-];
 
 const contentCollection = await getCollection("blog");
 contentCollection.sort(
@@ -63,20 +13,19 @@ contentCollection.sort(
     new Date(first.data.pubDate).getTime(),
 );
 
-// TODO This isn't working in live environment
-// function getRandomString() {
-//   const blogTitles = [
-//     "Oh my blog 😱",
-//     "Blog hates us all 𐕣",
-//     "Good cop, bad blog 👮‍♀️",
-//     "Blog giveth & blog taketh 🫳",
-//     "In blog we trust 🙏",
-//     "Blogzilla 🦖",
-//     "Blogbusters 👻",
-//   ];
-//   const randomIndex = Math.floor(Math.random() * blogTitles.length);
-//   return blogTitles[randomIndex];
-// }
+function getRandomString() {
+  const blogTitles = [
+    "Oh my blog",
+    "Blog hates us all",
+    "Good cop, bad blog",
+    "Blog giveth & blog taketh",
+    "In blog we trust",
+    "Blogzilla",
+    "Blogbusters",
+  ];
+  const randomIndex = Math.floor(Math.random() * blogTitles.length);
+  return blogTitles[randomIndex];
+}
 
 const socialImageURL = new URL("/blog.png", Astro.url).toString();
 ---
@@ -88,27 +37,15 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>Bloggy McBlogface</h1>
-      <p>A blog for web accessibility and music nerds by Steve Frenzel</p>
-      <ul class="social-media-list">
-        {
-          links.map((link) => (
-            <li>
-              <Image
-                alt=""
-                height={link.height}
-                src={link.src}
-                width={link.width}
-              />
-              {link.externalLink ? (
-                <ExternalLink href={link.href} name={link.name} />
-              ) : (
-                <a href={link.href}>{link.name}</a>
-              )}
-            </li>
-          ))
-        }
-      </ul>
+      <h1>{getRandomString()}</h1>
+      <p>
+        A blog about web accessibility, nerdy music stuff, everything beyond and
+        inbetween by Steve Frenzel.
+      </p>
+      <div>
+        <Image alt="RSS feed" height={36} src={rss} width={36} />
+        <a href="/rss.xml">RSS feed</a>
+      </div>
     </header>
     <main id="main">
       <ul class="smol-css-grid">
@@ -136,8 +73,6 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
   </div>
 </Layout>
 
-<script></script>
-
 <style>
   #blog-wrapper {
     margin: 0 auto;
@@ -154,16 +89,11 @@ const socialImageURL = new URL("/blog.png", Astro.url).toString();
     text-wrap: balance;
   }
 
-  .social-media-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-m);
-    padding: 0;
-  }
-  .social-media-list li {
+  header div {
     align-items: center;
     display: flex;
     gap: var(--space-3xs);
+    margin-top: var(--space-xs);
   }
 
   .smol-css-grid {
