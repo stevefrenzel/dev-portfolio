@@ -1,5 +1,8 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import sanitizeHtml from "sanitize-html";
+import MarkdownIt from "markdown-it";
+const parser = new MarkdownIt();
 
 interface ItemProps {
   title: string;
@@ -23,10 +26,9 @@ export async function GET(context: Props) {
     description: "Writing mostly about web stuff and music",
     site: context.site,
     items: allPosts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate,
-      description: post.data.description,
       link: `/posts/${post.slug}/`,
+      content: sanitizeHtml(parser.render(post.body)),
+      ...post.data,
     })),
     customData: `<language>en-us</language>`,
   });

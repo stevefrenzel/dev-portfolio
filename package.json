@@ -15,9 +15,13 @@
     "@astrojs/mdx": "^2.0.0",
     "@astrojs/rss": "^4.0.1",
     "astro": "^4.0.3",
+    "markdown-it": "^14.0.0",
+    "sanitize-html": "^2.11.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "@types/sanitize-html": "^2.9.5",
     "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
