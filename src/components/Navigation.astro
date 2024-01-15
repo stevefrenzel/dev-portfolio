@@ -21,8 +21,9 @@ import SkipLink from "@utils/SkipLink.astro";
   </nav>
 </header>
 
+<!-- TODO Add design system color and light theme variation -->
 <style>
-  .reel {
+  ul {
     display: flex;
     block-size: auto;
     overflow-x: auto;
@@ -31,15 +32,15 @@ import SkipLink from "@utils/SkipLink.astro";
     scrollbar-color: #fff #000;
   }
 
-  .reel::-webkit-scrollbar {
+  ul::-webkit-scrollbar {
     block-size: 1rem;
   }
 
-  .reel::-webkit-scrollbar-track {
+  ul::-webkit-scrollbar-track {
     background-color: #000;
   }
 
-  .reel::-webkit-scrollbar-thumb {
+  ul::-webkit-scrollbar-thumb {
     background-color: #000;
     background-image: linear-gradient(
       #000 0,
@@ -50,15 +51,15 @@ import SkipLink from "@utils/SkipLink.astro";
     );
   }
 
-  .reel > * {
+  ul > * {
     flex: 0 0 auto;
   }
 
-  .reel > * + * {
+  ul > * + * {
     margin-inline-start: 1rem;
   }
 
-  .reel.overflowing {
+  ul.overflowing {
     padding-block-end: 1rem;
   }
 </style>

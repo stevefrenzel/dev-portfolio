@@ -74,7 +74,7 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
   </div>
 </Layout>
 
-<style>
+<style lang="scss">
   #blog-wrapper {
     margin: 0 auto;
     max-width: 1280px;
@@ -84,13 +84,13 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
   header {
     padding-bottom: var(--space-s);
 
-    & p {
+    p {
       margin-top: var(--space-xs);
       max-width: 60ch;
       text-wrap: balance;
     }
 
-    & div {
+    div {
       align-items: center;
       display: flex;
       gap: var(--space-3xs);
@@ -105,12 +105,12 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
     margin-top: var(--space-l);
     padding: 0;
 
-    & img {
+    img {
       height: auto;
       margin-bottom: var(--space-s);
     }
 
-    & a {
+    a {
       font-size: var(--step-2);
     }
   }

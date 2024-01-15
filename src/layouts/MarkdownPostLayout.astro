@@ -63,57 +63,57 @@ const socialImageURL = new URL(alteredString, Astro.url).toString();
   </div>
 </Layout>
 
-<style is:global>
+<style is:global lang="scss">
   #markdown-wrapper {
     margin: 0 auto;
     max-width: 768px;
     padding: 0 var(--space-s);
 
-    & header a:not(#skip-link) {
+    header a:not(#skip-link) {
       font-size: var(--step-0);
     }
 
-    & header div {
+    header div {
       align-items: baseline;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
     }
 
-    & header img {
+    header img {
       margin-top: var(--space-m);
     }
 
-    & .author-and-date {
+    .author-and-date {
       font-size: var(--step-0);
     }
 
-    & ul:not(.tags) {
+    ul:not(.tags) {
       list-style-type: initial;
     }
 
-    & img:not(.arrow-down) {
+    img:not(.arrow-down) {
       height: auto;
       width: 100%;
     }
 
-    & main pre {
+    main pre {
       font-size: var(--step-0);
       padding: var(--space-xs);
     }
 
-    & code {
+    code {
       font-size: var(--step-0);
       padding: 1%;
     }
   }
 
   .markdown-content {
-    & img {
+    img {
       margin-top: var(--space-m);
     }
 
-    & ol {
+    ol {
       list-style-type: decimal;
     }
   }
@@ -122,18 +122,18 @@ const socialImageURL = new URL(alteredString, Astro.url).toString();
     margin-top: var(--space-l);
     padding: var(--space-m) 0;
 
-    & h2 {
+    h2 {
       font-size: var(--step-2);
       margin: 0;
     }
 
-    & .tags {
+    .tags {
       display: flex;
       gap: var(--space-s);
       padding: 0;
     }
 
-    & a {
+    a {
       border-radius: 5px;
       font-size: var(--step-0);
       padding: var(--space-2xs);

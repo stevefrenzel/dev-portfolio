@@ -98,12 +98,12 @@ ol {
   #intro {
     background: var(--color-white);
     color: var(--color-black);
-  }
 
-  #intro a,
-  #intro p,
-  #intro .sub-headline {
-    color: var(--color-black);
+    a,
+    p,
+    .sub-headline {
+      color: var(--color-black);
+    }
   }
 
   #profile-picture {
@@ -121,10 +121,10 @@ ol {
 
   #back-to-top {
     background: var(--color-white);
-  }
 
-  #back-to-top img {
-    filter: invert(1);
+    img {
+      filter: invert(1);
+    }
   }
 
   button,
@@ -138,17 +138,21 @@ ol {
 
   /* Resume page */
 
-  #intro-resume .sub-headline {
-    color: var(--color-grey-light);
+  #intro-resume {
+    .sub-headline {
+      color: var(--color-grey-light);
+    }
+
+    a {
+      color: var(--color-blue-light);
+    }
   }
 
-  #intro-resume a {
-    color: var(--color-blue-light);
-  }
-
-  #education-list span:nth-child(2),
-  #education-list span:nth-child(3) {
-    color: var(--color-grey-light);
+  #education-list {
+    span:nth-child(2),
+    span:nth-child(3) {
+      color: var(--color-grey-light);
+    }
   }
 
   #languages-list span {
@@ -165,35 +169,45 @@ ol {
 
   /* Blog post layout */
 
-  #blog-wrapper p {
-    color: var(--color-grey-light);
+  #blog-wrapper {
+    p {
+      color: var(--color-grey-light);
+    }
+    header {
+      border-bottom: 3px solid var(--color-white);
+    }
+    a {
+      color: var(--color-blue-light);
+    }
   }
-  #blog-wrapper header {
-    border-bottom: 3px solid var(--color-white);
+
+  #markdown-wrapper {
+    p {
+      color: var(--color-grey-light);
+    }
+    ul:not(.tags) {
+      color: var(--color-grey-light);
+    }
+    main a {
+      color: var(--color-blue-light);
+    }
   }
-  #blog-wrapper a {
-    color: var(--color-blue-light);
-  }
-  #markdown-wrapper p {
-    color: var(--color-grey-light);
-  }
-  #markdown-wrapper ul:not(.tags) {
-    color: var(--color-grey-light);
-  }
-  #markdown-wrapper main a {
-    color: var(--color-blue-light);
-  }
+
   #related-tags {
     border-top: 2px solid var(--color-white);
+
+    a {
+      background: var(--color-grey-dark);
+    }
   }
-  #related-tags a {
-    background: var(--color-grey-dark);
-  }
-  #tag-wrapper a {
-    color: var(--color-blue-light);
-  }
-  #tag-wrapper p {
-    color: var(--color-grey-light);
+
+  #tag-wrapper {
+    a {
+      color: var(--color-blue-light);
+    }
+    p {
+      color: var(--color-grey-light);
+    }
   }
 }
 
@@ -206,20 +220,20 @@ ol {
   #intro {
     background: var(--color-black);
     color: var(--color-white);
-  }
 
-  #intro a,
-  #intro p,
-  #intro .sub-headline {
-    color: var(--color-grey-light);
+    a,
+    p,
+    .sub-headline {
+      color: var(--color-grey-light);
+    }
+
+    .icon {
+      filter: invert(1);
+    }
   }
 
   #profile-picture {
     box-shadow: 10px 10px 0px 0px var(--color-grey-dark);
-  }
-
-  #intro .icon {
-    filter: invert(1);
   }
 
   #projects a,
@@ -233,10 +247,10 @@ ol {
 
   #back-to-top {
     background: var(--color-black);
-  }
 
-  #back-to-top img {
-    filter: invert(0);
+    img {
+      filter: invert(0);
+    }
   }
 
   #collaborations img {
@@ -249,17 +263,21 @@ ol {
 
   /* Resume page */
 
-  #intro-resume img {
-    filter: invert(1);
+  #intro-resume {
+    img {
+      filter: invert(1);
+    }
+
+    a {
+      color: var(--color-blue-dark);
+    }
   }
 
-  #intro-resume a {
-    color: var(--color-blue-dark);
-  }
-
-  #education-list span:nth-child(2),
-  #education-list span:nth-child(3) {
-    color: var(--color-black);
+  #education-list {
+    span:nth-child(2),
+    span:nth-child(3) {
+      color: var(--color-black);
+    }
   }
 
   #languages-list span {
@@ -276,33 +294,41 @@ ol {
 
   /* Blog post layout */
 
-  #blog-wrapper p {
-    color: var(--color-grey-dark);
+  #blog-wrapper {
+    a {
+      color: var(--color-blue-dark);
+    }
+    header {
+      border-bottom: 3px solid var(--color-black);
+    }
+    header img {
+      filter: invert(1);
+    }
+    p {
+      color: var(--color-grey-dark);
+    }
   }
-  #blog-wrapper header {
-    border-bottom: 3px solid var(--color-black);
-  }
-  #blog-wrapper header img {
-    filter: invert(1);
-  }
-  #blog-wrapper a {
-    color: var(--color-blue-dark);
-  }
+
   #markdown-wrapper .markdown-content a {
     color: var(--color-blue-dark);
   }
+
   #related-tags {
     border-top: 2px solid var(--color-black);
+
+    a {
+      background: var(--color-grey-dark);
+      color: var(--color-white);
+    }
   }
-  #related-tags a {
-    background: var(--color-grey-dark);
-    color: var(--color-white);
-  }
-  #tag-wrapper a {
-    color: var(--color-blue-dark);
-  }
-  #tag-wrapper p {
-    color: var(--color-grey-dark);
+
+  #tag-wrapper {
+    a {
+      color: var(--color-blue-dark);
+    }
+    p {
+      color: var(--color-grey-dark);
+    }
   }
 }
 

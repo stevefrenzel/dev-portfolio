@@ -76,7 +76,7 @@ const socialLinks = [
 
 <DividerVertical borderStyle="dashed" />
 
-<style>
+<style lang="scss">
   section {
     max-width: 100%;
     padding: var(--space-s) var(--space-s) var(--space-xl) var(--space-s);
@@ -89,10 +89,10 @@ const socialLinks = [
     gap: var(--space-s);
     margin: 0 auto var(--space-xs) auto;
     max-width: 1536px;
-  }
 
-  .headline-container h1 {
-    margin: 0;
+    h1 {
+      margin: 0;
+    }
   }
 
   .grid-container {
@@ -126,15 +126,15 @@ const socialLinks = [
 
   .text-container {
     align-self: center;
-  }
 
-  .text-container a,
-  .text-container p {
-    font-size: var(--step-2);
-  }
+    a,
+    p {
+      font-size: var(--step-2);
+    }
 
-  .text-container p:first-child() {
-    margin-bottom: var(--space-m);
+    p:first-child() {
+      margin-bottom: var(--space-m);
+    }
   }
 
   .text {
