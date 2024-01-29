@@ -16,8 +16,8 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 
 const regex = /\.\.\/\.\.\/images\/blog\/(\d{4}\/\d{1,3}\/)/;
-const alteredString = frontmatter.image.url.replace(regex, "/thumbnails/");
-const socialImageURL = new URL(alteredString, Astro.url).toString();
+const alteredString = frontmatter.image.url.replace(regex, "thumbnails/");
+const socialImageURL = new URL(alteredString, Astro.site).toString();
 ---
 
 <Layout
