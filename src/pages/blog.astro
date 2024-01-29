@@ -13,19 +13,14 @@ contentCollection.sort(
     new Date(first.data.pubDate).getTime(),
 );
 
-function getRandomString() {
-  const blogTitles = [
-    "Oh my blog",
-    "Blog hates us all",
-    "Good cop, bad blog",
-    "Blog giveth & blog taketh",
-    "In blog we trust",
-    "Blogzilla",
-    "Blogbusters",
-  ];
-  const randomIndex = Math.floor(Math.random() * blogTitles.length);
-  return blogTitles[randomIndex];
-}
+const postsByYear = contentCollection.reduce((acc: any, post) => {
+  const year = new Date(post.data.pubDate).getFullYear();
+  acc[year] = acc[year] || [];
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(postsByYear).sort((a: any, b: any) => b - a);
 
 const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
 ---
@@ -49,27 +44,35 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
       </div>
     </header>
     <main id="main">
-      <ul class="smol-css-grid">
-        {
-          contentCollection.map((post: any) => (
-            <li>
-              {post.data.image ? (
-                <Image alt={post.data.image.alt} src={post.data.image.url} />
-              ) : null}
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              <time>
-                {post.data.pubDate.toLocaleDateString(undefined, {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}{" "}
-                - {getReadingTime(post.body)} min read
-              </time>
-              <p class="description">{post.data.description}</p>
-            </li>
-          ))
-        }
-      </ul>
+      {
+        years.map((year) => (
+          <div>
+            <h2>{year}</h2>
+            <ul class="smol-css-grid">
+              {postsByYear[year].map((post: any) => (
+                <li>
+                  {post.data.image ? (
+                    <Image
+                      alt={post.data.image.alt}
+                      src={post.data.image.url}
+                    />
+                  ) : null}
+                  <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                  <time>
+                    {post.data.pubDate.toLocaleDateString(undefined, {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                    {""}- {getReadingTime(post.body)} min read
+                  </time>
+                  <p class="description">{post.data.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </main>
   </div>
 </Layout>

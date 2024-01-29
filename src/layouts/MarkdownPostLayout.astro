@@ -15,7 +15,7 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-const regex = /\.\.\/\.\.\/images\/blog\/\d+\//;
+const regex = /\.\.\/\.\.\/images\/blog\/(\d{4}\/\d{1,3}\/)/;
 const alteredString = frontmatter.image.url.replace(regex, "/thumbnails/");
 const socialImageURL = new URL(alteredString, Astro.url).toString();
 ---
@@ -61,92 +61,93 @@ const socialImageURL = new URL(alteredString, Astro.url).toString();
       </footer>
     </main>
   </div>
-
-  <style is:global lang="scss">
-    #markdown-wrapper {
-      margin: 0 auto;
-      max-width: 768px;
-      padding: 0 var(--space-s);
-
-      header a:not(#skip-link) {
-        font-size: var(--step-0);
-      }
-
-      header div {
-        align-items: baseline;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      header img {
-        margin-top: var(--space-m);
-      }
-
-      .author-and-date {
-        font-size: var(--step-0);
-      }
-
-      ul:not(.tags) {
-        list-style-type: initial;
-      }
-
-      img:not(.arrow-down) {
-        height: auto;
-        width: 100%;
-      }
-
-      main pre {
-        font-size: var(--step-0);
-        padding: var(--space-xs);
-      }
-
-      code {
-        font-size: var(--step-0);
-        padding: 1%;
-      }
-    }
-
-    .markdown-content {
-      blockquote {
-        margin: var(--space-m) var(--space-s) 0 var(--space-s);
-        padding-left: var(--space-xs);
-
-        p {
-          font-style: italic;
-          margin-top: 0;
-        }
-      }
-
-      img {
-        margin-top: var(--space-m);
-      }
-
-      ol {
-        list-style-type: decimal;
-      }
-    }
-
-    #related-tags {
-      margin-top: var(--space-l);
-      padding: var(--space-m) 0;
-
-      h2 {
-        font-size: var(--step-2);
-        margin: 0;
-      }
-
-      .tags {
-        display: flex;
-        gap: var(--space-s);
-        padding: 0;
-      }
-
-      a {
-        border-radius: 5px;
-        font-size: var(--step-0);
-        padding: var(--space-2xs);
-      }
-    }
-  </style>
 </Layout>
+
+<style is:global lang="scss">
+  #markdown-wrapper {
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 0 var(--space-s);
+
+    header a:not(#skip-link) {
+      font-size: var(--step-0);
+    }
+
+    header div {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    header img {
+      margin-top: var(--space-m);
+    }
+
+    .author-and-date {
+      font-size: var(--step-0);
+    }
+
+    ul:not(.tags) {
+      list-style-type: initial;
+    }
+
+    img:not(.arrow-down) {
+      height: auto;
+      width: 100%;
+    }
+
+    main pre {
+      font-size: var(--step-0);
+      padding: var(--space-xs);
+    }
+
+    code {
+      font-size: var(--step-0);
+      padding: 1%;
+    }
+  }
+
+  .markdown-content {
+    blockquote {
+      margin: var(--space-m) var(--space-s) 0 var(--space-s);
+      padding-left: var(--space-xs);
+
+      p {
+        font-style: italic;
+        margin-top: 0;
+      }
+    }
+
+    img {
+      margin-top: var(--space-m);
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+  }
+
+  #related-tags {
+    margin-top: var(--space-l);
+    padding: var(--space-m) 0;
+
+    h2 {
+      font-size: var(--step-2);
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      padding: 0;
+    }
+
+    a {
+      border-radius: 5px;
+      font-size: var(--step-0);
+      padding: var(--space-2xs);
+    }
+  }
+</style>

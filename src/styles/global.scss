@@ -175,6 +175,10 @@ ol {
     }
     header {
       border-bottom: 3px solid var(--color-white);
+
+      p {
+        color: var(--color-white);
+      }
     }
     a {
       color: var(--color-blue-light);
@@ -190,6 +194,9 @@ ol {
     }
     main a {
       color: var(--color-blue-light);
+    }
+    .author-and-date {
+      color: var(--color-white);
     }
   }
 

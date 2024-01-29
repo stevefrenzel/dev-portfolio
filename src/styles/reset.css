@@ -54,6 +54,7 @@ h1,
 h2,
 h3,
 h4 {
+  hyphens: auto;
   text-wrap: balance;
 }
 
@@ -76,6 +77,8 @@ button,
 textarea,
 select {
   font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
