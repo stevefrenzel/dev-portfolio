@@ -82,6 +82,10 @@ ol {
   padding: 0 var(--space-s);
 }
 
+#markdown-wrapper pre code {
+  background: initial;
+}
+
 #markdown-wrapper code {
   color: var(--color-white);
   background: var(--color-grey-dark);
