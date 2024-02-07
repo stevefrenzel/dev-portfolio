@@ -15,9 +15,8 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-const regex = /\.\.\/\.\.\/images\/blog\/(\d{4}\/\d{1,3}\/)/;
-const alteredString = frontmatter.image.url.replace(regex, "thumbnails/");
-
+const regex = /^\.\//;
+const alteredString = frontmatter.image.url.replace(regex, `/thumbnails/`);
 const isLocalhost = Astro.url.origin === "http://localhost:4321" ? true : false;
 const imageFilePath = isLocalhost ? Astro.url : Astro.site;
 const socialImageURL = new URL(alteredString, imageFilePath).toString();
@@ -40,10 +39,10 @@ const socialImageURL = new URL(alteredString, imageFilePath).toString();
       </div>
       <Image
         alt={frontmatter.image.alt}
-        height={882}
+        height={410}
         loading="eager"
         src={socialImageURL}
-        width={1600}
+        width={728}
       />
     </header>
     <main id="main">
