@@ -37,12 +37,11 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
         </div>
         <a href="/blog">Back to blog</a>
       </div>
-      <!-- TODO Change URL back to frontmatter.image.url.src -->
       <Image
         alt={frontmatter.image.alt}
         height={410}
         loading="eager"
-        src={socialImageUrl}
+        src={frontmatter.image.url}
         width={728}
       />
     </header>
