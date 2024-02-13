@@ -4,6 +4,7 @@ export interface ImageProps {
 }
 
 export interface FrontmatterProps {
+  thumbnail: string;
   title: string;
   author: string;
   description: string;

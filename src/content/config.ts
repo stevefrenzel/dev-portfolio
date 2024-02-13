@@ -4,6 +4,7 @@ const postsCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
+      thumbnail: z.string(),
       title: z.string(),
       author: z.string().default("Steve Frenzel"),
       description: z.string(),

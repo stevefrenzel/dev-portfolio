@@ -16,15 +16,7 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-// const match = frontmatter.image.url.src.match(/\/([^\/?]+)\?/);
-// const fileName = match ? match[1] : "blog-hates-us-all.png";
-// const socialImageUrl = `${Astro.site}thumbnails/${fileName}`;
-
-const regexPattern = /\/([^\/?]+\.png)/;
-const url = frontmatter.image.url.src;
-const imageFileName =
-  (url.match(regexPattern) || [])[1]?.split("/").pop() || "No match found";
-const socialImageUrl = `${Astro.site}thumbnails/${imageFileName}`;
+const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 ---
 
 <Layout
@@ -45,6 +37,7 @@ const socialImageUrl = `${Astro.site}thumbnails/${imageFileName}`;
         </div>
         <a href="/blog">Back to blog</a>
       </div>
+      <!-- TODO Change URL back to frontmatter.image.url.src -->
       <Image
         alt={frontmatter.image.alt}
         height={410}
