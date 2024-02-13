@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-// const allPosts = await Astro.glob("../posts/*.md");
-const contentCollection = await getCollection("blog");
+const contentCollection = await getCollection("posts");
 const tags = [
   ...new Set(contentCollection.map((post) => post.data.tags).flat()),
 ];

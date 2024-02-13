@@ -20,7 +20,7 @@ interface Props {
 }
 
 export async function GET(context: Props) {
-  const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("posts");
   return rss({
     title: "Blog hates us all",
     description:

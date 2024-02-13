@@ -6,7 +6,7 @@ import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 import rss from "@images/icons/rss-feed.svg";
 
-const contentCollection = await getCollection("blog");
+const contentCollection = await getCollection("posts");
 contentCollection.sort(
   (first, second) =>
     new Date(second.data.pubDate).getTime() -

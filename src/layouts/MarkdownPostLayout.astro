@@ -15,16 +15,14 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-const regex = /^\.\//;
-const alteredString = frontmatter.image.url.replace(regex, `/thumbnails/`);
-const isLocalhost = Astro.url.origin === "http://localhost:4321" ? true : false;
-const imageFilePath = isLocalhost ? Astro.url : Astro.site;
-const socialImageURL = new URL(alteredString, imageFilePath).toString();
+const match = frontmatter.image.url.src.match(/\/([^\/?]+)\?/);
+const fileName = match ? match[1] : "blog-hates-us-all.png";
+const socialImageUrl = `${Astro.site}thumbnails/${fileName}`;
 ---
 
 <Layout
   description={frontmatter.description}
-  thumbnail={socialImageURL}
+  thumbnail={socialImageUrl}
   title={frontmatter.title}
 >
   <div id="markdown-wrapper">
@@ -41,7 +39,7 @@ const socialImageURL = new URL(alteredString, imageFilePath).toString();
         alt={frontmatter.image.alt}
         height={410}
         loading="eager"
-        src={socialImageURL}
+        src={frontmatter.image.url}
         width={728}
       />
     </header>

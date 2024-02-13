@@ -1,13 +1,21 @@
-import type { ImageProps } from "./ImageProps";
+export interface ImageProps {
+  alt: string;
+  url: string;
+}
 
 export interface FrontmatterProps {
-  layout: string;
   title: string;
-  pubDate: string;
-  description: string;
   author: string;
-  image: ImageProps;
+  description: string;
+  image: {
+    url: {
+      src: string;
+      width: number;
+      height: number;
+      format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
+    };
+    alt: string;
+  };
+  pubDate: Date;
   tags: string[];
-  file: string;
-  url: string;
 }
