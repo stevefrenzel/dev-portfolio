@@ -59,7 +59,7 @@ const socialLinks = [
         {
           socialLinks.map((item) => (
             <li>
-              <Image alt="" class="icon" src={item.icon} />
+              <Image alt="" class="icon" src={item.icon} loading="eager" />
               <ExternalLink
                 fontSize="var(--step-2)"
                 href={item.url}
