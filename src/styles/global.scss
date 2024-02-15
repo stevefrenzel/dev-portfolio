@@ -65,6 +65,7 @@ textarea {
 a,
 button,
 p,
+table,
 time,
 label,
 footer,
@@ -209,6 +210,21 @@ ol {
     blockquote {
       border-left: 3px solid var(--color-grey-light);
     }
+
+    table {
+      color: var(--color-grey-light);
+    }
+
+    thead,
+    td:nth-child(1) {
+      background: var(--color-grey-dark);
+      color: var(--color-white);
+    }
+
+    th,
+    td {
+      border: 2px solid var(--color-grey-light);
+    }
   }
 
   #related-tags {
@@ -334,6 +350,21 @@ ol {
   .markdown-content {
     blockquote {
       border-left: 3px solid var(--color-black);
+    }
+
+    table {
+      color: var(--color-grey-dark);
+    }
+
+    thead,
+    td:nth-child(1) {
+      background: var(--color-grey-light);
+      color: var(--color-black);
+    }
+
+    th,
+    td {
+      border: 2px solid var(--color-grey-dark);
     }
   }
 

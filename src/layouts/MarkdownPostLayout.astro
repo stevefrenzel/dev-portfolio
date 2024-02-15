@@ -108,7 +108,16 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 
     code {
       font-size: var(--step-0);
-      padding: 1%;
+      padding: 0.2rem 0.3rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      code {
+        font-size: var(--step-1);
+      }
     }
   }
 
@@ -125,6 +134,17 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 
     img {
       margin-top: var(--space-m);
+    }
+
+    table {
+      table-layout: fixed;
+      border-collapse: collapse;
+      margin-top: var(--space-s);
+      text-align: center;
+    }
+    th,
+    td {
+      padding: var(--space-2xs);
     }
 
     ol {
