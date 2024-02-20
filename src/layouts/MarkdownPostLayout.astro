@@ -3,6 +3,10 @@ import type { FrontmatterProps } from "../types/FrontmatterProps";
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 import { Image } from "astro:assets";
+import ExternalLink from "@components/utils/ExternalLink.astro";
+
+import mastodon from "@images/icons/mastodon-white.svg";
+import mail from "@images/icons/mail.svg";
 
 interface Props {
   frontmatter: FrontmatterProps;
@@ -17,6 +21,25 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
+
+const links = [
+  {
+    href: "mailto:stvfrnzl@duck.go",
+    height: 36,
+    externalLink: true,
+    name: "E-Mail",
+    src: mail,
+    width: 36,
+  },
+  {
+    href: "https://mastodon.online/@stvfrnzl",
+    height: 36,
+    externalLink: true,
+    name: "Mastodon",
+    src: mastodon,
+    width: 36,
+  },
+];
 ---
 
 <Layout
@@ -60,6 +83,14 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
             ))
           }
         </ul>
+        <p>
+          No comment section (yet), please reach out via <ExternalLink
+            href="https://mastodon.online/@stvfrnzl"
+            name="Mastodon"
+          />
+          or
+          <a href="mailto:stvfrnzl@duck.go">e-mail</a>!
+        </p>
       </footer>
     </main>
   </div>
@@ -166,6 +197,10 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
       margin: 0;
     }
 
+    ul {
+      margin-top: var(--space-xs);
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -177,6 +212,17 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
       border-radius: 5px;
       font-size: var(--step-0);
       padding: var(--space-2xs);
+    }
+
+    p {
+      font-size: var(--step-0);
+      margin-top: var(--space-2xs);
+
+      a {
+        background: transparent;
+        border-radius: none;
+        padding: 0;
+      }
     }
   }
 </style>
