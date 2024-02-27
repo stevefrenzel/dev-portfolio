@@ -93,6 +93,10 @@ ol {
   background: var(--color-grey-dark);
 }
 
+#footnote-label {
+  font-size: var(--step-2);
+}
+
 /* Preference detection */
 
 @media (prefers-color-scheme: dark) {
@@ -414,4 +418,13 @@ ol {
     transition: outline-offset 0.25s ease;
     outline-offset: 5px;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

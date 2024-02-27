@@ -11,6 +11,7 @@ import SkipLink from "@utils/SkipLink.astro";
 import mastodon from "@images/icons/mastodon-white.svg";
 import mail from "@images/icons/mail.svg";
 import rss from "@images/icons/rss-feed.svg";
+import logo from "@images/bhua-logo-noise.svg";
 
 const links = [
   {
@@ -66,32 +67,41 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
   <div id="blog-wrapper">
     <header>
       <SkipLink />
-      <h1>Blog hates us all</h1>
-      <p>
-        A blog about web accessibility, nerdy music stuff, everything beyond and
-        in-between by Steve Frenzel. Fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈 ✊🏿
-      </p>
-      <div>
-        <ul>
-          {
-            links.map((link) => (
-              <li>
-                <Image
-                  alt=""
-                  height={link.height}
-                  src={link.src}
-                  width={link.width}
-                  loading="eager"
-                />
-                {link.externalLink ? (
-                  <ExternalLink href={link.href} name={link.name} />
-                ) : (
-                  <a href={link.href}>{link.name}</a>
-                )}
-              </li>
-            ))
-          }
-        </ul>
+      <div class="header-container">
+        <Image
+          alt="Blog hates us all logo"
+          src={logo}
+          width={666}
+          loading="eager"
+        />
+        <h1 class="visually-hidden">Blog hates us all</h1>
+        <div>
+          <p>
+            A blog about web accessibility, nerdy music stuff, everything beyond
+            and in-between by Steve Frenzel. Fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈
+            ✊🏿
+          </p>
+          <ul>
+            {
+              links.map((link) => (
+                <li>
+                  <Image
+                    alt=""
+                    height={link.height}
+                    src={link.src}
+                    width={link.width}
+                    loading="eager"
+                  />
+                  {link.externalLink ? (
+                    <ExternalLink href={link.href} name={link.name} />
+                  ) : (
+                    <a href={link.href}>{link.name}</a>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </header>
     <main id="main">
@@ -139,9 +149,7 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
     padding-bottom: var(--space-s);
 
     p {
-      margin-top: var(--space-xs);
-      max-width: 60ch;
-      text-wrap: balance;
+      max-width: 50ch;
     }
 
     div {
@@ -169,6 +177,15 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
 
     li:first-child() img {
       margin-right: var(--space-3xs);
+    }
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      flex-direction: column;
     }
   }
 
