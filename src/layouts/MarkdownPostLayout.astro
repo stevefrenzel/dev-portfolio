@@ -5,9 +5,6 @@ import SkipLink from "@utils/SkipLink.astro";
 import { Image } from "astro:assets";
 import ExternalLink from "@components/utils/ExternalLink.astro";
 
-import mastodon from "@images/icons/mastodon-white.svg";
-import mail from "@images/icons/mail.svg";
-
 interface Props {
   frontmatter: FrontmatterProps;
   readingTime: number | undefined;
@@ -21,25 +18,6 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
-
-const links = [
-  {
-    href: "mailto:stvfrnzl@duck.go",
-    height: 36,
-    externalLink: true,
-    name: "E-Mail",
-    src: mail,
-    width: 36,
-  },
-  {
-    href: "https://mastodon.online/@stvfrnzl",
-    height: 36,
-    externalLink: true,
-    name: "Mastodon",
-    src: mastodon,
-    width: 36,
-  },
-];
 ---
 
 <Layout
