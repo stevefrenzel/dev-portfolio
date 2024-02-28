@@ -70,9 +70,10 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
       <div class="header-container">
         <Image
           alt="Blog hates us all logo"
+          id="logo"
+          loading="eager"
           src={logo}
           width={666}
-          loading="eager"
         />
         <h1 class="visually-hidden">Blog hates us all</h1>
         <div>
@@ -147,6 +148,10 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
 
   header {
     padding-bottom: var(--space-s);
+
+    #logo {
+      height: auto;
+    }
 
     p {
       max-width: 50ch;
