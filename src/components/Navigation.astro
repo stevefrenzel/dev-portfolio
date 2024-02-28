@@ -22,12 +22,18 @@ import SkipLink from "@utils/SkipLink.astro";
 </header>
 
 <style>
+  header {
+    margin: 0 var(--space-s);
+  }
+
   ul {
     display: flex;
     block-size: auto;
+    margin: var(--space-s) auto;
+    max-width: 1536px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 var(--space-s);
+    padding: 0;
     scrollbar-color: #fff var(--color-black);
   }
 
