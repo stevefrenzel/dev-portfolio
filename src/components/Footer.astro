@@ -2,7 +2,7 @@
 import ExternalLink from "@utils/ExternalLink.astro";
 ---
 
-<footer>
+<footer id="website-footer">
   <p>
     Coded with <span aria-label="love">❤️</span> by Steve Frenzel.
     <ExternalLink
@@ -11,6 +11,41 @@ import ExternalLink from "@utils/ExternalLink.astro";
       name="Code on GitHub"
     />
   </p>
+
+  <a href="/accessibility">Accessibility statement</a>
+
+  <nav class="a11y-webring-club" aria-labelledby="a11y-webring-club">
+    <h2 id="a11y-webring-club">a11y-webring.club</h2>
+    <p>
+      This site is a member of the <a
+        rel="external"
+        href="https://a11y-webring.club/">a11y-webring.club</a
+      >.
+    </p>
+    <ul>
+      <li>
+        <a
+          rel="external"
+          referrerpolicy="strict-origin"
+          href="https://a11y-webring.club/prev">Previous website</a
+        >
+      </li>
+      <li>
+        <a
+          rel="external"
+          referrerpolicy="strict-origin"
+          href="https://a11y-webring.club/random">Random website</a
+        >
+      </li>
+      <li>
+        <a
+          rel="external"
+          referrerpolicy="strict-origin"
+          href="https://a11y-webring.club/next">Next website</a
+        >
+      </li>
+    </ul>
+  </nav>
 </footer>
 
 <style>
@@ -28,5 +63,15 @@ import ExternalLink from "@utils/ExternalLink.astro";
 
   p {
     margin: 0;
+  }
+
+  nav ul {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: var(--space-xs) auto;
+    padding: 0;
+    width: fit-content;
   }
 </style>

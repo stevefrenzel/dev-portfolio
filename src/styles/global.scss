@@ -44,16 +44,14 @@ h2 {
   font-size: calc(var(--step-4));
 }
 
-h3 {
+h3,
+.sub-headline,
+#footnote-label {
   font-size: var(--step-2);
 }
 
 h4 {
   font-size: var(--step-1);
-}
-
-.sub-headline {
-  font-size: var(--step-2);
 }
 
 input,
@@ -94,10 +92,6 @@ ol {
   background: var(--color-grey-dark);
 }
 
-#footnote-label {
-  font-size: var(--step-2);
-}
-
 /* Preference detection */
 
 @media (prefers-color-scheme: dark) {
@@ -121,8 +115,10 @@ ol {
     box-shadow: 10px 10px 0px 0px var(--color-grey-light);
   }
 
+  #a11y-statement a,
+  footer a,
   #projects a,
-  footer a {
+  #website-footer a {
     color: var(--color-blue-light);
   }
 
@@ -145,6 +141,10 @@ ol {
 
   hr {
     color: var(--color-grey-light);
+  }
+
+  #a11y-statement footer {
+    border-top: 2px solid var(--color-white);
   }
 
   /* Resume page */
@@ -276,8 +276,10 @@ ol {
     box-shadow: 10px 10px 0px 0px var(--color-grey-dark);
   }
 
+  #a11y-statement a,
+  footer a,
   #projects a,
-  footer a {
+  #website-footer a {
     color: var(--color-blue-dark);
   }
 
@@ -299,6 +301,15 @@ ol {
 
   hr {
     color: var(--color-black);
+  }
+
+  #a11y-statement {
+    footer {
+      border-top: 2px solid var(--color-black);
+    }
+    img {
+      filter: invert(1);
+    }
   }
 
   /* Resume page */
