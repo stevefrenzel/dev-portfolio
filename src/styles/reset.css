@@ -55,7 +55,6 @@ h2,
 h3,
 h4 {
   hyphens: auto;
-  text-wrap: balance;
 }
 
 /* A elements that don't have a class get default styles */

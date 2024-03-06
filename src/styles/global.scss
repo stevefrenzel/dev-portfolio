@@ -86,6 +86,7 @@ ol {
 
 #markdown-wrapper pre code {
   background: initial;
+  padding: 0;
 }
 
 #markdown-wrapper code {
@@ -199,6 +200,7 @@ ol {
     p {
       color: var(--color-grey-light);
     }
+    ol:not(.tags),
     ul:not(.tags) {
       color: var(--color-grey-light);
     }
@@ -416,7 +418,7 @@ ol {
   :hover,
   :focus {
     transition: outline-offset 0.25s ease;
-    outline-offset: 5px;
+    outline-offset: var(--outline-offset);
   }
 }
 
