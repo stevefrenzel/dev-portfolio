@@ -24,7 +24,7 @@ export async function GET(context: Props) {
   return rss({
     title: "Blog by Steve Frenzel",
     description:
-      "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️🏳️‍🌈✊🏿",
+      "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️ 🏳️‍🌈 ✊🏿 🇺🇦",
     site: context.site,
     items: allPosts.map((post) => ({
       link: `/posts/${post.slug}/`,
