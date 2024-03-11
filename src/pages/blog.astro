@@ -56,31 +56,27 @@ const postsByYear = contentCollection.reduce((acc: any, post) => {
 
 const years = Object.keys(postsByYear).sort((a: any, b: any) => b - a);
 
-const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
+const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
 ---
 
 <Layout
   description="A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈 ✊🏿"
   thumbnail={socialImageURL}
-  title="Blog hates us all (by Steve Frenzel)"
+  title="Blog by Steve Frenzel"
 >
   <div id="blog-wrapper">
     <header>
       <SkipLink />
       <div class="header-container">
-        <Image
-          alt="Blog hates us all logo"
-          id="logo"
-          loading="eager"
-          src={logo}
-          width={666}
-        />
-        <h1 class="visually-hidden">Blog hates us all</h1>
+        <h1 aria-label="Blog by Steve Frenzel">
+          <span aria-hidden="true">Blog</span>
+          <span aria-hidden="true">by Steve Frenzel</span>
+        </h1>
         <div>
           <p>
             A blog about web accessibility, nerdy music stuff, everything beyond
-            and in-between by Steve Frenzel. Fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈
-            ✊🏿
+            and in-between. Stop reading and fuck off if this offends you: 🏳️‍⚧️ 🏳️‍🌈
+            ✊🏿 🇺🇦
           </p>
           <ul>
             {
@@ -188,6 +184,22 @@ const socialImageURL = new URL("/blog-hates-us-all.png", Astro.url).toString();
   .header-container {
     display: flex;
     flex-direction: column;
+
+    h1 {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0;
+
+      span:first-child {
+        font-size: 250%;
+      }
+
+      span:nth-child(2) {
+        font-size: var(--step-2);
+      }
+    }
 
     div {
       flex-direction: column;

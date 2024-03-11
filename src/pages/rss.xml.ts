@@ -22,7 +22,7 @@ interface Props {
 export async function GET(context: Props) {
   const allPosts = await getCollection("posts");
   return rss({
-    title: "Blog hates us all (by Steve Frenzel)",
+    title: "Blog by Steve Frenzel",
     description:
       "A blog about web accessibility, nerdy music stuff, everything beyond and in-between by Steve Frenzel. Fuck off if these things offend you: 🏳️‍⚧️🏳️‍🌈✊🏿",
     site: context.site,
