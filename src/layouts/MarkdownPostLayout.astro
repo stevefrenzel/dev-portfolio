@@ -93,14 +93,8 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
         const isExternalLink = anchor.hostname !== window.location.hostname;
         const title =
           anchor.getAttribute("title") || anchor.textContent || "Link";
-        const ariaLabel = isExternalLink ? `${title} (External link)` : title;
+        const ariaLabel = isExternalLink ? `${title} (external link)` : title;
         anchor.setAttribute("aria-label", ariaLabel);
-
-        if (isExternalLink) {
-          const externalIndicator = document.createElement("span");
-          externalIndicator.textContent = " ↳";
-          anchor.appendChild(externalIndicator);
-        }
       });
     }
   });
