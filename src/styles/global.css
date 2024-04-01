@@ -184,6 +184,7 @@ ol {
     p {
       color: var(--color-grey-light);
     }
+
     header {
       border-bottom: 3px solid var(--color-white);
 
@@ -191,6 +192,7 @@ ol {
         color: var(--color-white);
       }
     }
+
     a {
       color: var(--color-blue-light);
     }
@@ -200,13 +202,16 @@ ol {
     p {
       color: var(--color-grey-light);
     }
+
     ol:not(.tags),
     ul:not(.tags) {
       color: var(--color-grey-light);
     }
+
     main a {
       color: var(--color-blue-light);
     }
+
     .author-and-date {
       color: var(--color-white);
     }
@@ -236,7 +241,7 @@ ol {
   #related-tags {
     border-top: 2px solid var(--color-white);
 
-    a {
+    ul a {
       background: var(--color-grey-dark);
     }
   }
@@ -245,6 +250,7 @@ ol {
     a {
       color: var(--color-blue-light);
     }
+
     p {
       color: var(--color-grey-light);
     }
@@ -388,7 +394,7 @@ ol {
   #related-tags {
     border-top: 2px solid var(--color-black);
 
-    a {
+    ul a {
       background: var(--color-grey-dark);
       color: var(--color-white);
     }

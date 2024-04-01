@@ -16,7 +16,6 @@
     "astro": "^4.0.3",
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
-    "sass": "^1.69.7",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
