@@ -143,66 +143,66 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
 
   header {
     padding-bottom: var(--space-s);
+  }
 
-    #logo {
-      height: auto;
-    }
+  header #logo {
+    height: auto;
+  }
 
-    p {
-      max-width: 50ch;
-    }
+  header p {
+    max-width: 50ch;
+  }
 
-    div {
-      align-items: center;
-      display: flex;
-      gap: var(--space-3xs);
-      margin-top: var(--space-xs);
-    }
+  header div {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+    margin-top: var(--space-xs);
+  }
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-s);
-      justify-content: start;
-      list-style-type: none;
-      margin: var(--space-s) 0 0 0;
-      padding: 0;
-    }
+  header ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: start;
+    list-style-type: none;
+    margin: var(--space-s) 0 0 0;
+    padding: 0;
+  }
 
-    li {
-      align-items: center;
-      display: flex;
-      gap: var(--space-3xs);
-    }
+  header li {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+  }
 
-    li:first-child() img {
-      margin-right: var(--space-3xs);
-    }
+  header li:first-child() img {
+    margin-right: var(--space-3xs);
   }
 
   .header-container {
     display: flex;
     flex-direction: column;
+  }
 
-    h1 {
-      align-items: baseline;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0;
+  .header-container h1 {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+  }
 
-      span:first-child {
-        font-size: 250%;
-      }
+  .header-container h1 span:first-child {
+    font-size: 250%;
+  }
 
-      span:nth-child(2) {
-        font-size: var(--step-2);
-      }
-    }
+  .header-container h1 span:nth-child(2) {
+    font-size: var(--step-2);
+  }
 
-    div {
-      flex-direction: column;
-    }
+  .header-container div {
+    flex-direction: column;
   }
 
   .smol-css-grid {
@@ -211,24 +211,26 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
     margin-top: var(--space-l);
     padding: 0;
+  }
 
-    img {
-      height: auto;
-      margin-bottom: var(--space-s);
-    }
+  .smol-css-grid img {
+    height: auto;
+    margin-bottom: var(--space-s);
+  }
 
-    a {
-      font-size: var(--step-2);
-    }
+  .smol-css-grid a {
+    font-size: var(--step-2);
   }
 
   time {
     display: block;
     font-size: var(--step-0);
   }
+
   .description {
     margin-top: var(--space-xs);
   }
+
   p {
     margin: 0;
   }

@@ -104,133 +104,135 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 </script>
 
 <style is:global>
+  /* Markdown wrapper */
+
   #markdown-wrapper {
     margin: 0 auto;
     max-width: 777px;
     padding: 0 var(--space-s);
-
-    header a:not(#skip-link) {
-      font-size: var(--step-0);
-    }
-
-    .header-info {
-      align-items: baseline;
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2xs);
-      justify-content: space-between;
-    }
-
-    header img {
-      margin-top: var(--space-m);
-    }
-
-    .author-and-date,
-    time {
-      font-size: var(--step-0);
-    }
-
-    ul:not(.tags) {
-      list-style-type: initial;
-    }
-
-    img:not(.arrow-down) {
-      height: auto;
-      width: 100%;
-    }
-
-    main pre {
-      font-size: var(--step-0);
-      padding: var(--space-xs);
-    }
-
-    code {
-      font-size: var(--step-0);
-      padding: 0.2rem 0.3rem;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      code {
-        font-size: var(--step-1);
-      }
-    }
   }
 
-  .markdown-content {
-    blockquote {
-      margin: var(--space-m) var(--space-s) 0 var(--space-s);
-      padding-left: var(--space-xs);
-
-      p {
-        font-style: italic;
-        margin-top: 0;
-      }
-    }
-
-    p {
-      hyphens: auto;
-      word-break: break-word;
-    }
-
-    img {
-      margin-top: var(--space-m);
-    }
-
-    table {
-      table-layout: fixed;
-      border-collapse: collapse;
-      margin-top: var(--space-s);
-      text-align: center;
-    }
-    th,
-    td {
-      padding: var(--space-2xs);
-    }
-
-    ol {
-      list-style-type: decimal;
-    }
+  #markdown-wrapper header a:not(#skip-link) {
+    font-size: var(--step-0);
   }
+
+  #markdown-wrapper .header-info {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    justify-content: space-between;
+  }
+
+  #markdown-wrapper header img {
+    margin-top: var(--space-m);
+  }
+
+  #markdown-wrapper .author-and-date,
+  #markdown-wrapper time {
+    font-size: var(--step-0);
+  }
+
+  #markdown-wrapper ul:not(.tags) {
+    list-style-type: initial;
+  }
+
+  #markdown-wrapper img:not(.arrow-down) {
+    height: auto;
+    width: 100%;
+  }
+
+  #markdown-wrapper main pre {
+    font-size: var(--step-0);
+    padding: var(--space-xs);
+  }
+
+  #markdown-wrapper code {
+    font-size: var(--step-0);
+    padding: 0.2rem 0.3rem;
+  }
+
+  #markdown-wrapper h1 code,
+  #markdown-wrapper h2 code,
+  #markdown-wrapper h3 code,
+  #markdown-wrapper h4 code {
+    font-size: var(--step-1);
+  }
+
+  /* Markdown content */
+
+  #markdown-content blockquote {
+    margin: var(--space-m) var(--space-s) 0 var(--space-s);
+    padding-left: var(--space-xs);
+  }
+
+  #markdown-content blockquote p {
+    font-style: italic;
+    margin-top: 0;
+  }
+
+  #markdown-content p {
+    hyphens: auto;
+    word-break: break-word;
+  }
+
+  #markdown-content img {
+    margin-top: var(--space-m);
+  }
+
+  #markdown-content table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: var(--space-s);
+    text-align: center;
+  }
+
+  #markdown-content th,
+  #markdown-content td {
+    padding: var(--space-2xs);
+  }
+
+  #markdown-content ol {
+    list-style-type: decimal;
+  }
+
+  /* Related tags */
 
   #related-tags {
     margin-top: var(--space-l);
     padding: var(--space-m) 0;
+  }
 
-    h2 {
-      font-size: var(--step-2);
-      margin: 0;
-    }
+  #related-tags h2 {
+    font-size: var(--step-2);
+    margin: 0;
+  }
 
-    ul {
-      margin-top: var(--space-xs);
-    }
+  #related-tags ul {
+    margin-top: var(--space-xs);
+  }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-s);
-      padding: 0;
-    }
+  #related-tags .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    padding: 0;
+  }
 
-    a {
-      border-radius: 5px;
-      font-size: var(--step-0);
-      padding: var(--space-2xs);
-    }
+  #related-tags a {
+    border-radius: 5px;
+    font-size: var(--step-0);
+    padding: var(--space-2xs);
+  }
 
-    p {
-      font-size: var(--step-0);
-      margin-top: var(--space-2xs);
-
-      a {
-        background: transparent;
-        border-radius: none;
-        padding: 0;
-      }
-    }
+  #related-tags p {
+    font-size: var(--step-0);
+    margin-top: var(--space-2xs);
+  }
+  #related-tags p a {
+    background: transparent;
+    border-radius: none;
+    padding: 0;
   }
 
   #badge {
