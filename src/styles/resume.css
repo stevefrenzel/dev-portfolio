@@ -1,0 +1,53 @@
+@media (prefers-color-scheme: dark) {
+  #intro-resume .sub-headline {
+    color: var(--color-grey-light);
+  }
+
+  #intro-resume a {
+    color: var(--color-blue-light);
+  }
+
+  #education-list span:nth-child(2),
+  #education-list span:nth-child(3) {
+    color: var(--color-grey-light);
+  }
+
+  #languages-list span {
+    color: var(--color-grey-light);
+  }
+
+  .job-description p {
+    color: var(--color-grey-light);
+  }
+
+  .tech-item {
+    color: var(--color-grey-light);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #intro-resume img {
+    filter: invert(1);
+  }
+
+  #intro-resume a {
+    color: var(--color-blue-dark);
+  }
+
+  #education-list span:nth-child(2),
+  #education-list span:nth-child(3) {
+    color: var(--color-black);
+  }
+
+  #languages-list span {
+    color: var(--color-black);
+  }
+
+  .job-description p {
+    color: var(--color-black);
+  }
+
+  .tech-item {
+    color: var(--color-black);
+  }
+}

@@ -48,7 +48,7 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
       />
     </header>
     <main id="main">
-      <div class="markdown-content">
+      <div id="markdown-content">
         <slot />
       </div>
       <footer id="related-tags">
@@ -84,7 +84,7 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const markdownContent = document.querySelector(".markdown-content");
+    const markdownContent = document.getElementById("markdown-content");
 
     if (markdownContent) {
       const anchors = Array.from(markdownContent.getElementsByTagName("a"));

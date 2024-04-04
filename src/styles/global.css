@@ -103,12 +103,12 @@ ol {
   #intro {
     background: var(--color-white);
     color: var(--color-black);
+  }
 
-    a,
-    p,
-    .sub-headline {
-      color: var(--color-black);
-    }
+  #intro a,
+  #intro p,
+  #intro .sub-headline {
+    color: var(--color-black);
   }
 
   #profile-picture {
@@ -128,10 +128,10 @@ ol {
 
   #back-to-top {
     background: var(--color-white);
+  }
 
-    img {
-      filter: invert(1);
-    }
+  #back-to-top img {
+    filter: invert(1);
   }
 
   button,
@@ -146,115 +146,6 @@ ol {
   #a11y-statement footer {
     border-top: 2px solid var(--color-white);
   }
-
-  /* Resume page */
-
-  #intro-resume {
-    .sub-headline {
-      color: var(--color-grey-light);
-    }
-
-    a {
-      color: var(--color-blue-light);
-    }
-  }
-
-  #education-list {
-    span:nth-child(2),
-    span:nth-child(3) {
-      color: var(--color-grey-light);
-    }
-  }
-
-  #languages-list span {
-    color: var(--color-grey-light);
-  }
-
-  .job-description p {
-    color: var(--color-grey-light);
-  }
-
-  .tech-item {
-    color: var(--color-grey-light);
-  }
-
-  /* Blog post layout */
-
-  #blog-wrapper {
-    p {
-      color: var(--color-grey-light);
-    }
-
-    header {
-      border-bottom: 3px solid var(--color-white);
-
-      p {
-        color: var(--color-white);
-      }
-    }
-
-    a {
-      color: var(--color-blue-light);
-    }
-  }
-
-  #markdown-wrapper {
-    p {
-      color: var(--color-grey-light);
-    }
-
-    ol:not(.tags),
-    ul:not(.tags) {
-      color: var(--color-grey-light);
-    }
-
-    main a {
-      color: var(--color-blue-light);
-    }
-
-    .author-and-date {
-      color: var(--color-white);
-    }
-  }
-
-  .markdown-content {
-    blockquote {
-      border-left: 3px solid var(--color-grey-light);
-    }
-
-    table {
-      color: var(--color-grey-light);
-    }
-
-    thead,
-    td:nth-child(1) {
-      background: var(--color-grey-dark);
-      color: var(--color-white);
-    }
-
-    th,
-    td {
-      border: 2px solid var(--color-grey-light);
-    }
-  }
-
-  #related-tags {
-    border-top: 2px solid var(--color-white);
-
-    ul a {
-      background: var(--color-grey-dark);
-    }
-  }
-
-  #tag-wrapper {
-    a {
-      color: var(--color-blue-light);
-    }
-
-    p {
-      color: var(--color-grey-light);
-    }
-  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -266,16 +157,16 @@ ol {
   #intro {
     background: var(--color-black);
     color: var(--color-white);
+  }
 
-    a,
-    p,
-    .sub-headline {
-      color: var(--color-grey-light);
-    }
+  #intro a,
+  #intro p,
+  #intro .sub-headline {
+    color: var(--color-grey-light);
+  }
 
-    .icon {
-      filter: invert(1);
-    }
+  #intro .icon {
+    filter: invert(1);
   }
 
   #profile-picture {
@@ -295,10 +186,10 @@ ol {
 
   #back-to-top {
     background: var(--color-black);
+  }
 
-    img {
-      filter: invert(0);
-    }
+  #back-to-top img {
+    filter: invert(0);
   }
 
   #collaborations img {
@@ -309,104 +200,11 @@ ol {
     color: var(--color-black);
   }
 
-  #a11y-statement {
-    footer {
-      border-top: 2px solid var(--color-black);
-    }
-    img {
-      filter: invert(1);
-    }
-  }
-
-  /* Resume page */
-
-  #intro-resume {
-    img {
-      filter: invert(1);
-    }
-
-    a {
-      color: var(--color-blue-dark);
-    }
-  }
-
-  #education-list {
-    span:nth-child(2),
-    span:nth-child(3) {
-      color: var(--color-black);
-    }
-  }
-
-  #languages-list span {
-    color: var(--color-black);
-  }
-
-  .job-description p {
-    color: var(--color-black);
-  }
-
-  .tech-item {
-    color: var(--color-black);
-  }
-
-  /* Blog post layout */
-
-  #blog-wrapper {
-    a {
-      color: var(--color-blue-dark);
-    }
-    header {
-      border-bottom: 3px solid var(--color-black);
-    }
-    header img {
-      filter: invert(1);
-    }
-    p {
-      color: var(--color-grey-dark);
-    }
-  }
-
-  #markdown-wrapper .markdown-content a {
-    color: var(--color-blue-dark);
-  }
-
-  .markdown-content {
-    blockquote {
-      border-left: 3px solid var(--color-black);
-    }
-
-    table {
-      color: var(--color-grey-dark);
-    }
-
-    thead,
-    td:nth-child(1) {
-      background: var(--color-grey-light);
-      color: var(--color-black);
-    }
-
-    th,
-    td {
-      border: 2px solid var(--color-grey-dark);
-    }
-  }
-
-  #related-tags {
+  #a11y-statement footer {
     border-top: 2px solid var(--color-black);
-
-    ul a {
-      background: var(--color-grey-dark);
-      color: var(--color-white);
-    }
   }
-
-  #tag-wrapper {
-    a {
-      color: var(--color-blue-dark);
-    }
-    p {
-      color: var(--color-grey-dark);
-    }
+  #a11y-statement img {
+    filter: invert(1);
   }
 }
 

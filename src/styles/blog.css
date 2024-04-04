@@ -1,0 +1,139 @@
+@media (prefers-color-scheme: dark) {
+  /* Blog wrapper */
+
+  #blog-wrapper p {
+    color: var(--color-grey-light);
+  }
+
+  #blog-wrapper header {
+    border-bottom: 3px solid var(--color-white);
+  }
+
+  #blog-wrapper header p {
+    color: var(--color-white);
+  }
+
+  #blog-wrapper a {
+    color: var(--color-blue-light);
+  }
+
+  /* Markdown wrapper */
+
+  #markdown-wrapper p {
+    color: var(--color-grey-light);
+  }
+
+  #markdown-wrapper ol:not(.tags),
+  #markdown-wrapper ul:not(.tags) {
+    color: var(--color-grey-light);
+  }
+
+  #markdown-wrapper main a {
+    color: var(--color-blue-light);
+  }
+
+  #markdown-wrapper .author-and-date {
+    color: var(--color-white);
+  }
+
+  /* Markdown content */
+
+  #markdown-content blockquote {
+    border-left: 3px solid var(--color-grey-light);
+  }
+
+  #markdown-content table {
+    color: var(--color-grey-light);
+  }
+
+  #markdown-content thead,
+  #markdown-content td:nth-child(1) {
+    background: var(--color-grey-dark);
+    color: var(--color-white);
+  }
+
+  #markdown-content th,
+  #markdown-content td {
+    border: 2px solid var(--color-grey-light);
+  }
+
+  /* Tags */
+
+  #related-tags {
+    border-top: 2px solid var(--color-white);
+  }
+
+  #related-tags ul a {
+    background: var(--color-grey-dark);
+  }
+
+  #tag-wrapper a {
+    color: var(--color-blue-light);
+  }
+
+  #tag-wrapper p {
+    color: var(--color-grey-light);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* BLog wrapper */
+
+  #blog-wrapper a {
+    color: var(--color-blue-dark);
+  }
+  #blog-wrapper header {
+    border-bottom: 3px solid var(--color-black);
+  }
+  #blog-wrapper header img {
+    filter: invert(1);
+  }
+  #blog-wrapper p {
+    color: var(--color-grey-dark);
+  }
+
+  /* Markdown wrapper */
+
+  #markdown-wrapper #markdown-content a {
+    color: var(--color-blue-dark);
+  }
+
+  /* Markdown content */
+
+  #markdown-content blockquote {
+    border-left: 3px solid var(--color-black);
+  }
+
+  #markdown-content table {
+    color: var(--color-grey-dark);
+  }
+
+  #markdown-content thead,
+  #markdown-content td:nth-child(1) {
+    background: var(--color-grey-light);
+    color: var(--color-black);
+  }
+
+  #markdown-content th,
+  #markdown-content td {
+    border: 2px solid var(--color-grey-dark);
+  }
+
+  /* Tags */
+
+  #related-tags {
+    border-top: 2px solid var(--color-black);
+  }
+
+  #related-tags ul a {
+    background: var(--color-grey-dark);
+    color: var(--color-white);
+  }
+
+  #tag-wrapper a {
+    color: var(--color-blue-dark);
+  }
+  #tag-wrapper p {
+    color: var(--color-grey-dark);
+  }
+}

@@ -9,6 +9,7 @@ import mastodon from "@images/icons/mastodon-white.svg";
 
 const links = [
   {
+    externalLink: false,
     href: "/",
     height: 24,
     name: "Website",
@@ -16,6 +17,7 @@ const links = [
     width: 24,
   },
   {
+    externalLink: true,
     href: "https://www.linkedin.com/in/stevefrenzel",
     height: 36,
     name: "LinkedIn",
@@ -23,6 +25,7 @@ const links = [
     width: 36,
   },
   {
+    externalLink: true,
     href: "https://github.com/stevefrenzel",
     height: 36,
     name: "GitHub",
@@ -30,6 +33,7 @@ const links = [
     width: 36,
   },
   {
+    externalLink: true,
     href: "https://mastodon.online/@stvfrnzl",
     height: 36,
     name: "Mastodon",
@@ -57,7 +61,11 @@ const links = [
                 width={link.width}
                 loading="eager"
               />
-              <ExternalLink href={link.href} name={link.name} />
+              {link.externalLink ? (
+                <ExternalLink href={link.href} name={link.name} />
+              ) : (
+                <a href={link.href}>{link.name}</a>
+              )}
             </li>
           ))
         }
