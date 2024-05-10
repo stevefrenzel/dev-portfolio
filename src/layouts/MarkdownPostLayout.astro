@@ -34,10 +34,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <SkipLink />
       <h1 class="p-name">{frontmatter.title}</h1>
       <div class="header-info">
-        <div class="h-card">
+        <div>
           <Image
             alt="Steve Frenzel standing in the woods looking straight into the camera."
-            class="u-photo"
+            class="u-photo h-card"
             height={avatar.height}
             loading="eager"
             src={avatarImageUrl}
