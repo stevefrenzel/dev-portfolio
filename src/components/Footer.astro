@@ -4,11 +4,7 @@ import ExternalLink from "@utils/ExternalLink.astro";
 
 <footer id="website-footer">
   <p>
-    Coded with <span aria-label="love">❤️</span> by <a
-      href="https://stevefrenzel.dev/"
-      class="h-card"
-      rel="me">Steve Frenzel</a
-    >.
+    Coded with <span aria-label="love">❤️</span> by Steve Frenzel.
     <ExternalLink
       href="https://github.com/stevefrenzel/dev-portfolio"
       fontSize="var(--step-0)"
@@ -50,6 +46,23 @@ import ExternalLink from "@utils/ExternalLink.astro";
       </li>
     </ul>
   </nav>
+
+  <section
+    aria-label="Meta data for the IndieWeb"
+    class="h-card visually-hidden"
+  >
+    <a href="https://stevefrenzel.dev/" rel="me">Steve Frenzel</a>
+    <img
+      alt="Steve Frenzel"
+      class="u-photo"
+      src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+    />
+    <p class="p-note">
+      I specialize in designing and implementing robust and inclusive websites.
+      My focus is on accessibility, which I educate about and implement
+      practically. I am also a music nerd and love hot sauces! 🔥
+    </p>
+  </section>
 </footer>
 
 <style>
