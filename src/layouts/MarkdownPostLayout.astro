@@ -37,6 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <div>
           <Image
             alt="Steve Frenzel standing in the woods looking straight into the camera."
+            class="avatar"
             height={avatar.height}
             loading="eager"
             src={avatarImageUrl}
@@ -45,6 +46,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <div>
             <p class="author-and-date">
               <span class="p-author h-card">
+                <img
+                  alt="Duplicate avatar image for IndieWeb."
+                  class="u-photo visually-hidden"
+                  src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+                />
                 {frontmatter.author}
               </span>
               -
@@ -52,11 +58,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 ><span class="dt-published">{dateFormatted}</span></a
               >
             </p>
-            <img
-              alt="Duplicate avatar image for IndieWeb."
-              class="u-photo visually-hidden"
-              src={avatarImageUrl}
-            />
             <time datetime="">{readingTime} minutes read</time>
           </div>
         </div>
@@ -169,7 +170,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     margin-top: 0;
   }
 
-  .u-photo {
+  .avatar {
     border-radius: 50%;
     height: auto;
     margin-top: 0 !important;
