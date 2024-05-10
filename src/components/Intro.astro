@@ -45,7 +45,7 @@ const socialLinks = [
       width={600}
     />
     <div class="text-container">
-      <p>
+      <p class="p-note">
         I specialize in designing and implementing robust and inclusive
         websites. My focus is on accessibility, which I educate about and
         implement practically. I am also a music nerd and love hot sauces! 🔥
@@ -60,12 +60,7 @@ const socialLinks = [
         {
           socialLinks.map((item) => (
             <li>
-              <Image
-                alt=""
-                class="icon u-photo"
-                src={item.icon}
-                loading="eager"
-              />
+              <Image alt="" class="icon" src={item.icon} loading="eager" />
               <ExternalLink
                 fontSize="var(--step-2)"
                 href={item.url}
