@@ -29,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   thumbnail={socialImageUrl}
   title={`${frontmatter.title} - Steve Frenzel`}
 >
-  <div class="h-entry" id="markdown-wrapper">
+  <div id="markdown-wrapper">
     <header>
       <SkipLink />
       <h1>{frontmatter.title}</h1>
@@ -70,9 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           {
             frontmatter.tags.map((tag) => (
               <li class="tag">
-                <a class="p-category" href={`/tags/${tag}`}>
-                  {tag}
-                </a>
+                <a href={`/tags/${tag}`}>{tag}</a>
               </li>
             ))
           }
@@ -114,6 +112,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="e-content">
       <slot />
     </div>
+    {
+      frontmatter.tags.map((tag) => (
+        <a class="p-category" href={`/tags/${tag}`}>
+          {tag}
+        </a>
+      ))
+    }
   </footer>
 </Layout>
 
