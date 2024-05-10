@@ -48,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
       <Image
         alt={frontmatter.image.alt}
+        class="u-photo"
         height={410}
         loading="eager"
         src={frontmatter.image.url}
@@ -64,7 +65,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           {
             frontmatter.tags.map((tag) => (
               <li class="tag">
-                <a href={`/tags/${tag}`}>{tag}</a>
+                <a class="p-category" href={`/tags/${tag}`}>
+                  {tag}
+                </a>
               </li>
             ))
           }
