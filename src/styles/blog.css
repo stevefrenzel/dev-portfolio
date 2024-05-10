@@ -34,6 +34,9 @@
 
   #markdown-wrapper .author-and-date {
     color: var(--color-white);
+    a {
+      color: var(--color-white);
+    }
   }
 
   /* Markdown content */
@@ -93,6 +96,10 @@
   }
 
   /* Markdown wrapper */
+
+  #markdown-wrapper .author-and-date a {
+    color: var(--color-black);
+  }
 
   #markdown-wrapper #markdown-content a {
     color: var(--color-blue-dark);

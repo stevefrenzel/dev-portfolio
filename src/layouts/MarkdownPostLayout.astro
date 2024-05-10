@@ -19,6 +19,7 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <Layout
@@ -26,14 +27,20 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
   thumbnail={socialImageUrl}
   title={`${frontmatter.title} - Steve Frenzel`}
 >
-  <div id="markdown-wrapper">
+  <div class="h-entry" id="markdown-wrapper">
     <header>
       <SkipLink />
-      <h1>{frontmatter.title}</h1>
+      <h1 class="p-name">{frontmatter.title}</h1>
       <div class="header-info">
         <div>
           <p class="author-and-date">
-            {frontmatter.author} - {dateFormatted}
+            <span class="p-author h-card">
+              {frontmatter.author}
+            </span>
+            -
+            <a class="u-url" href={canonicalURL}
+              ><span class="dt-published">{dateFormatted}</span></a
+            >
           </p>
           <time datetime="">{readingTime} minutes read</time>
         </div>
@@ -48,7 +55,7 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
       />
     </header>
     <main id="main">
-      <div id="markdown-content">
+      <div class="e-content" id="markdown-content">
         <slot />
       </div>
       <footer id="related-tags">
