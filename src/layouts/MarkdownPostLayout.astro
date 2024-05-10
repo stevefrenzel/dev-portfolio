@@ -54,6 +54,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         src={frontmatter.image.url}
         width={728}
       />
+      <img
+        alt="Duplicate of previous image for IndieWeb"
+        class="u-photo visually-hidden"
+        src={socialImageUrl}
+      />
     </header>
     <main id="main">
       <div class="e-content" id="markdown-content">
