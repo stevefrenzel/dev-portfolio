@@ -52,15 +52,20 @@ const socialLinks = [
       </p>
       <p>
         If you want to get in touch with me, write me an <a
-          href="mailto:stvfrnzl@duck.com"
-          rel="me">e-mail</a
+          class="u-email"
+          href="mailto:stvfrnzl@duck.com">e-mail</a
         >, or find me on the following platforms:
       </p>
       <ul>
         {
           socialLinks.map((item) => (
             <li>
-              <Image alt="" class="icon" src={item.icon} loading="eager" />
+              <Image
+                alt=""
+                class="icon u-photo"
+                src={item.icon}
+                loading="eager"
+              />
               <ExternalLink
                 fontSize="var(--step-2)"
                 href={item.url}
