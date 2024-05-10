@@ -99,12 +99,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     class="h-entry visually-hidden"
   >
     <div class="p-name">{frontmatter.title}</div>
-    <div class="p-author h-card">{frontmatter.author}</div>
-    <img
-      alt="Steve Frenzel"
-      class="u-photo"
-      src="https://www.stevefrenzel.dev/picture-of-me.jpg"
-    />
+    <div class="p-author h-card">
+      <img
+        alt="Steve Frenzel"
+        class="u-photo"
+        src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+      />
+      {frontmatter.author}
+    </div>
     <div class="p-summary">{frontmatter.description}</div>
     <a class="u-url" href={canonicalURL}
       ><div class="dt-published">{dateFormatted}</div></a
