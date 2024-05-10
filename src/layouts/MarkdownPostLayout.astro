@@ -32,7 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <div class="h-entry" id="markdown-wrapper">
     <header>
       <SkipLink />
-      <h1 class="p-name">{frontmatter.title}</h1>
+      <h1>{frontmatter.title}</h1>
       <div class="header-info">
         <div>
           <Image
@@ -45,18 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           />
           <div>
             <p class="author-and-date">
-              <span class="p-author h-card">
-                <img
-                  alt="Steve Frenzel"
-                  class="u-photo visually-hidden"
-                  src="https://www.stevefrenzel.dev/picture-of-me.jpg"
-                />
-                {frontmatter.author}
-              </span>
-              -
-              <a class="u-url" href={canonicalURL}
-                ><span class="dt-published">{dateFormatted}</span></a
-              >
+              {frontmatter.author} - {dateFormatted}
             </p>
             <time datetime="">{readingTime} minutes read</time>
           </div>
@@ -72,7 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       />
     </header>
     <main id="main">
-      <div class="e-content" id="markdown-content">
+      <div id="markdown-content">
         <slot />
       </div>
       <footer id="related-tags">
@@ -106,6 +95,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </footer>
     </main>
   </div>
+
+  <footer
+    aria-label="Meta data for the IndieWeb"
+    class="h-card visually-hidden"
+  >
+    <div class="p-name">{frontmatter.title}</div>
+    <div class="p-author">{frontmatter.author}</div>
+    <div class="p-summary">{frontmatter.description}</div>
+    <img
+      alt="Steve Frenzel"
+      class="u-photo"
+      src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+    />
+    <a class="u-url" href={canonicalURL}
+      ><div class="dt-published">{dateFormatted}</div></a
+    >
+    <div class="e-content">
+      <slot />
+    </div>
+  </footer>
 </Layout>
 
 <script>
