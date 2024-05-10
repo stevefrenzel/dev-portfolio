@@ -37,7 +37,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <div>
           <Image
             alt="Steve Frenzel standing in the woods looking straight into the camera."
-            class="u-photo"
             height={avatar.height}
             loading="eager"
             src={avatarImageUrl}
@@ -53,6 +52,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 ><span class="dt-published">{dateFormatted}</span></a
               >
             </p>
+            <img
+              alt="Duplicate avatar image for IndieWeb."
+              class="u-photo visually-hidden"
+              src={avatarImageUrl}
+            />
             <time datetime="">{readingTime} minutes read</time>
           </div>
         </div>
