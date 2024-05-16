@@ -100,10 +100,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   >
     <div class="p-name">{frontmatter.title}</div>
     <div class="p-author h-card">
-      <img
+      <Image
         alt="Steve Frenzel"
+        height={1}
         class="u-photo"
         src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+        width={1}
       />
       {frontmatter.author}
     </div>
