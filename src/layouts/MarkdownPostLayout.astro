@@ -8,7 +8,6 @@ import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 import Webmentions from "@utils/Webmentions.astro";
 
-import IndieWebLevelTwo from "@components/utils/IndieWebLevelTwo.astro";
 import RelatedTags from "@components/utils/RelatedTags.astro";
 
 import avatar from "public/picture-of-me.jpg";
@@ -29,12 +28,17 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 const avatarImageUrl = `${Astro.site}picture-of-me.jpg`;
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+let webmentions;
 
-const response = await fetch(
-  `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
-);
-const data = await response.json();
-const webmentions = data.children;
+try {
+  const response = await fetch(
+    `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
+  );
+  const data = await response.json();
+  webmentions = data.children;
+} catch (error) {
+  console.log("There was an error", error);
+}
 ---
 
 <Layout
@@ -90,11 +94,37 @@ const webmentions = data.children;
       </footer>
     </main>
   </div>
-  <IndieWebLevelTwo
-    canonicalURL={canonicalURL}
-    dateFormatted={dateFormatted}
-    frontmatter={frontmatter}
-  />
+
+  <section
+    aria-label="Meta data for the IndieWeb"
+    class="h-entry visually-hidden"
+  >
+    <div class="p-name">{frontmatter.title}</div>
+    <div class="p-author h-card">
+      <Image
+        alt="Steve Frenzel"
+        height="1"
+        class="u-photo"
+        src="https://www.stevefrenzel.dev/picture-of-me.jpg"
+        width="1"
+      />
+      {frontmatter.author}
+    </div>
+    <div class="p-summary">{frontmatter.description}</div>
+    <a class="u-url" href={canonicalURL}
+      ><div class="dt-published">{dateFormatted}</div></a
+    >
+    <div class="e-content">
+      <slot />
+    </div>
+    {
+      frontmatter.tags.map((tag) => (
+        <a class="p-category" href={`/tags/${tag}`}>
+          {tag}
+        </a>
+      ))
+    }
+  </section>
 </Layout>
 
 <script>
