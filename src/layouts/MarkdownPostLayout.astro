@@ -1,11 +1,18 @@
 ---
-import type { FrontmatterProps } from "../types/FrontmatterProps";
-import Layout from "@layouts/Layout.astro";
-import SkipLink from "@utils/SkipLink.astro";
+import type { FrontmatterProps } from "src/types/FrontmatterProps";
+
 import { Image } from "astro:assets";
-import ExternalLink from "@components/utils/ExternalLink.astro";
-import badge from "@images/icons/badge.svg";
+
+import Layout from "@layouts/Layout.astro";
+
+import SkipLink from "@utils/SkipLink.astro";
+import Webmentions from "@utils/Webmentions.astro";
+
+import IndieWebLevelTwo from "@components/utils/IndieWebLevelTwo.astro";
+import RelatedTags from "@components/utils/RelatedTags.astro";
+
 import avatar from "public/picture-of-me.jpg";
+import badge from "@images/icons/badge.svg";
 
 interface Props {
   frontmatter: FrontmatterProps;
@@ -22,6 +29,12 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 const avatarImageUrl = `${Astro.site}picture-of-me.jpg`;
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const response = await fetch(
+  `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
+);
+const data = await response.json();
+const webmentions = data.children;
 ---
 
 <Layout
@@ -64,28 +77,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div id="markdown-content">
         <slot />
       </div>
-      <footer id="related-tags">
-        <h2>Related tags</h2>
-        <ul class="tags">
-          {
-            frontmatter.tags.map((tag) => (
-              <li class="tag">
-                <a href={`/tags/${tag}`}>{tag}</a>
-              </li>
-            ))
-          }
-        </ul>
-        <p>
-          No comment section (yet), please reach out via <ExternalLink
-            href="https://mastodon.online/@stvfrnzl"
-            name="Mastodon"
-          />
-          or
-          <a href="mailto:stvfrnzl@duck.com">e-mail</a>!
-        </p>
+      <footer>
+        <Webmentions webmentions={webmentions} />
+        <RelatedTags frontmatter={frontmatter} />
         <Image
           alt="Written by a human"
-          id="badge"
+          class="badge"
           height={badge.height}
           src={badge}
           width={badge.width}
@@ -93,37 +90,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </footer>
     </main>
   </div>
-
-  <footer
-    aria-label="Meta data for the IndieWeb"
-    class="h-entry visually-hidden"
-  >
-    <div class="p-name">{frontmatter.title}</div>
-    <div class="p-author h-card">
-      <Image
-        alt="Steve Frenzel"
-        height={1}
-        class="u-photo"
-        src="https://www.stevefrenzel.dev/picture-of-me.jpg"
-        width={1}
-      />
-      {frontmatter.author}
-    </div>
-    <div class="p-summary">{frontmatter.description}</div>
-    <a class="u-url" href={canonicalURL}
-      ><div class="dt-published">{dateFormatted}</div></a
-    >
-    <div class="e-content">
-      <slot />
-    </div>
-    {
-      frontmatter.tags.map((tag) => (
-        <a class="p-category" href={`/tags/${tag}`}>
-          {tag}
-        </a>
-      ))
-    }
-  </footer>
+  <IndieWebLevelTwo
+    canonicalURL={canonicalURL}
+    dateFormatted={dateFormatted}
+    frontmatter={frontmatter}
+  />
 </Layout>
 
 <script>
@@ -258,47 +229,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     list-style-type: decimal;
   }
 
-  /* Related tags */
-
-  #related-tags {
-    margin-top: var(--space-l);
-    padding: var(--space-m) 0;
-  }
-
-  #related-tags h2 {
-    font-size: var(--step-2);
-    margin: 0;
-  }
-
-  #related-tags ul {
-    margin-top: var(--space-xs);
-  }
-
-  #related-tags .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
-    padding: 0;
-  }
-
-  #related-tags a {
-    border-radius: 5px;
-    font-size: var(--step-0);
-    padding: var(--space-2xs);
-  }
-
-  #related-tags p {
-    font-size: var(--step-0);
-    margin-top: var(--space-2xs);
-  }
-  #related-tags p a {
-    background: transparent;
-    border-radius: none;
-    padding: 0;
-  }
-
-  #badge {
-    margin-top: var(--space-s);
+  .badge {
+    margin: var(--space-m) auto;
     max-width: 222px;
   }
 </style>

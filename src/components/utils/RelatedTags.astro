@@ -1,0 +1,52 @@
+---
+import type { FrontmatterProps } from "src/types/FrontmatterProps";
+
+interface Props {
+  frontmatter: FrontmatterProps;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<section aria-label="Related tags" id="related-tags">
+  <h2>Related tags</h2>
+  <ul class="tags">
+    {
+      frontmatter.tags.map((tag) => (
+        <li class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  section {
+    border-radius: 15px;
+    margin: var(--space-l) 0;
+  }
+
+  h2 {
+    font-size: var(--step-2);
+    margin-top: var(--space-s);
+  }
+
+  ul {
+    margin-top: var(--space-m);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  a {
+    border-radius: 5px;
+    font-size: var(--step-0);
+    padding: var(--space-2xs);
+  }
+</style>
