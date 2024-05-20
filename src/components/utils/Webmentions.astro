@@ -19,14 +19,12 @@ interface Props {
 
 const { webmentions } = Astro.props;
 
-const options: any = {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-};
-
 const showDate = (webmention: string) =>
-  new Date(webmention).toLocaleDateString(undefined, options);
+  new Date(webmention).toLocaleDateString(undefined, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
 // TODO Will use is some other time
 

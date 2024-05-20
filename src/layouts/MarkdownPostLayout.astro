@@ -14,29 +14,10 @@ import RelatedTags from "@components/utils/RelatedTags.astro";
 import avatar from "public/picture-of-me.jpg";
 import badge from "@images/icons/badge.svg";
 
-interface AuthorProps {
-  name: string;
-  photo: string;
-  url: string;
-}
-
-interface WebmentionProps {
-  author: AuthorProps;
-  "wm-received": string;
-  "wm-property": string;
-}
-
 interface Props {
   frontmatter: FrontmatterProps;
   readingTime: number | undefined;
 }
-
-const showDate = (webmention: string) =>
-  new Date(webmention).toLocaleDateString(undefined, {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 
 const { frontmatter, readingTime } = Astro.props;
 
@@ -48,17 +29,19 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
 const avatarImageUrl = `${Astro.site}picture-of-me.jpg`;
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-let webmentions;
 
-try {
-  const response = await fetch(
-    `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
-  );
-  const data = await response.json();
-  webmentions = data.children;
-} catch (error) {
-  console.log("There was an error", error);
-}
+// TODO How do I make webmentions work in production?
+// const webmentions = async () => {
+//   try {
+//     const response = await fetch(
+//       `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
+//     );
+//     const data = await response.json();
+//     return data.children;
+//   } catch (error) {
+//     console.log("There was an error", error);
+//   }
+// };
 ---
 
 <Layout
@@ -113,65 +96,7 @@ try {
             name="Mastodon"
           /> if you have questions or feedback regarding this article.
         </p>
-
         <!-- <Webmentions webmentions={webmentions} /> -->
-        <!-- ! Testing if webmentions don't show because of passing them as props -->
-        {
-          webmentions.length > 0 ? (
-            <section aria-label="Webmentions">
-              <h2>Webmentions</h2>
-              <ul>
-                {webmentions.map((webmention: WebmentionProps) => (
-                  <li>
-                    {webmention.author.photo ? (
-                      <Image
-                        alt=""
-                        height="50"
-                        src={webmention.author.photo}
-                        width="50"
-                      />
-                    ) : null}
-
-                    {webmention["wm-property"] === "like-of" ? (
-                      <div
-                        aria-label={`Liked by ${webmention.author.name} on ${showDate(webmention["wm-received"])}`}
-                      >
-                        <time
-                          aria-hidden="true"
-                          datetime={webmention["wm-received"]}
-                        >
-                          {showDate(webmention["wm-received"])}
-                        </time>
-                        <span aria-hidden="true"> - Liked by </span>
-                        <a href={webmention.author.url} rel="author">
-                          {webmention.author.name}
-                        </a>
-                      </div>
-                    ) : null}
-
-                    {webmention["wm-property"] === "repost-of" ? (
-                      <div
-                        aria-label={`Reposted by ${webmention.author.name} on ${showDate(webmention["wm-received"])}`}
-                      >
-                        <time
-                          aria-hidden="true"
-                          datetime={webmention["wm-received"]}
-                        >
-                          {showDate(webmention["wm-received"])}
-                        </time>
-                        <span aria-hidden="true"> - Reposted by </span>
-                        <a href={webmention.author.url} rel="author">
-                          {webmention.author.name}
-                        </a>
-                      </div>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null
-        }
-
         <RelatedTags frontmatter={frontmatter} />
         <Image
           alt="Written by a human"
@@ -360,62 +285,5 @@ try {
 
   #blog-post-footer a {
     font-size: var(--step-0);
-  }
-
-  /* Webmentions */
-
-  section[aria-label="Webmentions"] {
-    border-radius: 15px;
-    margin-top: var(--space-l);
-  }
-
-  section[aria-label="Webmentions"] h2 {
-    font-size: var(--step-2);
-    margin-top: var(--space-s);
-  }
-
-  section[aria-label="Webmentions"] .info {
-    display: flex;
-    gap: var(--space-xs);
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: var(--step-0);
-    margin-top: var(--space-xs);
-  }
-
-  section[aria-label="Webmentions"] a {
-    font-size: var(--step-0);
-  }
-
-  section[aria-label="Webmentions"] ul {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--space-m);
-    padding: 0;
-  }
-
-  section[aria-label="Webmentions"] li {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
-    list-style-type: none;
-  }
-
-  section[aria-label="Webmentions"] div {
-    font-size: var(--step-0);
-    margin: 0;
-  }
-
-  section[aria-label="Webmentions"] img {
-    border-radius: 50%;
-    margin: 0 !important;
-    max-height: 40px;
-    max-width: 40px;
-  }
-
-  section[aria-label="Webmentions"] time {
-    font-size: inherit;
   }
 </style>
