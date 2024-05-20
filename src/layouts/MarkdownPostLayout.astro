@@ -36,7 +36,6 @@ const response = await fetch(
 );
 const json = await response.json();
 const webmentions = json.children;
-const pathname = Astro.url.pathname;
 ---
 
 <Layout
@@ -136,12 +135,7 @@ const pathname = Astro.url.pathname;
   </section>
 </Layout>
 
-<script define:vars={{ pathname, webmentions }}>
-  console.log(
-    `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${pathname}/`,
-  );
-  console.log("Webmentions: ", webmentions);
-
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const markdownContent = document.getElementById("markdown-content");
 
