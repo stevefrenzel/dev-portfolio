@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 
 import SkipLink from "@utils/SkipLink.astro";
-// import Webmentions from "@utils/Webmentions.astro";
+import Webmentions from "@utils/Webmentions.astro";
 import ExternalLink from "@components/utils/ExternalLink.astro";
 
 import RelatedTags from "@components/utils/RelatedTags.astro";
@@ -30,18 +30,12 @@ const avatarImageUrl = `${Astro.site}picture-of-me.jpg`;
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// TODO How do I make webmentions work in production?
-// const webmentions = async () => {
-//   try {
-//     const response = await fetch(
-//       `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
-//     );
-//     const data = await response.json();
-//     return data.children;
-//   } catch (error) {
-//     console.log("There was an error", error);
-//   }
-// };
+// Fetching webmentions
+const response = await fetch(
+  `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`,
+);
+const json = await response.json();
+const webmentions = json.children;
 ---
 
 <Layout
@@ -96,7 +90,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             name="Mastodon"
           /> if you have questions or feedback regarding this article.
         </p>
-        <!-- <Webmentions webmentions={webmentions} /> -->
+        <Webmentions webmentions={webmentions} />
         <RelatedTags frontmatter={frontmatter} />
         <Image
           alt="Written by a human"
