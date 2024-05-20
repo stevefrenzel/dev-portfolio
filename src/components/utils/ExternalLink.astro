@@ -2,6 +2,7 @@
 export interface Props {
   href: string;
   fontSize?: string;
+  iconSize?: string;
   name: string;
   rel?: string;
 }
@@ -9,6 +10,7 @@ export interface Props {
 const {
   href,
   fontSize = "var(--step-1)",
+  iconSize = "48px",
   name,
   rel = "noopener noreferrer",
 } = Astro.props;
@@ -35,12 +37,17 @@ const {
   </svg>
 </a>
 
-<style define:vars={{ fontSize }}>
+<style define:vars={{ fontSize, iconSize }}>
   a {
     align-items: center;
     display: inline-flex;
     font-size: var(--fontSize);
     gap: var(--space-3xs);
+  }
+
+  svg {
+    height: var(--iconSize);
+    width: var(--iconSize);
   }
 
   .dark {

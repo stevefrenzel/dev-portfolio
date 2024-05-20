@@ -62,17 +62,14 @@
 
   /* Webmentions */
 
-  section[aria-label="Webmentions"] {
+  section[aria-label="Webmentions"],
+  section[aria-label="Related tags"] {
     border: 2px solid var(--color-grey-dark);
   }
 
   /* Tags */
 
-  #related-tags {
-    border: 2px solid var(--color-grey-dark);
-  }
-
-  #related-tags ul a {
+  section[aria-label="Related tags"] ul a {
     background: var(--color-grey-dark);
   }
 
@@ -132,19 +129,16 @@
     border: 2px solid var(--color-grey-dark);
   }
 
-  /* Webmentions */
+  #blog-post-footer p a {
+    color: var(--color-blue-dark);
+  }
 
-  section[aria-label="Webmentions"] {
+  section[aria-label="Webmentions"],
+  section[aria-label="Related tags"] {
     border: 2px solid var(--color-grey-light);
   }
 
-  /* Tags */
-
-  #related-tags {
-    border: 2px solid var(--color-grey-light);
-  }
-
-  #related-tags ul a {
+  section[aria-label="Related tags"] ul a {
     background: var(--color-blue-light);
     color: var(--color-black);
   }
