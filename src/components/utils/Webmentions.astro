@@ -58,42 +58,37 @@ const showDate = (webmention: string) =>
       <ul>
         {webmentions.map((webmention: WebmentionProps) => (
           <li>
-            {webmention.author.photo ? (
-              <Image
-                alt=""
-                height="50"
-                src={webmention.author.photo}
-                width="50"
-              />
-            ) : null}
-
-            {webmention["wm-property"] === "like-of" ? (
-              <div
-                aria-label={`Liked by ${webmention.author.name} on ${showDate(webmention["wm-received"])}`}
-              >
-                <time aria-hidden="true" datetime={webmention["wm-received"]}>
-                  {showDate(webmention["wm-received"])}
-                </time>
-                <span aria-hidden="true"> - Liked by </span>
-                <a href={webmention.author.url} rel="author">
-                  {webmention.author.name}
-                </a>
-              </div>
-            ) : null}
-
-            {webmention["wm-property"] === "repost-of" ? (
-              <div
-                aria-label={`Reposted by ${webmention.author.name} on ${showDate(webmention["wm-received"])}`}
-              >
-                <time aria-hidden="true" datetime={webmention["wm-received"]}>
-                  {showDate(webmention["wm-received"])}
-                </time>
-                <span aria-hidden="true"> - Reposted by </span>
-                <a href={webmention.author.url} rel="author">
-                  {webmention.author.name}
-                </a>
-              </div>
-            ) : null}
+            <div class="avatar-and-author">
+              {webmention.author.photo ? (
+                <Image
+                  alt=""
+                  height="50"
+                  src={webmention.author.photo}
+                  width="50"
+                />
+              ) : null}
+              <a href={webmention.author.url} rel="author">
+                {webmention.author.name}
+              </a>
+            </div>
+            <div class="information">
+              {webmention["wm-property"] === "like-of" ? (
+                <p>
+                  Liked on
+                  <time aria-hidden="true" datetime={webmention["wm-received"]}>
+                    {showDate(webmention["wm-received"])}
+                  </time>
+                </p>
+              ) : null}
+              {webmention["wm-property"] === "repost-of" ? (
+                <p>
+                  Reposted on
+                  <time aria-hidden="true" datetime={webmention["wm-received"]}>
+                    {showDate(webmention["wm-received"])}
+                  </time>
+                </p>
+              ) : null}
+            </div>
           </li>
         ))}
       </ul>
@@ -103,7 +98,7 @@ const showDate = (webmention: string) =>
 
 <style>
   section {
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: var(--space-l);
   }
 
@@ -114,10 +109,10 @@ const showDate = (webmention: string) =>
 
   .info {
     display: flex;
-    gap: var(--space-xs);
     flex-direction: row;
     flex-wrap: wrap;
     font-size: var(--step-0);
+    gap: var(--space-xs);
     margin-top: var(--space-xs);
   }
 
@@ -127,22 +122,37 @@ const showDate = (webmention: string) =>
 
   ul {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     gap: var(--space-m);
     padding: 0;
   }
 
   li {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style-type: none;
+    padding: var(--space-xs);
+    width: fit-content;
+  }
+
+  .avatar-and-author {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-s);
-    list-style-type: none;
+    gap: var(--space-xs);
+    width: fit-content;
   }
 
-  div {
-    font-size: var(--step-0);
+  .information {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .information p {
     margin: 0;
   }
 

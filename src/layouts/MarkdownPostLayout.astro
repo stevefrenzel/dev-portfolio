@@ -31,13 +31,12 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Fetching webmentions
-const response = await fetch(
-  `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}`,
-);
+const webmentionsUrl = import.meta.env.PROD
+  ? `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}`
+  : `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`;
+const response = await fetch(webmentionsUrl);
 const json = await response.json();
 const webmentions = json.children;
-
-const nodeEnv = import.meta.env.NODE_ENV || "development";
 ---
 
 <Layout
@@ -47,6 +46,7 @@ const nodeEnv = import.meta.env.NODE_ENV || "development";
 >
   <div id="markdown-wrapper">
     <header>
+      {import.meta.env.PROD}
       <SkipLink />
       <h1>{frontmatter.title}</h1>
       <div class="header-info">
@@ -81,7 +81,7 @@ const nodeEnv = import.meta.env.NODE_ENV || "development";
         <slot />
       </div>
       <footer id="blog-post-footer">
-        <p>
+        <p id="get-in-touch">
           Send me an <a
             href=`mailto:stvfrnzl@duck.com?subject=Blog article ${frontmatter.title}`
             >email</a
@@ -137,9 +137,7 @@ const nodeEnv = import.meta.env.NODE_ENV || "development";
   </section>
 </Layout>
 
-<script define:vars={{ nodeEnv }}>
-  console.log("Node environment:", nodeEnv);
-
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const markdownContent = document.getElementById("markdown-content");
 
@@ -278,6 +276,9 @@ const nodeEnv = import.meta.env.NODE_ENV || "development";
 
   #blog-post-footer p {
     font-size: var(--step-0);
+  }
+
+  #get-in-touch {
     font-style: italic;
   }
 
