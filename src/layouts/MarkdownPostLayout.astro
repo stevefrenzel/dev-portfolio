@@ -36,6 +36,8 @@ const response = await fetch(
 );
 const json = await response.json();
 const webmentions = json.children;
+
+const nodeEnv = import.meta.env.NODE_ENV || "development";
 ---
 
 <Layout
@@ -135,7 +137,9 @@ const webmentions = json.children;
   </section>
 </Layout>
 
-<script>
+<script define:vars={{ nodeEnv }}>
+  console.log("Node environment:", nodeEnv);
+
   document.addEventListener("DOMContentLoaded", () => {
     const markdownContent = document.getElementById("markdown-content");
 
