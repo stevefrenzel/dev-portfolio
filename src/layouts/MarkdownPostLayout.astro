@@ -69,7 +69,7 @@ const webmentions = json.children;
         <a href="/blog">Back to blog</a>
       </div>
       <Image
-        alt=""
+        alt={frontmatter.image.alt}
         height={410}
         loading="eager"
         src={frontmatter.image.url}
