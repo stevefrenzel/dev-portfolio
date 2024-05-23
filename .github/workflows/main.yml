@@ -1,0 +1,10 @@
+name: Deploy Every Day
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs: 
+  name: Run build
+  runs-on: ubuntu-latest
+    steps:
+      run: | 
+        npm run build
