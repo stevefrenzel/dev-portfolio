@@ -26,14 +26,21 @@ const showDate = (webmention: string) =>
     year: "numeric",
   });
 
-// TODO Will use is some other time
+const numberOfLikes = webmentions.filter(
+  (item) => item["wm-property"] === "like-of",
+).length;
 
-// const amountOfLikes = webmentions
-//   .map((webmention) => webmention["wm-property"])
-//   .filter((item) => item === "like-of").length;
-// const amountOfReposts = webmentions
-//   .map((webmention) => webmention["wm-property"])
-//   .filter((item) => item === "repost-of").length;
+const webmentionsLikes = webmentions.filter(
+  (item) => item["wm-property"] === "like-of",
+);
+
+const numberOfReposts = webmentions.filter(
+  (item) => item["wm-property"] === "repost-of",
+).length;
+
+const webmentionsReposts = webmentions.filter(
+  (item) => item["wm-property"] === "repost-of",
+);
 ---
 
 {
@@ -41,57 +48,65 @@ const showDate = (webmention: string) =>
     <section aria-label="Webmentions">
       <h2>Webmentions</h2>
 
-      {/* TODO Change emojis for SVGs */}
-      {/* <ul class="info">
-        {amountOfLikes > 0 ? (
-          <li aria-label={`${amountOfLikes} Like(s)`}>
-            {amountOfLikes} Like(s) 👍
-          </li>
-        ) : null}
-        {amountOfReposts > 0 ? (
-          <li aria-label={`${amountOfReposts} Repost(s)`}>
-            {amountOfReposts} Repost(s) 🔄
-          </li>
-        ) : null}
-      </ul> */}
+      {numberOfLikes > 0 ? (
+        <div>
+          <h3>{numberOfLikes} Like(s)</h3>
+          <ul>
+            {webmentionsLikes.map((webmention: WebmentionProps) => (
+              <li>
+                <div class="avatar-and-author">
+                  {webmention.author.photo ? (
+                    <Image
+                      alt=""
+                      height="50"
+                      src={webmention.author.photo}
+                      width="50"
+                    />
+                  ) : null}
+                  <div>
+                    <a href={webmention.author.url} rel="author">
+                      {webmention.author.name}
+                    </a>
+                    <time datetime={webmention["wm-received"]}>
+                      {showDate(webmention["wm-received"])}
+                    </time>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
-      <ul>
-        {webmentions.map((webmention: WebmentionProps) => (
-          <li>
-            <div class="avatar-and-author">
-              {webmention.author.photo ? (
-                <Image
-                  alt=""
-                  height="50"
-                  src={webmention.author.photo}
-                  width="50"
-                />
-              ) : null}
-              <a href={webmention.author.url} rel="author">
-                {webmention.author.name}
-              </a>
-            </div>
-            <div class="information">
-              {webmention["wm-property"] === "like-of" ? (
-                <p>
-                  Liked on
-                  <time aria-hidden="true" datetime={webmention["wm-received"]}>
-                    {showDate(webmention["wm-received"])}
-                  </time>
-                </p>
-              ) : null}
-              {webmention["wm-property"] === "repost-of" ? (
-                <p>
-                  Reposted on
-                  <time aria-hidden="true" datetime={webmention["wm-received"]}>
-                    {showDate(webmention["wm-received"])}
-                  </time>
-                </p>
-              ) : null}
-            </div>
-          </li>
-        ))}
-      </ul>
+      {numberOfReposts > 0 ? (
+        <div>
+          <h3>{numberOfReposts} Repost(s)</h3>
+          <ul>
+            {webmentionsReposts.map((webmention: WebmentionProps) => (
+              <li>
+                <div class="avatar-and-author">
+                  {webmention.author.photo ? (
+                    <Image
+                      alt=""
+                      height="50"
+                      src={webmention.author.photo}
+                      width="50"
+                    />
+                  ) : null}
+                  <div>
+                    <a href={webmention.author.url} rel="author">
+                      {webmention.author.name}
+                    </a>
+                    <time datetime={webmention["wm-received"]}>
+                      {showDate(webmention["wm-received"])}
+                    </time>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </section>
   ) : null
 }
@@ -107,6 +122,10 @@ const showDate = (webmention: string) =>
     margin-top: var(--space-s);
   }
 
+  h3 {
+    font-size: var(--step-1);
+  }
+
   .info {
     display: flex;
     flex-direction: row;
@@ -118,6 +137,7 @@ const showDate = (webmention: string) =>
 
   a {
     font-size: var(--step-0);
+    width: fit-content;
   }
 
   ul {
@@ -146,14 +166,10 @@ const showDate = (webmention: string) =>
     width: fit-content;
   }
 
-  .information {
+  .avatar-and-author div {
     display: flex;
-    align-items: center;
-    gap: var(--space-2xs);
-  }
-
-  .information p {
-    margin: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   img {
@@ -161,9 +177,5 @@ const showDate = (webmention: string) =>
     margin: 0 !important;
     max-height: 40px;
     max-width: 40px;
-  }
-
-  time {
-    font-size: inherit;
   }
 </style>
