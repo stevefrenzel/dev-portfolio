@@ -104,7 +104,7 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
         years.map((year) => (
           <div>
             <h2>{year}</h2>
-            <ul class="smol-css-grid">
+            <ul class="smol-flexbox-grid">
               {postsByYear[year].map((post: any) => (
                 <li>
                   {post.data.image ? (
@@ -208,20 +208,30 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
     text-align: center;
   }
 
-  .smol-css-grid {
-    display: grid;
-    grid-gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
-    margin-top: var(--space-l);
+  .smol-flexbox-grid {
+    --min: 30ch;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
     padding: 0;
   }
 
-  .smol-css-grid img {
-    height: auto;
-    margin-bottom: var(--space-s);
+  .smol-flexbox-grid > li:first-child {
+    flex: auto;
   }
 
-  .smol-css-grid a {
+  .smol-flexbox-grid > * {
+    flex: 1 1 var(--min);
+  }
+
+  .smol-flexbox-grid img {
+    height: auto;
+    margin-bottom: var(--space-s);
+    width: 100%;
+  }
+
+  .smol-flexbox-grid a {
     font-size: var(--step-2);
   }
 
