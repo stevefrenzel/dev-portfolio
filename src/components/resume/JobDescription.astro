@@ -24,6 +24,16 @@ const { heading, company, timePeriod, description, techStack, tasks } =
   <span>{heading}</span>
   <span>{timePeriod}</span>
   <p>{description}</p>
+  <h4>Achievements & Tasks</h4>
+  <ul class="list-two">
+    {
+      tasks.map((item) => (
+        <li>
+          <p>{item}</p>
+        </li>
+      ))
+    }
+  </ul>
   <h4>Tech Stack</h4>
   <ul class="list-one">
     {
@@ -31,16 +41,6 @@ const { heading, company, timePeriod, description, techStack, tasks } =
         <li class="tech-item">
           <Image alt="" height={32} src={item.icon} width={32} />
           <span>{item.name}</span>
-        </li>
-      ))
-    }
-  </ul>
-  <h4>Achievements & Tasks</h4>
-  <ul class="list-two">
-    {
-      tasks.map((item) => (
-        <li>
-          <p>{item}</p>
         </li>
       ))
     }
