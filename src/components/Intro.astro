@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import DividerVertical from "@utils/DividerVertical.astro";
 import ExternalLink from "@utils/ExternalLink.astro";
-import pictureOfMe from "@images/picture-of-me.jpg";
 import gitHub from "@images/icons/github.svg";
 import linkedIn from "@images/icons/linkedin.svg";
 import mastodon from "@images/icons/mastodon.svg";
@@ -30,49 +29,39 @@ const socialLinks = [
 ---
 
 <section aria-label="Intro" id="intro">
-  <div class="headline-container">
-    <h1>Steve Frenzel</h1>
-    <span class="sub-headline">Web Developer & Accessibility Advocate</span>
+  <div class="heading-container">
+    <span class="kicker">Steve Frenzel</span>
+    <h1>
+      Web De&shy;vel&shy;op&shy;er & <br aria-hidden="true" /> Ac&shy;ces&shy;si&shy;bil&shy;i&shy;ty
+      Ad&shy;vo&shy;cate
+    </h1>
   </div>
-  <div class="grid-container">
-    <Image
-      alt="Steve Frenzel - Web Developer & Accessibility Advocate"
-      height={600}
-      id="profile-picture"
-      loading="eager"
-      src={pictureOfMe}
-      style="object-fit: cover;"
-      width={600}
-    />
-    <div class="text-container">
-      <p>
-        I specialize in designing and implementing robust and inclusive
-        websites. My focus is on accessibility, which I educate about and
-        implement practically. I am also a music nerd and love hot sauces! 🔥
-      </p>
-      <p>
-        If you want to get in touch with me, write me an <a
-          class="u-email"
-          href="mailto:stvfrnzl@duck.com"
-          rel="me">e-mail</a
-        >, or find me on the following platforms:
-      </p>
-      <ul>
-        {
-          socialLinks.map((item) => (
-            <li>
-              <Image alt="" class="icon" src={item.icon} loading="eager" />
-              <ExternalLink
-                fontSize="var(--step-2)"
-                href={item.url}
-                name={item.name}
-                rel={item.rel}
-              />
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+
+  <div class="text-container">
+    <p>
+      I'm a web developer based in Nuremberg, Germany. I love to practice and
+      preach about web accessibility and focus on the web fundamentals: HTML,
+      CSS & JavaScript. Get in touch via <a
+        class="u-email"
+        href="mailto:stvfrnzl@duck.com"
+        rel="me">e-mail</a
+      >, or find my digital self here:
+    </p>
+    <ul>
+      {
+        socialLinks.map((item) => (
+          <li>
+            <Image alt="" class="icon" src={item.icon} loading="eager" />
+            <ExternalLink
+              fontSize="var(--step-2)"
+              href={item.url}
+              name={item.name}
+              rel={item.rel}
+            />
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
 
@@ -80,66 +69,61 @@ const socialLinks = [
 
 <style>
   section {
-    max-width: 100%;
-    padding: var(--space-s) var(--space-s) var(--space-xl) var(--space-s);
-  }
-
-  .headline-container {
-    align-items: baseline;
+    align-items: center;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    gap: var(--space-s);
-    margin: 0 auto var(--space-xs) auto;
-    max-width: 1536px;
+    max-width: 200ch;
   }
 
-  .headline-container h1 {
+  .heading-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: var(--space-xl) 0;
+    width: fit-content;
+  }
+
+  .heading-container {
+    font-family: "Syne", sans-serif;
+    font-size: var(--step-2);
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 6rem;
+    hyphens: manual;
     margin: 0;
+    text-align: right;
   }
 
-  .grid-container {
-    display: grid;
-    gap: var(--space-m);
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-items: center;
-    max-width: 1536px;
-    margin: 0 auto;
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .text-container a {
+    font-size: var(--step-2);
+  }
+
+  p {
+    font-size: var(--step-2);
+    max-width: 50ch;
   }
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-m);
-    list-style-type: none;
-    margin: var(--space-l) 0 0 0;
+    gap: var(--space-s);
+    margin-left: auto;
     padding: 0;
+    width: fit-content;
   }
 
   li {
     align-items: center;
     display: flex;
-    gap: var(--space-2xs);
-  }
-
-  .icon {
-    height: 48px;
-    width: 48px;
-  }
-
-  .text-container {
-    align-self: center;
-  }
-
-  .text-container a,
-  .text-container p {
-    font-size: var(--step-2);
-  }
-
-  .text-container p:first-child() {
-    margin-bottom: var(--space-m);
-  }
-
-  .text {
-    margin-top: var(--space-m);
+    gap: var(--space-3xs);
   }
 </style>

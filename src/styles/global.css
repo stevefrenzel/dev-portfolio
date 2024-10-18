@@ -100,15 +100,17 @@ ol {
     color: var(--color-white);
   }
 
-  #intro {
-    background: var(--color-white);
-    color: var(--color-black);
+  #intro .kicker {
+    color: var(--color-grey-light);
   }
 
   #intro a,
-  #intro p,
-  #intro .sub-headline {
-    color: var(--color-black);
+  #about-me a {
+    color: var(--color-blue-light);
+  }
+
+  #intro .icon {
+    filter: invert(1);
   }
 
   #profile-picture {
@@ -154,19 +156,13 @@ ol {
     color: var(--color-black);
   }
 
-  #intro {
-    background: var(--color-black);
-    color: var(--color-white);
+  #intro .kicker {
+    color: var(--color-grey-dark);
   }
 
   #intro a,
-  #intro p,
-  #intro .sub-headline {
-    color: var(--color-grey-light);
-  }
-
-  #intro .icon {
-    filter: invert(1);
+  #about-me a {
+    color: var(--color-blue-dark);
   }
 
   #profile-picture {

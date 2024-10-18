@@ -8,12 +8,19 @@
   --color-white: #f2f6f9;
 
   /* Font */
-  --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
-  --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
-  --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
-  --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
-  --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+  --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+  --step-6: clamp(3.3592rem, 2.8691rem + 2.4507vw, 4.7684rem);
+  --step-7: clamp(4.0311rem, 3.36rem + 3.3555vw, 5.9605rem);
+  --step-8: clamp(4.8373rem, 3.9283rem + 4.5448vw, 7.4506rem);
+  --step-9: clamp(5.8048rem, 4.5844rem + 6.1017vw, 9.3132rem);
+  --step-10: clamp(6.9657rem, 5.3393rem + 8.1319vw, 11.6415rem);
 
   /* Space */
   --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
