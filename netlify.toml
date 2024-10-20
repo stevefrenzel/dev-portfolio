@@ -1,7 +1,7 @@
 [[headers]]
 for = "/*"
 [headers.values]
-Content-Security-Policy = "script-src 'unsafe-inline' https://gc.zgo.at; object-src 'none'; connect-src https://stvfrnzl.goatcounter.com/count"
+Content-Security-Policy = "script-src https://gc.zgo.at; object-src 'none'; connect-src https://stvfrnzl.goatcounter.com/count"
 X-Frame-Options = "DENY"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
