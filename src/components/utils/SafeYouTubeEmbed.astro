@@ -1,0 +1,26 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<iframe
+  allow="accelerometer 'none'; autoplay 'none'; camera 'none'; clipboard-write 'none'; display-capture 'none'; encrypted-media 'none'; fullscreen; gyroscope 'none'; geolocation 'none'; microphone 'none'; picture-in-picture; publickey-credentials-get 'none'; screen-wake-lock 'none'; web-share 'none'"
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  src=`https://www.youtube-nocookie.com/embed/${id}`
+  title={title}
+>
+</iframe>
+
+<style>
+  iframe {
+    aspect-ratio: 16 / 9;
+    border: none;
+    margin-top: var(--space-m);
+    width: 100%;
+  }
+</style>
