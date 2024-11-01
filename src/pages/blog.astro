@@ -123,7 +123,8 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                     {""}- {getReadingTime(post.body)} min read
                   </time>
                   <p class="description">{post.data.description}</p>
-                  {post.data.tags ? (
+                  {/* TODO Looks funky on some devices, will change it */}
+                  {/* {post.data.tags ? (
                     <ul class="tags">
                       {post.data.tags.map((tag: string) => (
                         <li class="tag">
@@ -133,7 +134,7 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                         </li>
                       ))}
                     </ul>
-                  ) : null}
+                  ) : null} */}
                 </li>
               ))}
             </ul>
