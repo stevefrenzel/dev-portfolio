@@ -8,7 +8,7 @@ export interface FrontmatterProps {
   title: string;
   author: string;
   description: string;
-  image: {
+  image?: {
     url: {
       src: string;
       width: number;

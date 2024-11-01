@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { getReadingTime } from "@components/lib/getReadingTime";
+import { getReadingTime } from "~/components/lib/getReadingTime";
 import ExternalLink from "@components/utils/ExternalLink.astro";
 
 import Layout from "@layouts/Layout.astro";
@@ -123,6 +123,17 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                     {""}- {getReadingTime(post.body)} min read
                   </time>
                   <p class="description">{post.data.description}</p>
+                  {post.data.tags ? (
+                    <ul class="tags">
+                      {post.data.tags.map((tag: string) => (
+                        <li class="tag">
+                          <a class="p-category" href={`/tags/${tag}`}>
+                            {tag}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -237,5 +248,24 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
 
   p {
     margin: 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-s);
+    padding: 0;
+  }
+
+  .tag {
+    border-radius: 5px;
+  }
+
+  .tag a {
+    border-radius: 5px;
+    font-size: var(--step-0);
+    padding: var(--space-2xs);
+    text-decoration: none;
   }
 </style>

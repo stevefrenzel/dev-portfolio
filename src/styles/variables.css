@@ -32,6 +32,8 @@
   --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
   --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
   --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
+
+  --border-radius: 10px;
 }
 
 :is(a, button, input, textarea, summary) {

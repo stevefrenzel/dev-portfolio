@@ -8,10 +8,12 @@ const postsCollection = defineCollection({
       title: z.string(),
       author: z.string().default("Steve Frenzel"),
       description: z.string(),
-      image: z.object({
-        url: image(),
-        alt: z.string(),
-      }),
+      image: z
+        .object({
+          url: image(),
+          alt: z.string(),
+        })
+        .optional(),
       pubDate: z.date(),
       tags: z.array(z.string()),
     }),

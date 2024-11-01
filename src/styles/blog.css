@@ -17,6 +17,15 @@
     color: var(--color-blue-light);
   }
 
+  #blog-wrapper .tag {
+    background: var(--color-black);
+    border: 2px solid var(--color-grey-dark);
+  }
+
+  #blog-wrapper .tag a {
+    color: var(--color-white);
+  }
+
   /* Markdown wrapper */
 
   #markdown-wrapper p {
@@ -37,6 +46,12 @@
     a {
       color: var(--color-white);
     }
+  }
+
+  #markdown-wrapper .tags a {
+    background: var(--color-black);
+    border: 1px solid var(--color-grey-dark);
+    color: var(--color-white);
   }
 
   /* Markdown content */
@@ -62,10 +77,10 @@
 
   /* Webmentions */
 
-  section[aria-label="Webmentions"],
+  /* section[aria-label="Webmentions"],
   section[aria-label="Related tags"] {
     border: 2px solid var(--color-grey-dark);
-  }
+  } */
 
   section[aria-label="Webmentions"] li {
     border: 1px solid var(--color-grey-dark);
@@ -75,10 +90,6 @@
 
   section[aria-label="Related tags"] ul a {
     background: var(--color-grey-dark);
-  }
-
-  #tag-wrapper a {
-    color: var(--color-blue-light);
   }
 
   #tag-wrapper p {
@@ -102,6 +113,15 @@
     color: var(--color-grey-dark);
   }
 
+  #blog-wrapper .tag {
+    background: var(--color-white);
+    border: 1px solid var(--color-grey-light);
+  }
+
+  #blog-wrapper .tag a {
+    color: var(--color-black);
+  }
+
   /* Markdown wrapper */
 
   #markdown-wrapper .author-and-date a {
@@ -110,6 +130,12 @@
 
   #markdown-wrapper #markdown-content a {
     color: var(--color-blue-dark);
+  }
+
+  #markdown-wrapper .tags a {
+    background: var(--color-white);
+    border: 1px solid var(--color-grey-light);
+    color: var(--color-black);
   }
 
   /* Markdown content */
@@ -137,10 +163,10 @@
     color: var(--color-blue-dark);
   }
 
-  section[aria-label="Webmentions"],
+  /* section[aria-label="Webmentions"],
   section[aria-label="Related tags"] {
     border: 2px solid var(--color-grey-light);
-  }
+  } */
 
   section[aria-label="Webmentions"] li {
     border: 1px solid var(--color-grey-light);
@@ -154,6 +180,7 @@
   #tag-wrapper a {
     color: var(--color-blue-dark);
   }
+
   #tag-wrapper p {
     color: var(--color-grey-dark);
   }

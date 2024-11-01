@@ -1,0 +1,100 @@
+---
+thumbnail: blog-thumbnail.png
+title: "Cool shit from the wwweb #1"
+description: Am I getting into newsletter territory here? Who knows, but here's some stuff about accessibility!
+pubDate: 2024-11-01
+slug: cool-shit-from-the-wwweb-1
+tags:
+  [
+    "accessibility",
+    "a11y",
+    "micro-blog",
+    "syntax",
+    "marcy-sutton",
+    "ahmad-alfy",
+    "gov-uk",
+    "wes-bos",
+  ]
+---
+
+import { Image } from "astro:assets";
+import SafeYouTubeEmbed from "@utils/SafeYouTubeEmbed.astro";
+
+import imageOne from "../28/text-fragment-example.png";
+
+In this format, I will share everything I find interesting at random intervals. Most of the time it will have to do with web development and accessibility, but not always! You can find a list of these posts by clicking on the `micro-blog` under "Related Tags".
+
+## Table of contents
+
+- [Real Talk on Web Accessibility with Marcy Sutton Todd](#real-talk-on-web-accessibility-with-marcy-sutton-todd)
+- [Linking Directly to Web Page Content](#linking-directly-to-web-page-content)
+- [The Accessibility Operations Guidebook](#the-accessibility-operations-guidebook)
+- [Progressive enhancement at gov.uk](#progressive-enhancement-at-govuk)
+- [Website speed (Mc)master class](#website-speed-mcmaster-class)
+
+## Real Talk on Web Accessibility with Marcy Sutton Todd
+
+<SafeYouTubeEmbed
+  id="A7cVW-8tCXY"
+  title="Real Talk on Web Accessibility with Marcy Sutton Todd"
+/>
+
+Marcy touched on a couple of interesting topics I was somewhat aware of, but now I understand them way better. Here's a short list of them:
+
+- [focus-within](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)
+- [focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
+- [NVDA element list](https://www.nvaccess.org/files/nvda/documentation/keyCommands.html#ElementsList)
+- [Accessibility support](https://a11ysupport.io/)
+
+My biggest takeaway was that the `placeholder` attribute is part of the accessible name calculation. 🤯 Of course you should always associate a `<label>` to an `<input>`, but apparently placeholders are recognized by assistive technology if no label is present.
+
+### Further reading
+
+- [Providing Accessible Names and Descriptions](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/)
+- [Testing Accessibility — by Marcy Sutton](https://testingaccessibility.com/)
+
+## Linking Directly to Web Page Content
+
+[Smarter than 'Ctrl+F': Linking Directly to Web Page Content](https://alfy.blog/2024/10/19/linking-directly-to-web-page-content.html?) by Ahmad Alfy
+
+Saw this one in [Cassidy Williams](https://cassidoo.co/) newsletter and had no idea it existed! If you want to link to a certain text section in your document, you can do this, for example:
+
+Basic syntax:
+
+```
+https://example.com/page.html#:~:text=[prefix-,]textStart[,textEnd][,-suffix]
+```
+
+Real example:
+
+```
+https://developer.mozilla.org/en-US/docs/Web/URI/Fragment/Text_fragments#:~:text=without%20relying%20on%20the%20presence%20of%20IDs
+```
+
+Which can look like this, depending on your browser:
+
+<Image
+  alt="Screenshot by Ahmad Alfy showing highlighted text in a paragraph"
+  src={imageOne}
+/>
+
+## The Accessibility Operations Guidebook
+
+[The Accessibility Operations Guidebook](https://devonpersing.netlify.app/book/) by Devon Persing
+
+This was recommended by someone else on Mastodon and I was very intrigued, because it's not about how to do accessibility, but rather what it's like to work in this particular field. Read a good chunk of it and it really puts things in perspective.
+
+## Progressive enhancement at gov.uk
+
+[Building a robust frontend using progressive enhancement](https://www.gov.uk/service-manual/technology/using-progressive-enhancement)
+
+Short and sweet article about the benefits of creating a robust frontend leveraging the power of HTML, CSS and JavaScript. Bookmark this one and show it to whoever, who thinks that (blazingly fast) JavaScript framework XYZ is the best way to build a simple landing page.
+
+## Website speed (Mc)master class
+
+<SafeYouTubeEmbed
+  id="-Ln-8QM8KhQ"
+  title="How is this Website so fast!? by Wes Bos"
+/>
+
+Interesting look under the hood of the [McMaster Carr](https://www.mcmaster.com/) website by Wes Bos to find out how it can be so old and so fast at the same time.

@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 
 import SkipLink from "@utils/SkipLink.astro";
-import Webmentions from "@utils/Webmentions.astro";
+// import Webmentions from "@utils/Webmentions.astro";
 import ExternalLink from "@components/utils/ExternalLink.astro";
 
 import RelatedTags from "@components/utils/RelatedTags.astro";
@@ -31,12 +31,12 @@ const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Fetching webmentions
-const webmentionsUrl = import.meta.env.PROD
-  ? `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}`
-  : `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`;
-const response = await fetch(webmentionsUrl);
-const json = await response.json();
-const webmentions = json.children;
+// const webmentionsUrl = import.meta.env.PROD
+//   ? `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}`
+//   : `https://webmention.io/api/mentions.jf2?target=https://stevefrenzel.dev${Astro.url.pathname}/`;
+// const response = await fetch(webmentionsUrl);
+// const json = await response.json();
+// const webmentions = json.children;
 ---
 
 <Layout
@@ -62,18 +62,28 @@ const webmentions = json.children;
             <p class="author-and-date">
               {frontmatter.author} - {dateFormatted}
             </p>
-            <time datetime="">{readingTime} minutes read</time>
+            {
+              readingTime ? (
+                <time datetime={`0w 0d 0h ${readingTime}m 0s`}>
+                  {readingTime} min read
+                </time>
+              ) : null
+            }
           </div>
         </div>
         <a href="/blog">Back to blog</a>
       </div>
-      <Image
-        alt={frontmatter.image.alt}
-        height={410}
-        loading="eager"
-        src={frontmatter.image.url}
-        width={728}
-      />
+      {
+        frontmatter.image ? (
+          <Image
+            alt={frontmatter.image.alt}
+            height={410}
+            loading="eager"
+            src={frontmatter.image.url}
+            width={728}
+          />
+        ) : null
+      }
     </header>
     <main id="main">
       <div id="markdown-content">
@@ -91,7 +101,7 @@ const webmentions = json.children;
             name="Mastodon"
           /> if you have questions or feedback regarding this article.
         </p>
-        <Webmentions webmentions={webmentions} />
+        <!-- <Webmentions webmentions={webmentions} /> -->
         <RelatedTags frontmatter={frontmatter} />
         <Image
           alt="Written by a human"
@@ -127,11 +137,13 @@ const webmentions = json.children;
       <slot />
     </div>
     {
-      frontmatter.tags.map((tag) => (
-        <a class="p-category" href={`/tags/${tag}`}>
-          {tag}
-        </a>
-      ))
+      frontmatter.tags
+        ? frontmatter.tags.map((tag) => (
+            <a class="p-category" href={`/tags/${tag}`}>
+              {tag}
+            </a>
+          ))
+        : null
     }
   </section>
 </Layout>
@@ -171,7 +183,7 @@ const webmentions = json.children;
   }
 
   #markdown-wrapper .header-info {
-    align-items: baseline;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2xs);
@@ -269,7 +281,7 @@ const webmentions = json.children;
   }
 
   .badge {
-    margin: var(--space-m) auto;
+    margin: var(--space-l) 0;
     max-width: 222px;
   }
 

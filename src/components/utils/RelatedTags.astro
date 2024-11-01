@@ -23,9 +23,8 @@ const { frontmatter } = Astro.props;
 
 <style>
   section {
-    border-radius: 10px;
-    margin: var(--space-l) 0;
-    width: 100%;
+    margin-top: var(--space-l);
+    padding: 0;
   }
 
   h2 {
@@ -45,8 +44,9 @@ const { frontmatter } = Astro.props;
   }
 
   a {
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-size: var(--step-0);
     padding: var(--space-2xs);
+    text-decoration: none;
   }
 </style>
