@@ -188,7 +188,8 @@ ol {
     filter: invert(0);
   }
 
-  #collaborations img {
+  #collaborations img,
+  #blog-logo img {
     filter: invert(1);
   }
 

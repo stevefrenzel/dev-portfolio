@@ -8,6 +8,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 
+import blogLogo from "@images/blog-logo-white.svg";
 import mastodon from "@images/icons/mastodon-white.svg";
 import mail from "@images/icons/mail.svg";
 import rss from "@images/icons/rss-feed.svg";
@@ -68,7 +69,13 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
       <SkipLink />
       <div class="header-container">
         <h1 aria-label="Blog by Steve Frenzel">
-          <span aria-hidden="true">Blog</span>
+          <Image
+            alt=""
+            height="300"
+            id="blog-logo"
+            src={blogLogo}
+            loading="eager"
+          />
           <span aria-hidden="true">by Steve Frenzel</span>
         </h1>
         <div>
@@ -197,15 +204,12 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
   }
 
   .header-container h1 {
-    align-items: baseline;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
+    gap: var(--space-s);
     justify-content: center;
     margin-top: 0;
-  }
-
-  .header-container h1 span:first-child {
-    font-size: 250%;
   }
 
   .header-container h1 span:nth-child(2) {
