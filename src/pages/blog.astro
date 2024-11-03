@@ -68,16 +68,17 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
     <header>
       <SkipLink />
       <div class="header-container">
-        <h1 aria-label="Blog by Steve Frenzel">
+        <h1 class="visually-hidden">Blog by Steve Frenzel</h1>
+        <div class="image-and-kicker">
           <Image
-            alt=""
+            alt="Heavy Metal style of the word 'Blog'"
             height="300"
             id="blog-logo"
             src={blogLogo}
             loading="eager"
           />
           <span aria-hidden="true">by Steve Frenzel</span>
-        </h1>
+        </div>
         <div>
           <p>
             A blog about web accessibility, nerdy music stuff, everything beyond
@@ -203,17 +204,20 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
     flex-direction: column;
   }
 
-  .header-container h1 {
+  .image-and-kicker {
     align-items: center;
     display: flex;
+    flex-direction: row !important;
     flex-wrap: wrap;
     gap: var(--space-s);
     justify-content: center;
     margin-top: 0;
   }
 
-  .header-container h1 span:nth-child(2) {
+  .image-and-kicker span:nth-child(2) {
+    font-family: "Syne", sans-serif;
     font-size: var(--step-2);
+    line-height: 1;
   }
 
   .header-container div {
