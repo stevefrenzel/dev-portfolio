@@ -39,10 +39,15 @@ export async function GET(context: APIContext) {
           });
           return node;
         },
-        sanitize({ dropElements: ["script", "style"] }),
+        sanitize({ dropElements: ["iframe", "script", "style"] }),
       ],
     );
-    feedItems.push({ ...post.data, link: `/blog/${post.slug}/`, content });
+    feedItems.push({
+      ...post.data,
+      link: `/blog/${post.slug}/`,
+      author: "Steve Frenzel",
+      content,
+    });
   }
 
   return rss({
@@ -50,5 +55,8 @@ export async function GET(context: APIContext) {
     description: SITE_DESCRIPTION,
     site: baseUrl,
     items: feedItems,
+    xmlns: {
+      atom: "http://www.w3.org/2005/Atom",
+    },
   });
 }
