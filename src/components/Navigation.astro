@@ -6,16 +6,21 @@ import SkipLink from "@utils/SkipLink.astro";
   <SkipLink />
   <nav>
     <ul class="reel">
-      <li><a href="#intro">INTRO</a></li>
-      <span aria-hidden="true"><strong>›</strong></span>
-      <li><a href="#projects">PROJECTS</a></li>
-      <span aria-hidden="true"><strong>›</strong></span>
-      <li><a href="#collaborations">COLLABORATIONS</a></li>
-      <span aria-hidden="true"><strong>›</strong></span>
-      <li><a href="#about-me">ABOUT ME</a></li>
-      <span aria-hidden="true"><strong>›</strong></span>
-      <li><a href="/resume">RESUME</a></li>
-      <span aria-hidden="true"><strong>›</strong></span>
+      <li>
+        <a href="#intro">INTRO</a>
+      </li>
+      <li>
+        <a href="#projects">PROJECTS</a>
+      </li>
+      <li>
+        <a href="#collaborations">COLLABORATIONS</a>
+      </li>
+      <li>
+        <a href="#about-me">ABOUT ME</a>
+      </li>
+      <li>
+        <a href="/resume">RESUME</a>
+      </li>
       <li><a href="/blog">BLOG</a></li>
     </ul>
   </nav>
@@ -28,12 +33,13 @@ import SkipLink from "@utils/SkipLink.astro";
 
   ul {
     display: flex;
+    gap: var(--space-s);
     block-size: auto;
     margin: var(--space-s) auto;
     max-width: 1536px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0;
+    padding: 0 0.5rem;
     scrollbar-color: #fff var(--color-black);
   }
 

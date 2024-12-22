@@ -90,10 +90,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
       <footer id="blog-post-footer">
         <p id="get-in-touch">
-          Send me an <a
-            href=`mailto:stvfrnzl@duck.com?subject=Blog article ${frontmatter.title}`
-            >email</a
-          > or hit me up via
+          Send me an <a href="mailto:stvfrnzl@duck.com">email</a> or hit me up via
           <ExternalLink
             href="https://mastodon.online/@stvfrnzl"
             iconSize="18px"
@@ -132,6 +129,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <a class="u-url" href={canonicalURL}
       ><div class="dt-published">{dateFormatted}</div></a
     >
+
+    <!-- ERROR: Duplicate IDs -->
     <div class="e-content">
       <slot />
     </div>
