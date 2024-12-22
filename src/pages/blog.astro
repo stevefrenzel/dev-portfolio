@@ -122,7 +122,9 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                     />
                   ) : null}
                   <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-                  <time datetime={post.data.pubDate}>
+                  <time
+                    datetime={post.data.pubDate.toISOString().substring(0, 10)}
+                  >
                     {post.data.pubDate.toLocaleDateString(undefined, {
                       year: "numeric",
                       month: "long",
