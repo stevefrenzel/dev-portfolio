@@ -94,94 +94,39 @@ ol {
 
 /* Preference detection */
 
-@media (prefers-color-scheme: dark) {
-  html {
-    background: var(--color-black);
-    color: var(--color-white);
-  }
+html {
+  color-scheme: light dark;
+  background: light-dark(var(--color-white), var(--color-black));
+}
 
-  #intro .kicker {
-    color: var(--color-grey-light);
-  }
+#intro .kicker {
+  color: light-dark(var(--color-grey-dark), var(--color-grey-light));
+}
 
-  #intro a,
-  #about-me a {
-    color: var(--color-blue-light);
-  }
+#intro a,
+#about-me a,
+#a11y-statement a,
+footer a,
+#projects a,
+#website-footer a {
+  color: light-dark(var(--color-blue-dark), var(--color-blue-light));
+}
 
-  #intro .icon {
-    filter: invert(1);
-  }
+#back-to-top {
+  background: light-dark(var(--color-black), var(--color-white));
+}
 
-  #profile-picture {
-    box-shadow: 10px 10px 0px 0px var(--color-grey-light);
-  }
+hr {
+  color: light-dark(var(--color-black), var(--color-white));
+}
 
-  #a11y-statement a,
-  footer a,
-  #projects a,
-  #website-footer a {
-    color: var(--color-blue-light);
-  }
-
-  #projects img {
-    box-shadow: 10px 10px 0px 0px #1f262e;
-  }
-
-  #back-to-top {
-    background: var(--color-white);
-  }
-
-  #back-to-top img {
-    filter: invert(1);
-  }
-
-  button,
-  label {
-    color: var(--color-white);
-  }
-
-  hr {
-    color: var(--color-grey-light);
-  }
-
-  #a11y-statement footer {
-    border-top: 2px solid var(--color-white);
-  }
+#summary {
+  background: light-dark(var(--color-grey-light), var(--color-grey-dark));
 }
 
 @media (prefers-color-scheme: light) {
-  html {
-    background: var(--color-white);
-    color: var(--color-black);
-  }
-
-  #intro .kicker {
-    color: var(--color-grey-dark);
-  }
-
-  #intro a,
-  #about-me a {
-    color: var(--color-blue-dark);
-  }
-
-  #profile-picture {
-    box-shadow: 10px 10px 0px 0px var(--color-grey-dark);
-  }
-
-  #a11y-statement a,
-  footer a,
-  #projects a,
-  #website-footer a {
-    color: var(--color-blue-dark);
-  }
-
   #projects img {
     box-shadow: 10px 10px 0px 0px var(--color-grey-light);
-  }
-
-  #back-to-top {
-    background: var(--color-black);
   }
 
   #back-to-top img {
@@ -193,15 +138,30 @@ ol {
     filter: invert(1);
   }
 
-  hr {
-    color: var(--color-black);
-  }
-
   #a11y-statement footer {
     border-top: 2px solid var(--color-black);
   }
+
   #a11y-statement img {
     filter: invert(1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #intro .icon {
+    filter: invert(1);
+  }
+
+  #projects img {
+    box-shadow: 10px 10px 0px 0px #1f262e;
+  }
+
+  #back-to-top img {
+    filter: invert(1);
+  }
+
+  #a11y-statement footer {
+    border-top: 2px solid var(--color-white);
   }
 }
 
