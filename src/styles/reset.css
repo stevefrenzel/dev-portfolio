@@ -1,3 +1,5 @@
+@layer reset, global, resume, blog;
+
 @layer reset {
   /* Box sizing rules */
   *,

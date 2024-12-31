@@ -1,3 +1,5 @@
+@layer reset, global, resume, blog;
+
 @layer resume {
   #intro-resume a {
     color: light-dark(var(--color-blue-dark), var(--color-blue-light));

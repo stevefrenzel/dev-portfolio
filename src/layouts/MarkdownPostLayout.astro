@@ -195,7 +195,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 1rem;
   }
 
-  #markdown-wrapper header img {
+  #markdown-wrapper header img:not(.avatar) {
     margin-top: var(--space-m);
   }
 
@@ -211,7 +211,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   .avatar {
     border-radius: 50%;
     height: auto;
-    margin-top: 0 !important;
     max-width: 75px;
   }
 
