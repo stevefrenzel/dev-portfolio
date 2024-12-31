@@ -4,7 +4,9 @@ import "@styles/global.css";
 import "@styles/resume.css";
 import "@styles/blog.css";
 import "@styles/reset.css";
+
 import BackToTop from "@utils/BackToTop.astro";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   description?: string;
@@ -55,6 +57,7 @@ const {
     />
     <link rel="pingback" href="https://webmention.io/stevefrenzel.dev/xmlrpc" />
     <title>{title}</title>
+    <ClientRouter />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={metaData.type} />
     <meta property="og:site_name" content={metaData.siteName} />
