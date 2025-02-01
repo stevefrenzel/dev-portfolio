@@ -47,7 +47,7 @@ export async function GET(context: APIContext) {
       ...data,
       // @ts-ignore
       "dc:creator": author,
-      link: `/blog/${post.slug}/`,
+      link: `/posts/${post.slug}/`,
       content,
     });
   }
