@@ -39,10 +39,16 @@ export async function GET(context: APIContext) {
           });
           return node;
         },
-        sanitize({ dropElements: ["script", "style"] }),
+        sanitize({ dropElements: ["iframe", "script", "style"] }),
       ],
     );
-    feedItems.push({ ...post.data, link: `/blog/${post.slug}/`, content });
+    const { author, ...data } = post.data;
+    feedItems.push({
+      ...data,
+      author: author,
+      link: `/blog/${post.slug}/`,
+      content,
+    });
   }
 
   return rss({
