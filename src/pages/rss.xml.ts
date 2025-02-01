@@ -45,7 +45,8 @@ export async function GET(context: APIContext) {
     const { author, ...data } = post.data;
     feedItems.push({
       ...data,
-      author: author,
+      // @ts-ignore
+      "dc:creator": author,
       link: `/blog/${post.slug}/`,
       content,
     });
