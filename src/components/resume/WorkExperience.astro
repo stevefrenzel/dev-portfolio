@@ -1,8 +1,6 @@
 ---
 import JobDescription from "@components/resume/JobDescription.astro";
 
-import DividerSmall from "@utils/DividerSmall.astro";
-
 import adobexd from "@images/icons/adobexd.svg";
 import bamboo from "@images/icons/bamboo.svg";
 import bitbucket from "@images/icons/bitbucket.svg";
@@ -26,6 +24,19 @@ import teams from "@images/icons/teams.svg";
 import typescript from "@images/icons/typescript.svg";
 import vuejs from "@images/icons/vuejs.svg";
 import vuetify from "@images/icons/vuetify.svg";
+
+const tasksTwinCubes = [
+  "Evaluating the accessibility of websites for companies of all sizes using the BIK BITV-Test / WCAG-Test",
+  "Helping project managers, designers and developers in workshops to find, understand and fix accessibility issues",
+  "Improving internal processes to speed up the workflow and provide light and easy to understand documentation",
+];
+
+const techTwinCubes = [
+  { icon: css, name: "CSS" },
+  { icon: html, name: "HTML" },
+  { icon: javascript, name: "JavaScript" },
+  { icon: teams, name: "Teams" },
+];
 
 const tasksSellwerk = [
   "Providing accessibility workshops for colleagues in design, development, marketing & product management",
@@ -104,40 +115,43 @@ const techStackFifthIndustry = [
 <section aria-label="Work experience" id="experience">
   <h2>Experience</h2>
 
-  <div class="spacer"></div>
+  <div class="flex">
+    <JobDescription
+      heading="Accessibility Consultant & Tester"
+      company="TWIN CUBES GmbH"
+      timePeriod="Since February 2022"
+      description="Consulting services in the field of software quality assurance from experts with many years of experience and certification in the respective field."
+      tasks={tasksTwinCubes}
+      techStack={techTwinCubes}
+    />
 
-  <JobDescription
-    heading="Frontend Developer & Accessibility Advocate"
-    company="Sellwerk GmbH & Co. KG"
-    timePeriod="Since September 2022"
-    description="Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively."
-    techStack={techStackSellwerk}
-    tasks={tasksSellwerk}
-  />
+    <JobDescription
+      heading="Frontend Developer & Accessibility Advocate"
+      company="Sellwerk GmbH & Co. KG"
+      timePeriod="September 2022 to January 2025"
+      description="Digital marketing solutions for businesses, helping them enhance their online presence and reach their target audience effectively."
+      tasks={tasksSellwerk}
+      techStack={techStackSellwerk}
+    />
 
-  <DividerSmall />
+    <JobDescription
+      heading="Frontend Developer"
+      company="nexum AG"
+      timePeriod="August 2020 to August 2022"
+      description="Consulting agency for communication, interaction and transaction in the digital age."
+      tasks={tasksNexum}
+      techStack={techStackNexum}
+    />
 
-  <JobDescription
-    heading="Frontend Developer"
-    company="nexum AG"
-    timePeriod="August 2020 to August 2022"
-    description="Consulting agency for communication, interaction and transaction in the digital age."
-    techStack={techStackNexum}
-    tasks={tasksNexum}
-  />
-
-  <DividerSmall />
-
-  <JobDescription
-    heading="Frontend Developer"
-    company="5thIndustry GmbH"
-    timePeriod="October 2019 to February 2020"
-    description="Internet-of-things company specializing in production and logistics to enable higher productivity."
-    techStack={techStackFifthIndustry}
-    tasks={tasksFifthIndustry}
-  />
-
-  <DividerSmall />
+    <JobDescription
+      heading="Frontend Developer"
+      company="5thIndustry GmbH"
+      timePeriod="October 2019 to February 2020"
+      description="Internet-of-things company specializing in production and logistics to enable higher productivity."
+      tasks={tasksFifthIndustry}
+      techStack={techStackFifthIndustry}
+    />
+  </div>
 </section>
 
 <style>
@@ -148,6 +162,13 @@ const techStackFifthIndustry = [
 
   h2 {
     margin-top: 0;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-top: var(--space-m);
   }
 
   .spacer {

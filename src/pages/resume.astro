@@ -8,9 +8,20 @@ import Misc from "@components/resume/Misc.astro";
 <Layout title="Steve Frenzel - Resume">
   <div id="resume-container">
     <Intro />
-    <main class="wrapper">
+    <main>
       <WorkExperience />
       <Misc />
     </main>
   </div>
 </Layout>
+
+<style>
+  main {
+    justify-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0 var(--space-s);
+  }
+</style>

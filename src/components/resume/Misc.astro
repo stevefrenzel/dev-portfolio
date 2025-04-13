@@ -1,6 +1,5 @@
 ---
 import Chip from "@components/resume/Chip.astro";
-import DividerSmall from "@utils/DividerSmall.astro";
 
 const skills = [
   "CSS & SASS",
@@ -15,6 +14,7 @@ const skills = [
   "Vue.js & Nuxt",
   "Storybook",
   "NVDA, TalkBack & VoiceOver",
+  "Hot sauces",
 ];
 
 const buzzwords = [
@@ -61,8 +61,8 @@ const languages = [
     proficiency: "Native proficiency",
   },
   {
-    name: "Spanish",
-    proficiency: "Elementary proficiency",
+    name: "Dog",
+    proficiency: "Professional working proficiency",
   },
 ];
 ---
@@ -81,8 +81,6 @@ const languages = [
     </ul>
   </div>
 
-  <DividerSmall />
-
   <div id="buzzwords">
     <h2>Buzzwords</h2>
     <ul class="chips-list">
@@ -95,8 +93,6 @@ const languages = [
       }
     </ul>
   </div>
-
-  <DividerSmall />
 
   <div id="education">
     <h2>Education</h2>
@@ -112,8 +108,6 @@ const languages = [
       }
     </ul>
   </div>
-
-  <DividerSmall />
 
   <div id="languages">
     <h2>Languages</h2>
@@ -132,6 +126,9 @@ const languages = [
 
 <style>
   section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
     width: 100%;
     padding: 0;
   }

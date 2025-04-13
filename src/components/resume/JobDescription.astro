@@ -11,7 +11,7 @@ export interface Props {
   company: string;
   timePeriod: string;
   description: string;
-  techStack: Array<TechStackItem>;
+  techStack?: Array<TechStackItem>;
   tasks: string[];
 }
 
@@ -34,17 +34,21 @@ const { heading, company, timePeriod, description, techStack, tasks } =
       ))
     }
   </ul>
-  <h4>Tech Stack</h4>
-  <ul class="list-one">
-    {
-      techStack.map((item) => (
-        <li class="tech-item">
-          <Image alt="" height={32} src={item.icon} width={32} />
-          <span>{item.name}</span>
-        </li>
-      ))
-    }
-  </ul>
+  {
+    techStack ? (
+      <>
+        <h4>Tech Stack</h4>
+        <ul class="list-one">
+          {techStack.map((item) => (
+            <li class="tech-item">
+              <Image alt="" height={32} src={item.icon} width={32} />
+              <span>{item.name}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : null
+  }
 </article>
 
 <style>
