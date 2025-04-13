@@ -46,7 +46,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <div id="markdown-wrapper">
     <header>
       <SkipLink />
+
       <h1>{frontmatter.title}</h1>
+
       <div class="header-info">
         <div>
           <Image
@@ -73,7 +75,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <a href="/blog">Back to blog</a>
       </div>
       {
-        frontmatter.image ? (
+        frontmatter.image && !frontmatter.hideThumbnail ? (
           <Image
             alt={frontmatter.image.alt}
             height={410}
@@ -186,7 +188,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     flex-wrap: wrap;
     gap: var(--space-2xs);
     justify-content: space-between;
-    margin-top: var(--space-s);
+    margin: var(--space-l) 0;
   }
 
   #markdown-wrapper .header-info > div {

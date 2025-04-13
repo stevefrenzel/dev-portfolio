@@ -115,7 +115,7 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
             <ul class="smol-css-grid">
               {postsByYear[year].map((post: any) => (
                 <li>
-                  {post.data.image ? (
+                  {post.data.image && !post.data.hideThumbnail ? (
                     <Image
                       alt={post.data.image.alt}
                       src={post.data.image.url}
@@ -133,18 +133,6 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                     {""}- {getReadingTime(post.body)} min read
                   </time>
                   <p class="description">{post.data.description}</p>
-                  {/* TODO Looks funky on some devices, will change it */}
-                  {/* {post.data.tags ? (
-                    <ul class="tags">
-                      {post.data.tags.map((tag: string) => (
-                        <li class="tag">
-                          <a class="p-category" href={`/tags/${tag}`}>
-                            {tag}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null} */}
                 </li>
               ))}
             </ul>

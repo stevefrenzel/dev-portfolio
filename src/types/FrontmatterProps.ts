@@ -19,4 +19,5 @@ export interface FrontmatterProps {
   };
   pubDate: Date;
   tags: string[];
+  hideThumbnail?: boolean;
 }
