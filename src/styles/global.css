@@ -82,6 +82,7 @@
   #markdown-wrapper code {
     color: var(--color-white);
     background: var(--color-grey-dark);
+    padding: var(--space-3xs);
   }
 
   /* Preference detection */

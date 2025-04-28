@@ -69,7 +69,8 @@
   }
 
   #markdown-content blockquote {
-    border-left: 3px solid light-dark(var(--color-black), var(--color-white));
+    border-left: 3px solid
+      light-dark(var(--color-black), var(--color-grey-light));
   }
 
   #blog-post-footer p a,
