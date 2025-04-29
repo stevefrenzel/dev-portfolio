@@ -88,8 +88,12 @@
   #markdown-wrapper p:has(code) code,
   #markdown-wrapper li:has(code) code {
     background: transparent;
-    color: inherit;
+    color: light-dark(var(--color-purple), var(--color-yellow));
     padding: 0;
+  }
+
+  #markdown-wrapper a:has(code) code {
+    color: inherit;
   }
 
   /* Preference detection */

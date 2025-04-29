@@ -5,7 +5,9 @@
   --color-blue-dark: #0051c2;
   --color-grey-light: #afb8c4;
   --color-grey-dark: #1f262e;
+  --color-purple: #9d007d;
   --color-white: #f2f6f9;
+  --color-yellow: #f5d103;
 
   /* Font */
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
