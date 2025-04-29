@@ -101,13 +101,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </p>
         <!-- <Webmentions webmentions={webmentions} /> -->
         <RelatedTags frontmatter={frontmatter} />
-        <Image
-          alt="Written by a human"
-          class="badge"
-          height={badge.height}
-          src={badge}
-          width={badge.width}
-        />
+
+        <div class="badge-container">
+          <a href="https://ko-fi.com/s/4662b19f61">
+            <Image
+              alt="Written by a human, badge by Andy Carolan"
+              class="badge"
+              height={badge.height}
+              src={badge}
+              width={badge.width}
+            />
+          </a>
+        </div>
       </footer>
     </main>
   </div>
@@ -128,9 +133,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       {frontmatter.author}
     </div>
     <div class="p-summary">{frontmatter.description}</div>
-    <a class="u-url" href={canonicalURL}
-      ><div class="dt-published">{dateFormatted}</div></a
-    >
+    <a class="u-url" href={canonicalURL}>
+      <div class="dt-published">{dateFormatted}</div>
+    </a>
 
     <!-- ERROR: Duplicate IDs -->
     <div class="e-content">
@@ -244,6 +249,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* Markdown content */
 
   #markdown-content blockquote {
+    margin: 0 var(--space-s);
     padding-left: var(--space-xs);
   }
 
@@ -276,9 +282,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     list-style-type: decimal;
   }
 
-  .badge {
+  .badge-container {
+    display: flex;
+    justify-content: center;
     margin: var(--space-l) 0;
-    max-width: 222px;
+  }
+
+  .badge {
+    box-shadow: 0px -1px 30px 0px rgba(248, 187, 207, 0.75);
+    min-height: 66.6px;
+    transition: 0.3s ease;
+  }
+
+  .badge-container a:hover .badge,
+  .badge-container a:focus .badge,
+  .badge-container a:focus-visible .badge {
+    box-shadow: none;
   }
 
   #blog-post-footer p {

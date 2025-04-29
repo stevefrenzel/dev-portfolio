@@ -85,6 +85,13 @@
     padding: var(--space-3xs);
   }
 
+  #markdown-wrapper p:has(code) code,
+  #markdown-wrapper li:has(code) code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
   /* Preference detection */
 
   html {
