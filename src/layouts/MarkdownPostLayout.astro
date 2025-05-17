@@ -25,7 +25,6 @@ const dateFormatted = new Date(frontmatter.pubDate).toLocaleDateString(
   { year: "numeric", month: "long", day: "numeric" },
 );
 
-const avatarImageUrl = `${Astro.site}picture-of-me.jpg`;
 const socialImageUrl = `${Astro.site}thumbnails/${frontmatter.thumbnail}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -44,48 +43,55 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   title={`${frontmatter.title} - Steve Frenzel`}
 >
   <div id="markdown-wrapper">
+    <SkipLink />
     <header>
-      <SkipLink />
+      <div class="header-container">
+        <h1>{frontmatter.title}</h1>
 
-      <h1>{frontmatter.title}</h1>
-
-      <div class="header-info">
-        <div>
-          <Image
-            alt="Steve Frenzel standing in the woods looking straight into the camera."
-            class="avatar"
-            height="75"
-            loading="eager"
-            src={avatarImageUrl}
-            width="75"
-          />
-          <div>
-            <p class="author-and-date">
+        <div class="header-info">
+          <div class="author-and-date">
+            <span>
               {frontmatter.author} - {dateFormatted}
-            </p>
-            {
-              readingTime ? (
-                <time datetime={`0w 0d 0h ${readingTime}m 0s`}>
-                  {readingTime} min read
-                </time>
-              ) : null
-            }
+            </span>
+            <a href="/blog">Back to blog</a>
           </div>
+          {
+            readingTime ? (
+              <time datetime={`0w 0d 0h ${readingTime}m 0s`} id="reading-time">
+                {readingTime} min read
+              </time>
+            ) : null
+          }
         </div>
-        <a href="/blog">Back to blog</a>
+
+        {
+          !frontmatter.showIllustration &&
+          frontmatter.image &&
+          !frontmatter.hideThumbnail ? (
+            <Image
+              alt={frontmatter.image.alt}
+              id="thumbnail"
+              loading="eager"
+              src={frontmatter.image.url}
+            />
+          ) : null
+        }
+
+        {
+          frontmatter.showIllustration &&
+          frontmatter.image &&
+          !frontmatter.hideThumbnail ? (
+            <Image
+              alt={frontmatter.image.alt}
+              id="illustration"
+              loading="eager"
+              src={frontmatter.image.url}
+            />
+          ) : null
+        }
       </div>
-      {
-        frontmatter.image && !frontmatter.hideThumbnail ? (
-          <Image
-            alt={frontmatter.image.alt}
-            height={410}
-            loading="eager"
-            src={frontmatter.image.url}
-            width={728}
-          />
-        ) : null
-      }
     </header>
+
     <main id="main">
       <div id="markdown-content">
         <slot />
@@ -177,7 +183,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <style is:global>
   /* Markdown wrapper */
 
-  #markdown-wrapper {
+  #markdown-wrapper header {
+    background: honeydew;
+    color: var(--color-black);
+    margin-top: var(--space-l);
+    mask: repeating-conic-gradient(
+        from 135deg at 50% 30px,
+        #0000 0,
+        #000 1deg 89deg,
+        #0000 90deg 180deg
+      )
+      50% -30px/60px;
+    padding: var(--space-xl) 0;
+  }
+
+  #markdown-wrapper header h1 {
+    margin: 0;
+  }
+
+  .header-container {
+    margin: 0 auto;
+    max-width: 120ch;
+    padding: 0 var(--space-s);
+  }
+
+  #markdown-wrapper main {
     margin: 0 auto;
     max-width: 120ch;
     padding: 0 var(--space-s);
@@ -187,47 +217,45 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     font-size: var(--step-0);
   }
 
-  #markdown-wrapper .header-info {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xs);
-    justify-content: space-between;
-    margin: var(--space-l) 0;
-  }
-
-  #markdown-wrapper .header-info > div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  #markdown-wrapper header img:not(.avatar) {
-    margin-top: var(--space-m);
-  }
-
-  #markdown-wrapper .author-and-date,
-  #markdown-wrapper time {
-    font-size: var(--step-0);
+  .header-info {
+    margin: var(--space-m) 0;
   }
 
   #markdown-wrapper .author-and-date {
-    margin-top: 0;
+    align-items: center;
+    color: var(--color-black);
+    display: flex;
+    font-family: "Atkinson Hyperlegible", serif;
+    font-size: var(--step-0);
+    gap: var(--space-xs);
+    justify-content: space-between;
   }
 
-  .avatar {
-    border-radius: 50%;
-    height: auto;
-    max-width: 75px;
+  #markdown-wrapper .author-and-date a {
+    color: var(--color-black);
+  }
+
+  #reading-time,
+  #reading-time time {
+    color: var(--color-black);
+    font-size: var(--step-0);
+    margin: 0;
+    width: fit-content;
   }
 
   #markdown-wrapper ul:not(.tags) {
     list-style-type: initial;
   }
 
-  #markdown-wrapper img:not(.arrow-down) {
+  img {
     height: auto;
     width: 100%;
+  }
+
+  #illustration {
+    height: auto;
+    margin: 0 auto;
+    width: 500px;
   }
 
   #markdown-wrapper main pre {
@@ -251,10 +279,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   #markdown-content blockquote {
     margin: 0 var(--space-s);
     padding-left: var(--space-xs);
-  }
-
-  #markdown-content blockquote p {
-    font-style: italic;
   }
 
   #markdown-content p {

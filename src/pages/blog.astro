@@ -107,6 +107,7 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
         </div>
       </div>
     </header>
+
     <main id="main">
       {
         years.map((year) => (
@@ -118,10 +119,13 @@ const socialImageURL = new URL("/blog-thumbnail.png", Astro.url).toString();
                   {post.data.image && !post.data.hideThumbnail ? (
                     <Image
                       alt={post.data.image.alt}
-                      src={post.data.image.url}
+                      height={675}
+                      src={`${Astro.site}thumbnails/${post.data.thumbnail}`}
+                      width={1200}
                     />
                   ) : null}
                   <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+
                   <time
                     datetime={post.data.pubDate.toISOString().substring(0, 10)}
                   >

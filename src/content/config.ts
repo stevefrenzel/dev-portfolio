@@ -17,6 +17,7 @@ const postsCollection = defineCollection({
       pubDate: z.date(),
       tags: z.array(z.string()),
       hideThumbnail: z.boolean().optional(),
+      showIllustration: z.boolean().optional(),
     }),
 });
 
