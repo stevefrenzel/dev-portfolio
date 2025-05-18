@@ -186,15 +186,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   #markdown-wrapper header {
     background: honeydew;
     color: var(--color-black);
-    margin-top: var(--space-l);
-    mask: repeating-conic-gradient(
-        from 135deg at 50% 30px,
-        #0000 0,
-        #000 1deg 89deg,
-        #0000 90deg 180deg
-      )
-      50% -30px/60px;
-    padding: var(--space-xl) 0;
+    --mask:
+      radial-gradient(20.69px at 50% calc(100% - 29.25px), #000 99%, #0000 101%)
+        calc(50% - 30px) 0/60px 100%,
+      radial-gradient(20.69px at 50% calc(100% + 14.25px), #0000 99%, #000 101%)
+        50% calc(100% - 15px) / 60px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    padding: var(--space-m) 0 var(--space-xl) 0;
   }
 
   #markdown-wrapper header h1 {
